@@ -1,8 +1,10 @@
-package com.example.myapplication;
+package com.example.myapplication.lost;
 
     import androidx.appcompat.app.AppCompatActivity;
 
     import android.os.Bundle;
+
+    import com.example.myapplication.R;
 
 public class LostActivity extends AppCompatActivity {
 

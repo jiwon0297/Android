@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,23 +11,26 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.myapplication.ui.login.LoginActivity;
-import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+import com.example.myapplication.lost.LostActivity;
+import com.example.myapplication.mate.MateActivity;
+import com.example.myapplication.R;
+import com.example.myapplication.restaurant.RestaurantActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity {
+
+public class HomeActivity extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigationView;
     private FragmentManager fm;
     private FragmentTransaction ft;
-    private frag_home frag_home;
-    private frag_mail frag_mail;
-    private frag_mypage frag_mypage;
+    private com.example.myapplication.ui.frag_home frag_home;
+    private com.example.myapplication.ui.frag_mail frag_mail;
+    private com.example.myapplication.ui.frag_mypage frag_mypage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home);
 
         bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener()
@@ -54,16 +57,30 @@ public class MainActivity extends AppCompatActivity {
         frag_mail=new frag_mail();
         frag_home=new frag_home();
         frag_mypage=new frag_mypage();
-        setFrag(0); // 첫 프래그먼트 화면 지정
-    }
+        setFrag(1); // 첫 프래그먼트 화면 지정
 
-    // 프래그먼트 교체
+    }
+    public void mate(View v) {
+        Toast.makeText(this,"메이트 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, MateActivity.class);
+        startActivity(intent);
+    }
+    public void lost(View v) {
+        Toast.makeText(this,"분실물 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, LostActivity.class);
+        startActivity(intent);
+    }
+    public void restaurant(View v){
+        Toast.makeText(this,"식당 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, RestaurantActivity.class);
+        startActivity(intent);
+
+    }
     private void setFrag(int n)
     {
         fm = getSupportFragmentManager();
         ft = fm.beginTransaction();
-        switch(n)
-        {
+        switch(n) {
             case 0:
                 ft.replace(R.id.Main_Frame, frag_mail);
                 ft.commit();
@@ -77,12 +94,6 @@ public class MainActivity extends AppCompatActivity {
                 ft.commit();
                 break;
         }
-    }
-
-    public void login(View v) {
-        Toast.makeText(this,"로그인 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
     }
 
 }

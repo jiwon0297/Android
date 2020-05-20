@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.ui;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,14 +9,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class frag_home extends Fragment {
+import com.example.myapplication.R;
+
+public class frag_mypage extends Fragment {
     private View view;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstancState){
-        view = inflater.inflate(R.layout.frag_home, container, false);
+        view = inflater.inflate(R.layout.frag_mypage, container, false);
         return view;
     }
 }

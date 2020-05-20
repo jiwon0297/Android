@@ -11,7 +11,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.example.myapplication.R;
-import com.example.myapplication.ui.login.LoginActivity;
+import com.example.myapplication.login.LoginActivity;
 
 public class JoinActivity extends AppCompatActivity {
 
@@ -29,7 +29,7 @@ public class JoinActivity extends AppCompatActivity {
         RadioButton manButton = (RadioButton) findViewById(R.id.genderMan);
         RadioButton womanButton = (RadioButton) findViewById(R.id.genderWoman);
         Button registerButton = (Button) findViewById(R.id.join);
-        Button cancleButton = (Button) findViewById(R.id.cancle);
+        Button cancelButton = (Button) findViewById(R.id.cancel);
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,11 +39,11 @@ public class JoinActivity extends AppCompatActivity {
             }
         });
 
-        cancleButton.setOnClickListener(new View.OnClickListener() {
+        cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                Intent registerIntent = new Intent(JoinActivity.this, LoginActivity.class);
-                JoinActivity.this.startActivity(registerIntent);
+                Intent cancelIntent = new Intent(JoinActivity.this, LoginActivity.class);
+                JoinActivity.this.startActivity(cancelIntent);
             }
         });
     }

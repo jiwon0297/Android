@@ -1,14 +1,16 @@
-package com.example.myapplication;
+package com.example.myapplication.mate;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class RestaurantActivity extends AppCompatActivity {
+import com.example.myapplication.R;
+
+public class AloneActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_restaurant);
+        setContentView(R.layout.activity_alone);
     }
 }
