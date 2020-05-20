@@ -8,15 +8,15 @@
         android:title="쪽지함"/>
 
     <item
-    android:id="@+id/home"
-    android:enable="true"
-    android:icon="@drawable/home"
-    android:title="홈"/>
+        android:id="@+id/home"
+        android:enable="true"
+        android:icon="@drawable/home"
+        android:title="홈"/>
 
     <item
-    android:id="@+id/mypage"
-    android:enable="true"
-    android:icon="@drawable/mypage"
-    android:title="마이페이지"/>
+        android:id="@+id/mypage"
+        android:enable="true"
+        android:icon="@drawable/mypage"
+        android:title="마이페이지"/>
 
 </menu>
