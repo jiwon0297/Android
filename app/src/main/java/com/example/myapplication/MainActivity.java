@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
@@ -29,10 +30,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         bottomNavigationView = findViewById(R.id.bottomNavi);
-        bottomNavigationView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener()
+        {
             @Override
-            public void onNavigationItemReselected(@NonNull MenuItem item) {
-                switch(menuItem.getItemId()){
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem)
+            {
+                switch (menuItem.getItemId())
+                {
                     case R.id.mail:
                         setFrag(0);
                         break;
@@ -61,15 +65,15 @@ public class MainActivity extends AppCompatActivity {
         switch(n)
         {
             case 0:
-                ft.replace(R.id.frameLayout, fram_mail);
+                ft.replace(R.id.Main_Frame, frag_mail);
                 ft.commit();
                 break;
             case 1:
-                ft.replace(R.id.frameLayout, fram_home);
+                ft.replace(R.id.Main_Frame, frag_home);
                 ft.commit();
                 break;
             case 2:
-                ft.replace(R.id.frameLayout, frame_mypage);
+                ft.replace(R.id.Main_Frame, frag_mypage);
                 ft.commit();
                 break;
         }
