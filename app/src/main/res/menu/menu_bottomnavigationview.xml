@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+    android:id="@+id/mail"
+    android:enable="true"
+    android:icon="@android:drawable/mail"
+    android:title="쪽지함"/>
+
+    <item
+    android:id="@+id/home"
+    android:enable="true"
+    android:icon="@android:drawable/home"
+    android:title="홈"/>
+
+    <item
+    android:id="@+id/mypage"
+    android:enable="true"
+    android:icon="@android:drawable/mypage"
+    android:title="마이페이지"/>
+
+</menu>
