@@ -182,15 +182,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button21" />
 
-    <Button
-        android:id="@+id/button32"
-        android:layout_width="51dp"
-        android:layout_height="40dp"
-        android:background="?attr/actionModeCloseDrawable"
-        android:onClick="restaurant"
-        tools:layout_editor_absoluteX="43dp"
-        tools:layout_editor_absoluteY="62dp" />
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavi"
         android:layout_width="match_parent"

@@ -99,10 +99,4 @@ public class CafeActivity extends AppCompatActivity {
 
     public void creative(View view) {
     }
-
-    public void restaurant(View view) {
-        Toast.makeText(this,"식당 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, RestaurantActivity.class);
-        startActivity(intent);
-    }
 }
