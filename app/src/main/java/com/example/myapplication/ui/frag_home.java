@@ -17,7 +17,7 @@ public class frag_home extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstancState){
+                             @Nullable Bundle savedInstanceState){
         view = inflater.inflate(R.layout.frag_home, container, false);
         return view;
     }
