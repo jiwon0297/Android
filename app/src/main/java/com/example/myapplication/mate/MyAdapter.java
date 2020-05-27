@@ -45,10 +45,12 @@ public class MyAdapter extends BaseAdapter {
         TextView title = (TextView)view.findViewById(R.id.title);
         TextView writer = (TextView)view.findViewById(R.id.writer);
         TextView date = (TextView)view.findViewById(R.id.date);
+        TextView content = (TextView)view.findViewById(R.id.content);
 
         title.setText(sample.get(position).getTitle());
         writer.setText(sample.get(position).getWriter());
         date.setText(sample.get(position).getDate());
+        content.setText(sample.get(position).getContent());
 
         return view;
     }
