@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".mate.MateActivity">
 
     <TextView
@@ -44,6 +45,7 @@
         android:layout_height="110dp"
         android:layout_marginTop="120dp"
         android:layout_weight="1"
+        android:background="#F6F2FF"
         android:clickable="true"
         android:gravity="center"
         android:onClick="alone"
@@ -60,6 +62,7 @@
         android:layout_width="423dp"
         android:layout_height="110dp"
         android:layout_weight="1"
+        android:background="#F6F2FF"
         android:clickable="true"
         android:gravity="center"
         android:onClick="study"
@@ -76,13 +79,14 @@
         android:layout_width="423dp"
         android:layout_height="110dp"
         android:layout_weight="1"
+        android:background="#F6F2FF"
         android:clickable="true"
         android:gravity="center"
         android:onClick="contest"
         android:text="공모전 메이트 구하기"
         android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView6"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -91,40 +95,16 @@
         android:id="@+id/textView6"
         android:layout_width="423dp"
         android:layout_height="110dp"
-        android:layout_weight="1"
         android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:background="#F6F2FF"
         android:clickable="true"
         android:gravity="center"
         android:onClick="house"
         android:text="하우스 메이트 구하기"
         android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:itemBackground="@android:color/white"
-        app:itemIconTint="#5785CF"
-        app:itemTextColor="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/menu_bottomnavigationview"
-        tools:layout_editor_absoluteX="16dp" />
-
-    <FrameLayout
-        android:id="@+id/Main_Frame"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
-
-    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
