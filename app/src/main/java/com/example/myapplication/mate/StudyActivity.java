@@ -1,70 +1,112 @@
 package com.example.myapplication.mate;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.ListAdapter;
+import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
-import com.example.myapplication.Main2Activity;
 import com.example.myapplication.R;
+import com.example.myapplication.ui.frag_home;
+import com.example.myapplication.ui.frag_mail;
+import com.example.myapplication.ui.frag_mypage;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
+
+
 
 public class StudyActivity extends AppCompatActivity {
-    ArrayList<HashMap<String, String>> ContentList;
-    ListView list;
+    ArrayList<SampleData> DataList;
+    private BottomNavigationView bottomNavigationView;
+    private FragmentManager fm;
+    private FragmentTransaction ft;
+    private com.example.myapplication.ui.frag_home frag_home;
+    private com.example.myapplication.ui.frag_mail frag_mail;
+    private com.example.myapplication.ui.frag_mypage frag_mypage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_study);
 
-        list=(ListView) findViewById(R.id.listView);
-        ContentList = new ArrayList<HashMap<String, String>>();
+        this.InitializeDataList();
 
-        showList();
+        ListView listView = (ListView)findViewById(R.id.listView1);
+        final MyAdapter myAdapter = new MyAdapter(this,DataList);
+
+        listView.setAdapter(myAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView parent, View v, int position, long id){
+                Intent intent = new Intent(StudyActivity.this, MateViewActivity.class);
+                StudyActivity.this.startActivity(intent);
+            }
+        });
+
+        bottomNavigationView = findViewById(R.id.bottomNavi);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener()
+        {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem)
+            {
+                switch (menuItem.getItemId())
+                {
+                    case R.id.mail:
+                        setFrag(0);
+                        break;
+                    case R.id.home:
+                        setFrag(1);
+                        break;
+                    case R.id.mypage:
+                        setFrag(2);
+                        break;
+                }
+                return true;
+            }
+        });
+
+        frag_mail=new frag_mail();
+        frag_home=new frag_home();
+        frag_mypage=new frag_mypage();
     }
-    public void view(View v){
-        Intent intent = new Intent(this, MateViewActivity.class);
+    public void InitializeDataList()
+    {
+        DataList = new ArrayList<SampleData>();
+
+        DataList.add(new SampleData("자료구조 과제 같이 하실 분", "배정원","2020-05-27 오전 11:55"));
+        DataList.add(new SampleData("코딩테스트 스터디 구해요", "이승미","2020-05-26 오전 11:55"));
+        DataList.add(new SampleData("토익 스터디 모집합니다.", "김진하","2020-05-27 오후 02:55"));
+    }
+
+    public void write(View v){
+        Intent intent = new Intent(this, MateWriteActivity.class);
         startActivity(intent);
     }
 
-    protected void showList(){
-        try{
-                String title = "같이 역전우동 드실 분 구해요";
-                String writer = "박지원";
-
-                HashMap<String, String> contents = new HashMap<String, String>();
-
-                contents.put("title", title);
-                contents.put("writer", writer);
-
-                boolean add = ContentList.add(contents);
-
-            ListAdapter adapter = new SimpleAdapter(
-                    StudyActivity.this, ContentList, R.layout.matelist_item,
-                    new String[]{"title","writer"},
-                    new int[]{R.id.title, R.id.writer}
-            );
-
-            list.setAdapter(adapter);
-        } catch (JSONException e){
-            e.printStackTrace();
-        } catch (NullPointerException e){
-            e.printStackTrace();
+    private void setFrag(int n)
+    {
+        fm = getSupportFragmentManager();
+        ft = fm.beginTransaction();
+        switch(n) {
+            case 0:
+                ft.replace(R.id.Main_Frame, frag_mail);
+                ft.commit();
+                break;
+            case 1:
+                ft.replace(R.id.Main_Frame, frag_home);
+                ft.commit();
+                break;
+            case 2:
+                ft.replace(R.id.Main_Frame, frag_mypage);
+                ft.commit();
+                break;
         }
     }
 
