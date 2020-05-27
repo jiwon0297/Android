@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".mypage.ContentManageActivity">
+    tools:context=".mypage.ContentActivity">
 
     <TextView
         android:id="@+id/textNickname"
@@ -15,6 +14,7 @@
         android:layout_marginTop="30dp"
         android:text="닉네임"
         android:textSize="70px" />
+
     <TextView
         android:id="@+id/textName"
         android:layout_width="225dp"
@@ -22,6 +22,7 @@
         android:layout_marginStart="170dp"
         android:text="이름"
         android:textSize="60px" />
+
     <TextView
         android:id="@+id/textStudentNumber"
         android:layout_width="225dp"
@@ -40,10 +41,12 @@
         android:background="@drawable/woman"
         android:padding="0dp"
         android:scaleType="fitXY" />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="2px"
-        android:background="#BDBDBD"/>
+        android:background="#BDBDBD" />
+
     <TextView
         android:id="@+id/PostManage"
         android:layout_width="wrap_content"
@@ -61,6 +64,7 @@
         android:layout_marginTop="10dp"
         android:background="#00FFFFFF"
         android:enabled="true"
+        android:clickable="true"
         android:text="내가 쓴 글/댓글 단 글"
         android:textSize="80px" />
 
@@ -69,6 +73,7 @@
         android:layout_height="2px"
         android:layout_marginTop="10dp"
         android:background="#BDBDBD" />
+
     <TextView
         android:id="@+id/notificationManage"
         android:layout_width="wrap_content"
@@ -91,6 +96,7 @@
         android:layout_height="2px"
         android:layout_marginTop="10dp"
         android:background="#BDBDBD" />
+
     <TextView
         android:id="@+id/AccountManage"
         android:layout_width="wrap_content"
@@ -107,9 +113,9 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="10dp"
         android:background="#00FFFFFF"
+        android:enabled="true"
         android:clickable="true"
         android:text="정보변경"
-        android:enabled="true"
         android:textSize="80px" />
 
     <Button
@@ -119,9 +125,9 @@
         android:layout_marginStart="190dp"
         android:layout_marginTop="-50dp"
         android:background="#00FFFFFF"
+        android:enabled="true"
         android:clickable="true"
         android:text="로그아웃"
-        android:enabled="true"
         android:textSize="80px" />
 
     <View
@@ -129,7 +135,6 @@
         android:layout_height="2px"
         android:layout_marginTop="10dp"
         android:background="#BDBDBD" />
-
 
 
 </LinearLayout>
