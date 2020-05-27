@@ -37,6 +37,7 @@
         android:src="@drawable/ic_action_name"
         app:layout_constraintBottom_toTopOf="@+id/button4"
         app:layout_constraintEnd_toStartOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.958"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -54,6 +55,7 @@
         android:fontFamily="monospace"
         android:onClick="darak"
         android:selectAllOnFocus="false"
+        android:shadowColor="#FFFFFF"
         android:text="Cafe다락다락방"
         android:textAllCaps="false"
         android:textSize="20sp"
@@ -193,5 +195,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/menu_bottomnavigationview"
         tools:layout_editor_absoluteX="16dp" />
+
+    <Button
+        android:id="@+id/button32"
+        android:layout_width="51dp"
+        android:layout_height="40dp"
+        android:background="?attr/actionModeCloseDrawable"
+        android:onClick="restaurant"
+        tools:layout_editor_absoluteX="43dp"
+        tools:layout_editor_absoluteY="62dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
