@@ -15,7 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".mypage.ContentManageActivity"></activity>
+        <activity android:name=".mypage.ContentManageActivity" />
         <activity android:name=".mypage.UserActivity" />
         <activity android:name=".mypage.MypageActivity" />
         <activity android:name=".lost.LostViewActivity" />
