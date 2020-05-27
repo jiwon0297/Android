@@ -1,7 +1,10 @@
 package com.example.myapplication.restaurant;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -72,5 +75,23 @@ public class JapaneseActivity extends AppCompatActivity {
                 ft.commit();
                 break;
         }
+    }
+
+    public void hosikdang(View view) {
+        Toast.makeText(this,"식당 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, RestaurantActivity.class);
+        startActivity(intent);
+    }
+
+    public void mama(View view) {
+    }
+
+    public void umeda(View view) {
+    }
+
+    public void kenko(View view) {
+    }
+
+    public void misoya(View view) {
     }
 }
