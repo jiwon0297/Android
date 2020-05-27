@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.myapplication.lost.LostActivity;
@@ -59,6 +61,22 @@ public class HomeActivity extends AppCompatActivity {
         frag_mypage=new frag_mypage();
         setFrag(1); // 첫 프래그먼트 화면 지정
 
+
+    }
+    public void content(View v) {
+        Toast.makeText(this,"내 목록 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, MypageActivity.class);
+        startActivity(intent);
+    }
+    public void logout(View v) {
+        Toast.makeText(this,"로그아웃 되어 홈화면으로 이동합니다.",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+    public void user(View v) {
+        Toast.makeText(this,"정보 수정 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, UserActivity.class);
+        startActivity(intent);
     }
     public void mate(View v) {
         Toast.makeText(this,"메이트 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
@@ -76,6 +94,7 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
+
     private void setFrag(int n)
     {
         fm = getSupportFragmentManager();

@@ -1,4 +1,4 @@
-package com.example.myapplication.mypage;
+package com.example.myapplication.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,10 +12,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.myapplication.R;
-import com.example.myapplication.ui.MainActivity;
-import com.example.myapplication.ui.frag_home;
-import com.example.myapplication.ui.frag_mail;
-import com.example.myapplication.ui.frag_mypage;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class ContentActivity extends AppCompatActivity {
@@ -32,32 +28,6 @@ public class ContentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content);
 
-        Button contentButton = (Button) findViewById(R.id.ContentManage);
-        contentButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ContentActivity.this, MypageActivity.class);
-                ContentActivity.this.startActivity(intent);
-            }
-        });
-
-        Button userButton = (Button) findViewById(R.id.UserManage);
-        userButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ContentActivity.this, UserActivity.class);
-                ContentActivity.this.startActivity(intent);
-            }
-        });
-
-        Button logoutButton = (Button) findViewById(R.id.Logout);
-        logoutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ContentActivity.this, MainActivity.class);
-                ContentActivity.this.startActivity(intent);
-            }
-        });
 
         bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener()
