@@ -6,4 +6,174 @@
     android:layout_height="match_parent"
     tools:context=".restaurant.KoreanActivity">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="150dp"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="monospace"
+        android:text="한식"
+        android:textSize="100px"
+        app:layout_constraintBottom_toTopOf="@+id/button21"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/button19"
+        android:layout_width="180dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="19dp"
+        android:clickable="true"
+        android:fadingEdge="horizontal|vertical"
+        android:fontFamily="monospace"
+        android:text="일미닭갈비"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/button22"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/button20"
+        android:layout_width="180dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="23dp"
+        android:clickable="true"
+        android:fadingEdge="horizontal|vertical"
+        android:fontFamily="monospace"
+        android:text="손가네칼국수"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/button24"
+        app:layout_constraintEnd_toStartOf="@+id/button25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button19" />
+
+    <Button
+        android:id="@+id/button21"
+        android:layout_width="180dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="20dp"
+        android:clickable="true"
+        android:fadingEdge="horizontal|vertical"
+        android:fontFamily="monospace"
+        android:text="엉뚱상상"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/button26"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button24"
+        app:layout_constraintTop_toBottomOf="@+id/button25" />
+
+    <Button
+        android:id="@+id/button22"
+        android:layout_width="180dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="16dp"
+        android:clickable="true"
+        android:fadingEdge="horizontal|vertical"
+        android:fontFamily="monospace"
+        android:text="고래심줄"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button19"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/button23"
+        android:layout_width="240dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="86dp"
+        android:layout_marginBottom="6dp"
+        android:clickable="true"
+        android:fadingEdge="horizontal|vertical"
+        android:fontFamily="monospace"
+        android:text="선영이네김치짜글이"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button26" />
+
+    <Button
+        android:id="@+id/button24"
+        android:layout_width="180dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="20dp"
+        android:clickable="true"
+        android:fadingEdge="horizontal|vertical"
+        android:fontFamily="monospace"
+        android:text="이모네산골"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/button26"
+        app:layout_constraintEnd_toStartOf="@+id/button21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button20" />
+
+    <Button
+        android:id="@+id/button25"
+        android:layout_width="180dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="23dp"
+        android:clickable="true"
+        android:fadingEdge="horizontal|vertical"
+        android:fontFamily="monospace"
+        android:text="맛의 전쟁"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/button21"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button20"
+        app:layout_constraintTop_toBottomOf="@+id/button22" />
+
+    <Button
+        android:id="@+id/button26"
+        android:layout_width="180dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="115dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="116dp"
+        android:layout_marginBottom="7dp"
+        android:clickable="true"
+        android:fadingEdge="horizontal|vertical"
+        android:fontFamily="monospace"
+        android:text="빨강파이프"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/button23"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button21" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:itemBackground="@android:color/white"
+        app:itemIconTint="#5785CF"
+        app:itemTextColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/menu_bottomnavigationview"
+        tools:layout_editor_absoluteX="16dp" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
