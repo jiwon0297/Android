@@ -41,6 +41,7 @@
         android:paddingBottom="2dip"
         android:paddingTop="6dip"
         android:textSize="30px"
+        android:visibility="gone"
         android:textStyle="bold"/>
 
 
