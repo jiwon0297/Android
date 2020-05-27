@@ -73,7 +73,6 @@ public class FindActivity extends AppCompatActivity {
         frag_mail=new frag_mail();
         frag_home=new frag_home();
         frag_mypage=new frag_mypage();
-        setFrag(1); // 첫 프래그먼트 화면 지정
     }
 
     private void setFrag(int n)
