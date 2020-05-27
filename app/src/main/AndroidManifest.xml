@@ -15,6 +15,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".lost.LostViewActivity"></activity>
+        <activity android:name=".mate.MateViewActivity" />
+        <activity android:name=".mate.MateWriteActivity" />
+        <activity android:name=".lost.LostWriteActivity" />
+
         <meta-data
             android:name="com.google.android.actions"
             android:resource="@xml/network_security_config" />
