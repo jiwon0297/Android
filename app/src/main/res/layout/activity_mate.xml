@@ -39,7 +39,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
-    <TextView
+    <Button
         android:id="@+id/textView2"
         android:layout_width="423dp"
         android:layout_height="110dp"
@@ -57,7 +57,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <Button
         android:id="@+id/textView3"
         android:layout_width="423dp"
         android:layout_height="110dp"
@@ -74,7 +74,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-    <TextView
+    <Button
         android:id="@+id/textView5"
         android:layout_width="423dp"
         android:layout_height="110dp"
@@ -91,7 +91,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-    <TextView
+    <Button
         android:id="@+id/textView6"
         android:layout_width="423dp"
         android:layout_height="110dp"
@@ -103,6 +103,7 @@
         android:onClick="house"
         android:text="하우스 메이트 구하기"
         android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavi"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -119,16 +120,5 @@
         app:menu="@menu/menu_bottomnavigationview"
         tools:layout_editor_absoluteX="16dp" />
 
-    <FrameLayout
-        android:id="@+id/Main_Frame"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
