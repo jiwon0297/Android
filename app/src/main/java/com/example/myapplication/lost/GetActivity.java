@@ -42,6 +42,8 @@ public class GetActivity extends AppCompatActivity {
         ListAdapter oAdapter = new ListAdapter(oData);
         listView.setAdapter(oAdapter);
 
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new GetActivity.ItemSelectedListener());
 
     }
 
