@@ -15,11 +15,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.MailActivity"></activity>
         <activity android:name=".ui.ContentActivity" />
-        <activity android:name=".ui.UserActivity"
-            android:label="회원정보 수정"/>
-        <activity android:name=".ui.MypageActivity"
-            android:label="내가 쓴 글/댓글 단 글"/>
+        <activity
+            android:name=".ui.UserActivity"
+            android:label="회원정보 수정" />
+        <activity
+            android:name=".ui.MypageActivity"
+            android:label="내가 쓴 글/댓글 단 글" />
         <activity android:name=".lost.LostViewActivity" />
         <activity android:name=".mate.MateViewActivity" />
         <activity android:name=".mate.MateWriteActivity" />
