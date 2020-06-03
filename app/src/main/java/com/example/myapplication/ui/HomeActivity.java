@@ -54,22 +54,7 @@ public class HomeActivity extends AppCompatActivity {
             return true;
         }
     }
-    public void content(View v) {
-        Toast.makeText(this,"내 목록 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, ContentActivity.class);
-        startActivity(intent);
-    }
 
-    public void logout(View v) {
-        Toast.makeText(this,"로그아웃 되어 홈화면으로 이동합니다.",Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
-    public void user(View v) {
-        Toast.makeText(this,"정보 수정 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, UserActivity.class);
-        startActivity(intent);
-    }
     public void mate(View v) {
         Toast.makeText(this,"메이트 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, MateActivity.class);
