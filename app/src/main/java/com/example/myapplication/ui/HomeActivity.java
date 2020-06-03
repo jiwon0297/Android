@@ -21,18 +21,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 public class HomeActivity extends AppCompatActivity {
-    private FragmentManager fragmentManager = getSupportFragmentManager();
-    private FragHome fragHome = new FragHome();
-    private FragMail fragMail = new FragMail();
-    private FragMypage fragMypage = new FragMypage();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.Main_Frame, fragHome).commitAllowingStateLoss();
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
@@ -42,18 +35,20 @@ public class HomeActivity extends AppCompatActivity {
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-            FragmentTransaction transaction = fragmentManager.beginTransaction();
 
             switch(menuItem.getItemId())
             {
                 case R.id.home:
-                    transaction.replace(R.id.Main_Frame, fragHome).commitAllowingStateLoss();
+                    Intent intent = new Intent(HomeActivity.this, HomeActivity.class);
+                    startActivity(intent);
                     break;
                 case R.id.mail:
-                    transaction.replace(R.id.Main_Frame, fragMail).commitAllowingStateLoss();
+                    Intent intent2 = new Intent(HomeActivity.this, MailActivity.class);
+                    startActivity(intent2);
                     break;
                 case R.id.mypage:
-                    transaction.replace(R.id.Main_Frame, fragMypage).commitAllowingStateLoss();
+                    Intent intent3 = new Intent(HomeActivity.this, MypageActivity.class);
+                    startActivity(intent3);
                     break;
             }
             return true;

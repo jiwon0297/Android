@@ -5,24 +5,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ListView;
 
 import com.example.myapplication.R;
-import com.example.myapplication.ui.FragHome;
-import com.example.myapplication.ui.FragMail;
-import com.example.myapplication.ui.FragMypage;
+import com.example.myapplication.mate.MateActivity;
 import com.example.myapplication.ui.HomeActivity;
+import com.example.myapplication.ui.MailActivity;
+import com.example.myapplication.ui.MypageActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
 public class FindActivity extends AppCompatActivity {
-    private FragmentManager fragmentManager = getSupportFragmentManager();
-    private FragHome fragHome = new FragHome();
-    private FragMail fragMail = new FragMail();
-    private FragMypage fragMypage = new FragMypage();
 
     private ListView listView = null;
     @Override
@@ -53,18 +50,20 @@ public class FindActivity extends AppCompatActivity {
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-            FragmentTransaction transaction = fragmentManager.beginTransaction();
 
             switch(menuItem.getItemId())
             {
                 case R.id.home:
-                    transaction.replace(R.id.Main_Frame, fragHome).commitAllowingStateLoss();
+                    Intent intent = new Intent(FindActivity.this, HomeActivity.class);
+                    startActivity(intent);
                     break;
                 case R.id.mail:
-                    transaction.replace(R.id.Main_Frame, fragMail).commitAllowingStateLoss();
+                    Intent intent2 = new Intent(FindActivity.this, MailActivity.class);
+                    startActivity(intent2);
                     break;
                 case R.id.mypage:
-                    transaction.replace(R.id.Main_Frame, fragMypage).commitAllowingStateLoss();
+                    Intent intent3 = new Intent(FindActivity.this, MypageActivity.class);
+                    startActivity(intent3);
                     break;
             }
             return true;
