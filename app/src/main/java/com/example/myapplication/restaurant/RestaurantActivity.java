@@ -74,4 +74,10 @@ public class RestaurantActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void Western(View view) {
+        Toast.makeText(this,"양식 목록",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, WesternActivity.class);
+        startActivity(intent);
+    }
+
 }

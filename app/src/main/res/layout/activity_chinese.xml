@@ -7,98 +7,19 @@
     tools:context=".restaurant.ChineseActivity">
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="100dp"
-        android:fontFamily="monospace"
-        android:text="중식"
-        android:textSize="100px"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button15"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="40dp"
-        android:clickable="true"
-        android:fadingEdge="horizontal|vertical"
-        android:fontFamily="monospace"
-        android:onClick="hongchun"
-        android:text="홍춘"
-        android:textSize="24sp"
-        android:background="#00ff0000"
-        app:layout_constraintBottom_toTopOf="@+id/button17"
-        app:layout_constraintEnd_toStartOf="@+id/button16"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <Button
-        android:id="@+id/button16"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="96dp"
-        android:layout_marginEnd="40dp"
-        android:clickable="true"
-        android:fadingEdge="horizontal|vertical"
-        android:fontFamily="monospace"
-        android:onClick="maratang"
-        android:text="천향마라탕"
-        android:textSize="24sp"
-        android:background="#00ff0000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button15"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <Button
-        android:id="@+id/button17"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="160dp"
-        android:clickable="true"
-        android:fadingEdge="horizontal|vertical"
-        android:fontFamily="monospace"
-        android:onClick="sabu"
-        android:text="사부"
-        android:textSize="24sp"
-        android:background="#00ff0000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button18"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button15" />
-
-    <Button
-        android:id="@+id/button18"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="160dp"
-        android:clickable="true"
-        android:fadingEdge="horizontal|vertical"
-        android:fontFamily="monospace"
-        android:onClick="hongban"
-        android:text="홍콩반점0410"
-        android:textSize="24sp"
-        android:background="#00ff0000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button17"
-        app:layout_constraintTop_toBottomOf="@+id/button16"
-        app:layout_constraintVertical_bias="1.0" />
+    android:id="@+id/textView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="100dp"
+    android:layout_marginTop="50dp"
+    android:layout_marginEnd="100dp"
+    android:fontFamily="monospace"
+    android:text="중식"
+    android:textSize="100px"
+    app:layout_constraintBottom_toTopOf="@+id/textView2"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavi"
@@ -111,4 +32,88 @@
         app:menu="@menu/menu_bottomnavigationview"
         tools:layout_editor_absoluteX="16dp" />
 
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="413dp"
+        android:layout_height="600dp"
+        android:layout_marginBottom="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="1.0">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/button15"
+            android:layout_width="410dp"
+            android:layout_height="150dp"
+            android:clickable="true"
+            android:fadingEdge="horizontal|vertical"
+            android:fontFamily="monospace"
+            android:onClick="hongchun"
+            android:text="홍춘"
+            android:textSize="24sp"
+            android:background="#00ff0000"
+            app:layout_constraintBottom_toTopOf="@+id/button17"
+            app:layout_constraintEnd_toStartOf="@+id/button16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <Button
+            android:id="@+id/button16"
+            android:layout_width="410dp"
+            android:layout_height="150dp"
+            android:clickable="true"
+            android:fadingEdge="horizontal|vertical"
+            android:fontFamily="monospace"
+            android:onClick="maratang"
+            android:text="천향마라탕"
+            android:textSize="24sp"
+            android:background="#00ff0000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/button15"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <Button
+            android:id="@+id/button17"
+            android:layout_width="410dp"
+            android:layout_height="150dp"
+            android:clickable="true"
+            android:fadingEdge="horizontal|vertical"
+            android:fontFamily="monospace"
+            android:onClick="sabu"
+            android:text="사부"
+            android:textSize="24sp"
+            android:background="#00ff0000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/button18"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button15" />
+
+        <Button
+            android:id="@+id/button18"
+            android:layout_width="410dp"
+            android:layout_height="150dp"
+            android:clickable="true"
+            android:fadingEdge="horizontal|vertical"
+            android:fontFamily="monospace"
+            android:onClick="hongban"
+            android:text="홍콩반점0410"
+            android:textSize="24sp"
+            android:background="#00ff0000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/button17"
+            app:layout_constraintTop_toBottomOf="@+id/button16"
+            app:layout_constraintVertical_bias="1.0" />
+
+    </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
