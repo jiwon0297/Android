@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.MailActivity"></activity>
+        <activity android:name=".restaurant.WesternActivity"></activity>
+        <activity android:name=".ui.MailActivity" />
         <activity android:name=".ui.ContentActivity" />
         <activity
             android:name=".ui.UserActivity"

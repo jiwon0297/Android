@@ -4,20 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".restaurant.JapaneseActivity">
+    tools:context=".restaurant.WesternActivity">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="100dp"
-        android:fontFamily="monospace"
-        android:text="일식"
+        android:text="양식"
         android:textSize="100px"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,92 +50,57 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-
         <Button
-            android:id="@+id/button27"
             android:layout_width="410dp"
             android:layout_height="120dp"
             android:clickable="true"
-            android:fadingEdge="horizontal|vertical"
             android:fontFamily="monospace"
-            android:onClick="hosikdang"
-            android:text="호식당"
-            android:textSize="24sp"
+            android:onClick="beuradeo"
+            android:text="브라더 양식당"
             android:background="#00ff0000"
-            app:layout_constraintBottom_toTopOf="@+id/button29"
-            app:layout_constraintEnd_toStartOf="@+id/button28"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            android:textSize="20sp" />
 
         <Button
-            android:id="@+id/button28"
             android:layout_width="410dp"
             android:layout_height="120dp"
             android:clickable="true"
-            android:fadingEdge="horizontal|vertical"
             android:fontFamily="monospace"
-            android:onClick="mama"
-            android:text="아리가또맘마"
-            android:textSize="24sp"
+            android:onClick="grande"
+            android:text="그란데"
             android:background="#00ff0000"
-            app:layout_constraintBottom_toTopOf="@+id/button30"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/button27"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            android:textSize="20sp" />
 
         <Button
-            android:id="@+id/button29"
             android:layout_width="410dp"
             android:layout_height="120dp"
             android:clickable="true"
-            android:fadingEdge="horizontal|vertical"
             android:fontFamily="monospace"
-            android:onClick="umeda"
-            android:text="우메다"
-            android:textSize="24sp"
+            android:onClick="darin"
+            android:text="다린"
             android:background="#00ff0000"
-            app:layout_constraintBottom_toTopOf="@+id/button31"
-            app:layout_constraintEnd_toStartOf="@+id/button30"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button27" />
+            android:textSize="20sp" />
 
         <Button
-            android:id="@+id/button30"
             android:layout_width="410dp"
             android:layout_height="120dp"
             android:clickable="true"
-            android:fadingEdge="horizontal|vertical"
             android:fontFamily="monospace"
-            android:onClick="kenko"
-            android:text="겐코"
-            android:textSize="24sp"
+            android:onClick="obliq"
+            android:text="오블리끄"
             android:background="#00ff0000"
-            app:layout_constraintBottom_toTopOf="@+id/button31"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/button29"
-            app:layout_constraintTop_toBottomOf="@+id/button28"
-            app:layout_constraintVertical_bias="0.217" />
+            android:textSize="20sp" />
 
         <Button
-            android:id="@+id/button31"
             android:layout_width="410dp"
             android:layout_height="120dp"
             android:clickable="true"
-            android:fadingEdge="horizontal|vertical"
             android:fontFamily="monospace"
-            android:onClick="misoya"
-            android:text="미소야"
-            android:textSize="24sp"
+            android:onClick="bistro"
+            android:text="비스트로 모아이"
             android:background="#00ff0000"
-            app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button29"
-            tools:ignore="OnClick" />
+            android:textSize="20sp" />
+
 
     </LinearLayout>
     </ScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
