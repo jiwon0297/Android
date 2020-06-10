@@ -24,12 +24,10 @@ import java.util.HashMap;
 
 public class Main2Activity extends AppCompatActivity {
     String myJSON;
-
     JSONArray peoples = null;
-
     ArrayList<HashMap<String, String>> personList;
-
     ListView list;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +35,7 @@ public class Main2Activity extends AppCompatActivity {
 
         list=(ListView) findViewById(R.id.listView);
         personList = new ArrayList<HashMap<String, String>>();
-        getData("http://121.168.203.8/PHP_connection.php");
+        getData("http://192.168.35.34/matePHP_Connector.php");
     }
 
     protected void showList(){
@@ -47,26 +45,26 @@ public class Main2Activity extends AppCompatActivity {
 
             for(int i=0; i<peoples.length(); i++){
                 JSONObject c = peoples.getJSONObject(i);
-                String email = c.getString("email");
-                String name = c.getString("name");
-                String nickname = c.getString("nickname");
-                String password = c.getString("password");
-                String gender = c.getString("gender");
+                String title = c.getString("title");
+                String writer = c.getString("writer");
+                String content = c.getString("content");
+                String date = c.getString("date");
+                String cate = c.getString("cate");
 
                 HashMap<String, String> persons = new HashMap<String, String>();
 
-                persons.put("email", email);
-                persons.put("name", name);
-                persons.put("nickname",nickname);
-                persons.put("password",password);
-                persons.put("gender",gender);
+                persons.put("title", title);
+                persons.put("writer", writer);
+                persons.put("content",content);
+                persons.put("date",date);
+                persons.put("cate",cate);
 
                 boolean add = personList.add(persons);
             }
 
             ListAdapter adapter = new SimpleAdapter(
                     Main2Activity.this, personList,R.layout.list_item,
-                    new String[]{"email","name","nickname","password","gender"},
+                    new String[]{"title","writer","content","date","cate"},
                     new int[]{R.id.email, R.id.name, R.id.nickname, R.id.password, R.id.gender}
             );
 
