@@ -40,6 +40,7 @@ public class LoginActivity extends AppCompatActivity {
         Button loginButton = (Button) findViewById(R.id.signin);
         Button registerButton = (Button) findViewById(R.id.register);
         Button cancelButton = (Button) findViewById(R.id.cancel);
+        mProgressView = (ProgressBar) findViewById(R.id.loading);
 
         service = RetrofitClient.getClient().create(ServiceApi.class);
 

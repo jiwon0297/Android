@@ -53,6 +53,8 @@ public class JoinActivity extends AppCompatActivity {
         radioselect = (RadioButton) findViewById(id);
         registerButton = (Button) findViewById(R.id.join);
         cancelButton = (Button) findViewById(R.id.cancel);
+        mProgressView = (ProgressBar) findViewById(R.id.loading);
+
 
         service = RetrofitClient.getClient().create(ServiceApi.class);
 
@@ -139,7 +141,7 @@ public class JoinActivity extends AppCompatActivity {
         if (cancel) {
             focusView.requestFocus();
         } else {
-            startJoin(new JoinData(name, email, password, nickname, gender));
+            startJoin(new JoinData(email, password, name, nickname, gender));
             showProgress(true);
         }
     }

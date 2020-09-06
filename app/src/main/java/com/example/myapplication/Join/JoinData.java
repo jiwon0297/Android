@@ -18,7 +18,7 @@ public class JoinData {
     @SerializedName("gender")
     private String gender;
 
-    public JoinData(String name, String email, String password, String nickname, String gender) {
+    public JoinData(String email, String password, String name, String nickname, String gender) {
         this.name = name;
         this.email = email;
         this.password = password;
