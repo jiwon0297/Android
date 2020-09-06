@@ -55,7 +55,6 @@ public class JoinActivity extends AppCompatActivity {
         cancelButton = (Button) findViewById(R.id.cancel);
         mProgressView = (ProgressBar) findViewById(R.id.loading);
 
-
         service = RetrofitClient.getClient().create(ServiceApi.class);
 
         registerButton.setOnClickListener(new View.OnClickListener() {
@@ -113,7 +112,7 @@ public class JoinActivity extends AppCompatActivity {
             focusView = emailText;
             cancel = true;
         } else if (!isEmailValid(email)) {
-            emailText.setError("@를 포함한 유효한 이메일을 입력해주세요.");
+            emailText.setError("단국대 이메일을 입력해주세요.");
             focusView = emailText;
             cancel = true;
         }
@@ -127,13 +126,13 @@ public class JoinActivity extends AppCompatActivity {
 
         // 닉네임의 유효성 검사
         if (nickname.isEmpty()) {
-            nicknameText.setError("이름을 입력해주세요.");
+            nicknameText.setError("닉네임을 입력해주세요.");
             focusView = nicknameText;
             cancel = true;
         }
 
         if (gender.isEmpty()) {
-            radioselect.setError("이름을 입력해주세요.");
+            radioselect.setError("성별을 선택해주세요.");
             focusView = radioselect;
             cancel = true;
         }
@@ -169,7 +168,7 @@ public class JoinActivity extends AppCompatActivity {
     }
 
     private boolean isEmailValid(String email) {
-        return email.contains("@");
+        return email.contains("@dankook.ac.kr");
     }
 
     private boolean isPasswordValid(String password) {

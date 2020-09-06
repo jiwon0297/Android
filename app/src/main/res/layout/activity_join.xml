@@ -104,14 +104,13 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:checked="true"
-            android:text="여자" />
-
+            android:text="여성" />
         <RadioButton
             android:id="@+id/genderMan"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="남자" />
+            android:text="남성" />
     </RadioGroup>
 
     <Button

@@ -3,25 +3,25 @@ package com.example.myapplication.Join;
 import com.google.gson.annotations.SerializedName;
 
 public class JoinData {
-    @SerializedName("name")
-    private String name;
-
     @SerializedName("email")
-    private String email;
+    String email;
 
     @SerializedName("password")
-    private String password;
+    String password;
+
+    @SerializedName("name")
+    String name;
 
     @SerializedName("nickname")
-    private String nickname;
+    String nickname;
 
     @SerializedName("gender")
-    private String gender;
+    String gender;
 
     public JoinData(String email, String password, String name, String nickname, String gender) {
-        this.name = name;
         this.email = email;
         this.password = password;
+        this.name = name;
         this.nickname = nickname;
         this.gender = gender;
     }
