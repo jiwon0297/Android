@@ -12,6 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.myapplication.Join.JoinActivity;
+import com.example.myapplication.ui.HomeActivity;
 import com.example.myapplication.ui.MainActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.network.RetrofitClient;
@@ -122,6 +123,11 @@ public class LoginActivity extends AppCompatActivity {
                 LoginResponse result = response.body();
                 Toast.makeText(LoginActivity.this, result.getMessage(), Toast.LENGTH_SHORT).show();
                 showProgress(false);
+
+                if(result.getCode()==200){
+                    Intent loginIntent = new Intent(LoginActivity.this, HomeActivity.class);
+                    LoginActivity.this.startActivity(loginIntent);
+                }
             }
 
             @Override
