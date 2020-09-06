@@ -43,7 +43,6 @@
         <activity android:name=".mate.ContestActivity" />
         <activity android:name=".mate.AloneActivity" />
         <activity android:name=".mate.StudyActivity" />
-        <activity android:name=".Main2Activity" />
         <activity
             android:name=".login.LoginActivity"
             android:label="로그인" />
