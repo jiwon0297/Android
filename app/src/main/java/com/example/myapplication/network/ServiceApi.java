@@ -1,5 +1,7 @@
-package network;
+package com.example.myapplication.network;
 
+import com.example.myapplication.Join.JoinData;
+import com.example.myapplication.Join.JoinResponse;
 import com.example.myapplication.login.LoginData;
 import com.example.myapplication.login.LoginResponse;
 
@@ -11,7 +13,6 @@ public interface ServiceApi {
     @POST("/user/login")
     Call<LoginResponse> userLogin(@Body LoginData data);
 
-    //@POST("/user/join")
-    //Call<JoinResponse> userJoin(@Body JoinData data);
-
+    @POST("/user/join")
+    Call<JoinResponse> userJoin(@Body JoinData data);
 }

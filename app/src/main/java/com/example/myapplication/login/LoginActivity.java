@@ -2,24 +2,23 @@ package com.example.myapplication.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.MediaRouteButton;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.myapplication.ui.HomeActivity;
 import com.example.myapplication.Join.JoinActivity;
 import com.example.myapplication.ui.MainActivity;
 import com.example.myapplication.R;
+import com.example.myapplication.network.RetrofitClient;
+import com.example.myapplication.network.ServiceApi;
+import com.example.myapplication.login.LoginData;
+import com.example.myapplication.login.LoginResponse;
 
-import network.RetrofitClient;
-import network.ServiceApi;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

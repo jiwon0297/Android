@@ -1,4 +1,4 @@
-package com.example.myapplication.login.Data;
+package com.example.myapplication.Join;
 
 import com.google.gson.annotations.SerializedName;
 
