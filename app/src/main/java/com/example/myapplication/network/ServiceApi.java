@@ -10,6 +10,7 @@ import com.example.myapplication.mate.MateResponse;
 import com.example.myapplication.mate.MateWriteData;
 import com.example.myapplication.mate.MateWriteResponse;
 import com.example.myapplication.ui.MypageData;
+import com.example.myapplication.ui.MypageResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
