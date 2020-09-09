@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,6 +31,8 @@ public class MypageActivity extends AppCompatActivity {
     private TextView genderText;
     private ServiceApi service;
     private ProgressBar mProgressView;
+    ImageView ImageView_woman = null;
+    ImageView ImageView_man = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,8 @@ public class MypageActivity extends AppCompatActivity {
         service = RetrofitClient.getClient().create(ServiceApi.class);
         mProgressView = (ProgressBar) findViewById(R.id.loading);
         nicknameText.setText(getIntent().getStringExtra("NICKNAME_EXTRA"));
+        ImageView_woman = (ImageView)  findViewById(R.id.genderImage_woman);
+        ImageView_man = (ImageView)  findViewById(R.id.genderImage_man);
         String nickname = nicknameText.getText().toString();
         startMypage(new MypageData(nickname));
         showProgress(true);
@@ -59,6 +64,15 @@ public class MypageActivity extends AppCompatActivity {
                     emailText.setText(result.getEmail());
                     nameText.setText(result.getName());
                     genderText.setText(result.getGender());
+                    String gender = genderText.getText().toString();
+                    System.out.println(gender);
+                    if (gender.equals("여성")) {
+                        ImageView_woman.setVisibility(View.VISIBLE);
+                        ImageView_man.setVisibility(View.INVISIBLE);
+                    }else{
+                        ImageView_woman.setVisibility(View.INVISIBLE);
+                        ImageView_man.setVisibility(View.VISIBLE);
+                    }
                 }
             }
 
