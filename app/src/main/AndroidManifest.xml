@@ -15,7 +15,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".restaurant.cheonan.korean.BirdActivity"></activity>
+        <activity android:name=".restaurant.cheonan.western.RossiActivity"></activity>
+        <activity android:name=".restaurant.cheonan.western.BabalabActivity" />
+        <activity android:name=".restaurant.cheonan.western.SubmealActivity" />
+        <activity android:name=".restaurant.cheonan.western.SungtanActivity" />
+        <activity android:name=".restaurant.cheonan.korean.BirdActivity" />
         <activity android:name=".restaurant.cheonan.korean.AfterschoolActivity" />
         <activity android:name=".restaurant.cheonan.korean.GobgobgobActivity" />
         <activity android:name=".restaurant.cheonan.korean.BuanActivity" />

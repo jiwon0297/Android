@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -48,18 +49,23 @@ public class WesternActivity2 extends AppCompatActivity {
         }
     }
 
-    public void mrpizza(View view) {
+    public void sungtan(View view) {Toast.makeText(this,"성탄수제버거앤갈비",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, SungtanActivity.class);
+        startActivity(intent);
     }
 
-    public void sungtan(View view) {
+    public void submeal(View view) {Toast.makeText(this,"SubMeal",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, SubmealActivity.class);
+        startActivity(intent);
     }
 
-    public void submeal(View view) {
+    public void babalab(View view) {Toast.makeText(this,"BaBaLab",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, BabalabActivity.class);
+        startActivity(intent);
     }
 
-    public void babalab(View view) {
-    }
-
-    public void rossi(View view) {
+    public void rossi(View view) {Toast.makeText(this,"로씨",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, RossiActivity.class);
+        startActivity(intent);
     }
 }

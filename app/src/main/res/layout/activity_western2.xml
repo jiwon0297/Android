@@ -50,15 +50,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
-                android:layout_width="410dp"
-                android:layout_height="120dp"
-                android:clickable="true"
-                android:fontFamily="monospace"
-                android:onClick="mrpizza"
-                android:text="미스터피자"
-                android:background="#00ff0000"
-                android:textSize="20sp" />
 
             <Button
                 android:layout_width="410dp"
