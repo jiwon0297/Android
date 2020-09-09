@@ -4,6 +4,7 @@ import com.example.myapplication.Join.JoinData;
 import com.example.myapplication.Join.JoinResponse;
 import com.example.myapplication.login.LoginData;
 import com.example.myapplication.login.LoginResponse;
+import com.example.myapplication.lost.LostData;
 import com.example.myapplication.mate.MateData;
 import com.example.myapplication.ui.MypageData;
 
@@ -23,5 +24,8 @@ public interface ServiceApi {
 
     @POST("/mate/list")
     Call<JoinResponse> matelist(@Body MateData data);
+
+    @POST("/lost/list")
+    Call<JoinResponse> lostList(@Body LostData data);
 
 }
