@@ -8,7 +8,7 @@
     >
 
     <ImageView
-        android:id="@+id/genderImage"
+        android:id="@+id/genderImage_woman"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="68dp"
@@ -16,7 +16,31 @@
         android:background="@drawable/woman"
         android:scaleType="fitXY"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/nickname" />
+        app:layout_constraintTop_toTopOf="@+id/nickname"
+        tools:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/genderImage_man"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/man"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/nickname"
+        tools:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/genderImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="36dp"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/nickname"
+        tools:visibility="gone" />
 
     <TextView
         android:id="@+id/nickname"
@@ -29,10 +53,10 @@
         android:textSize="70px"
         app:layout_constraintBottom_toTopOf="@+id/name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.306"
+        app:layout_constraintHorizontal_bias="0.618"
         app:layout_constraintStart_toEndOf="@+id/genderImage"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.446" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/name"
@@ -44,9 +68,10 @@
         android:textSize="60px"
         app:layout_constraintBottom_toTopOf="@+id/email"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.357"
+        app:layout_constraintHorizontal_bias="0.675"
         app:layout_constraintStart_toEndOf="@+id/genderImage"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.55" />
 
     <TextView
         android:id="@+id/email"
@@ -59,10 +84,11 @@
         android:textSize="60px"
         app:layout_constraintBottom_toTopOf="@+id/view1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.357"
+        app:layout_constraintHorizontal_bias="0.675"
         app:layout_constraintStart_toEndOf="@+id/genderImage"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.483" />
+        app:layout_constraintVertical_bias="0.888" />
+
     <TextView
         android:id="@+id/gender"
         android:layout_width="wrap_content"
@@ -70,13 +96,14 @@
         android:layout_marginTop="130dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="10dp"
+        android:text="성별"
         android:textSize="60px"
         app:layout_constraintBottom_toTopOf="@+id/email"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.357"
+        app:layout_constraintHorizontal_bias="0.675"
         app:layout_constraintStart_toEndOf="@+id/genderImage"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.483" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <View
         android:id="@+id/view1"
