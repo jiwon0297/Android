@@ -29,7 +29,6 @@ public class MypageResponse {
         return message;
     }
 
-
     public String getEmail() {
         return email;
     }

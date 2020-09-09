@@ -30,7 +30,6 @@ public class MypageActivity extends AppCompatActivity {
     private TextView genderText;
     private ServiceApi service;
     private ProgressBar mProgressView;
-    private static final String NICKNAME_EXTRA = "NICKNAME_EXTRA";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +42,8 @@ public class MypageActivity extends AppCompatActivity {
         service = RetrofitClient.getClient().create(ServiceApi.class);
         mProgressView = (ProgressBar) findViewById(R.id.loading);
         nicknameText.setText(getIntent().getStringExtra("NICKNAME_EXTRA"));
-        String email = emailText.getText().toString();
-        String name = nameText.getText().toString();
         String nickname = nicknameText.getText().toString();
-        String gender = genderText.getText().toString();
-        startMypage(new MypageData(email,name,nickname,gender));
+        startMypage(new MypageData(nickname));
         showProgress(true);
 
     }
@@ -60,8 +56,9 @@ public class MypageActivity extends AppCompatActivity {
                 showProgress(false);
 
                 if (result.getCode() == 200) {
-                    Intent loginIntent = new Intent(MypageActivity.this, HomeActivity.class);
-                    MypageActivity.this.startActivity(loginIntent);
+                    emailText.setText(result.getEmail());
+                    nameText.setText(result.getName());
+                    genderText.setText(result.getGender());
                 }
             }
 

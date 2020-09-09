@@ -58,7 +58,7 @@ public class AloneActivity extends AppCompatActivity {
 
         mProgressView = (ProgressBar) findViewById(R.id.progressBar);
         service = RetrofitClient.getClient().create(ServiceApi.class);
-     //   attemptList();
+        attemptList();
 
         ListView listView = (ListView)findViewById(R.id.listView1);
         final MyAdapter myAdapter = new MyAdapter(this,matelist);
