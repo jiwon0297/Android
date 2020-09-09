@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".restaurant.CafeActivity2">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="90dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="monospace"
+        android:text="카페"
+        android:textSize="45dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.801"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageButton1"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="111dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/ic_action_name"
+        android:padding="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_action_name"
+        app:layout_constraintEnd_toStartOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:itemBackground="@android:color/white"
+        app:itemIconTint="#5785CF"
+        app:itemTextColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/menu_bottomnavigationview"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="413dp"
+        android:layout_height="600dp"
+        android:layout_marginBottom="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="1.0">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="410dp"
+                android:layout_height="120dp"
+                android:background="#E87A9DEA"
+                android:clickable="true"
+                android:fadingEdge="horizontal|vertical"
+                android:fontFamily="monospace"
+                android:onClick="maris"
+                android:selectAllOnFocus="false"
+                android:text="마리스커피"
+                android:textAllCaps="false"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/button6"
+                app:layout_constraintEnd_toStartOf="@+id/button5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageButton1" />
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="410dp"
+                android:layout_height="120dp"
+                android:background="#E87A9DEA"
+                android:clickable="true"
+                android:fadingEdge="horizontal|vertical"
+                android:fontFamily="monospace"
+                android:onClick="gome"
+                android:text="카페고메"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/button7"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/button4"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="410dp"
+                android:layout_height="120dp"
+                android:background="#E87A9DEA"
+                android:clickable="true"
+                android:fadingEdge="horizontal|vertical"
+                android:fontFamily="monospace"
+                android:onClick="giro"
+                android:text="지로스터"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/button13"
+                app:layout_constraintEnd_toStartOf="@+id/button7"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button4" />
+
+            <Button
+                android:id="@+id/button7"
+                android:layout_width="410dp"
+                android:layout_height="120dp"
+                android:background="#E87A9DEA"
+                android:clickable="true"
+                android:fadingEdge="horizontal|vertical"
+                android:fontFamily="monospace"
+                android:onClick="people"
+                android:text="피플앤스토리"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/button12"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/button6"
+                app:layout_constraintTop_toBottomOf="@+id/button5" />
+
+            <Button
+                android:id="@+id/button13"
+                android:layout_width="410dp"
+                android:layout_height="120dp"
+                android:background="#E87A9DEA"
+                android:clickable="true"
+                android:fadingEdge="horizontal|vertical"
+                android:fontFamily="monospace"
+                android:onClick="gravity"
+                android:text="GRAVITY LAKE"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/button14"
+                app:layout_constraintEnd_toStartOf="@+id/button12"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button6" />
+
+            <Button
+                android:id="@+id/button12"
+                android:layout_width="410dp"
+                android:layout_height="120dp"
+                android:background="#E87A9DEA"
+                android:clickable="true"
+                android:fadingEdge="horizontal|vertical"
+                android:fontFamily="monospace"
+                android:onClick="like"
+                android:text="카페라이크"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/button14"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/button13"
+                app:layout_constraintTop_toBottomOf="@+id/button7" />
+
+            <Button
+                android:id="@+id/button14"
+                android:layout_width="410dp"
+                android:layout_height="120dp"
+                android:background="#E87A9DEA"
+                android:clickable="true"
+                android:fadingEdge="horizontal|vertical"
+                android:fontFamily="monospace"
+                android:onClick="slow"
+                android:text="슬로우커피2"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button13" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
