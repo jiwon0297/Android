@@ -29,6 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText passwordText;
     private ServiceApi service;
     private ProgressBar mProgressView;
+    private final String NICKNAME_EXTRA = "NICKNAME_EXTRA";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,6 +127,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 if(result.getCode()==200){
                     Intent loginIntent = new Intent(LoginActivity.this, HomeActivity.class);
+                    loginIntent.putExtra(NICKNAME_EXTRA, result.getNickname());
                     LoginActivity.this.startActivity(loginIntent);
                 }
             }

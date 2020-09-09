@@ -22,13 +22,13 @@ import java.util.ArrayList;
 
 public class ContentActivity extends AppCompatActivity {
 
-    ArrayList<SampleData> DataList;
+  //  ArrayList<SampleData> DataList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content);
 
-        this.InitializeDataList();
+/*       this.InitializeDataList();
 
         ListView listView = (ListView)findViewById(R.id.listView1);
         final MyAdapter myAdapter = new MyAdapter(this,DataList);
@@ -46,8 +46,10 @@ public class ContentActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+ */
     }
-    public void InitializeDataList()
+  /*  public void InitializeDataList()
     {
         DataList = new ArrayList<SampleData>();
 
@@ -56,5 +58,6 @@ public class ContentActivity extends AppCompatActivity {
         DataList.add(new SampleData("투룸 하우스메이트 구합니다.", "김진하","2020-05-27 오후 02:55","월세가 너무 비싸서 하우스메이트 구해요. 투룸으로 할 예정이예요"));
     }
 
+   */
 }
 

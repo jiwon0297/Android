@@ -25,7 +25,7 @@ public class GetActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_get);
 
-        String[] strDate = {"2020-04-07", "2020-05-27"};
+       /* String[] strDate = {"2020-04-07", "2020-05-27"};
         int nCnt = 0;
         ArrayList<LostData> oData = new ArrayList<>();
         for (int i=0;i<1000;i++){
@@ -39,7 +39,7 @@ public class GetActivity extends AppCompatActivity {
         listView = (ListView)findViewById(R.id.listView);
         ListAdapter oAdapter = new ListAdapter(oData);
         listView.setAdapter(oAdapter);
-
+*/
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new GetActivity.ItemSelectedListener());
 
