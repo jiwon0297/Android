@@ -144,7 +144,7 @@ public class MateWriteActivity extends AppCompatActivity {
         if (cancel) {
             focusView.requestFocus();
         } else {
-            startMateWrite(new MateWriteData(title, nickname, content, cate, campus));
+            startMateWrite(new MateWriteData(4, title, nickname, content,"2020-02-02 00:00:00", cate, campus));
             showProgress(true);
         }
     }

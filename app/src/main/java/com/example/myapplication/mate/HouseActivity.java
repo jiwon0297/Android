@@ -5,32 +5,57 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.example.myapplication.R;
+import com.example.myapplication.network.RetrofitClient;
+import com.example.myapplication.network.ServiceApi;
 import com.example.myapplication.ui.HomeActivity;
 import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class HouseActivity extends AppCompatActivity {
-    ArrayList<SampleData> DataList;
+    private String cate = "하우스";
+    private ServiceApi service;
+    private ProgressBar mProgressView;
+
+    MyAdapter adapter;
+    ArrayList<MateWriteData> matelist = new ArrayList<>();
+
+    private static final String NUMBER_EXTRA = "NUMBER_EXTRA";
+    private static final String TITLE_EXTRA = "TITLE_EXTRA";
+    private static final String NICKNAME_EXTRA = "NICKNAME_EXTRA";
+    private static final String CONTENT_EXTRA = "CONTENT_EXTRA";
+    private static final String DATE_EXTRA = "DATE_EXTRA";
+    private static final String CATE_EXTRA = "CATE_EXTRA";
+    private static final String CAMPUS_EXTRA = "CAMPUS_EXTRA";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_house);
 
-        this.InitializeDataList();
+        mProgressView = (ProgressBar) findViewById(R.id.progressBar);
+        service = RetrofitClient.getClient().create(ServiceApi.class);
+        attemptList();
 
         ListView listView = (ListView)findViewById(R.id.listView1);
-        final MyAdapter myAdapter = new MyAdapter(this,DataList);
+        final MyAdapter myAdapter = new MyAdapter(this,matelist);
 
         listView.setAdapter(myAdapter);
 
@@ -38,10 +63,10 @@ public class HouseActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id){
                 Intent intent = new Intent(getApplicationContext(), MateViewActivity.class);
-                intent.putExtra("title", DataList.get(position).getTitle());
-                intent.putExtra("writer", DataList.get(position).getWriter());
-                intent.putExtra("date", DataList.get(position).getDate());
-                intent.putExtra("content", DataList.get(position).getContent());
+                intent.putExtra("TITLE_EXTRA", matelist.get(position).getTitle());
+                intent.putExtra("NICKNAME_EXTRA", matelist.get(position).getNickname());
+                intent.putExtra("DATE_EXTRA", matelist.get(position).getDate());
+                intent.putExtra("CONTENT_EXTRA", matelist.get(position).getContent());
                 startActivity(intent);
             }
         });
@@ -74,13 +99,53 @@ public class HouseActivity extends AppCompatActivity {
         }
     }
 
-    public void InitializeDataList()
-    {
-        DataList = new ArrayList<SampleData>();
+    private void attemptList() {
 
-        DataList.add(new SampleData("기숙사 같이 사실 분 구해요.", "배정원","2020-05-27 오전 11:55","새내기인데 혹시 안좋은 룸메 걸릴까봐 걱정이예요. 알람소리가 크거나 더럽지만 않으면 좋을 것 같아요"));
-        DataList.add(new SampleData("여기 근처에 자리 남은 쉐어하우스 있나요?", "이승미","2020-05-26 오전 11:55","쉐어하우스 들어가고 싶은데 혹시 2인실인데 혼자이신 분 계신가요?"));
-        DataList.add(new SampleData("투룸 하우스메이트 구합니다.", "김진하","2020-05-27 오후 02:55","월세가 너무 비싸서 하우스메이트 구해요. 투룸으로 할 예정이예요"));
+        boolean cancel = false;
+        View focusView = null;
+
+        if (cate.isEmpty()) {
+            cancel = true;
+        }
+
+        if (cancel) {
+            focusView.requestFocus();
+        } else {
+            startList(new MateData(cate));
+            showProgress(true);
+        }
+    }
+
+    private void startList(MateData data) {
+        service.matelist(data).enqueue(new Callback<MateResponse>() {
+            @Override
+            public void onResponse(Call<MateResponse> call, Response<MateResponse> response) {
+                Toast.makeText(HouseActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                showProgress(false);
+
+                if(response.body().getCode()==200 && response.body() != null) {
+                    onGetResult(response.body().getResult());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<MateResponse> call, Throwable t) {
+                Toast.makeText(HouseActivity.this, "에러 발생", Toast.LENGTH_SHORT).show();
+                Log.e("에러 발생", t.getMessage());
+                showProgress(false);
+            }
+        });
+    }
+
+    public void onGetResult(List<MateWriteData> list) {
+        adapter.clear();
+        matelist.clear();
+        matelist.addAll(list);
+        adapter.notifyDataSetChanged();
+    }
+
+    private void showProgress(boolean show) {
+        mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
     }
 
     public void write(View v){

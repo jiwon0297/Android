@@ -8,32 +8,57 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.example.myapplication.R;
+import com.example.myapplication.network.RetrofitClient;
+import com.example.myapplication.network.ServiceApi;
 import com.example.myapplication.ui.HomeActivity;
 import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class ContestActivity extends AppCompatActivity {
-    ArrayList<SampleData> DataList;
+    private String cate = "공모전";
+    private ServiceApi service;
+    private ProgressBar mProgressView;
+
+    MyAdapter adapter;
+    ArrayList<MateWriteData> matelist = new ArrayList<>();
+
+    private static final String NUMBER_EXTRA = "NUMBER_EXTRA";
+    private static final String TITLE_EXTRA = "TITLE_EXTRA";
+    private static final String NICKNAME_EXTRA = "NICKNAME_EXTRA";
+    private static final String CONTENT_EXTRA = "CONTENT_EXTRA";
+    private static final String DATE_EXTRA = "DATE_EXTRA";
+    private static final String CATE_EXTRA = "CATE_EXTRA";
+    private static final String CAMPUS_EXTRA = "CAMPUS_EXTRA";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contest);
 
-        this.InitializeDataList();
+        mProgressView = (ProgressBar) findViewById(R.id.progressBar);
+        service = RetrofitClient.getClient().create(ServiceApi.class);
+        attemptList();
 
         ListView listView = (ListView)findViewById(R.id.listView1);
-        final MyAdapter myAdapter = new MyAdapter(this,DataList);
+        final MyAdapter myAdapter = new MyAdapter(this,matelist);
 
         listView.setAdapter(myAdapter);
 
@@ -41,10 +66,10 @@ public class ContestActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id){
                 Intent intent = new Intent(getApplicationContext(), MateViewActivity.class);
-                intent.putExtra("title", DataList.get(position).getTitle());
-                intent.putExtra("writer", DataList.get(position).getWriter());
-                intent.putExtra("date", DataList.get(position).getDate());
-                intent.putExtra("content", DataList.get(position).getContent());
+                intent.putExtra("TITLE_EXTRA", matelist.get(position).getTitle());
+                intent.putExtra("NICKNAME_EXTRA", matelist.get(position).getNickname());
+                intent.putExtra("DATE_EXTRA", matelist.get(position).getDate());
+                intent.putExtra("CONTENT_EXTRA", matelist.get(position).getContent());
                 startActivity(intent);
             }
         });
@@ -52,6 +77,51 @@ public class ContestActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new ContestActivity.ItemSelectedListener());
 
+    }
+
+    private void attemptList() {
+
+        boolean cancel = false;
+        View focusView = null;
+
+        if (cate.isEmpty()) {
+            cancel = true;
+        }
+
+        if (cancel) {
+            focusView.requestFocus();
+        } else {
+            startList(new MateData(cate));
+            showProgress(true);
+        }
+    }
+
+    private void startList(MateData data) {
+        service.matelist(data).enqueue(new Callback<MateResponse>() {
+            @Override
+            public void onResponse(Call<MateResponse> call, Response<MateResponse> response) {
+                Toast.makeText(ContestActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                showProgress(false);
+
+                if(response.body().getCode()==200 && response.body() != null) {
+                    onGetResult(response.body().getResult());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<MateResponse> call, Throwable t) {
+                Toast.makeText(ContestActivity.this, "에러 발생", Toast.LENGTH_SHORT).show();
+                Log.e("에러 발생", t.getMessage());
+                showProgress(false);
+            }
+        });
+    }
+
+    public void onGetResult(List<MateWriteData> list) {
+        adapter.clear();
+        matelist.clear();
+        matelist.addAll(list);
+        adapter.notifyDataSetChanged();
     }
 
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
@@ -77,13 +147,8 @@ public class ContestActivity extends AppCompatActivity {
         }
     }
 
-    public void InitializeDataList()
-    {
-        DataList = new ArrayList<SampleData>();
-
-        DataList.add(new SampleData("한글공모전 모집원 1명 구합니다.", "배정원","2020-05-27 오전 11:55","한글탐정이라는 게임을 구상중이예요. 한명이 부족해서 구해봅니다."));
-        DataList.add(new SampleData("공모전 같이 나가실 분?", "이승미","2020-05-26 오전 11:55","취업은 해야겠고.. 뭐라도 하고싶은데 같이 공모전 하실 분 ㅠㅠ"));
-        DataList.add(new SampleData("공모전 메이트 구합니다.", "김진하","2020-05-27 오후 02:55","공모전 나갈건데 혼자 나가기에 조금 그래서ㅠㅠ 쪽지 주시면 공모전내용 말씀드릴게요"));
+    private void showProgress(boolean show) {
+        mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
     }
 
     public void write(View v){
