@@ -23,7 +23,7 @@ public class RestaurantwhereActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_restaurant);
+        setContentView(R.layout.activity_restaurantwhere);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new RestaurantwhereActivity.ItemSelectedListener());

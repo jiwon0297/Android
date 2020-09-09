@@ -38,7 +38,7 @@ public interface ServiceApi {
     @POST("/mate/write")
     Call<MateWriteResponse> matewrite(@Body MateWriteData data);
 
-    @GET("/lost/list")
-    Call<LostResponse> lostList(@Query("type") String type);
+    @POST("/lost/list")
+    Call<LostResponse> lostList(@Body LostData data);
 
 }

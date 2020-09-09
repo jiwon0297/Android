@@ -51,7 +51,7 @@ public class MateWriteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_mate_write);
         titleText = (EditText) findViewById(R.id.title);
         nicknameText = (TextView) findViewById(R.id.nickname);
-        nicknameText.setText(getIntent().getStringExtra("NICKNAME_EXTRA2"));
+        nicknameText.setText(getIntent().getStringExtra("NICKNAME_EXTRA"));
         contentText = (EditText) findViewById(R.id.content);
         campusgroup = (RadioGroup) findViewById(R.id.campusgroup);
         id = campusgroup.getCheckedRadioButtonId();
