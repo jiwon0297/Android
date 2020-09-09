@@ -9,8 +9,10 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.IdRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
@@ -29,12 +31,11 @@ public class JoinActivity extends AppCompatActivity {
     private EditText passwordText;
     private EditText passwordconfirmText;
     private EditText nameText;
+    private TextView genderText;
     private EditText nicknameText;
     private RadioGroup genderRadio;
-    private int id;
     private Button registerButton;
     private Button cancelButton;
-    private RadioButton radioselect;
     private ProgressBar mProgressView;
     private ServiceApi service;
 
@@ -47,10 +48,10 @@ public class JoinActivity extends AppCompatActivity {
         passwordText = (EditText) findViewById(R.id.password);
         passwordconfirmText = (EditText) findViewById(R.id.passwordconfirm);
         nameText = (EditText) findViewById(R.id.name);
+        genderText = (TextView) findViewById(R.id.genderText);
         nicknameText = (EditText) findViewById(R.id.nickname);
         genderRadio = (RadioGroup) findViewById(R.id.genderGroup);
-        id = genderRadio.getCheckedRadioButtonId();
-        radioselect = (RadioButton) findViewById(id);
+        genderRadio.setOnCheckedChangeListener(radioGroupButtonChangeListener);
         registerButton = (Button) findViewById(R.id.join);
         cancelButton = (Button) findViewById(R.id.cancel);
         mProgressView = (ProgressBar) findViewById(R.id.loading);
@@ -73,20 +74,31 @@ public class JoinActivity extends AppCompatActivity {
         });
     }
 
+    RadioGroup.OnCheckedChangeListener radioGroupButtonChangeListener = new RadioGroup.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
+            if(i == R.id.genderWoman){
+                genderText.setText("죽전캠");
+            } else if(i == R.id.genderMan){
+                genderText.setText("천안캠");
+            }
+        }
+    };
+
     private void attemptJoin() {
         emailText.setError(null);
         passwordText.setError(null);
         passwordconfirmText.setError(null);
         nameText.setError(null);
         nicknameText.setError(null);
-        radioselect.setError(null);
+        genderText.setError(null);
 
         String name = nameText.getText().toString();
         String email = emailText.getText().toString();
         String password = passwordText.getText().toString();
         String passwordconfirm = passwordconfirmText.getText().toString();
         String nickname = nicknameText.getText().toString();
-        String gender = radioselect.getText().toString();
+        String gender = genderText.getText().toString();
 
         boolean cancel = false;
         View focusView = null;
@@ -132,8 +144,8 @@ public class JoinActivity extends AppCompatActivity {
         }
 
         if (gender.isEmpty()) {
-            radioselect.setError("성별을 선택해주세요.");
-            focusView = radioselect;
+            genderText.setError("성별을 선택해주세요.");
+            focusView = genderRadio;
             cancel = true;
         }
 
