@@ -4,6 +4,8 @@ import com.example.myapplication.Join.JoinData;
 import com.example.myapplication.Join.JoinResponse;
 import com.example.myapplication.login.LoginData;
 import com.example.myapplication.login.LoginResponse;
+import com.example.myapplication.mate.MateData;
+import com.example.myapplication.ui.MypageData;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -18,5 +20,8 @@ public interface ServiceApi {
 
     @POST("/member/mypage")
     Call<JoinResponse> userJoin(@Body MypageData data);
+
+    @POST("/mate/list")
+    Call<JoinResponse> matelist(@Body MateData data);
 
 }
