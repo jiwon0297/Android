@@ -5,11 +5,13 @@ import com.example.myapplication.Join.JoinResponse;
 import com.example.myapplication.login.LoginData;
 import com.example.myapplication.login.LoginResponse;
 import com.example.myapplication.lost.LostData;
+import com.example.myapplication.lost.LostResponse;
 import com.example.myapplication.mate.MateData;
 import com.example.myapplication.mate.MateResponse;
 import com.example.myapplication.mate.MateWriteData;
 import com.example.myapplication.mate.MateWriteResponse;
 import com.example.myapplication.ui.MypageData;
+import com.example.myapplication.ui.MypageResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -34,6 +36,6 @@ public interface ServiceApi {
     Call<MateWriteResponse> matewrite(@Body MateWriteData data);
 
     @POST("/lost/list")
-    Call<JoinResponse> lostList(@Body LostData data);
+    Call<LostResponse> lostList(@Body LostData data);
 
 }

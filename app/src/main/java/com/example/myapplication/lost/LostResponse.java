@@ -1,16 +1,13 @@
-package com.example.myapplication.login;
+package com.example.myapplication.lost;
 
 import com.google.gson.annotations.SerializedName;
 
-public class LoginResponse {
+public class LostResponse {
     @SerializedName("code")
     private int code;
 
     @SerializedName("message")
     private String message;
-
-    @SerializedName("userId")
-    private String userId;
 
     public int getCode() {
         return code;
@@ -18,9 +15,5 @@ public class LoginResponse {
 
     public String getMessage() {
         return message;
-    }
-
-    public String getUserId() {
-        return userId;
     }
 }

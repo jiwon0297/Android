@@ -3,14 +3,18 @@ package com.example.myapplication.lost;
 import com.google.gson.annotations.SerializedName;
 
 public class LostData {
-    @SerializedName("strTitle")
-    String strTitle;
+    @SerializedName("campus")
+    String campus;
 
-    @SerializedName("strDate")
-    String strDate;
+    @SerializedName("title")
+    String title;
 
-    public LostData(String strTitle, String strDate) {
-        this.strTitle = strTitle;
-        this.strDate = strDate;
+    @SerializedName("id")
+    String id;
+
+    public LostData(String campus, String title, String id) {
+        this.campus = campus;
+        this.title = title;
+        this.id = id;
     }
 }

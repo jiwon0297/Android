@@ -6,15 +6,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication.R;
-import com.example.myapplication.login.LoginData;
 import com.example.myapplication.network.ServiceApi;
 import com.example.myapplication.network.RetrofitClient;
+import com.example.myapplication.network.ServiceApi;
 import com.example.myapplication.ui.MypageActivity;
 import com.example.myapplication.ui.MypageResponse;
 import com.example.myapplication.ui.MypageData;
@@ -43,9 +42,11 @@ public class MypageActivity extends AppCompatActivity {
         genderText = (TextView) findViewById(R.id.gender);
         service = RetrofitClient.getClient().create(ServiceApi.class);
         mProgressView = (ProgressBar) findViewById(R.id.loading);
-        String gender = nicknameText.getText().toString();
         String email = emailText.getText().toString();
-        startMypage(new MypageData(email));
+        String name = nameText.getText().toString();
+        String nickname = nicknameText.getText().toString();
+        String gender = genderText.getText().toString();
+        startMypage(new MypageData(email,name,nickname,gender));
         showProgress(true);
 
     }
@@ -69,10 +70,13 @@ public class MypageActivity extends AppCompatActivity {
                 Log.e("내 정보 불러오기 실패", t.getMessage());
                 showProgress(false);
             }
+
         });
-    }
-    private void showProgress(boolean show) {
-        mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+<<<<<<< Updated upstream
+        
+=======
+
+>>>>>>> Stashed changes
     }
 
 
@@ -93,4 +97,9 @@ public class MypageActivity extends AppCompatActivity {
         Intent intent = new Intent(this, UserActivity.class);
         startActivity(intent);
     }
+
+    private void showProgress(boolean show) {
+        mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+    }
+
 }

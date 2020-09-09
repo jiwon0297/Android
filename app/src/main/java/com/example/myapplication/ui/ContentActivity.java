@@ -16,8 +16,6 @@ import android.widget.Toast;
 
 import com.example.myapplication.R;
 import com.example.myapplication.mate.MateViewActivity;
-import com.example.myapplication.mate.MyAdapter;
-import com.example.myapplication.mate.SampleData;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
