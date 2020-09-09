@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -49,21 +48,18 @@ public class WesternActivity2 extends AppCompatActivity {
         }
     }
 
-    public void beuradeo(View view) {
-        Toast.makeText(this,"식당 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, RestaurantActivity.class);
-        startActivity(intent);
+    public void mrpizza(View view) {
     }
 
-    public void grande(View view) {
+    public void sungtan(View view) {
     }
 
-    public void darin(View view) {
+    public void submeal(View view) {
     }
 
-    public void obliq(View view) {
+    public void babalab(View view) {
     }
 
-    public void bistro(View view) {
+    public void rossi(View view) {
     }
 }

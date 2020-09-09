@@ -100,6 +100,25 @@
             android:background="#00ff0000"
             android:textSize="20sp" />
 
+        <Button
+            android:layout_width="410dp"
+            android:layout_height="120dp"
+            android:clickable="true"
+            android:fontFamily="monospace"
+            android:onClick="burrito"
+            android:text="부리또 정거장"
+            android:background="#00ff0000"
+            android:textSize="20sp" />
+
+        <Button
+            android:layout_width="410dp"
+            android:layout_height="120dp"
+            android:clickable="true"
+            android:fontFamily="monospace"
+            android:onClick="dosmas"
+            android:text="도스마스"
+            android:background="#00ff0000"
+            android:textSize="20sp" />
 
     </LinearLayout>
     </ScrollView>
