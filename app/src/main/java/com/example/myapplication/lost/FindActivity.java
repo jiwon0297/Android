@@ -54,7 +54,7 @@ public class FindActivity extends AppCompatActivity {
     }
 
     private void startList(LostData lostData) {
-        ArrayList<LostData> oData = new ArrayList<>();
+        List<LostData> oData = new ArrayList<>();
         service.lostList(lostData).enqueue(new Callback<LostResponse>(){
             @Override
             public void onResponse(Call<LostResponse> call, Response<LostResponse> response) {
@@ -72,7 +72,7 @@ public class FindActivity extends AppCompatActivity {
                         oData.add(oItem);
                     }
                     listView = (ListView)findViewById(R.id.listView);
-                    ListAdapter oAdapter = new ListAdapter(oData);
+                    ListAdapter oAdapter = new ListAdapter((ArrayList<LostData>) oData);
                     listView.setAdapter(oAdapter);
 
                     finish();
