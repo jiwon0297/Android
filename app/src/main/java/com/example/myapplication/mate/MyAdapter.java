@@ -1,6 +1,7 @@
 package com.example.myapplication.mate;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,54 +9,59 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
+import com.example.myapplication.lost.LostData;
+import com.example.myapplication.network.ServiceApi;
 
 import java.util.ArrayList;
 
 public class MyAdapter extends BaseAdapter {
 
-    Context mContext = null;
     LayoutInflater mLayoutInflater = null;
-    ArrayList<MateWriteData> sample;
+    ArrayList<MateWriteData> sample = null;
+    private ServiceApi service;
 
-    public MyAdapter(Context context, ArrayList<MateWriteData> data) {
-        mContext = context;
-        sample = data;
-        mLayoutInflater = LayoutInflater.from(mContext);
+    private int nlistCnt=0;
+
+    public MyAdapter(ArrayList<MateWriteData> _data){
+        sample = _data;
+        nlistCnt = sample.size();
     }
 
     @Override
     public int getCount() {
-        return sample.size();
+        Log.i("TAG", "getCount");
+        return nlistCnt;
+    }
+
+    @Override
+    public Object getItem(int position) {
+        return null;
     }
 
     @Override
     public long getItemId(int position) {
-        return position;
+        return 0;
     }
 
-    @Override
-    public MateWriteData getItem(int position) {
-        return sample.get(position);
-    }
+    public View getView(int position, View convertView, ViewGroup parent) {
+        if (convertView == null)
+        {
+            final Context context = parent.getContext();
+            if (mLayoutInflater == null)
+            {
+                mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            }
+            convertView = mLayoutInflater.inflate(R.layout.listview_item, parent, false);
+        }
 
-    public void clear() {
-        sample.clear();
-    }
+        TextView oTextCampus = (TextView) convertView.findViewById(R.id.textCampus);
+        TextView oTextTitle = (TextView) convertView.findViewById(R.id.textTitle);
+        TextView oTextId = (TextView) convertView.findViewById(R.id.textId);
 
-    @Override
-    public View getView(int position, View converView, ViewGroup parent) {
-        View view = mLayoutInflater.inflate(R.layout.matelist_item, null);
+        oTextCampus.setText(sample.get(position).campus);
+        oTextTitle.setText(sample.get(position).title);
+        oTextId.setText(sample.get(position).nickname);
+        return convertView;
 
-        TextView title = (TextView)view.findViewById(R.id.title);
-        TextView writer = (TextView)view.findViewById(R.id.nickname);
-        TextView date = (TextView)view.findViewById(R.id.date);
-        TextView content = (TextView)view.findViewById(R.id.content);
-
-        title.setText(sample.get(position).getTitle());
-        writer.setText(sample.get(position).getNickname());
-        date.setText(sample.get(position).getDate());
-        content.setText(sample.get(position).getContent());
-
-        return view;
     }
 }
