@@ -1,6 +1,9 @@
 package com.example.myapplication.mate;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
 
 public class MateResponse {
 
@@ -10,9 +13,6 @@ public class MateResponse {
     @SerializedName("message")
     private String message;
 
-    @SerializedName("userId")
-    private int userId;
-
     public int getCode() {
         return code;
     }
@@ -21,8 +21,16 @@ public class MateResponse {
         return message;
     }
 
-    public int getUserId() {
-        return userId;
+    @SerializedName("result")
+    @Expose
+    private List<Mate> result;
+
+    public List<Mate> getResult() {
+        return result;
     }
-    
+
+    public void setResult(List<Mate> result) {
+        this.result = result;
+    }
+
 }
