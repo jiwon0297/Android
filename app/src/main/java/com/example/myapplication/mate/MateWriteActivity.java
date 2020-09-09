@@ -158,7 +158,7 @@ public class MateWriteActivity extends AppCompatActivity {
                 showProgress(false);
 
                 if (result.getCode() == 200) {
-                    finish();
+
                 }
             }
 

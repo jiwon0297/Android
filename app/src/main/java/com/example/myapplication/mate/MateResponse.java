@@ -23,14 +23,22 @@ public class MateResponse {
 
     @SerializedName("result")
     @Expose
-    private List<MateWriteData> result;
+    private List<MateResponse> result;
 
-    public List<MateWriteData> getResult() {
+    public List<MateResponse> getResult() {
         return result;
     }
 
-    public void setResult(List<MateWriteData> result) {
-        this.result = result;
-    }
+    private String title;
+    private String nickname;
+    private String campus;
+    private String date;
+    private String content;
+
+    public String getTitle() { return title;}
+    public String getNickname() { return nickname;}
+    public String getCampus() { return campus;}
+    public String getDate() { return date; }
+    public String getContent() {return content;}
 
 }

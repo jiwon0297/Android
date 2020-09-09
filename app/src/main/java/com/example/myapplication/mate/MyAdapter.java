@@ -17,12 +17,12 @@ import java.util.ArrayList;
 public class MyAdapter extends BaseAdapter {
 
     LayoutInflater mLayoutInflater = null;
-    ArrayList<MateWriteData> sample = null;
+    ArrayList<MateData> sample = null;
     private ServiceApi service;
 
     private int nlistCnt=0;
 
-    public MyAdapter(ArrayList<MateWriteData> _data){
+    public MyAdapter(ArrayList<MateData> _data){
         sample = _data;
         nlistCnt = sample.size();
     }
@@ -51,16 +51,21 @@ public class MyAdapter extends BaseAdapter {
             {
                 mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             }
-            convertView = mLayoutInflater.inflate(R.layout.listview_item, parent, false);
+            convertView = mLayoutInflater.inflate(R.layout.matelist_item, parent, false);
         }
 
         TextView oTextCampus = (TextView) convertView.findViewById(R.id.textCampus);
         TextView oTextTitle = (TextView) convertView.findViewById(R.id.textTitle);
-        TextView oTextId = (TextView) convertView.findViewById(R.id.textId);
+        TextView oTextNickname = (TextView) convertView.findViewById(R.id.textNickname);
+        TextView oTextDate = (TextView) convertView.findViewById(R.id.textDate);
+        TextView oTextContent = (TextView) convertView.findViewById(R.id.textContent);
 
         oTextCampus.setText(sample.get(position).campus);
         oTextTitle.setText(sample.get(position).title);
-        oTextId.setText(sample.get(position).nickname);
+        oTextNickname.setText(sample.get(position).nickname);
+        oTextDate.setText(sample.get(position).date);
+        oTextContent.setText(sample.get(position).content);
+
         return convertView;
 
     }

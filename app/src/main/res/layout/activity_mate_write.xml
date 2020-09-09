@@ -113,8 +113,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:checked="true"
-            android:text="죽전캠퍼스"
-            android:textAlignment="center"
+            android:text="죽전캠"
             android:textSize="22sp" />
 
         <RadioButton
@@ -122,8 +121,7 @@
             android:layout_width="0dp"
             android:layout_height="49dp"
             android:layout_weight="1"
-            android:text="천안캠퍼스"
-            android:textAlignment="center"
+            android:text="천안캠"
             android:textSize="22sp" />
     </RadioGroup>
 

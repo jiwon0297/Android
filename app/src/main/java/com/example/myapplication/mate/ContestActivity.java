@@ -94,7 +94,8 @@ public class ContestActivity extends AppCompatActivity {
     }
 
     private void startList(MateData data) {
-        List<MateWriteData> oData = new ArrayList<>();
+        List<MateData> oData = new ArrayList<>();
+
         service.matelist(data).enqueue(new Callback<MateResponse>() {
             @Override
             public void onResponse(Call<MateResponse> call, Response<MateResponse> response) {
@@ -102,21 +103,32 @@ public class ContestActivity extends AppCompatActivity {
                 Toast.makeText(ContestActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                 showProgress(false);
 
-                if(response.body().getCode()==200 && response.body() != null) {
-                    List<MateWriteData> sample = (List<MateWriteData>) result;
-                   /*
-                    for (MateWriteData a :sample ){
-                        MateWriteData oItem = new MateWriteData();
+                if (result.getCode() == 200) {
+                    MateResponse sample = result;
+                    for (MateResponse a :sample.getResult() ){
+                        MateData oItem = new MateData();
                         oItem.campus = "[" + a.getCampus() + "]";
                         oItem.title = a.getTitle();
                         oItem.nickname = a.getNickname();
+                        oItem.date = a.getDate();
+                        oItem.content = a.getContent();
                         oData.add(oItem);
                     }
-
-                    */
-                    listView = (ListView)findViewById(R.id.listView);
-                    MyAdapter oAdapter = new MyAdapter((ArrayList<MateWriteData>) oData);
+                    listView = (ListView)findViewById(R.id.listView1);
+                    MyAdapter oAdapter = new MyAdapter((ArrayList<MateData>) oData);
                     listView.setAdapter(oAdapter);
+
+                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+                        @Override
+                        public void onItemClick(AdapterView parent, View v, int position, long id){
+                            Intent intent = new Intent(getApplicationContext(), MateViewActivity.class);
+                            intent.putExtra("TITLE_EXTRA", oData.get(position).title);
+                            intent.putExtra("NICKNAME_EXTRA2", oData.get(position).nickname);
+                            intent.putExtra("DATE_EXTRA", oData.get(position).date);
+                            intent.putExtra("CONTENT_EXTRA", oData.get(position).content);
+                            startActivity(intent);
+                        }
+                    });
                 }
             }
 

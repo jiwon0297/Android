@@ -17,17 +17,15 @@ public class MateViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mate_view);
 
-        Intent intent = getIntent();
-
         TextView title = (TextView) findViewById(R.id.title);
         TextView writer = (TextView) findViewById(R.id.writer);
         TextView date = (TextView) findViewById(R.id.date);
         TextView content = (TextView) findViewById(R.id.content);
 
-        title.setText(intent.getStringExtra("TITLE_EXTRA"));
-        writer.setText(intent.getStringExtra("NICKNAME_EXTRA2"));
-        date.setText(intent.getStringExtra("DATE_EXTRA"));
-        content.setText(intent.getStringExtra("CONTENT_EXTRA"));
+        title.setText(getIntent().getStringExtra("TITLE_EXTRA"));
+        writer.setText(getIntent().getStringExtra("NICKNAME_EXTRA2"));
+        date.setText(getIntent().getStringExtra("DATE_EXTRA"));
+        content.setText(getIntent().getStringExtra("CONTENT_EXTRA"));
 
         ImageButton loginButton = (ImageButton) findViewById(R.id.imageButton1);
         loginButton.setOnClickListener(new View.OnClickListener() {
