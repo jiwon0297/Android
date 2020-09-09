@@ -52,7 +52,7 @@ public class MateWriteActivity extends AppCompatActivity {
         View view = inflater.inflate(R.layout.activity_mypage, null);
 
         titleText = (EditText) findViewById(R.id.title);
-        nicknameText = (TextView)view.findViewById(R.id.textNickname);
+        nicknameText = (TextView)view.findViewById(R.id.nickname);
         contentText = (EditText) findViewById(R.id.content);
         campusgroup = (RadioGroup) findViewById(R.id.campusgroup);
         id = campusgroup.getCheckedRadioButtonId();
@@ -144,7 +144,7 @@ public class MateWriteActivity extends AppCompatActivity {
         if (cancel) {
             focusView.requestFocus();
         } else {
-            startMateWrite(new MateWriteData(title, nickname, content, cate, campus));
+            startMateWrite(new MateWriteData(4, title, nickname, content,"2020-02-02 00:00:00", cate, campus));
             showProgress(true);
         }
     }
