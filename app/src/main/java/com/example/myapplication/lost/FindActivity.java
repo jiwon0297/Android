@@ -22,13 +22,14 @@ import com.example.myapplication.ui.MypageActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class FindActivity extends AppCompatActivity {
-    private String type;
+    private String type = "find";
     private ServiceApi service;
     private ProgressBar mProgressView;
     private ListView listView = null;
@@ -49,12 +50,12 @@ public class FindActivity extends AppCompatActivity {
     }
 
     private void attemptList() {
-        String type = "find";
-        startList(new LostData());
+        startList(new LostData(type));
     }
 
-    private void startList() {
-        service.lostList(LostData data).enqueue(new Callback<LostResponse>(){
+    private void startList(LostData lostData) {
+        ArrayList<LostData> oData = new ArrayList<>();
+        service.lostList(lostData).enqueue(new Callback<LostResponse>(){
             @Override
             public void onResponse(Call<LostResponse> call, Response<LostResponse> response) {
                 LostResponse result = response.body();
@@ -62,6 +63,18 @@ public class FindActivity extends AppCompatActivity {
                 showProgress(false);
 
                 if (result.getCode() == 200) {
+                    List<LostResponse> sample = (List<LostResponse>) result;
+                    for (LostResponse a :sample ){
+                        LostData oItem = new LostData();
+                        oItem.campus = "[" + a.getCampus() + "]";
+                        oItem.title = a.getTitle();
+                        oItem.id = a.getId();
+                        oData.add(oItem);
+                    }
+                    listView = (ListView)findViewById(R.id.listView);
+                    ListAdapter oAdapter = new ListAdapter(oData);
+                    listView.setAdapter(oAdapter);
+
                     finish();
                 }
             }
@@ -74,20 +87,7 @@ public class FindActivity extends AppCompatActivity {
                 showProgress(false);
             }
         });
-        int nCnt = 0;
-        ArrayList<LostData> oData = new ArrayList<>();
-        for (int i=0;i<1000;i++){
-            LostData oItem = new LostData();
-            oItem.campus = "데이터 " + (i+1);
-            oItem.title = strDate[nCnt++];
-            oItem.id = "";
-            oData.add(oItem);
-            if (nCnt >= strDate.length) nCnt = 0;
 
-        }
-        listView = (ListView)findViewById(R.id.listView);
-        ListAdapter oAdapter = new ListAdapter(oData);
-        listView.setAdapter(oAdapter);
     }
 
 
