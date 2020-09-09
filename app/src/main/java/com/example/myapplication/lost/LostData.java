@@ -12,13 +12,19 @@ public class LostData {
     @SerializedName("id")
     String id;
 
+    @SerializedName("type")
+    String type;
+
     public LostData(String campus, String title, String id) {
         this.campus = campus;
         this.title = title;
         this.id = id;
     }
 
-    public LostData() {
-
+    public LostData(String type) {
+        this.type = type;
     }
+
+    public LostData(){}
+
 }
