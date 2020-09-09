@@ -1,7 +1,9 @@
 package com.example.myapplication.lost;
 
+import androidx.annotation.IdRes;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,8 +19,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication.R;
+import com.example.myapplication.mate.AloneActivity;
+import com.example.myapplication.mate.ContestActivity;
+import com.example.myapplication.mate.HouseActivity;
 import com.example.myapplication.mate.MateWriteActivity;
 import com.example.myapplication.mate.MateWriteResponse;
+import com.example.myapplication.mate.StudyActivity;
 import com.example.myapplication.network.RetrofitClient;
 import com.example.myapplication.network.ServiceApi;
 
@@ -31,14 +37,12 @@ public class LostWriteActivity extends AppCompatActivity {
     private TextView nicknameText;
     private EditText contentText;
     private TextView typeText;
+    private TextView campusText;
     private RadioGroup campusgroup;
     private RadioGroup typeGroup;
-    private int id1;
-    private int id2;
-    private RadioButton radioselect1;
-    private RadioButton radioselect2;
     private ProgressBar mProgressView;
     private ServiceApi service;
+    private final String NICKNAME_EXTRA = "NICKNAME_EXTRA";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,10 +55,10 @@ public class LostWriteActivity extends AppCompatActivity {
         contentText = (EditText) findViewById(R.id.content);
         campusgroup = (RadioGroup) findViewById(R.id.campusgroup);
         typeGroup = (RadioGroup) findViewById(R.id.typeGroup);
-        id1 = campusgroup.getCheckedRadioButtonId();
-        id2 = typeGroup.getCheckedRadioButtonId();
-        radioselect1 = (RadioButton) findViewById(id1);
-        radioselect2 = (RadioButton) findViewById(id2);
+        campusgroup = (RadioGroup) findViewById(R.id.campusgroup);
+        campusgroup.setOnCheckedChangeListener(radioGroupButtonChangeListener);
+        typeGroup = (RadioGroup) findViewById(R.id.typeGroup);
+        typeGroup.setOnCheckedChangeListener(radioGroupButtonChangeListener);
         mProgressView = (ProgressBar) findViewById(R.id.progressBar2);
 
         service = RetrofitClient.getClient().create(ServiceApi.class);
@@ -74,30 +78,33 @@ public class LostWriteActivity extends AppCompatActivity {
                 attemptWrite();
             }
         });
-
-        Spinner s = (Spinner)findViewById(R.id.spinner);
-        s.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view,
-                                       int position, long id) {
-                typeText = (TextView)s.getSelectedView();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {}
-        });
     }
 
+    RadioGroup.OnCheckedChangeListener radioGroupButtonChangeListener = new RadioGroup.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
+            if(i == R.id.campusjj){
+                campusText.setText("죽전캠");
+            } else if(i == R.id.campusca){
+                campusText.setText("천안캠");
+            } else if(i == R.id.radio0){
+                typeText.setText("찾아요");
+            } else if(i == R.id.radio1){
+                typeText.setText("주웠어요");
+            }
+        }
+    };
     private void attemptWrite() {
         titleText.setError(null);
         contentText.setError(null);
-        radioselect1.setError(null);
-        radioselect2.setError(null);
+        typeText.setError(null);
+        campusText.setError(null);
 
         String title = titleText.getText().toString();
         String nickname = nicknameText.getText().toString();
         String content = contentText.getText().toString();
-        String campus = radioselect1.getText().toString();
-        String type = radioselect2.getText().toString();
+        String campus = campusText.getText().toString();
+        String type = typeText.getText().toString();
 
         boolean cancel = false;
         View focusView = null;
@@ -123,14 +130,14 @@ public class LostWriteActivity extends AppCompatActivity {
         }
 
         if (campus.isEmpty()) {
-            radioselect1.setError("캠퍼스를 선택해주세요.");
-            focusView = radioselect1;
+            campusText.setError("캠퍼스를 선택해주세요.");
+            focusView = campusgroup;
             cancel = true;
         }
 
         if (campus.isEmpty()) {
-            radioselect2.setError("카테고리를 선택해주세요.");
-            focusView = radioselect2;
+            typeText.setError("카테고리를 선택해주세요.");
+            focusView = typeGroup;
             cancel = true;
         }
 
@@ -151,7 +158,15 @@ public class LostWriteActivity extends AppCompatActivity {
                 showProgress(false);
 
                 if (result.getCode() == 200) {
-
+                    if(typeText.getText().toString() == "찾아요"){
+                        Intent intent = new Intent(LostWriteActivity.this, AloneActivity.class);
+                        intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
+                        LostWriteActivity.this.startActivity(intent);
+                    } else if(typeText.getText().toString() == "주웠어요"){
+                        Intent intent = new Intent(LostWriteActivity.this, ContestActivity.class);
+                        intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
+                        LostWriteActivity.this.startActivity(intent);
+                    }
                 }
             }
 
