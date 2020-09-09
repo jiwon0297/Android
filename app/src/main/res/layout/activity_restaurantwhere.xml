@@ -82,9 +82,15 @@
     <LinearLayout
         android:layout_width="470dp"
         android:layout_height="50dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="200dp"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="479dp">
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <Button
             android:id="@+id/button34"
@@ -93,10 +99,10 @@
             android:layout_weight="10"
             android:background="#00ff0000"
             android:clickable="true"
+            android:fontFamily="@font/kyobo"
             android:gravity="center"
             android:onClick="jukjeon"
             android:text="죽전"
-            android:fontFamily="@font/kyobo"
             android:textColorHighlight="#302F09"
             android:textSize="35dp"
             app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
@@ -111,10 +117,10 @@
             android:layout_weight="10"
             android:background="#00ff0000"
             android:clickable="true"
+            android:fontFamily="@font/kyobo"
             android:gravity="center"
             android:onClick="cheonan"
             android:text="천안"
-            android:fontFamily="@font/kyobo"
             android:textColorHighlight="#302F09"
             android:textSize="35dp"
             app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
