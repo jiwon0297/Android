@@ -15,10 +15,10 @@ import java.util.ArrayList;
 public class ListAdapter extends BaseAdapter {
 
     LayoutInflater inflater = null;
-    private ArrayList<ItemData> data = null;
+    private ArrayList<LostData> data = null;
     private int nlistCnt=0;
 
-    public ListAdapter(ArrayList<ItemData> _data){
+    public ListAdapter(ArrayList<LostData> _data){
         data = _data;
         nlistCnt = data.size();
     }
