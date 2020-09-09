@@ -30,8 +30,8 @@ public class GetActivity extends AppCompatActivity {
         ArrayList<LostData> oData = new ArrayList<>();
         for (int i=0;i<1000;i++){
             LostData oItem = new LostData();
-            //oItem.strTitle = "데이터 " + (i+1);
-            //oItem.strDate = strDate[nCnt++];
+            oItem.strTitle = "데이터 " + (i+1);
+            oItem.strDate = strDate[nCnt++];
             oData.add(oItem);
             if (nCnt >= strDate.length) nCnt = 0;
 

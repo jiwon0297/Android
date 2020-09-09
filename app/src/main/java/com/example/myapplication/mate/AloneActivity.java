@@ -44,6 +44,7 @@ public class AloneActivity extends AppCompatActivity {
     private static final String NUMBER_EXTRA = "NUMBER_EXTRA";
     private static final String TITLE_EXTRA = "TITLE_EXTRA";
     private static final String NICKNAME_EXTRA = "NICKNAME_EXTRA";
+    private final String NICKNAME_EXTRA2 = "NICKNAME_EXTRA2";
     private static final String CONTENT_EXTRA = "CONTENT_EXTRA";
     private static final String DATE_EXTRA = "DATE_EXTRA";
     private static final String CATE_EXTRA = "CATE_EXTRA";
@@ -57,7 +58,7 @@ public class AloneActivity extends AppCompatActivity {
 
         mProgressView = (ProgressBar) findViewById(R.id.progressBar);
         service = RetrofitClient.getClient().create(ServiceApi.class);
-        attemptList();
+     //   attemptList();
 
         ListView listView = (ListView)findViewById(R.id.listView1);
         final MyAdapter myAdapter = new MyAdapter(this,matelist);
@@ -82,7 +83,7 @@ public class AloneActivity extends AppCompatActivity {
     }
 
 
-    private void attemptList() {
+  /*  private void attemptList() {
 
         boolean cancel = false;
         View focusView = null;
@@ -99,7 +100,9 @@ public class AloneActivity extends AppCompatActivity {
         }
     }
 
-    private void startList(MateData data) {
+   */
+
+  /*  private void startList(MateData data) {
         service.matelist(data).enqueue(new Callback<MateResponse>() {
             @Override
             public void onResponse(Call<MateResponse> call, Response<MateResponse> response) {
@@ -127,8 +130,11 @@ public class AloneActivity extends AppCompatActivity {
         adapter.notifyDataSetChanged();
     }
 
+   */
+
     public void write(View v){
         Intent intent = new Intent(this, MateWriteActivity.class);
+        intent.putExtra(NICKNAME_EXTRA2, getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 
@@ -140,14 +146,17 @@ public class AloneActivity extends AppCompatActivity {
             {
                 case R.id.home:
                     Intent intent = new Intent(AloneActivity.this, HomeActivity.class);
+                    intent.putExtra(NICKNAME_EXTRA2, getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent);
                     break;
                 case R.id.mail:
                     Intent intent2 = new Intent(AloneActivity.this, MailActivity.class);
+                    intent2.putExtra(NICKNAME_EXTRA2, getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent2);
                     break;
                 case R.id.mypage:
                     Intent intent3 = new Intent(AloneActivity.this, MypageActivity.class);
+                    intent3.putExtra(NICKNAME_EXTRA2, getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent3);
                     break;
             }

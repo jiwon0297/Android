@@ -20,6 +20,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 public class MateActivity extends AppCompatActivity {
+    private final String NICKNAME_EXTRA = "NICKNAME_EXTRA";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,14 +39,17 @@ public class MateActivity extends AppCompatActivity {
             {
                 case R.id.home:
                     Intent intent = new Intent(MateActivity.this, HomeActivity.class);
+                    intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent);
                     break;
                 case R.id.mail:
                     Intent intent2 = new Intent(MateActivity.this, MailActivity.class);
+                    intent2.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent2);
                     break;
                 case R.id.mypage:
                     Intent intent3 = new Intent(MateActivity.this, MypageActivity.class);
+                    intent3.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent3);
                     break;
             }
@@ -56,21 +60,25 @@ public class MateActivity extends AppCompatActivity {
     public void alone(View v) {
         Toast.makeText(this,"혼밥 메이트 구하기 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, AloneActivity.class);
+        intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
     public void study(View v) {
         Toast.makeText(this,"스터디 메이트 구하기 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, StudyActivity.class);
+        intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
     public void contest(View v){
         Toast.makeText(this,"공모전 메이트 구하기 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, ContestActivity.class);
+        intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
     public void house(View v){
         Toast.makeText(this,"하우스 메이트 구하기 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, HouseActivity.class);
+        intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 }
