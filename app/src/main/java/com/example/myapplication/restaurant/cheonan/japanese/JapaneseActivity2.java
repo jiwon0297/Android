@@ -1,4 +1,4 @@
-package com.example.myapplication.restaurant;
+package com.example.myapplication.restaurant.cheonan.japanese;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -15,14 +15,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".restaurant.RestaurantwhereActivity"></activity>
-        <activity android:name=".restaurant.WesternActivity2" />
-        <activity android:name=".restaurant.RestaurantActivity2" />
-        <activity android:name=".restaurant.KoreanActivity2" />
-        <activity android:name=".restaurant.JapaneseActivity2" />
-        <activity android:name=".restaurant.ChineseActivity2" />
-        <activity android:name=".restaurant.CafeActivity2" />
-        <activity android:name=".restaurant.WesternActivity" />
+        <activity android:name=".restaurant.cheonan.cafe.SlowActivity"></activity>
+        <activity android:name=".restaurant.cheonan.cafe.LikeActivity" />
+        <activity android:name=".restaurant.cheonan.cafe.GravityActivity" />
+        <activity android:name=".restaurant.cheonan.cafe.PeopleActivity" />
+        <activity android:name=".restaurant.cheonan.cafe.GroasterActivity" />
+        <activity android:name=".restaurant.cheonan.cafe.GomeActivity" />
+        <activity android:name=".restaurant.cheonan.cafe.MarisActivity" />
+        <activity android:name=".restaurant.RestaurantwhereActivity" />
+        <activity android:name=".restaurant.cheonan.western.WesternActivity2" />
+        <activity android:name=".restaurant.cheonan.RestaurantActivity2" />
+        <activity android:name=".restaurant.cheonan.korean.KoreanActivity2" />
+        <activity android:name=".restaurant.cheonan.japanese.JapaneseActivity2" />
+        <activity android:name=".restaurant.cheonan.chinese.ChineseActivity2" />
+        <activity android:name=".restaurant.cheonan.cafe.CafeActivity2" />
+        <activity android:name=".restaurant.jukjeon.western.WesternActivity" />
         <activity android:name=".ui.MailActivity" />
         <activity android:name=".ui.ContentActivity" />
         <activity
@@ -40,10 +47,10 @@
             android:name="com.google.android.actions"
             android:resource="@xml/network_security_config" />
 
-        <activity android:name=".restaurant.CafeActivity" />
-        <activity android:name=".restaurant.ChineseActivity" />
-        <activity android:name=".restaurant.JapaneseActivity" />
-        <activity android:name=".restaurant.KoreanActivity" />
+        <activity android:name=".restaurant.jukjeon.cafe.CafeActivity" />
+        <activity android:name=".restaurant.jukjeon.chinese.ChineseActivity" />
+        <activity android:name=".restaurant.jukjeon.japanese.JapaneseActivity" />
+        <activity android:name=".restaurant.jukjeon.korean.KoreanActivity" />
         <activity android:name=".lost.GetActivity" />
         <activity android:name=".lost.FindActivity" />
         <activity android:name=".mate.HouseActivity" />
@@ -66,7 +73,7 @@
             android:name=".mate.MateActivity"
             android:label="메이트" />
         <activity
-            android:name=".restaurant.RestaurantActivity"
+            android:name=".restaurant.jukjeon.RestaurantActivity"
             android:label="식당" />
         <activity
             android:name=".ui.MainActivity"

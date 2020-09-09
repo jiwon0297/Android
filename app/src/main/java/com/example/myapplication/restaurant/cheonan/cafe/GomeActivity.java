@@ -1,10 +1,8 @@
-package com.example.myapplication.restaurant;
+package com.example.myapplication.restaurant.cheonan.cafe;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,15 +13,15 @@ import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class KoreanActivity extends AppCompatActivity {
+public class GomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_korean);
+        setContentView(R.layout.activity_gome);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new KoreanActivity.ItemSelectedListener());
+        bottomNavigationView.setOnNavigationItemSelectedListener(new GomeActivity.ItemSelectedListener());
     }
 
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
@@ -33,47 +31,19 @@ public class KoreanActivity extends AppCompatActivity {
             switch(menuItem.getItemId())
             {
                 case R.id.home:
-                    Intent intent = new Intent(KoreanActivity.this, HomeActivity.class);
+                    Intent intent = new Intent(GomeActivity.this, HomeActivity.class);
                     startActivity(intent);
                     break;
                 case R.id.mail:
-                    Intent intent2 = new Intent(KoreanActivity.this, MailActivity.class);
+                    Intent intent2 = new Intent(GomeActivity.this, MailActivity.class);
                     startActivity(intent2);
                     break;
                 case R.id.mypage:
-                    Intent intent3 = new Intent(KoreanActivity.this, MypageActivity.class);
+                    Intent intent3 = new Intent(GomeActivity.this, MypageActivity.class);
                     startActivity(intent3);
                     break;
             }
             return true;
         }
-    }
-
-
-    public void ilmi(View view) {
-        Toast.makeText(this,"식당 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, RestaurantActivity.class);
-        startActivity(intent);
-    }
-
-    public void son(View view) {
-    }
-
-    public void sangsang(View view) {
-    }
-
-    public void gosim(View view) {
-    }
-
-    public void kimchi(View view) {
-    }
-
-    public void sangol(View view) {
-    }
-
-    public void war(View view) {
-    }
-
-    public void redpipe(View view) {
     }
 }
