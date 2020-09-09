@@ -18,7 +18,6 @@ import android.widget.Toast;
 
 import com.example.myapplication.R;
 import com.example.myapplication.mate.MateWriteActivity;
-import com.example.myapplication.mate.MateWriteData;
 import com.example.myapplication.mate.MateWriteResponse;
 import com.example.myapplication.network.RetrofitClient;
 import com.example.myapplication.network.ServiceApi;
@@ -33,8 +32,11 @@ public class LostWriteActivity extends AppCompatActivity {
     private EditText contentText;
     private TextView typeText;
     private RadioGroup campusgroup;
-    private int id;
-    private RadioButton radioselect;
+    private RadioGroup typeGroup;
+    private int id1;
+    private int id2;
+    private RadioButton radioselect1;
+    private RadioButton radioselect2;
     private ProgressBar mProgressView;
     private ServiceApi service;
 
@@ -48,8 +50,11 @@ public class LostWriteActivity extends AppCompatActivity {
         nicknameText.setText(getIntent().getStringExtra("NICKNAME_EXTRA"));
         contentText = (EditText) findViewById(R.id.content);
         campusgroup = (RadioGroup) findViewById(R.id.campusgroup);
-        id = campusgroup.getCheckedRadioButtonId();
-        radioselect = (RadioButton) findViewById(id);
+        typeGroup = (RadioGroup) findViewById(R.id.typeGroup);
+        id1 = campusgroup.getCheckedRadioButtonId();
+        id2 = typeGroup.getCheckedRadioButtonId();
+        radioselect1 = (RadioButton) findViewById(id1);
+        radioselect2 = (RadioButton) findViewById(id2);
         mProgressView = (ProgressBar) findViewById(R.id.progressBar2);
 
         service = RetrofitClient.getClient().create(ServiceApi.class);
@@ -85,14 +90,14 @@ public class LostWriteActivity extends AppCompatActivity {
     private void attemptWrite() {
         titleText.setError(null);
         contentText.setError(null);
-        typeText.setError(null);
-        radioselect.setError(null);
+        radioselect1.setError(null);
+        radioselect2.setError(null);
 
         String title = titleText.getText().toString();
         String nickname = nicknameText.getText().toString();
         String content = contentText.getText().toString();
-        String type = typeText.getText().toString();
-        String campus = radioselect.getText().toString();
+        String campus = radioselect1.getText().toString();
+        String type = radioselect2.getText().toString();
 
         boolean cancel = false;
         View focusView = null;
@@ -117,28 +122,28 @@ public class LostWriteActivity extends AppCompatActivity {
             cancel = true;
         }
 
-        if (type.isEmpty()) {
-            typeText.setError("카테고리를 선택해주세요.");
-            focusView = typeText;
+        if (campus.isEmpty()) {
+            radioselect1.setError("캠퍼스를 선택해주세요.");
+            focusView = radioselect1;
             cancel = true;
         }
 
         if (campus.isEmpty()) {
-            radioselect.setError("캠퍼스를 선택해주세요.");
-            focusView = radioselect;
+            radioselect2.setError("카테고리를 선택해주세요.");
+            focusView = radioselect2;
             cancel = true;
         }
 
         if (cancel) {
             focusView.requestFocus();
         } else {
-            startLostWrite(new LostWriteData(4, title, nickname, content,"찾아요", campus));
+            startLostWrite(new LostWriteData(4, title, nickname, content, type, campus));
             showProgress(true);
         }
     }
 
     private void startLostWrite(LostWriteData data) {
-        service.lostwrite(data).enqueue(new Callback<LostWriteResponse>() {
+        service.lostwrite(data).enqueue(new Callback<LostWriteResponse>(){
             @Override
             public void onResponse(Call<LostWriteResponse> call, Response<LostWriteResponse> response) {
                 LostWriteResponse result = response.body();
@@ -146,7 +151,7 @@ public class LostWriteActivity extends AppCompatActivity {
                 showProgress(false);
 
                 if (result.getCode() == 200) {
-                    finish();
+
                 }
             }
 
@@ -157,6 +162,7 @@ public class LostWriteActivity extends AppCompatActivity {
                 showProgress(false);
             }
         });
+
     }
 
     private boolean isTitleValid(String title) {
