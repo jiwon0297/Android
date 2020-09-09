@@ -6,6 +6,7 @@ import com.example.myapplication.login.LoginData;
 import com.example.myapplication.login.LoginResponse;
 import com.example.myapplication.lost.LostData;
 import com.example.myapplication.lost.LostResponse;
+import com.example.myapplication.lost.LostWriteData;
 import com.example.myapplication.mate.MateData;
 import com.example.myapplication.mate.MateResponse;
 import com.example.myapplication.mate.MateWriteData;
@@ -41,4 +42,6 @@ public interface ServiceApi {
     @POST("/lost/list")
     Call<LostResponse> lostList(@Body LostData data);
 
+    @POST("/lost/write")
+    Call<LostResponse> lostwrite(@Body LostWriteData data);
 }
