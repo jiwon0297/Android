@@ -24,6 +24,8 @@ import com.example.myapplication.Join.JoinData;
 import com.example.myapplication.Join.JoinResponse;
 import com.example.myapplication.R;
 import com.example.myapplication.login.LoginActivity;
+import com.example.myapplication.login.LoginData;
+import com.example.myapplication.login.LoginResponse;
 import com.example.myapplication.network.RetrofitClient;
 import com.example.myapplication.network.ServiceApi;
 import com.example.myapplication.ui.HomeActivity;
@@ -47,12 +49,9 @@ public class MateWriteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mate_write);
-
-        LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.activity_mypage, null);
-
         titleText = (EditText) findViewById(R.id.title);
-        nicknameText = (TextView)view.findViewById(R.id.nickname);
+        nicknameText = (TextView) findViewById(R.id.nickname);
+        nicknameText.setText(getIntent().getStringExtra("NICKNAME_EXTRA2"));
         contentText = (EditText) findViewById(R.id.content);
         campusgroup = (RadioGroup) findViewById(R.id.campusgroup);
         id = campusgroup.getCheckedRadioButtonId();
@@ -74,6 +73,7 @@ public class MateWriteActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 attemptWrite();
+
             }
         });
 
