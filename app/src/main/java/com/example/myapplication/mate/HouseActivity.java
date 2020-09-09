@@ -33,9 +33,7 @@ public class HouseActivity extends AppCompatActivity {
     private String cate = "하우스";
     private ServiceApi service;
     private ProgressBar mProgressView;
-
-    MyAdapter adapter;
-    ArrayList<MateWriteData> matelist = new ArrayList<>();
+    private ListView listView = null;
 
     private static final String NUMBER_EXTRA = "NUMBER_EXTRA";
     private static final String TITLE_EXTRA = "TITLE_EXTRA";
@@ -55,11 +53,7 @@ public class HouseActivity extends AppCompatActivity {
         service = RetrofitClient.getClient().create(ServiceApi.class);
         attemptList();
 
-        ListView listView = (ListView)findViewById(R.id.listView1);
-        final MyAdapter myAdapter = new MyAdapter(this,matelist);
-
-        listView.setAdapter(myAdapter);
-
+        /*
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id){
@@ -71,6 +65,8 @@ public class HouseActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+         */
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new HouseActivity.ItemSelectedListener());
@@ -121,14 +117,29 @@ public class HouseActivity extends AppCompatActivity {
     }
 
     private void startList(MateData data) {
+        List<MateWriteData> oData = new ArrayList<>();
         service.matelist(data).enqueue(new Callback<MateResponse>() {
             @Override
             public void onResponse(Call<MateResponse> call, Response<MateResponse> response) {
+                MateResponse result = response.body();
                 Toast.makeText(HouseActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                 showProgress(false);
 
                 if(response.body().getCode()==200 && response.body() != null) {
-                    onGetResult(response.body().getResult());
+                    List<MateWriteData> sample = (List<MateWriteData>) result;
+                    /*
+                    for (MateWriteData a :sample ){
+                        MateWriteData oItem = new MateWriteData();
+                        oItem.campus = "[" + a.getCampus() + "]";
+                        oItem.title = a.getTitle();
+                        oItem.nickname = a.getNickname();
+                        oData.add(oItem);
+                    }
+
+                     */
+                    listView = (ListView)findViewById(R.id.listView);
+                    MyAdapter oAdapter = new MyAdapter((ArrayList<MateWriteData>) oData);
+                    listView.setAdapter(oAdapter);
                 }
             }
 
@@ -139,13 +150,6 @@ public class HouseActivity extends AppCompatActivity {
                 showProgress(false);
             }
         });
-    }
-
-    public void onGetResult(List<MateWriteData> list) {
-        adapter.clear();
-        matelist.clear();
-        matelist.addAll(list);
-        adapter.notifyDataSetChanged();
     }
 
     private void showProgress(boolean show) {

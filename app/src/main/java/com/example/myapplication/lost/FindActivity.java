@@ -29,7 +29,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class FindActivity extends AppCompatActivity {
-    private String type = "find";
+    private String type = "찾아요";
     private ServiceApi service;
     private ProgressBar mProgressView;
     private ListView listView = null;
@@ -54,7 +54,8 @@ public class FindActivity extends AppCompatActivity {
     }
 
     private void startList(LostData lostData) {
-        ArrayList<LostData> oData = new ArrayList<>();
+        List<LostData> oData = new ArrayList<>();
+
         service.lostList(lostData).enqueue(new Callback<LostResponse>(){
             @Override
             public void onResponse(Call<LostResponse> call, Response<LostResponse> response) {
@@ -63,8 +64,8 @@ public class FindActivity extends AppCompatActivity {
                 showProgress(false);
 
                 if (result.getCode() == 200) {
-                    List<LostResponse> sample = (List<LostResponse>) result;
-                    for (LostResponse a :sample ){
+                    LostResponse sample = result;
+                    for (LostResponse a :sample.getResult() ){
                         LostData oItem = new LostData();
                         oItem.campus = "[" + a.getCampus() + "]";
                         oItem.title = a.getTitle();
@@ -72,10 +73,8 @@ public class FindActivity extends AppCompatActivity {
                         oData.add(oItem);
                     }
                     listView = (ListView)findViewById(R.id.listView);
-                    ListAdapter oAdapter = new ListAdapter(oData);
+                    ListAdapter oAdapter = new ListAdapter((ArrayList<LostData>) oData);
                     listView.setAdapter(oAdapter);
-
-                    finish();
                 }
             }
 
