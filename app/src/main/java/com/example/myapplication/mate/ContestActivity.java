@@ -42,7 +42,8 @@ public class ContestActivity extends AppCompatActivity {
 
     private static final String NUMBER_EXTRA = "NUMBER_EXTRA";
     private static final String TITLE_EXTRA = "TITLE_EXTRA";
-    private static final String NICKNAME_EXTRA = "NICKNAME_EXTRA";
+    private final String NICKNAME_EXTRA = "NICKNAME_EXTRA";
+    private static final String NICKNAME_EXTRA2 = "NICKNAME_EXTRA";
     private static final String CONTENT_EXTRA = "CONTENT_EXTRA";
     private static final String DATE_EXTRA = "DATE_EXTRA";
     private static final String CATE_EXTRA = "CATE_EXTRA";
@@ -67,7 +68,7 @@ public class ContestActivity extends AppCompatActivity {
             public void onItemClick(AdapterView parent, View v, int position, long id){
                 Intent intent = new Intent(getApplicationContext(), MateViewActivity.class);
                 intent.putExtra("TITLE_EXTRA", matelist.get(position).getTitle());
-                intent.putExtra("NICKNAME_EXTRA", matelist.get(position).getNickname());
+                intent.putExtra("NICKNAME_EXTRA2", matelist.get(position).getNickname());
                 intent.putExtra("DATE_EXTRA", matelist.get(position).getDate());
                 intent.putExtra("CONTENT_EXTRA", matelist.get(position).getContent());
                 startActivity(intent);
@@ -132,14 +133,17 @@ public class ContestActivity extends AppCompatActivity {
             {
                 case R.id.home:
                     Intent intent = new Intent(ContestActivity.this, HomeActivity.class);
+                    intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent);
                     break;
                 case R.id.mail:
                     Intent intent2 = new Intent(ContestActivity.this, MailActivity.class);
+                    intent2.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent2);
                     break;
                 case R.id.mypage:
                     Intent intent3 = new Intent(ContestActivity.this, MypageActivity.class);
+                    intent3.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent3);
                     break;
             }
@@ -153,6 +157,7 @@ public class ContestActivity extends AppCompatActivity {
 
     public void write(View v){
         Intent intent = new Intent(this, MateWriteActivity.class);
+        intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 

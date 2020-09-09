@@ -24,10 +24,10 @@ public class MateViewActivity extends AppCompatActivity {
         TextView date = (TextView) findViewById(R.id.date);
         TextView content = (TextView) findViewById(R.id.content);
 
-        title.setText(intent.getStringExtra("title"));
-        writer.setText(intent.getStringExtra("writer"));
-        date.setText(intent.getStringExtra("date"));
-        content.setText(intent.getStringExtra("content"));
+        title.setText(intent.getStringExtra("TITLE_EXTRA"));
+        writer.setText(intent.getStringExtra("NICKNAME_EXTRA2"));
+        date.setText(intent.getStringExtra("DATE_EXTRA"));
+        content.setText(intent.getStringExtra("CONTENT_EXTRA"));
 
         ImageButton loginButton = (ImageButton) findViewById(R.id.imageButton1);
         loginButton.setOnClickListener(new View.OnClickListener() {
