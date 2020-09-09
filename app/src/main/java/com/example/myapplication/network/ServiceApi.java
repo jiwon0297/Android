@@ -30,7 +30,6 @@ public interface ServiceApi {
     @POST("/mate/list")
     Call<MateResponse> matelist(@Body MateData data);
 
-    @FormUrlEncoded
     @POST("/mate/write")
     Call<MateWriteResponse> matewrite(@Body MateWriteData data);
 
