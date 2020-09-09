@@ -4,10 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.myapplication.R;
 import com.example.myapplication.ui.HomeActivity;
 import com.example.myapplication.ui.MailActivity;
@@ -47,16 +47,24 @@ public class JapaneseActivity2 extends AppCompatActivity {
         }
     }
 
-    public void madang(View view) {
+    public void madang(View view) { Toast.makeText(this,"스시마당",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, MadangActivity.class);
+        startActivity(intent);
     }
 
-    public void story(View view) {
+    public void story(View view) {Toast.makeText(this,"돈까스이야기",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, StoryActivity.class);
+        startActivity(intent);
     }
 
-    public void chon(View view) {
+    public void chon(View view) {Toast.makeText(this,"유생촌",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, ChonActivity.class);
+        startActivity(intent);
     }
 
-    public void maeul(View view) {
+    public void maeul(View view) {Toast.makeText(this,"돈까스마을",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, MaeulActivity.class);
+        startActivity(intent);
     }
 
 }

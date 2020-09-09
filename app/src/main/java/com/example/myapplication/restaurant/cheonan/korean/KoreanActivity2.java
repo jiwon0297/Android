@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -47,19 +48,29 @@ public class KoreanActivity2 extends AppCompatActivity {
         }
     }
 
-    public void cheonhoji(View view) {
+    public void cheonhoji(View view) { Toast.makeText(this,"천호지",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, CheonhojiActivity.class);
+        startActivity(intent);
     }
 
-    public void buan(View view) {
+    public void buan(View view) {Toast.makeText(this,"원조부안집",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, BuanActivity.class);
+        startActivity(intent);
     }
 
-    public void gobgobgob(View view) {
+    public void gobgobgob(View view) {Toast.makeText(this,"은하철도곱곱곱",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, GobgobgobActivity.class);
+        startActivity(intent);
     }
 
-    public void afterschool(View view) {
+    public void afterschool(View view) {Toast.makeText(this,"수업이 끝난 오후",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, AfterschoolActivity.class);
+        startActivity(intent);
     }
 
-    public void bird(View view) {
+    public void bird(View view) {Toast.makeText(this,"참새방",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, BirdActivity.class);
+        startActivity(intent);
     }
 
 }
