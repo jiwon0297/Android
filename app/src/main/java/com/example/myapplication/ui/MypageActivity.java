@@ -6,13 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication.R;
-import com.example.myapplication.login.LoginData;
 import com.example.myapplication.network.ServiceApi;
 import com.example.myapplication.network.RetrofitClient;
 import com.example.myapplication.network.ServiceApi;
@@ -44,9 +42,11 @@ public class MypageActivity extends AppCompatActivity {
         genderText = (TextView) findViewById(R.id.gender);
         service = RetrofitClient.getClient().create(ServiceApi.class);
         mProgressView = (ProgressBar) findViewById(R.id.loading);
-        String gender = nicknameText.getText().toString();
         String email = emailText.getText().toString();
-        startMypage(new MypageData(email));
+        String name = nameText.getText().toString();
+        String nickname = nicknameText.getText().toString();
+        String gender = genderText.getText().toString();
+        startMypage(new MypageData(email,name,nickname,gender));
         showProgress(true);
 
     }
@@ -72,7 +72,11 @@ public class MypageActivity extends AppCompatActivity {
             }
 
         });
+<<<<<<< Updated upstream
         
+=======
+
+>>>>>>> Stashed changes
     }
 
 

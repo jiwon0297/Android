@@ -5,6 +5,7 @@ import com.example.myapplication.Join.JoinResponse;
 import com.example.myapplication.login.LoginData;
 import com.example.myapplication.login.LoginResponse;
 import com.example.myapplication.lost.LostData;
+import com.example.myapplication.lost.LostResponse;
 import com.example.myapplication.mate.MateData;
 import com.example.myapplication.mate.MateResponse;
 import com.example.myapplication.mate.MateWriteData;

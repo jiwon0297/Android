@@ -51,11 +51,13 @@ public class ListAdapter extends BaseAdapter {
             convertView = inflater.inflate(R.layout.listview_item, parent, false);
         }
 
+        TextView oTextCampus = (TextView) convertView.findViewById(R.id.textCampus);
         TextView oTextTitle = (TextView) convertView.findViewById(R.id.textTitle);
-        TextView oTextDate = (TextView) convertView.findViewById(R.id.textDate);
+        TextView oTextId = (TextView) convertView.findViewById(R.id.textId);
 
-        oTextTitle.setText(data.get(position).strTitle);
-        oTextDate.setText(data.get(position).strDate);
+        oTextCampus.setText(data.get(position).campus);
+        oTextTitle.setText(data.get(position).title);
+        oTextId.setText(data.get(position).id);
         return convertView;
 
     }
