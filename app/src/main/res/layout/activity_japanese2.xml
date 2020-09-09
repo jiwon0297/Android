@@ -6,4 +6,119 @@
     android:layout_height="match_parent"
     tools:context=".restaurant.JapaneseActivity2">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="100dp"
+        android:fontFamily="monospace"
+        android:text="일식"
+        android:textSize="100px"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:itemBackground="@android:color/white"
+        app:itemIconTint="#5785CF"
+        app:itemTextColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/menu_bottomnavigationview"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="413dp"
+        android:layout_height="600dp"
+        android:layout_marginBottom="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="1.0">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <Button
+                android:id="@+id/button27"
+                android:layout_width="410dp"
+                android:layout_height="120dp"
+                android:clickable="true"
+                android:fadingEdge="horizontal|vertical"
+                android:fontFamily="monospace"
+                android:onClick="madang"
+                android:text="스시마당"
+                android:textSize="24sp"
+                android:background="#00ff0000"
+                app:layout_constraintBottom_toTopOf="@+id/button29"
+                app:layout_constraintEnd_toStartOf="@+id/button28"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <Button
+                android:id="@+id/button28"
+                android:layout_width="410dp"
+                android:layout_height="120dp"
+                android:clickable="true"
+                android:fadingEdge="horizontal|vertical"
+                android:fontFamily="monospace"
+                android:onClick="story"
+                android:text="돈까스이야기"
+                android:textSize="24sp"
+                android:background="#00ff0000"
+                app:layout_constraintBottom_toTopOf="@+id/button30"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/button27"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <Button
+                android:id="@+id/button29"
+                android:layout_width="410dp"
+                android:layout_height="120dp"
+                android:clickable="true"
+                android:fadingEdge="horizontal|vertical"
+                android:fontFamily="monospace"
+                android:onClick="chon"
+                android:text="유생촌"
+                android:textSize="24sp"
+                android:background="#00ff0000"
+                app:layout_constraintBottom_toTopOf="@+id/button31"
+                app:layout_constraintEnd_toStartOf="@+id/button30"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button27" />
+
+            <Button
+                android:id="@+id/button30"
+                android:layout_width="410dp"
+                android:layout_height="120dp"
+                android:clickable="true"
+                android:fadingEdge="horizontal|vertical"
+                android:fontFamily="monospace"
+                android:onClick="maeul"
+                android:text="돈까스마을"
+                android:textSize="24sp"
+                android:background="#00ff0000"
+                app:layout_constraintBottom_toTopOf="@+id/button31"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/button29"
+                app:layout_constraintTop_toBottomOf="@+id/button28"
+                app:layout_constraintVertical_bias="0.217" />
+
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
