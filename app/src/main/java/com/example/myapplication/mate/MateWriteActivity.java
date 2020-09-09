@@ -52,7 +52,7 @@ public class MateWriteActivity extends AppCompatActivity {
         View view = inflater.inflate(R.layout.activity_mypage, null);
 
         titleText = (EditText) findViewById(R.id.title);
-        nicknameText = (TextView)view.findViewById(R.id.textNickname);
+        nicknameText = (TextView)view.findViewById(R.id.nickname);
         contentText = (EditText) findViewById(R.id.content);
         campusgroup = (RadioGroup) findViewById(R.id.campusgroup);
         id = campusgroup.getCheckedRadioButtonId();

@@ -33,7 +33,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/writer"
+            android:id="@+id/nickname"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:paddingTop="6dip"
