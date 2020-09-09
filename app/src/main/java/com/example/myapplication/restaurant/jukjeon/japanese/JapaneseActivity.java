@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
-import com.example.myapplication.restaurant.jukjeon.RestaurantActivity;
 import com.example.myapplication.ui.HomeActivity;
 import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
@@ -49,22 +48,28 @@ public class JapaneseActivity extends AppCompatActivity {
         }
     }
 
-
-    public void hosikdang(View view) {
-        Toast.makeText(this,"식당 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, RestaurantActivity.class);
+    public void hosikdang(View view) { Toast.makeText(this,"호식당",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, HosikdangActivity.class);
         startActivity(intent);
     }
 
-    public void mama(View view) {
+    public void mama(View view) { Toast.makeText(this,"아리가또맘마",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, MamaActivity.class);
+        startActivity(intent);
     }
 
-    public void umeda(View view) {
+    public void umeda(View view) { Toast.makeText(this,"우메다",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, UmedaActivity.class);
+        startActivity(intent);
     }
 
-    public void kenko(View view) {
+    public void kenko(View view) { Toast.makeText(this,"겐코",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, KenkoActivity.class);
+        startActivity(intent);
     }
 
-    public void misoya(View view) {
+    public void misoya(View view) { Toast.makeText(this,"미소야",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, MisoyaActivity.class);
+        startActivity(intent);
     }
 }
