@@ -23,13 +23,13 @@ public class MateResponse {
 
     @SerializedName("result")
     @Expose
-    private List<Mate> result;
+    private List<MateResponse> result;
 
-    public List<Mate> getResult() {
+    public List<MateResponse> getResult() {
         return result;
     }
 
-    public void setResult(List<Mate> result) {
+    public void setResult(List<MateResponse> result) {
         this.result = result;
     }
 
