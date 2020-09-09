@@ -22,48 +22,50 @@ import com.example.myapplication.ui.MypageActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class FindActivity extends AppCompatActivity {
-    private String type;
     private ServiceApi service;
-    private ProgressBar mProgressView;
     private ListView listView = null;
+    private Call<LostResponse> mLostList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find);
-        mProgressView = (ProgressBar) findViewById(R.id.loading);
 
         service = RetrofitClient.getClient().create(ServiceApi.class);
 
-        attemptList();
+        startList();
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new FindActivity.ItemSelectedListener());
 
     }
 
-    private void attemptList() {
-        String type = "find";
-        startList(new LostData());
-    }
 
     private void startList() {
-        service.lostList(LostData data).enqueue(new Callback<LostResponse>(){
+        Call<LostResponse> call = service.lostList("find");
+
+        call.enqueue(new Callback<LostResponse>() {
             @Override
             public void onResponse(Call<LostResponse> call, Response<LostResponse> response) {
-                LostResponse result = response.body();
-                Toast.makeText(FindActivity.this, result.getMessage(), Toast.LENGTH_SHORT).show();
-                showProgress(false);
-
-                if (result.getCode() == 200) {
-                    finish();
+                LostResponse LData = response.body();
+                ArrayList<LostData> oData = new ArrayList<>();
+                for (LostResponse lost : LData.getResult()){
+                    LostData oItem = new LostData();
+                    oItem.campus = "[" + lost.getCampus() +  "]";
+                    oItem.title = lost.getTitle();
+                    oItem.id = lost.getId();
+                    oData.add(oItem);
                 }
+                listView = (ListView)findViewById(R.id.listView);
+                ListAdapter oAdapter = new ListAdapter(oData);
+                listView.setAdapter(oAdapter);
             }
 
             @Override
@@ -71,23 +73,9 @@ public class FindActivity extends AppCompatActivity {
                 Toast.makeText(FindActivity.this, "분실물 에러 발생", Toast.LENGTH_SHORT).show();
                 Log.e("분실물 에러 발생", t.getMessage());
                 t.printStackTrace();
-                showProgress(false);
             }
         });
-        int nCnt = 0;
-        ArrayList<LostData> oData = new ArrayList<>();
-        for (int i=0;i<1000;i++){
-            LostData oItem = new LostData();
-            oItem.campus = "데이터 " + (i+1);
-            oItem.title = strDate[nCnt++];
-            oItem.id = "";
-            oData.add(oItem);
-            if (nCnt >= strDate.length) nCnt = 0;
 
-        }
-        listView = (ListView)findViewById(R.id.listView);
-        ListAdapter oAdapter = new ListAdapter(oData);
-        listView.setAdapter(oAdapter);
     }
 
 
@@ -112,10 +100,6 @@ public class FindActivity extends AppCompatActivity {
             }
             return true;
         }
-    }
-
-    private void showProgress(boolean show) {
-        mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
     }
 
 }

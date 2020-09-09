@@ -17,4 +17,8 @@ public class LostData {
         this.title = title;
         this.id = id;
     }
+
+    public LostData() {
+
+    }
 }
