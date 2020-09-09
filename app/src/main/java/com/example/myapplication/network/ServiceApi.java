@@ -19,7 +19,7 @@ public interface ServiceApi {
     Call<JoinResponse> userJoin(@Body JoinData data);
 
     @POST("/member/mypage")
-    Call<JoinResponse> userJoin(@Body MypageData data);
+    Call<JoinResponse> userMypage(@Body MypageData data);
 
     @POST("/mate/list")
     Call<JoinResponse> matelist(@Body MateData data);
