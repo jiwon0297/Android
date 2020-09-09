@@ -8,20 +8,14 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.example.myapplication.R;
-import com.example.myapplication.restaurant.jukjeon.RestaurantActivity;
 import com.example.myapplication.ui.HomeActivity;
 import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class CafeActivity extends AppCompatActivity {
-    private BottomNavigationView bottomNavigationView;
-    private FragmentManager fm;
-    private FragmentTransaction ft;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,27 +49,38 @@ public class CafeActivity extends AppCompatActivity {
         }
     }
 
-
-    public void darak(View view) { Toast.makeText(this,"식당 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, RestaurantActivity.class);
+    public void darak(View view) { Toast.makeText(this,"Cafe다락다락방",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, DarakActivity.class);
         startActivity(intent);
     }
 
-    public void witch(View view) {
+    public void witch(View view) {Toast.makeText(this,"위치스아일랜드",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, WitchActivity.class);
+        startActivity(intent);
     }
 
-    public void azit(View view) {
+    public void azit(View view) {Toast.makeText(this,"아지트커피",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, AzitActivity.class);
+        startActivity(intent);
     }
 
-    public void ediya(View view) {
+    public void ediya(View view) {Toast.makeText(this,"이디야커피",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, EdiyaActivity.class);
+        startActivity(intent);
     }
 
-    public void soleil(View view) {
+    public void soleil(View view) {Toast.makeText(this,"위치스아일랜드",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, DarakActivity.class);
+        startActivity(intent);
     }
 
-    public void trianon(View view) {
+    public void trianon(View view) {Toast.makeText(this,"솔레일",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, SoleilActivity.class);
+        startActivity(intent);
     }
 
-    public void creative(View view) {
+    public void creative(View view) {Toast.makeText(this,"cafe trianon",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, TrianonActivity.class);
+        startActivity(intent);
     }
 }

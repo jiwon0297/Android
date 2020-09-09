@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
-import com.example.myapplication.restaurant.jukjeon.RestaurantActivity;
 import com.example.myapplication.ui.HomeActivity;
 import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
@@ -51,30 +50,43 @@ public class KoreanActivity extends AppCompatActivity {
     }
 
 
-    public void ilmi(View view) {
-        Toast.makeText(this,"식당 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, RestaurantActivity.class);
+    public void ilmi(View view) { Toast.makeText(this,"일미닭갈비",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this,IlmiActivity.class);
         startActivity(intent);
     }
 
-    public void son(View view) {
+    public void son(View view) { Toast.makeText(this,"손가네칼국수",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this,SonActivity.class);
+        startActivity(intent);
     }
 
-    public void sangsang(View view) {
+    public void sangsang(View view) { Toast.makeText(this,"엉뚱상상",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this,SangsangActivity.class);
+        startActivity(intent);
     }
 
-    public void gosim(View view) {
+    public void gosim(View view) { Toast.makeText(this,"고래심줄",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this,GosimActivity.class);
+        startActivity(intent);
     }
 
-    public void kimchi(View view) {
+    public void kimchi(View view) { Toast.makeText(this,"선영이네김치짜글이",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this,KimchiActivity.class);
+        startActivity(intent);
     }
 
-    public void sangol(View view) {
+    public void sangol(View view) { Toast.makeText(this,"이모네산골",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this,SangolActivity.class);
+        startActivity(intent);
     }
 
-    public void war(View view) {
+    public void war(View view) { Toast.makeText(this,"맛의 전쟁",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this,WarActivity.class);
+        startActivity(intent);
     }
 
-    public void redpipe(View view) {
+    public void redpipe(View view) { Toast.makeText(this,"빨강파이프",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this,RedpipeActivity.class);
+        startActivity(intent);
     }
 }

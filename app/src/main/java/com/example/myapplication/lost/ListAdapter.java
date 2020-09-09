@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
+import com.example.myapplication.network.ServiceApi;
 
 import java.util.ArrayList;
 
@@ -16,6 +17,8 @@ public class ListAdapter extends BaseAdapter {
 
     LayoutInflater inflater = null;
     private ArrayList<LostData> data = null;
+    private ServiceApi service;
+
     private int nlistCnt=0;
 
     public ListAdapter(ArrayList<LostData> _data){

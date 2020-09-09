@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
-import com.example.myapplication.restaurant.jukjeon.RestaurantActivity;
 import com.example.myapplication.ui.HomeActivity;
 import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
@@ -50,27 +49,38 @@ public class WesternActivity extends AppCompatActivity {
         }
     }
 
-    public void beuradeo(View view) {
-        Toast.makeText(this,"식당 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, RestaurantActivity.class);
+    public void beuradeo(View view) { Toast.makeText(this,"브라더 양식당",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, BeuradeoActivity.class);
         startActivity(intent);
     }
 
-    public void grande(View view) {
+    public void grande(View view) { Toast.makeText(this,"그란데",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, GrandeActivity.class);
+        startActivity(intent);
     }
 
-    public void darin(View view) {
+    public void darin(View view) { Toast.makeText(this,"다린",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, DarinActivity.class);
+        startActivity(intent);
     }
 
-    public void obliq(View view) {
+    public void obliq(View view) { Toast.makeText(this,"오블리끄",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, ObliqActivity.class);
+        startActivity(intent);
     }
 
-    public void bistro(View view) {
+    public void bistro(View view) { Toast.makeText(this,"비스트로 모아이",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, BistroActivity.class);
+        startActivity(intent);
     }
 
-    public void burrito(View view) {
+    public void burrito(View view) { Toast.makeText(this,"부리또 정거장",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, BurritoActivity.class);
+        startActivity(intent);
     }
 
-    public void dosmas(View view) {
+    public void dosmas(View view) { Toast.makeText(this,"도스마스",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, DosmasActivity.class);
+        startActivity(intent);
     }
 }

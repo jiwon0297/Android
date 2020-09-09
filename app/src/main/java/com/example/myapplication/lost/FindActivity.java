@@ -41,14 +41,14 @@ public class FindActivity extends AppCompatActivity {
 
         service = RetrofitClient.getClient().create(ServiceApi.class);
 
-      //  attemptList();
+        attemptList();
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new FindActivity.ItemSelectedListener());
 
     }
 
-/*    private void attemptList() {
+    private void attemptList() {
         String type = "find";
         startList(new LostData());
     }
@@ -89,7 +89,7 @@ public class FindActivity extends AppCompatActivity {
         ListAdapter oAdapter = new ListAdapter(oData);
         listView.setAdapter(oAdapter);
     }
-*/
+
 
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
         @Override
@@ -117,4 +117,5 @@ public class FindActivity extends AppCompatActivity {
     private void showProgress(boolean show) {
         mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
     }
+
 }

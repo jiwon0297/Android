@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
-import com.example.myapplication.restaurant.jukjeon.RestaurantActivity;
 import com.example.myapplication.ui.HomeActivity;
 import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
@@ -52,18 +51,23 @@ public class ChineseActivity extends AppCompatActivity {
     }
 
 
-    public void hongchun(View view) {
-        Toast.makeText(this,"식당 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, RestaurantActivity.class);
+    public void hongchun(View view) { Toast.makeText(this,"홍춘",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, HongchunActivity.class);
         startActivity(intent);
     }
 
-    public void maratang(View view) {
+    public void maratang(View view) { Toast.makeText(this,"천향마라탕",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, MaratangActivity.class);
+        startActivity(intent);
     }
 
-    public void sabu(View view) {
+    public void sabu(View view) { Toast.makeText(this,"사부",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, SabuActivity.class);
+        startActivity(intent);
     }
 
-    public void hongban(View view) {
+    public void hongban(View view) { Toast.makeText(this,"홍콩반점0410",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, HongbanActivity.class);
+        startActivity(intent);
     }
 }
