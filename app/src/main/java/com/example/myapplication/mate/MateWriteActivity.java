@@ -24,7 +24,7 @@ import com.example.myapplication.ui.HomeActivity;
 
 public class MateWriteActivity extends AppCompatActivity {
     private EditText title;
-    private EditText nickname;
+    private TextView nickname;
     private EditText content;
     private TextView cate;
     private RadioGroup campusgroup;
@@ -42,7 +42,7 @@ public class MateWriteActivity extends AppCompatActivity {
         View view = inflater.inflate(R.layout.activity_mypage, null);
 
         title = (EditText) findViewById(R.id.title);
-        nickname = (EditText) findViewById(R.id.mypage.nickname);
+        nickname = (TextView)view.findViewById(R.id.textNickname);
         content = (EditText) findViewById(R.id.content);
         campusgroup = (RadioGroup) findViewById(R.id.campusgroup);
         id = campusgroup.getCheckedRadioButtonId();
