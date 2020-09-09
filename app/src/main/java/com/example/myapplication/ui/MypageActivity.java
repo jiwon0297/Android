@@ -13,7 +13,6 @@ import android.widget.Toast;
 import com.example.myapplication.R;
 import com.example.myapplication.network.ServiceApi;
 import com.example.myapplication.network.RetrofitClient;
-import com.example.myapplication.network.ServiceApi;
 import com.example.myapplication.ui.MypageActivity;
 import com.example.myapplication.ui.MypageResponse;
 import com.example.myapplication.ui.MypageData;
@@ -72,11 +71,6 @@ public class MypageActivity extends AppCompatActivity {
             }
 
         });
-<<<<<<< Updated upstream
-        
-=======
-
->>>>>>> Stashed changes
     }
 
 
