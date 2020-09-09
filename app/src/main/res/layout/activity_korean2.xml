@@ -6,4 +6,122 @@
     android:layout_height="match_parent"
     tools:context=".restaurant.KoreanActivity2">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="100dp"
+        android:fontFamily="monospace"
+        android:text="한식"
+        android:textSize="100px"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:itemBackground="@android:color/white"
+        app:itemIconTint="#5785CF"
+        app:itemTextColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_bottomnavigationview" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="413dp"
+        android:layout_height="550dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button19"
+                android:layout_width="410dp"
+                android:layout_height="120dp"
+                android:background="#00ff0000"
+                android:clickable="true"
+                android:fontFamily="monospace"
+                android:onClick="cheonhoji"
+                android:text="천호지"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteY="91dp" />
+
+            <Button
+                android:id="@+id/button20"
+                android:layout_width="410dp"
+                android:layout_height="120dp"
+                android:background="#00ff0000"
+                android:clickable="true"
+                android:fontFamily="monospace"
+                android:onClick="buan"
+                android:text="원조부안집"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toTopOf="@+id/button24"
+                app:layout_constraintEnd_toStartOf="@+id/button25"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button19" />
+
+            <Button
+                android:id="@+id/button21"
+                android:layout_width="410dp"
+                android:layout_height="120dp"
+                android:background="#00ff0000"
+                android:clickable="true"
+                android:fontFamily="monospace"
+                android:onClick="gobgobgob"
+                android:text="은하철도곱곱곱"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toTopOf="@+id/button26"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/button24"
+                app:layout_constraintTop_toBottomOf="@+id/button25" />
+
+            <Button
+                android:id="@+id/button22"
+                android:layout_width="410dp"
+                android:layout_height="120dp"
+                android:background="#00ff0000"
+                android:clickable="true"
+                android:fontFamily="monospace"
+                android:onClick="afterschool"
+                android:text="수업이끝난오후"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/button19"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <Button
+                android:id="@+id/button23"
+                android:layout_width="410dp"
+                android:layout_height="120dp"
+                android:background="#00ff0000"
+                android:clickable="true"
+                android:fontFamily="monospace"
+                android:onClick="bird"
+                android:text="참새방"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button26" />
+
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
