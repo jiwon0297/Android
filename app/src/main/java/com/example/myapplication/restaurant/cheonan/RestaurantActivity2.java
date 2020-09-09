@@ -1,4 +1,4 @@
-package com.example.myapplication.restaurant;
+package com.example.myapplication.restaurant.cheonan;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
+import com.example.myapplication.restaurant.cheonan.cafe.CafeActivity2;
+import com.example.myapplication.restaurant.cheonan.chinese.ChineseActivity2;
+import com.example.myapplication.restaurant.cheonan.japanese.JapaneseActivity2;
+import com.example.myapplication.restaurant.cheonan.korean.KoreanActivity2;
+import com.example.myapplication.restaurant.cheonan.western.WesternActivity2;
 import com.example.myapplication.ui.HomeActivity;
 import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;

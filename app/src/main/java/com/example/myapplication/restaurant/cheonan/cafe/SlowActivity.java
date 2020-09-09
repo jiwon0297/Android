@@ -1,10 +1,8 @@
-package com.example.myapplication.restaurant;
+package com.example.myapplication.restaurant.cheonan.cafe;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,14 +13,15 @@ import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class JapaneseActivity extends AppCompatActivity {
+public class SlowActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_japanese);
+        setContentView(R.layout.activity_slow);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new JapaneseActivity.ItemSelectedListener());
+        bottomNavigationView.setOnNavigationItemSelectedListener(new SlowActivity.ItemSelectedListener());
     }
 
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
@@ -32,38 +31,19 @@ public class JapaneseActivity extends AppCompatActivity {
             switch(menuItem.getItemId())
             {
                 case R.id.home:
-                    Intent intent = new Intent(JapaneseActivity.this, HomeActivity.class);
+                    Intent intent = new Intent(SlowActivity.this, HomeActivity.class);
                     startActivity(intent);
                     break;
                 case R.id.mail:
-                    Intent intent2 = new Intent(JapaneseActivity.this, MailActivity.class);
+                    Intent intent2 = new Intent(SlowActivity.this, MailActivity.class);
                     startActivity(intent2);
                     break;
                 case R.id.mypage:
-                    Intent intent3 = new Intent(JapaneseActivity.this, MypageActivity.class);
+                    Intent intent3 = new Intent(SlowActivity.this, MypageActivity.class);
                     startActivity(intent3);
                     break;
             }
             return true;
         }
-    }
-
-
-    public void hosikdang(View view) {
-        Toast.makeText(this,"식당 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, RestaurantActivity.class);
-        startActivity(intent);
-    }
-
-    public void mama(View view) {
-    }
-
-    public void umeda(View view) {
-    }
-
-    public void kenko(View view) {
-    }
-
-    public void misoya(View view) {
     }
 }

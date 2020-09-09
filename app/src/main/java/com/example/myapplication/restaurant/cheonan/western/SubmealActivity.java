@@ -1,32 +1,27 @@
-package com.example.myapplication.restaurant;
+package com.example.myapplication.restaurant.cheonan.western;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
-import com.example.myapplication.restaurant.cheonan.RestaurantActivity2;
-import com.example.myapplication.restaurant.jukjeon.RestaurantActivity;
 import com.example.myapplication.ui.HomeActivity;
 import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-
-public class RestaurantwhereActivity extends AppCompatActivity {
+public class SubmealActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_restaurant);
+        setContentView(R.layout.activity_submeal);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new RestaurantwhereActivity.ItemSelectedListener());
+        bottomNavigationView.setOnNavigationItemSelectedListener(new SubmealActivity.ItemSelectedListener());
     }
 
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
@@ -36,31 +31,19 @@ public class RestaurantwhereActivity extends AppCompatActivity {
             switch(menuItem.getItemId())
             {
                 case R.id.home:
-                    Intent intent = new Intent(RestaurantwhereActivity.this, HomeActivity.class);
+                    Intent intent = new Intent(SubmealActivity.this, HomeActivity.class);
                     startActivity(intent);
                     break;
                 case R.id.mail:
-                    Intent intent2 = new Intent(RestaurantwhereActivity.this, MailActivity.class);
+                    Intent intent2 = new Intent(SubmealActivity.this, MailActivity.class);
                     startActivity(intent2);
                     break;
                 case R.id.mypage:
-                    Intent intent3 = new Intent(RestaurantwhereActivity.this, MypageActivity.class);
+                    Intent intent3 = new Intent(SubmealActivity.this, MypageActivity.class);
                     startActivity(intent3);
                     break;
             }
             return true;
         }
-    }
-
-    public void jukjeon(View view) {
-        Toast.makeText(this,"죽전캠퍼스 주변 음식점",Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, RestaurantActivity.class);
-        startActivity(intent);
-    }
-
-    public void cheonan(View view) {
-        Toast.makeText(this,"천안캠퍼스 주변 음식점",Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, RestaurantActivity2.class);
-        startActivity(intent);
     }
 }

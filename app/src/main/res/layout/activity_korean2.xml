@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".restaurant.KoreanActivity2">
+    tools:context=".restaurant.cheonan.korean.KoreanActivity2">
 
     <TextView
         android:id="@+id/textView"
@@ -100,7 +100,7 @@
                 android:clickable="true"
                 android:fontFamily="monospace"
                 android:onClick="afterschool"
-                android:text="수업이끝난오후"
+                android:text="수업이 끝난 오후"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/button19"

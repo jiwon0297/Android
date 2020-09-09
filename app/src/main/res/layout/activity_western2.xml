@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".restaurant.WesternActivity2">
+    tools:context=".restaurant.cheonan.western.WesternActivity2">
 
     <TextView
         android:id="@+id/textView"
@@ -50,15 +50,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
-                android:layout_width="410dp"
-                android:layout_height="120dp"
-                android:clickable="true"
-                android:fontFamily="monospace"
-                android:onClick="mrpizza"
-                android:text="미스터피자"
-                android:background="#00ff0000"
-                android:textSize="20sp" />
 
             <Button
                 android:layout_width="410dp"
