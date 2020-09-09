@@ -35,6 +35,6 @@ public interface ServiceApi {
     Call<MateWriteResponse> matewrite(@Body MateWriteData data);
 
     @POST("/lost/list")
-    Call<JoinResponse> lostList(@Body LostData data);
+    Call<LostResponse> lostList(@Body LostData data);
 
 }
