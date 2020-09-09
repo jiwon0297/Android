@@ -82,7 +82,7 @@
         android:background="#F6F2FF"
         android:clickable="true"
         android:gravity="center"
-        android:onClick="restaurant"
+        android:onClick="restaurantwhere"
         android:text="주변 음식점 찾기"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"

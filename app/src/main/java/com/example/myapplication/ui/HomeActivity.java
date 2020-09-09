@@ -1,18 +1,18 @@
 package com.example.myapplication.ui;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.myapplication.R;
 import com.example.myapplication.lost.LostActivity;
 import com.example.myapplication.mate.MateActivity;
-import com.example.myapplication.R;
-import com.example.myapplication.restaurant.jukjeon.RestaurantActivity;
+import com.example.myapplication.restaurant.RestaurantwhereActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
@@ -61,9 +61,9 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent = new Intent(this, LostActivity.class);
         startActivity(intent);
     }
-    public void restaurant(View v){
+    public void restaurantwhere(View v){
         Toast.makeText(this,"식당 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, RestaurantActivity.class);
+        Intent intent = new Intent(this, RestaurantwhereActivity.class);
         startActivity(intent);
 
     }
