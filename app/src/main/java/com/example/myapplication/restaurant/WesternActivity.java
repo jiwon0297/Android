@@ -67,4 +67,9 @@ public class WesternActivity extends AppCompatActivity {
     public void bistro(View view) {
     }
 
+    public void burrito(View view) {
+    }
+
+    public void dosmas(View view) {
+    }
 }
