@@ -14,6 +14,8 @@ import com.example.myapplication.mate.MateWriteData;
 import com.example.myapplication.mate.MateWriteResponse;
 import com.example.myapplication.ui.MypageData;
 import com.example.myapplication.ui.MypageResponse;
+import com.example.myapplication.ui.EditResponse;
+import com.example.myapplication.ui.EditData;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -33,6 +35,9 @@ public interface ServiceApi {
 
     @POST("/member/mypage")
     Call<MypageResponse> userMypage(@Body MypageData data);
+
+    @POST("/member/edit")
+    Call<EditResponse> userEdit(@Body EditData data);
 
     @POST("/mate/list")
     Call<MateResponse> matelist(@Body MateData data);
