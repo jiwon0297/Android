@@ -1,5 +1,6 @@
 package com.example.myapplication.mate;
 
+import androidx.annotation.IdRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -39,23 +40,23 @@ public class MateWriteActivity extends AppCompatActivity {
     private TextView nicknameText;
     private EditText contentText;
     private TextView cateText;
+    private TextView campustText;
     private RadioGroup campusgroup;
-    private int id;
-    private RadioButton radioselect;
     private ProgressBar mProgressView;
     private ServiceApi service;
+    private final String NICKNAME_EXTRA = "NICKNAME_EXTRA";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mate_write);
         titleText = (EditText) findViewById(R.id.title);
+        campustText = (TextView) findViewById(R.id.campus);
         nicknameText = (TextView) findViewById(R.id.nickname);
         nicknameText.setText(getIntent().getStringExtra("NICKNAME_EXTRA"));
         contentText = (EditText) findViewById(R.id.content);
         campusgroup = (RadioGroup) findViewById(R.id.campusgroup);
-        id = campusgroup.getCheckedRadioButtonId();
-        radioselect = (RadioButton) findViewById(id);
+        campusgroup.setOnCheckedChangeListener(radioGroupButtonChangeListener);
         mProgressView = (ProgressBar) findViewById(R.id.progressBar2);
 
         service = RetrofitClient.getClient().create(ServiceApi.class);
@@ -87,20 +88,30 @@ public class MateWriteActivity extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> parent) {}
         });
-
     }
+
+    RadioGroup.OnCheckedChangeListener radioGroupButtonChangeListener = new RadioGroup.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
+            if(i == R.id.campusjj){
+                campustText.setText("죽전캠");
+            } else if(i == R.id.campusca){
+                campustText.setText("천안캠");
+            }
+        }
+    };
 
     private void attemptWrite() {
         titleText.setError(null);
         contentText.setError(null);
         cateText.setError(null);
-        radioselect.setError(null);
+        campustText.setError(null);
 
         String title = titleText.getText().toString();
         String nickname = nicknameText.getText().toString();
         String content = contentText.getText().toString();
         String cate = cateText.getText().toString();
-        String campus = radioselect.getText().toString();
+        String campus = campustText.getText().toString();
 
         boolean cancel = false;
         View focusView = null;
@@ -111,7 +122,7 @@ public class MateWriteActivity extends AppCompatActivity {
             focusView = titleText;
             cancel = true;
         } else if (!isTitleValid(title)) {
-            titleText.setError("6자 이상의 제목을 입력해주세요.");
+            titleText.setError("4자 이상의 제목을 입력해주세요.");
             focusView = titleText;
             cancel = true;
         }
@@ -136,8 +147,8 @@ public class MateWriteActivity extends AppCompatActivity {
         }
 
         if (campus.isEmpty()) {
-            radioselect.setError("캠퍼스를 선택해주세요.");
-            focusView = radioselect;
+            campustText.setError("캠퍼스를 선택해주세요.");
+            focusView = campusgroup;
             cancel = true;
         }
 
@@ -157,8 +168,24 @@ public class MateWriteActivity extends AppCompatActivity {
                 Toast.makeText(MateWriteActivity.this, result.getMessage(), Toast.LENGTH_SHORT).show();
                 showProgress(false);
 
-                if (result.getCode() == 200) {
-
+                if(result.getCode() == 200){
+                    if(cateText.getText().toString() == "혼밥"){
+                        Intent intent = new Intent(MateWriteActivity.this, AloneActivity.class);
+                        intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
+                        startActivity(intent);
+                    } else if(cateText.getText().toString() == "공모전"){
+                        Intent intent = new Intent(MateWriteActivity.this, ContestActivity.class);
+                        intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
+                        startActivity(intent);
+                    } else if(cateText.getText().toString() == "스터디"){
+                        Intent intent = new Intent(MateWriteActivity.this, StudyActivity.class);
+                        intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
+                        startActivity(intent);
+                    } else if(cateText.getText().toString() == "하우스"){
+                        Intent intent = new Intent(MateWriteActivity.this, HouseActivity.class);
+                        intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
+                        startActivity(intent);
+                    }
                 }
             }
 
@@ -172,7 +199,7 @@ public class MateWriteActivity extends AppCompatActivity {
     }
 
     private boolean isTitleValid(String title) {
-        return title.length()>=6;
+        return title.length()>=4;
     }
 
     private boolean isContentValid(String content) {
