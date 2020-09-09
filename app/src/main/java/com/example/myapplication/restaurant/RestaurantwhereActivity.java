@@ -15,12 +15,13 @@ import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class restaurantwhere extends AppCompatActivity {
+
+public class RestaurantwhereActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_restaurantwhere);
+        setContentView(R.layout.activity_restaurant);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new RestaurantwhereActivity.ItemSelectedListener());

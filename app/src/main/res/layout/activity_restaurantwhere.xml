@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".restaurant.restaurantwhere">
+    tools:context=".restaurant.RestaurantwhereActivity">
 
     <TextView
         android:id="@+id/textView7"
@@ -75,6 +75,5 @@
             android:textColorHighlight="#302F09"
             android:textSize="35dp"/>
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
