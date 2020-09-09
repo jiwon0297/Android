@@ -21,6 +21,9 @@ public class WesternActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_western);
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new WesternActivity.ItemSelectedListener());
     }
 
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
