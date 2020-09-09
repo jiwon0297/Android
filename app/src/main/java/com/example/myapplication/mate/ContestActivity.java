@@ -33,7 +33,7 @@ import retrofit2.Response;
 
 
 public class ContestActivity extends AppCompatActivity {
-    private String cate = "혼밥";
+    private String cate = "공모전";
     private ServiceApi service;
     private ProgressBar mProgressView;
     private ListView listView = null;

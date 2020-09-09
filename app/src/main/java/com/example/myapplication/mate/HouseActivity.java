@@ -30,7 +30,7 @@ import retrofit2.Response;
 
 
 public class HouseActivity extends AppCompatActivity {
-    private String cate = "혼밥";
+    private String cate = "하우스";
     private ServiceApi service;
     private ProgressBar mProgressView;
     private ListView listView = null;
