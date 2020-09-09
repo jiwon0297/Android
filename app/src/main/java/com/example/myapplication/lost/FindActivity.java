@@ -75,8 +75,6 @@ public class FindActivity extends AppCompatActivity {
                     listView = (ListView)findViewById(R.id.listView);
                     ListAdapter oAdapter = new ListAdapter((ArrayList<LostData>) oData);
                     listView.setAdapter(oAdapter);
-
-                    finish();
                 }
             }
 

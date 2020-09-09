@@ -127,6 +127,7 @@ public class StudyActivity extends AppCompatActivity {
 
                 if(response.body().getCode()==200 && response.body() != null) {
                     List<MateWriteData> sample = (List<MateWriteData>) result;
+                    /*
                     for (MateWriteData a :sample ){
                         MateWriteData oItem = new MateWriteData();
                         oItem.campus = "[" + a.getCampus() + "]";
@@ -134,6 +135,8 @@ public class StudyActivity extends AppCompatActivity {
                         oItem.nickname = a.getNickname();
                         oData.add(oItem);
                     }
+
+                     */
                     listView = (ListView)findViewById(R.id.listView);
                     MyAdapter oAdapter = new MyAdapter((ArrayList<MateWriteData>) oData);
                     listView.setAdapter(oAdapter);
