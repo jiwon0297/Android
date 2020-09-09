@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".restaurant.CafeActivity2">
+    tools:context=".restaurant.cheonan.cafe.CafeActivity2">
 
     <TextView
         android:id="@+id/textView"
@@ -110,7 +110,7 @@
                 android:clickable="true"
                 android:fadingEdge="horizontal|vertical"
                 android:fontFamily="monospace"
-                android:onClick="giro"
+                android:onClick="groaster"
                 android:text="지로스터"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/button13"
