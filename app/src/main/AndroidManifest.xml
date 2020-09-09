@@ -15,7 +15,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".restaurant.WesternActivity"></activity>
+        <activity android:name=".restaurant.WesternActivity2"></activity>
+        <activity android:name=".restaurant.RestaurantActivity2" />
+        <activity android:name=".restaurant.KoreanActivity2" />
+        <activity android:name=".restaurant.JapaneseActivity2" />
+        <activity android:name=".restaurant.ChineseActivity2" />
+        <activity android:name=".restaurant.CafeActivity2" />
+        <activity android:name=".restaurant.restaurantwhere" />
+        <activity android:name=".restaurant.WesternActivity" />
         <activity android:name=".ui.MailActivity" />
         <activity android:name=".ui.ContentActivity" />
         <activity

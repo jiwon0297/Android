@@ -15,4 +15,8 @@ public interface ServiceApi {
 
     @POST("/member/join")
     Call<JoinResponse> userJoin(@Body JoinData data);
+
+    @POST("/member/mypage")
+    Call<JoinResponse> userJoin(@Body MypageData data);
+
 }
