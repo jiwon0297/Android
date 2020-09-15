@@ -34,7 +34,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="470dp"
+        android:layout_width="410dp"
         android:layout_height="200dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="100dp"
@@ -80,7 +80,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="470dp"
+        android:layout_width="410dp"
         android:layout_height="50dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="1dp"
