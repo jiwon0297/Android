@@ -11,12 +11,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="100dp"
         android:fontFamily="@font/kyobo"
         android:text="캠퍼스 선택"
         android:textSize="55dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,26 +24,19 @@
         android:id="@+id/bottomNavi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="194dp"
         app:itemBackground="@android:color/white"
         app:itemIconTint="#5785CF"
         app:itemTextColor="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/menu_bottomnavigationview" />
+        app:menu="@menu/menu_bottomnavigationview"
+        tools:layout_editor_absoluteY="675dp" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="410dp"
         android:layout_height="200dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginBottom="210dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7">
+        tools:layout_editor_absoluteX="2dp"
+        tools:layout_editor_absoluteY="244dp">
 
         <ImageButton
             android:id="@+id/imageButton11"
@@ -82,15 +74,9 @@
     <LinearLayout
         android:layout_width="410dp"
         android:layout_height="50dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="200dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="435dp">
 
         <Button
             android:id="@+id/button34"
