@@ -53,7 +53,19 @@ public class GetActivity extends AppCompatActivity {
     }
 
     private void attemptList() {
-        startList(new LostData(type));
+        boolean cancel = false;
+        View focusView = null;
+
+        if (type.isEmpty()) {
+            cancel = true;
+        }
+
+        if (cancel) {
+            focusView.requestFocus();
+        } else {
+            startList(new LostData(type));
+            showProgress(true);
+        }
     }
 
     private void startList(LostData lostData) {
@@ -134,4 +146,11 @@ public class GetActivity extends AppCompatActivity {
     private void showProgress(boolean show) {
         mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
     }
+
+    public void write(View v){
+        Intent intent = new Intent(this, LostWriteActivity.class);
+        intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
+        startActivity(intent);
+    }
+
 }
