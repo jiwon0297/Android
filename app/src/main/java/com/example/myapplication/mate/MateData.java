@@ -4,9 +4,6 @@ import com.google.gson.annotations.SerializedName;
 
 
 public class MateData {
-    @SerializedName("number")
-    int number;
-
     @SerializedName("campus")
     String campus;
 
@@ -19,6 +16,9 @@ public class MateData {
     @SerializedName("date")
     String date;
 
+    @SerializedName("number")
+    int number;
+
     @SerializedName("cate")
     private String cate;
 
@@ -29,7 +29,8 @@ public class MateData {
         this.cate = cate;
     }
 
-    public MateData() {
+    public MateData(){
 
     }
+
 }

@@ -169,19 +169,19 @@ public class MateWriteActivity extends AppCompatActivity {
                 showProgress(false);
 
                 if(result.getCode() == 200){
-                    if(cateText.getText().toString() == "혼밥"){
+                    if(cateText.getText().toString().equals("혼밥")){
                         Intent intent = new Intent(MateWriteActivity.this, AloneActivity.class);
                         intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
                         MateWriteActivity.this.startActivity(intent);
-                    } else if(cateText.getText().toString() == "공모전"){
+                    } else if(cateText.getText().toString().equals("공모전")){
                         Intent intent = new Intent(MateWriteActivity.this, ContestActivity.class);
                         intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
                         MateWriteActivity.this.startActivity(intent);
-                    } else if(cateText.getText().toString() == "스터디"){
+                    } else if(cateText.getText().toString().equals("스터디")){
                         Intent intent = new Intent(MateWriteActivity.this, StudyActivity.class);
                         intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
                         MateWriteActivity.this.startActivity(intent);
-                    } else if(cateText.getText().toString() == "하우스"){
+                    } else if(cateText.getText().toString().equals("하우스")){
                         Intent intent = new Intent(MateWriteActivity.this, HouseActivity.class);
                         intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
                         MateWriteActivity.this.startActivity(intent);

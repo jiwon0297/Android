@@ -63,7 +63,7 @@ public class MateViewActivity extends AppCompatActivity {
                 String writer = getIntent().getStringExtra("NICKNAME_EXTRA2");
                 String user = getIntent().getStringExtra("NICKNAME_EXTRA");
                 if(writer.equals(user)){
-                    Intent intent = new Intent(MateViewActivity.this, AloneActivity.class);
+                    Intent intent = new Intent(MateViewActivity.this, MateEditActivity.class);
                     intent.putExtra("NUMBER_EXTRA", title.getText().toString());
                     intent.putExtra("TITLE_EXTRA", title.getText().toString());
                     intent.putExtra("CONTENT_EXTRA", content.getText().toString());
@@ -87,22 +87,35 @@ public class MateViewActivity extends AppCompatActivity {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                new AlertDialog.Builder(MateViewActivity.this)
-                        .setTitle("글 삭제 여부")
-                        .setMessage("정말 삭제하시겠습니까?")
-                        .setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which){
-                                int number = getIntent().getIntExtra("NUMBER_EXTRA",1);
-                                startDelete(new MateDeleteData(number));
-                                showProgress(true);
-                            }
-                        })
-                        .setNegativeButton("취소", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which){
-                                dialog.cancel();
-                            }
-                        })
-                        .show();
+                String writer = getIntent().getStringExtra("NICKNAME_EXTRA2");
+                String user = getIntent().getStringExtra("NICKNAME_EXTRA");
+                if(writer.equals(user)){
+                    new AlertDialog.Builder(MateViewActivity.this)
+                            .setTitle("글 삭제 여부")
+                            .setMessage("정말 삭제하시겠습니까?")
+                            .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which){
+                                    int number = getIntent().getIntExtra("NUMBER_EXTRA",1);
+                                    startDelete(new MateDeleteData(number));
+                                    showProgress(true);
+                                }
+                            })
+                            .setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which){
+                                    dialog.cancel();
+                                }
+                            })
+                            .show();
+                } else {
+                    new AlertDialog.Builder(MateViewActivity.this)
+                            .setMessage("삭제 권한이 없습니다.")
+                            .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which){
+                                    dialog.cancel();
+                                }
+                            })
+                            .show();
+                }
             }
         });
     }

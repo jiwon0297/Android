@@ -60,7 +60,7 @@ public class MyAdapter extends BaseAdapter {
         TextView oTextDate = (TextView) convertView.findViewById(R.id.textDate);
         TextView oTextContent = (TextView) convertView.findViewById(R.id.textContent);
 
-        oTextNumber.setText(sample.get(position).number);
+        oTextNumber.setText(String.valueOf(sample.get(position).number));
         oTextCampus.setText(sample.get(position).campus);
         oTextTitle.setText(sample.get(position).title);
         oTextNickname.setText(sample.get(position).nickname);
