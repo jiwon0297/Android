@@ -63,7 +63,7 @@ public class ListAdapter extends BaseAdapter {
 
         oTextCampus.setText(data.get(position).campus);
         oTextTitle.setText(data.get(position).title);
-        oTextId.setText(data.get(position).id);
+        oTextId.setText(data.get(position).nickname);
         oTextNumber.setText(data.get(position).number);
         oTextContent.setText(data.get(position).content);
         oTextType.setText(data.get(position).type);
