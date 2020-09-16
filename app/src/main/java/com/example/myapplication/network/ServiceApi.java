@@ -16,6 +16,10 @@ import com.example.myapplication.mate.MateEditResponse;
 import com.example.myapplication.mate.MateResponse;
 import com.example.myapplication.mate.MateWriteData;
 import com.example.myapplication.mate.MateWriteResponse;
+import com.example.myapplication.ui.MyLostData;
+import com.example.myapplication.ui.MyLostResponse;
+import com.example.myapplication.ui.MyMateData;
+import com.example.myapplication.ui.MyMateResponse;
 import com.example.myapplication.ui.MypageData;
 import com.example.myapplication.ui.MypageResponse;
 import com.example.myapplication.ui.EditResponse;
@@ -42,6 +46,11 @@ public interface ServiceApi {
 
     @POST("/member/edit")
     Call<EditResponse> userEdit(@Body EditData data);
+
+    @POST("/member/matelist")
+    Call<MyMateResponse> userMatelist(@Body MyMateData data);
+    @POST("/member/lostlist")
+    Call<MyLostResponse> userLostlist(@Body MyLostData data);
 
     @POST("/mate/list")
     Call<MateResponse> matelist(@Body MateData data);
