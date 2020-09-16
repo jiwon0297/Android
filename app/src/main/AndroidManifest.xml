@@ -19,12 +19,10 @@
             android:name=".ui.ContentActivity"
             android:label="@string/title_activity_content"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-=======
-        <meta-data
-            android:name="com.google.android.actions"
-            android:resource="@xml/actions" />
 
->>>>>>> 5f23d10138b7920d696c7e9ee490cc20ca306ccf
+
+
+
         <activity android:name=".lost.LostEditActivity" />
         <activity android:name=".mate.MateEditActivity" />
         <activity android:name=".restaurant.jukjeon.western.DosmasActivity" />
