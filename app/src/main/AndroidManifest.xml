@@ -24,7 +24,6 @@
         <meta-data
             android:name="com.google.android.actions" />
 
->>>>>>> 5f23d10138b7920d696c7e9ee490cc20ca306ccf
         <activity android:name=".lost.LostEditActivity" />
         <activity android:name=".mate.MateEditActivity" />
         <activity android:name=".restaurant.jukjeon.western.DosmasActivity" />
