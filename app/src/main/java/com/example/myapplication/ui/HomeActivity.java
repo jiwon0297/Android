@@ -28,15 +28,15 @@ public class HomeActivity extends AppCompatActivity {
 
         Button mate = (Button) findViewById(R.id.textView2);
         Drawable alpha1 = mate.getBackground();
-        alpha1.setAlpha(50);
+        alpha1.setAlpha(180);
 
         Button lost = (Button) findViewById(R.id.textView3);
         Drawable alpha2 = lost.getBackground();
-        alpha2.setAlpha(50);
+        alpha2.setAlpha(180);
 
         Button restaurant = (Button) findViewById(R.id.textView5);
         Drawable alpha3 = restaurant.getBackground();
-        alpha3.setAlpha(50);
+        alpha3.setAlpha(180);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
