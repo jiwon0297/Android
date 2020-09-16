@@ -90,12 +90,13 @@ public class AloneActivity extends AppCompatActivity {
                     MateResponse sample = result;
                     for (MateResponse a :sample.getResult() ){
                         MateData oItem = new MateData();
-                        oItem.campus = "[" + a.getCampus() + "]";
+                        oItem.campus = a.getCampus();
                         oItem.title = a.getTitle();
                         oItem.nickname = a.getNickname();
                         oItem.date = a.getDate();
                         oItem.content = a.getContent();
                         oItem.number = a.getNumber();
+                        oItem.cate = a.getCate();
                         oData.add(oItem);
                     }
                     listView = (ListView)findViewById(R.id.listView1);
@@ -106,11 +107,13 @@ public class AloneActivity extends AppCompatActivity {
                         @Override
                         public void onItemClick(AdapterView parent, View v, int position, long id){
                             Intent intent = new Intent(getApplicationContext(), MateViewActivity.class);
+                            intent.putExtra("CATE_EXTRA", oData.get(position).cate);
                             intent.putExtra("NUMBER_EXTRA", oData.get(position).number);
                             intent.putExtra("TITLE_EXTRA", oData.get(position).title);
                             intent.putExtra("NICKNAME_EXTRA2", oData.get(position).nickname);
                             intent.putExtra("DATE_EXTRA", oData.get(position).date);
                             intent.putExtra("CONTENT_EXTRA", oData.get(position).content);
+                            intent.putExtra("CAMPUS_EXTRA", oData.get(position).campus);
                             intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
                             startActivity(intent);
                         }

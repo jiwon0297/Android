@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -31,6 +33,8 @@ public class MateEditActivity extends AppCompatActivity {
     private TextView cateText;
     private TextView campusText;
     private RadioGroup campusgroup;
+    private RadioButton jj;
+    private RadioButton ca;
     private ProgressBar mProgressView;
     private ServiceApi service;
     private final String NICKNAME_EXTRA = "NICKNAME_EXTRA";
@@ -44,6 +48,15 @@ public class MateEditActivity extends AppCompatActivity {
         titleText.setText(getIntent().getStringExtra("TITLE_EXTRA"));
         campusText = (TextView) findViewById(R.id.campus);
         campusText.setText(getIntent().getStringExtra("CAMPUS_EXTRA"));
+
+        jj = (RadioButton) findViewById(R.id.campusjj);
+        ca = (RadioButton) findViewById(R.id.campusca);
+
+        if(campusText.getText().toString().equals("죽전캠")){
+            jj.setChecked(true);
+        } else if(campusText.getText().toString().equals("천안캠")){
+            ca.setChecked(true);
+        }
         contentText = (EditText) findViewById(R.id.content);
         contentText.setText(getIntent().getStringExtra("CONTENT_EXTRA"));
         campusgroup = (RadioGroup) findViewById(R.id.campusgroup);
@@ -69,6 +82,17 @@ public class MateEditActivity extends AppCompatActivity {
         });
 
         Spinner s = (Spinner)findViewById(R.id.spinner);
+
+        if(getIntent().getStringExtra("CATE_EXTRA").equals("공모전")){
+            s.setSelection(2);
+        } else if(getIntent().getStringExtra("CATE_EXTRA").equals("스터디")){
+            s.setSelection(1);
+        } else if(getIntent().getStringExtra("CATE_EXTRA").equals("하우스")){
+            s.setSelection(3);
+        } else {
+            s.setSelection(0);
+        }
+
         s.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
