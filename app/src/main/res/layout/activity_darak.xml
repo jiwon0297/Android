@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".restaurant.jukjeon.cafe.DarakActivity">
 
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/kyobo"
+        android:text="cafe다락다락방"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavi"
         android:layout_width="match_parent"
@@ -14,7 +26,184 @@
         app:itemIconTint="#5785CF"
         app:itemTextColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/menu_bottomnavigationview"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_bottomnavigationview" />
 
+    <LinearLayout
+        android:layout_width="380dp"
+        android:layout_height="500dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="100dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView19">
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/kyobo"
+            android:text="주소"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/kyobo"
+            android:text="경기 용인시 수지구 죽전로 152-1 단대프라자 1\n"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/kyobo"
+            android:text="영업시간"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/kyobo"
+            android:text="평일 10:30 - 24:00\n주말 13:00 - 23:00\n시험기간 24시간\n"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/kyobo"
+            android:text="이용요금"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/kyobo"
+            android:text="1시간+기본음료:3,500원\n2시간+기본음료:4,500원\n3시간+기본음료:5,500원\n5시간+기본음료:7,000원\n"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="기본음료 외 추가요금"
+            android:textSize="25dp"
+            android:fontFamily="@font/kyobo"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/kyobo"
+            android:textSize="20dp"
+            android:text="기본음료:아메리카노,아이스티(복숭아,레몬,석류)\n" />
+
+        <TextView
+            android:id="@+id/textView29"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/kyobo"
+            android:textSize="20dp"
+            android:text="Coffee" />
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/kyobo"
+            android:textSize="20dp"
+            android:text="카페라떼 +500원\n카페모카 +1,000원\n 민트모카 +1,000원\n바닐라라떼 +1,000원\n카라멜마끼아또 +1,000원\n" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/kyobo"
+            android:textSize="20dp"
+            android:text="Non Coffee" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/kyobo"
+            android:textSize="20dp"
+            android:text="초코라떼 +1,000원\그린티라떼 +1,000원\n민트초코라떼 +1,000원\n토피넛라뗴 +1,000원\n홍차라뗴 +1,000원\n" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/kyobo"
+            android:textSize="20dp"
+            android:text="Tea/Juice" />
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/kyobo"
+            android:textSize="20dp"
+            android:text="허브차(캐모마일,페퍼민트,녹차) +500원\n유자차 +500원\n리얼바나나 +1,000원\n딸기바나나 +1,300원\n오늘의 과일 +\n" />
+
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/kyobo"
+            android:textSize="20dp"
+            android:text="Ice blended/Smoothie" />
+
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/kyobo"
+            android:textSize="20dp"
+            android:text="다크모카프라페 +1,300원\n자바칩프라페 +1,300\n민트초코프라페 +1,300원\n그린티프라페 +1,300원\n코코넛스무디 커피 +1,500원\n플레인요거트스무디 1,300원\n딸기요거트스무디 1,300원\n블루베리요거트스무디 +1,300원\n바닐라밀크쉐이크 +1,300원\n오레오밀크쉐이크 +1,500원\n" />
+
+        <TextView
+            android:id="@+id/textView26"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/kyobo"
+            android:textSize="20dp"
+            android:text="Soda/Beer" />
+
+        <TextView
+            android:id="@+id/textView27"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/kyobo"
+            android:textSize="20dp"
+            android:text="탄산음료(콜라,사이다,웰치스) +500원\n핫식스 +500원\n산펠레그리노 +1,000원\n병맥주(카스,하이트,카프리,버드와이저) +1,500원" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </ScrollView>
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
