@@ -19,7 +19,7 @@ public class LostData {
     String content;
 
     @SerializedName("number")
-    String number;
+    int number;
 
     public LostData(String campus, String title, String nickname) {
         this.campus = campus;

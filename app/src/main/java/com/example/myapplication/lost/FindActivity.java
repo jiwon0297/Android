@@ -88,6 +88,9 @@ public class FindActivity extends AppCompatActivity {
                         oItem.campus = "[" + a.getCampus() + "]";
                         oItem.title = a.getTitle();
                         oItem.nickname = a.getNickname();
+                        oItem.number = a.getNumber();
+                        oItem.content = a.getContent();
+                        oItem.type = a.getType();
                         oData.add(oItem);
                     }
                     listView = (ListView)findViewById(R.id.listView);
