@@ -128,8 +128,6 @@ public class MateEditActivity extends AppCompatActivity {
             cancel = true;
         }
 
-
-        // 닉네임의 유효성 검사
         if (cate.isEmpty()) {
             cateText.setError("카테고리를 선택해주세요.");
             focusView = cateText;
@@ -151,7 +149,7 @@ public class MateEditActivity extends AppCompatActivity {
     }
 
     private void startMateEdit(MateEditData data) {
-        service.matededit(data).enqueue(new Callback<MateEditResponse>() {
+        service.mateedit(data).enqueue(new Callback<MateEditResponse>() {
             @Override
             public void onResponse(Call<MateEditResponse> call, Response<MateEditResponse> response) {
                 MateEditResponse result = response.body();
