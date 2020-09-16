@@ -13,14 +13,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.myapplication.Join.JoinData;
-import com.example.myapplication.login.LoginActivity;
-import com.example.myapplication.login.LoginData;
-import com.example.myapplication.login.LoginResponse;
-import com.example.myapplication.ui.EditResponse;
-import com.example.myapplication.ui.EditData;
 
 import com.example.myapplication.R;
+import com.example.myapplication.login.LoginActivity;
 import com.example.myapplication.network.ServiceApi;
 import com.example.myapplication.network.RetrofitClient;
 
@@ -30,9 +25,9 @@ import retrofit2.Response;
 import com.example.myapplication.R;
 
 public class UserActivity extends AppCompatActivity {
-
+    private final String NICKNAME_EXTRA = "NICKNAME_EXTRA";
     private TextView emailText;
-    private EditText nicknameText;
+    private TextView nicknameText;
     private TextView nameText;
     private EditText passwordText;
     private TextView genderText;
@@ -47,7 +42,7 @@ public class UserActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user);
 
         emailText = (TextView) findViewById(R.id.email);
-        nicknameText = (EditText) findViewById(R.id.nickname);
+        nicknameText = (TextView) findViewById(R.id.nickname);
         nameText = (TextView) findViewById(R.id.name);
         passwordText = (EditText) findViewById(R.id.password);
         passwordconfirmText = (EditText) findViewById(R.id.passwordconfirm);
@@ -78,7 +73,6 @@ public class UserActivity extends AppCompatActivity {
         });
     }
     private void attemptJoin() {
-        nicknameText.setError(null);
         passwordText.setError(null);
         passwordconfirmText.setError(null);
 
@@ -104,21 +98,14 @@ public class UserActivity extends AppCompatActivity {
             cancel = true;
         }
 
-        // 닉네임의 유효성 검사
-        if (nickname.isEmpty()) {
-            nicknameText.setError("닉네임을 입력해주세요.");
-            focusView = nicknameText;
-            cancel = true;
-        }
 
         if (cancel) {
             focusView.requestFocus();
         } else {
-            /*update 들어갈자리, login 참고하기*/
+            editMypage(new EditData(password,nickname));
             showProgress(true);
         }
     }
-
 
     private void startMypage(MypageData data) {
         service.userMypage(data).enqueue(new Callback<MypageResponse>() {
@@ -130,22 +117,44 @@ public class UserActivity extends AppCompatActivity {
 
                 if (result.getCode() == 200) {
                     emailText.setText(result.getEmail());
+                    nicknameText.setText(result.getNickname());
                     nameText.setText(result.getName());
                     genderText.setText(result.getGender());
                     passwordText.setText(result.getPassword());
                 }
             }
-
             @Override
             public void onFailure(Call<MypageResponse> call, Throwable t) {
                 Toast.makeText(UserActivity.this, "내 정보 수정하기 ", Toast.LENGTH_SHORT).show();
                 Log.e("내 정보 수정하기", t.getMessage());
                 showProgress(false);
             }
-
         });
     }
 
+    private void editMypage(EditData data) {
+        service.userEdit(data).enqueue(new Callback<EditResponse>() {
+            @Override
+            public void onResponse(Call<EditResponse> call, Response<EditResponse> response) {
+                EditResponse result = response.body();
+                Toast.makeText(UserActivity.this, result.getMessage(), Toast.LENGTH_SHORT).show();
+                showProgress(false);
+
+                if(result.getCode()==200){
+                    Intent loginIntent = new Intent(UserActivity.this, LoginActivity.class);
+                    loginIntent.putExtra(NICKNAME_EXTRA, result.getNickname());
+                    UserActivity.this.startActivity(loginIntent);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<EditResponse> call, Throwable t) {
+                Toast.makeText(UserActivity.this, "비밀번호 수정 실패", Toast.LENGTH_SHORT).show();
+                Log.e("비밀번호 수정 실패", t.getMessage());
+                showProgress(false);
+            }
+        });
+    }
     private void showProgress(boolean show) {
         mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
     }

@@ -203,13 +203,14 @@
         android:layout_weight="1"
         android:clickable="true"
         android:onClick="user"
-        android:text="회원정보"
+        android:text="비밀번호 수정"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         />
+
     <Button
         android:id="@+id/Logout"
         android:layout_width="wrap_content"
@@ -221,11 +222,10 @@
         android:onClick="logout"
         android:text="로그아웃"
         android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        />
+        app:layout_constraintHorizontal_bias="0.357"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <FrameLayout
         android:id="@+id/Main_Frame"
