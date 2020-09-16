@@ -101,5 +101,48 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/date" />
 
+    <Button
+        android:id="@+id/edit"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="84dp"
+        android:background="#FFA0E0E8"
+        android:gravity="center"
+        android:text="수정"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/content"
+        app:layout_constraintVertical_bias="0.36" />
+
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:background="#FFA0E0E8"
+        android:gravity="center"
+        android:text="삭제"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.336"
+        app:layout_constraintStart_toEndOf="@+id/edit"
+        app:layout_constraintTop_toBottomOf="@+id/content"
+        app:layout_constraintVertical_bias="0.36" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="86dp"
+        android:layout_height="83dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

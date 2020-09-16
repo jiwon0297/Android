@@ -35,14 +35,7 @@ public class StudyActivity extends AppCompatActivity {
     private ProgressBar mProgressView;
     private ListView listView = null;
 
-    private static final String NUMBER_EXTRA = "NUMBER_EXTRA";
-    private static final String TITLE_EXTRA = "TITLE_EXTRA";
-    private static final String NICKNAME_EXTRA2 = "NICKNAME_EXTRA2";
     private final String NICKNAME_EXTRA = "NICKNAME_EXTRA";
-    private static final String CONTENT_EXTRA = "CONTENT_EXTRA";
-    private static final String DATE_EXTRA = "DATE_EXTRA";
-    private static final String CATE_EXTRA = "CATE_EXTRA";
-    private static final String CAMPUS_EXTRA = "CAMPUS_EXTRA";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,21 +45,6 @@ public class StudyActivity extends AppCompatActivity {
         mProgressView = (ProgressBar) findViewById(R.id.progressBar);
         service = RetrofitClient.getClient().create(ServiceApi.class);
         attemptList();
-
-        /*
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-            @Override
-            public void onItemClick(AdapterView parent, View v, int position, long id){
-                Intent intent = new Intent(getApplicationContext(), MateViewActivity.class);
-                intent.putExtra("TITLE_EXTRA", matelist.get(position).getTitle());
-                intent.putExtra("NICKNAME_EXTRA2", matelist.get(position).getNickname());
-                intent.putExtra("DATE_EXTRA", matelist.get(position).getDate());
-                intent.putExtra("CONTENT_EXTRA", matelist.get(position).getContent());
-                startActivity(intent);
-            }
-        });
-
-         */
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new StudyActivity.ItemSelectedListener());
@@ -135,6 +113,7 @@ public class StudyActivity extends AppCompatActivity {
                         oItem.nickname = a.getNickname();
                         oItem.date = a.getDate();
                         oItem.content = a.getContent();
+                        oItem.number = a.getNumber();
                         oData.add(oItem);
                     }
                     listView = (ListView)findViewById(R.id.listView1);
@@ -145,10 +124,12 @@ public class StudyActivity extends AppCompatActivity {
                         @Override
                         public void onItemClick(AdapterView parent, View v, int position, long id){
                             Intent intent = new Intent(getApplicationContext(), MateViewActivity.class);
+                            intent.putExtra("NUMBER_EXTRA", oData.get(position).number);
                             intent.putExtra("TITLE_EXTRA", oData.get(position).title);
                             intent.putExtra("NICKNAME_EXTRA2", oData.get(position).nickname);
                             intent.putExtra("DATE_EXTRA", oData.get(position).date);
                             intent.putExtra("CONTENT_EXTRA", oData.get(position).content);
+                            intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
                             startActivity(intent);
                         }
                     });

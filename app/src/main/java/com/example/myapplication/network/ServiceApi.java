@@ -9,6 +9,10 @@ import com.example.myapplication.lost.LostResponse;
 import com.example.myapplication.lost.LostWriteData;
 import com.example.myapplication.lost.LostWriteResponse;
 import com.example.myapplication.mate.MateData;
+import com.example.myapplication.mate.MateDeleteData;
+import com.example.myapplication.mate.MateDeleteResponse;
+import com.example.myapplication.mate.MateEditData;
+import com.example.myapplication.mate.MateEditResponse;
 import com.example.myapplication.mate.MateResponse;
 import com.example.myapplication.mate.MateWriteData;
 import com.example.myapplication.mate.MateWriteResponse;
@@ -44,6 +48,12 @@ public interface ServiceApi {
 
     @POST("/mate/write")
     Call<MateWriteResponse> matewrite(@Body MateWriteData data);
+
+    @POST("/mate/edit")
+    Call<MateEditResponse> mateedit(@Body MateEditData data);
+
+    @POST("/mate/delete")
+    Call<MateDeleteResponse> matedelete(@Body MateDeleteData data);
 
     @POST("/lost/list")
     Call<LostResponse> lostList(@Body LostData data);

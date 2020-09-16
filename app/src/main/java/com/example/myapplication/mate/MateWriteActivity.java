@@ -40,7 +40,7 @@ public class MateWriteActivity extends AppCompatActivity {
     private TextView nicknameText;
     private EditText contentText;
     private TextView cateText;
-    private TextView campustText;
+    private TextView campusText;
     private RadioGroup campusgroup;
     private ProgressBar mProgressView;
     private ServiceApi service;
@@ -51,7 +51,7 @@ public class MateWriteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mate_write);
         titleText = (EditText) findViewById(R.id.title);
-        campustText = (TextView) findViewById(R.id.campus);
+        campusText = (TextView) findViewById(R.id.campus);
         nicknameText = (TextView) findViewById(R.id.nickname);
         nicknameText.setText(getIntent().getStringExtra("NICKNAME_EXTRA"));
         contentText = (EditText) findViewById(R.id.content);
@@ -61,8 +61,8 @@ public class MateWriteActivity extends AppCompatActivity {
 
         service = RetrofitClient.getClient().create(ServiceApi.class);
 
-        ImageButton loginButton = (ImageButton) findViewById(R.id.imageButton1);
-        loginButton.setOnClickListener(new View.OnClickListener() {
+        ImageButton backbutton = (ImageButton) findViewById(R.id.imageButton1);
+        backbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();
@@ -94,9 +94,9 @@ public class MateWriteActivity extends AppCompatActivity {
         @Override
         public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
             if(i == R.id.campusjj){
-                campustText.setText("죽전캠");
+                campusText.setText("죽전캠");
             } else if(i == R.id.campusca){
-                campustText.setText("천안캠");
+                campusText.setText("천안캠");
             }
         }
     };
@@ -105,13 +105,13 @@ public class MateWriteActivity extends AppCompatActivity {
         titleText.setError(null);
         contentText.setError(null);
         cateText.setError(null);
-        campustText.setError(null);
+        campusText.setError(null);
 
         String title = titleText.getText().toString();
         String nickname = nicknameText.getText().toString();
         String content = contentText.getText().toString();
         String cate = cateText.getText().toString();
-        String campus = campustText.getText().toString();
+        String campus = campusText.getText().toString();
 
         boolean cancel = false;
         View focusView = null;
@@ -147,7 +147,7 @@ public class MateWriteActivity extends AppCompatActivity {
         }
 
         if (campus.isEmpty()) {
-            campustText.setError("캠퍼스를 선택해주세요.");
+            campusText.setError("캠퍼스를 선택해주세요.");
             focusView = campusgroup;
             cancel = true;
         }
@@ -155,7 +155,7 @@ public class MateWriteActivity extends AppCompatActivity {
         if (cancel) {
             focusView.requestFocus();
         } else {
-            startMateWrite(new MateWriteData(4, title, nickname, content,"2020-02-02 00:00:00", cate, campus));
+            startMateWrite(new MateWriteData(title, nickname, content, cate, campus));
             showProgress(true);
         }
     }

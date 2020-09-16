@@ -2,15 +2,12 @@ package com.example.myapplication.mate;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.Date;
-
-public class MateWriteData {
+public class MateEditData {
+    @SerializedName("number")
+    int number;
 
     @SerializedName("title")
     String title;
-
-    @SerializedName("nickname")
-    String nickname;
 
     @SerializedName("content")
     String content;
@@ -21,20 +18,20 @@ public class MateWriteData {
     @SerializedName("campus")
     String campus;
 
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
     public String getTitle() {
         return title;
     }
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
     }
 
     public String getContent() {
@@ -61,9 +58,9 @@ public class MateWriteData {
         this.campus = campus;
     }
 
-    public MateWriteData(String title, String nickname, String content, String cate, String campus) {
+    public MateEditData(String title, int number, String content, String cate, String campus) {
         this.title = title;
-        this.nickname = nickname;
+        this.number = number;
         this.content = content;
         this.cate = cate;
         this.campus = campus;

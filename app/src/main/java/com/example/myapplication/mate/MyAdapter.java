@@ -9,7 +9,6 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
-import com.example.myapplication.lost.LostData;
 import com.example.myapplication.network.ServiceApi;
 
 import java.util.ArrayList;
@@ -54,12 +53,14 @@ public class MyAdapter extends BaseAdapter {
             convertView = mLayoutInflater.inflate(R.layout.matelist_item, parent, false);
         }
 
+        TextView oTextNumber = (TextView) convertView.findViewById(R.id.textNumber);
         TextView oTextCampus = (TextView) convertView.findViewById(R.id.textCampus);
         TextView oTextTitle = (TextView) convertView.findViewById(R.id.textTitle);
         TextView oTextNickname = (TextView) convertView.findViewById(R.id.textNickname);
         TextView oTextDate = (TextView) convertView.findViewById(R.id.textDate);
         TextView oTextContent = (TextView) convertView.findViewById(R.id.textContent);
 
+        oTextNumber.setText(sample.get(position).number);
         oTextCampus.setText(sample.get(position).campus);
         oTextTitle.setText(sample.get(position).title);
         oTextNickname.setText(sample.get(position).nickname);
