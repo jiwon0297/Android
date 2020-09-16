@@ -21,7 +21,7 @@ import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class DarakActivity extends AppCompatActivity implements ExpandableListView.OnGroupClickListener,
+public class CreativeActivity extends AppCompatActivity implements ExpandableListView.OnGroupClickListener,
         ExpandableListView.OnChildClickListener{
     ExpandableListView listView;
     String[] groups={"이용요금","Coffee","Non-Coffee","Tea&Juice","Ice blended/Smoothie","Soda&Beer"};
@@ -35,16 +35,16 @@ public class DarakActivity extends AppCompatActivity implements ExpandableListVi
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_darak);
+        setContentView(R.layout.activity_creative);
 
-        ExpandableListAdapter listAdapter = new DarakActivity.MyExpandableListAdapter();
+        ExpandableListAdapter listAdapter = new CreativeActivity.MyExpandableListAdapter();
         listView = (ExpandableListView)findViewById(R.id.expandableListView);
         listView.setAdapter(listAdapter);
         listView.setOnGroupClickListener(this);
         listView.setOnChildClickListener(this);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new DarakActivity.ItemSelectedListener());
+        bottomNavigationView.setOnNavigationItemSelectedListener(new CreativeActivity.ItemSelectedListener());
     }
 
     @Override
@@ -74,7 +74,7 @@ public class DarakActivity extends AppCompatActivity implements ExpandableListVi
         public TextView getGenericView(){
             AbsListView.LayoutParams lp = new AbsListView.LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT,64);
-            TextView textView = new TextView(DarakActivity.this);
+            TextView textView = new TextView(CreativeActivity.this);
             textView.setGravity(Gravity.CENTER_VERTICAL|Gravity.LEFT);
             textView.setPadding(30,40,0,40);
             textView.setTextSize(15);
@@ -128,15 +128,15 @@ public class DarakActivity extends AppCompatActivity implements ExpandableListVi
             switch(menuItem.getItemId())
             {
                 case R.id.home:
-                    Intent intent = new Intent(DarakActivity.this, HomeActivity.class);
+                    Intent intent = new Intent(CreativeActivity.this, HomeActivity.class);
                     startActivity(intent);
                     break;
                 case R.id.mail:
-                    Intent intent2 = new Intent(DarakActivity.this, MailActivity.class);
+                    Intent intent2 = new Intent(CreativeActivity.this, MailActivity.class);
                     startActivity(intent2);
                     break;
                 case R.id.mypage:
-                    Intent intent3 = new Intent(DarakActivity.this, MypageActivity.class);
+                    Intent intent3 = new Intent(CreativeActivity.this, MypageActivity.class);
                     startActivity(intent3);
                     break;
             }

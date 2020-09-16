@@ -81,6 +81,7 @@ public class EdiyaActivity extends AppCompatActivity implements ExpandableListVi
             TextView textView = new TextView(EdiyaActivity.this);
             textView.setGravity(Gravity.CENTER_VERTICAL|Gravity.LEFT);
             textView.setPadding(30,40,0,40);
+            textView.setTextSize(15);
 
             return textView;
         }

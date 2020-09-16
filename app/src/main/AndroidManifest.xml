@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".lost.LostEditActivity"></activity>
+        <activity android:name=".restaurant.jukjeon.cafe.CreativeActivity"></activity>
+        <activity android:name=".lost.LostEditActivity" />
         <activity android:name=".mate.MateEditActivity" />
         <activity android:name=".restaurant.jukjeon.western.DosmasActivity" />
         <activity android:name=".restaurant.jukjeon.western.BurritoActivity" />
