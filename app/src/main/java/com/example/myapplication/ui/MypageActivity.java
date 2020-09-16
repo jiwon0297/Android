@@ -25,6 +25,7 @@ import retrofit2.Response;
 
 
 public class MypageActivity extends AppCompatActivity {
+    private final String NICKNAME_EXTRA = "NICKNAME_EXTRA";
     private TextView nicknameText;
     private TextView emailText;
     private TextView nameText;
@@ -36,6 +37,7 @@ public class MypageActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mypage);
         emailText = (TextView) findViewById(R.id.email);
@@ -101,8 +103,9 @@ public class MypageActivity extends AppCompatActivity {
     }
     public void user(View v) {
         Toast.makeText(this,"정보 수정 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, UserActivity.class);
-        startActivity(intent);
+        Intent intent3 = new Intent(this, UserActivity.class);
+        intent3.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
+        startActivity(intent3);
     }
 
     private void showProgress(boolean show) {

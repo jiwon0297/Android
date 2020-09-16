@@ -15,6 +15,9 @@ public class MypageResponse {
     @SerializedName("name")
     private String name;
 
+    @SerializedName("password")
+    private String password;
+
     @SerializedName("nickname")
     private String nickname;
 
@@ -42,4 +45,5 @@ public class MypageResponse {
     public String getGender() {
         return gender;
     }
+    public String getPassword(){return password;}
 }
