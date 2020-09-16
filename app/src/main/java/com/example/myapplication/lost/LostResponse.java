@@ -1,6 +1,7 @@
 package com.example.myapplication.lost;
 
 import com.example.myapplication.mate.MateResponse;
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ public class LostResponse {
     }
 
     @SerializedName("result")
+    @Expose
     private List<LostResponse> result;
 
     public List<LostResponse> getResult() {
