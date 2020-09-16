@@ -85,7 +85,7 @@ public class FindActivity extends AppCompatActivity {
                     LostResponse sample = result;
                     for (LostResponse a :sample.getResult() ){
                         LostData oItem = new LostData();
-                        oItem.campus = "[" + a.getCampus() + "]";
+                        oItem.campus = a.getCampus();
                         oItem.title = a.getTitle();
                         oItem.nickname = a.getNickname();
                         oItem.number = a.getNumber();

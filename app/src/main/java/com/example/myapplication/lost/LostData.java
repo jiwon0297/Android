@@ -21,12 +21,6 @@ public class LostData {
     @SerializedName("number")
     int number;
 
-    public LostData(String campus, String title, String nickname) {
-        this.campus = campus;
-        this.title = title;
-        this.nickname = nickname;
-    }
-
     public LostData(String type) {
         this.type = type;
     }
