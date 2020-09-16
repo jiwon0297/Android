@@ -15,7 +15,9 @@ import android.widget.Toast;
 
 import com.example.myapplication.Join.JoinData;
 import com.example.myapplication.R;
+import com.example.myapplication.mate.MateData;
 import com.example.myapplication.mate.MateViewActivity;
+import com.example.myapplication.mate.MateWriteActivity;
 import com.example.myapplication.network.RetrofitClient;
 import com.example.myapplication.network.ServiceApi;
 import com.example.myapplication.ui.HomeActivity;
@@ -54,7 +56,19 @@ public class FindActivity extends AppCompatActivity {
     }
 
     private void attemptList() {
-        startList(new LostData(type));
+        boolean cancel = false;
+        View focusView = null;
+
+        if (type.isEmpty()) {
+            cancel = true;
+        }
+
+        if (cancel) {
+            focusView.requestFocus();
+        } else {
+            startList(new LostData(type));
+            showProgress(true);
+        }
     }
 
     private void startList(LostData lostData) {
@@ -135,6 +149,12 @@ public class FindActivity extends AppCompatActivity {
 
     private void showProgress(boolean show) {
         mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+    }
+
+    public void write(View v){
+        Intent intent = new Intent(this, LostWriteActivity.class);
+        intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
+        startActivity(intent);
     }
 
 }
