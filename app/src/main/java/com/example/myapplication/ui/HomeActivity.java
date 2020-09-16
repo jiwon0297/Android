@@ -1,9 +1,11 @@
 package com.example.myapplication.ui;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,6 +25,18 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        Button mate = (Button) findViewById(R.id.textView2);
+        Drawable alpha1 = mate.getBackground();
+        alpha1.setAlpha(50);
+
+        Button lost = (Button) findViewById(R.id.textView2);
+        Drawable alpha2 = lost.getBackground();
+        alpha2.setAlpha(50);
+
+        Button restaurant = (Button) findViewById(R.id.textView2);
+        Drawable alpha3 = restaurant.getBackground();
+        alpha3.setAlpha(50);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
