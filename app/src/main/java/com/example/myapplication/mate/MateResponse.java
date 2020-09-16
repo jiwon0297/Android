@@ -29,12 +29,14 @@ public class MateResponse {
         return result;
     }
 
+    private int number;
     private String title;
     private String nickname;
     private String campus;
     private String date;
     private String content;
 
+    public int getNumber() { return number;}
     public String getTitle() { return title;}
     public String getNickname() { return nickname;}
     public String getCampus() { return campus;}

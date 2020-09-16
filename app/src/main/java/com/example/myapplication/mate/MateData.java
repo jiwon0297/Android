@@ -4,6 +4,9 @@ import com.google.gson.annotations.SerializedName;
 
 
 public class MateData {
+    @SerializedName("number")
+    int number;
+
     @SerializedName("campus")
     String campus;
 
