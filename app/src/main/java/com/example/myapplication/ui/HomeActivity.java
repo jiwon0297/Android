@@ -30,11 +30,11 @@ public class HomeActivity extends AppCompatActivity {
         Drawable alpha1 = mate.getBackground();
         alpha1.setAlpha(50);
 
-        Button lost = (Button) findViewById(R.id.textView2);
+        Button lost = (Button) findViewById(R.id.textView3);
         Drawable alpha2 = lost.getBackground();
         alpha2.setAlpha(50);
 
-        Button restaurant = (Button) findViewById(R.id.textView2);
+        Button restaurant = (Button) findViewById(R.id.textView5);
         Drawable alpha3 = restaurant.getBackground();
         alpha3.setAlpha(50);
 

@@ -15,16 +15,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
             android:name=".ui.ContentActivity"
             android:label="@string/title_activity_content"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-
+=======
         <meta-data
-            android:name="com.google.android.actions" />
+            android:name="com.google.android.actions"
+            android:resource="@xml/actions" />
 
->>>>>>> 5f23d10138b7920d696c7e9ee490cc20ca306ccf
         <activity android:name=".lost.LostEditActivity" />
         <activity android:name=".mate.MateEditActivity" />
         <activity android:name=".restaurant.jukjeon.western.DosmasActivity" />
@@ -55,7 +54,6 @@
         <activity android:name=".restaurant.jukjeon.cafe.SoleilActivity" />
         <activity android:name=".restaurant.jukjeon.cafe.EdiyaActivity" />
         <activity android:name=".restaurant.jukjeon.cafe.AzitActivity" />
-        <activity android:name=".restaurant.jukjeon.cafe.CreativeActivity" />
         <activity android:name=".restaurant.jukjeon.cafe.WitchActivity" />
         <activity android:name=".restaurant.jukjeon.cafe.DarakActivity" />
         <activity android:name=".restaurant.cheonan.western.RossiActivity" />
