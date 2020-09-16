@@ -7,24 +7,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication.R;
 import com.example.myapplication.mate.AloneActivity;
 import com.example.myapplication.mate.ContestActivity;
-import com.example.myapplication.mate.HouseActivity;
-import com.example.myapplication.mate.MateWriteActivity;
-import com.example.myapplication.mate.MateWriteResponse;
-import com.example.myapplication.mate.StudyActivity;
 import com.example.myapplication.network.RetrofitClient;
 import com.example.myapplication.network.ServiceApi;
 
@@ -135,8 +128,8 @@ public class LostWriteActivity extends AppCompatActivity {
             cancel = true;
         }
 
-        if (campus.isEmpty()) {
-            typeText.setError("카테고리를 선택해주세요.");
+        if (type.isEmpty()) {
+            typeText.setError("분실물 유형을 선택해주세요.");
             focusView = typeGroup;
             cancel = true;
         }
@@ -144,7 +137,7 @@ public class LostWriteActivity extends AppCompatActivity {
         if (cancel) {
             focusView.requestFocus();
         } else {
-            startLostWrite(new LostWriteData(4, title, nickname, content, type, campus));
+            startLostWrite(new LostWriteData(title, nickname, content, type, campus));
             showProgress(true);
         }
     }

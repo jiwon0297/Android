@@ -5,6 +5,10 @@ import com.example.myapplication.Join.JoinResponse;
 import com.example.myapplication.login.LoginData;
 import com.example.myapplication.login.LoginResponse;
 import com.example.myapplication.lost.LostData;
+import com.example.myapplication.lost.LostDeleteData;
+import com.example.myapplication.lost.LostDeleteResponse;
+import com.example.myapplication.lost.LostEditData;
+import com.example.myapplication.lost.LostEditResponse;
 import com.example.myapplication.lost.LostResponse;
 import com.example.myapplication.lost.LostWriteData;
 import com.example.myapplication.lost.LostWriteResponse;
@@ -60,4 +64,10 @@ public interface ServiceApi {
 
     @POST("/lost/write")
     Call<LostWriteResponse> lostwrite(@Body LostWriteData data);
+
+    @POST("/lost/edit")
+    Call<LostEditResponse> lostedit(@Body LostEditData data);
+
+    @POST("/lost/delte")
+    Call<LostDeleteResponse> lostdelete(@Body LostDeleteData data);
 }
