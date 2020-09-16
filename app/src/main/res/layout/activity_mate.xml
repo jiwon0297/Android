@@ -16,7 +16,7 @@
         android:text="어떤 메이트를
          구하고 싶으신가요?"
         android:textAlignment="textStart"
-        android:textSize="100px"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toStartOf="@+id/imageButton1"
         app:layout_constraintStart_toStartOf="parent"
