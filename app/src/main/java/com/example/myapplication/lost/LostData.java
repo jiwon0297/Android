@@ -15,6 +15,12 @@ public class LostData {
     @SerializedName("type")
     String type;
 
+    @SerializedName("content")
+    String content;
+
+    @SerializedName("number")
+    String number;
+
     public LostData(String campus, String title, String id) {
         this.campus = campus;
         this.title = title;
