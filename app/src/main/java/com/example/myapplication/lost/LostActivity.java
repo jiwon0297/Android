@@ -13,7 +13,7 @@ package com.example.myapplication.lost;
 
 public class LostActivity extends AppCompatActivity {
     private final String NICKNAME_EXTRA = "NICKNAME_EXTRA";
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
