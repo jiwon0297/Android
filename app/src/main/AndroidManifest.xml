@@ -16,8 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <meta-data
-            android:name="com.google.android.actions"
-            android:resource="@xml/actions" />
+            android:name="com.google.android.actions" />
 
         <activity android:name=".lost.LostEditActivity" />
         <activity android:name=".mate.MateEditActivity" />
@@ -49,6 +48,7 @@
         <activity android:name=".restaurant.jukjeon.cafe.SoleilActivity" />
         <activity android:name=".restaurant.jukjeon.cafe.EdiyaActivity" />
         <activity android:name=".restaurant.jukjeon.cafe.AzitActivity" />
+        <activity android:name=".restaurant.jukjeon.cafe.CreativeActivity" />
         <activity android:name=".restaurant.jukjeon.cafe.WitchActivity" />
         <activity android:name=".restaurant.jukjeon.cafe.DarakActivity" />
         <activity android:name=".restaurant.cheonan.western.RossiActivity" />
