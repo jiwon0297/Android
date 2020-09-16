@@ -15,6 +15,7 @@
         android:background="#00FFFFFF"
         android:backgroundTint="#00D3D8F1"
         android:text="START"
+        android:fontFamily="@font/lottemarthappybold"
         android:textColor="#FFFFFF"
         android:textSize="35sp"
         app:layout_constraintBottom_toBottomOf="parent"

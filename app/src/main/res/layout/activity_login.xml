@@ -13,18 +13,18 @@
     tools:context=".login.LoginActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="슬기로운 단국생활
-        로그인"
+        android:layout_width="376dp"
+        android:layout_height="115dp"
+        android:fontFamily="@font/lottemartdreammedium"
+        android:text="슬기로운 단국생활                     로그인"
         android:textAlignment="center"
-        android:textSize="40sp"
+        android:textSize="45sp"
         app:layout_constraintBottom_toBottomOf="@+id/loading"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.587" />
+        app:layout_constraintVertical_bias="0.779" />
 
     <EditText
         android:id="@+id/username"
@@ -34,6 +34,7 @@
         android:layout_marginTop="260dp"
         android:layout_marginEnd="24dp"
         android:hint="단국대 이메일"
+        android:fontFamily="@font/lottemartdreammedium"
         android:textSize="20sp"
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="true"
@@ -48,6 +49,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="24dp"
+        android:fontFamily="@font/lottemartdreammedium"
         android:hint="비밀번호"
         android:textSize="20sp"
         android:imeActionLabel="@string/action_sign_in_short"
@@ -69,6 +71,7 @@
         android:enabled="true"
         android:text="로그인"
         android:textSize="20sp"
+        android:fontFamily="@font/lottemartdreammedium"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/register"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,6 +83,7 @@
         android:layout_width="140dp"
         android:layout_height="54dp"
         android:layout_gravity="end"
+        android:fontFamily="@font/lottemartdreammedium"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="64dp"
         android:background="@drawable/btncustom"
@@ -102,6 +106,7 @@
         android:layout_marginEnd="24dp"
         android:enabled="true"
         android:text="첫 화면으로 돌아가기"
+        android:fontFamily="@font/lottemartdreammedium"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

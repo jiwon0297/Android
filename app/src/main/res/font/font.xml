@@ -4,4 +4,24 @@
         android:fontStyle="normal"
         android:fontWeight="400"
         android:font="@font/kyobo" />
+
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/lottemartdreamlight" />
+
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/lottemartdreammedium" />
+
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/lottemarthappybold" />
+
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/tmonmonsorii" />
 </font-family>
