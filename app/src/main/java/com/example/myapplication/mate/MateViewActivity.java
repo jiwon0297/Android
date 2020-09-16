@@ -64,6 +64,8 @@ public class MateViewActivity extends AppCompatActivity {
                 String user = getIntent().getStringExtra("NICKNAME_EXTRA");
                 if(writer.equals(user)){
                     Intent intent = new Intent(MateViewActivity.this, MateEditActivity.class);
+                    intent.putExtra("CATE_EXTRA", getIntent().getStringExtra("CATE_EXTRA"));
+                    intent.putExtra("CAMPUS_EXTRA", getIntent().getStringExtra("CAMPUS_EXTRA"));
                     intent.putExtra("NUMBER_EXTRA", title.getText().toString());
                     intent.putExtra("TITLE_EXTRA", title.getText().toString());
                     intent.putExtra("CONTENT_EXTRA", content.getText().toString());
@@ -129,7 +131,24 @@ public class MateViewActivity extends AppCompatActivity {
                 showProgress(false);
 
                 if (result.getCode() == 200) {
-                    finish();
+                    String cate = getIntent().getStringExtra("CATE_EXTRA");
+                    if(cate.equals("혼밥")){
+                        Intent intent = new Intent(MateViewActivity.this, AloneActivity.class);
+                        intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
+                        MateViewActivity.this.startActivity(intent);
+                    } else if(cate.equals("공모전")){
+                        Intent intent = new Intent(MateViewActivity.this, ContestActivity.class);
+                        intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
+                        MateViewActivity.this.startActivity(intent);
+                    } else if(cate.equals("스터디")){
+                        Intent intent = new Intent(MateViewActivity.this, StudyActivity.class);
+                        intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
+                        MateViewActivity.this.startActivity(intent);
+                    } else if(cate.equals("하우스")){
+                        Intent intent = new Intent(MateViewActivity.this, HouseActivity.class);
+                        intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
+                        MateViewActivity.this.startActivity(intent);
+                    }
                 }
             }
 

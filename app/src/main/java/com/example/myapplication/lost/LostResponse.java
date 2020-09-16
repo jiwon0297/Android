@@ -28,11 +28,17 @@ public class LostResponse {
         return result;
     }
 
+    private int number;
     private String title;
-    private String id;
+    private String nickname;
     private String campus;
+    private String content;
+    private String type;
 
+    public String getType() {return type;}
+    public int getNumber() { return number;}
     public String getTitle() { return title;}
-    public String getId() { return id;}
+    public String getNickname() { return nickname;}
     public String getCampus() { return campus;}
+    public String getContent() {return content;}
 }

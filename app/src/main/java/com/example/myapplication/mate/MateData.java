@@ -20,7 +20,7 @@ public class MateData {
     int number;
 
     @SerializedName("cate")
-    private String cate;
+    String cate;
 
     @SerializedName("content")
     String content;

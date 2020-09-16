@@ -53,6 +53,7 @@ public class MyAdapter extends BaseAdapter {
             convertView = mLayoutInflater.inflate(R.layout.matelist_item, parent, false);
         }
 
+        TextView oTextCate = (TextView) convertView.findViewById(R.id.textCate);
         TextView oTextNumber = (TextView) convertView.findViewById(R.id.textNumber);
         TextView oTextCampus = (TextView) convertView.findViewById(R.id.textCampus);
         TextView oTextTitle = (TextView) convertView.findViewById(R.id.textTitle);
@@ -60,6 +61,7 @@ public class MyAdapter extends BaseAdapter {
         TextView oTextDate = (TextView) convertView.findViewById(R.id.textDate);
         TextView oTextContent = (TextView) convertView.findViewById(R.id.textContent);
 
+        oTextCate.setText(sample.get(position).cate);
         oTextNumber.setText(String.valueOf(sample.get(position).number));
         oTextCampus.setText(sample.get(position).campus);
         oTextTitle.setText(sample.get(position).title);

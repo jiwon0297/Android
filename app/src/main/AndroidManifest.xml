@@ -15,10 +15,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<<<<<<< HEAD
         <activity
             android:name=".ui.ContentActivity"
             android:label="@string/title_activity_content"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+=======
+        <meta-data
+            android:name="com.google.android.actions"
+            android:resource="@xml/actions" />
+
+>>>>>>> 5f23d10138b7920d696c7e9ee490cc20ca306ccf
         <activity android:name=".lost.LostEditActivity" />
         <activity android:name=".mate.MateEditActivity" />
         <activity android:name=".restaurant.jukjeon.western.DosmasActivity" />
@@ -93,11 +100,6 @@
         <activity android:name=".mate.MateViewActivity" />
         <activity android:name=".mate.MateWriteActivity" />
         <activity android:name=".lost.LostWriteActivity" />
-
-        <meta-data
-            android:name="com.google.android.actions"
-            android:resource="@xml/network_security_config" />
-
         <activity android:name=".restaurant.jukjeon.cafe.CafeActivity" />
         <activity android:name=".restaurant.jukjeon.chinese.ChineseActivity" />
         <activity android:name=".restaurant.jukjeon.japanese.JapaneseActivity" />

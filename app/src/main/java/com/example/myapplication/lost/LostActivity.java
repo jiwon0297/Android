@@ -12,6 +12,7 @@ package com.example.myapplication.lost;
     import com.example.myapplication.R;
 
 public class LostActivity extends AppCompatActivity {
+    private final String NICKNAME_EXTRA = "NICKNAME_EXTRA";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,7 @@ public class LostActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), FindActivity.class);
+                intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
                 startActivity(intent);
             }
         });
@@ -33,6 +35,7 @@ public class LostActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), GetActivity.class);
+                intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
                 startActivity(intent);
             }
         });

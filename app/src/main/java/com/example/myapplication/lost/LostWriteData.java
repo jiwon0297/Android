@@ -3,9 +3,6 @@ package com.example.myapplication.lost;
 import com.google.gson.annotations.SerializedName;
 
 public class LostWriteData {
-    @SerializedName("number")
-    int number;
-
     @SerializedName("title")
     String title;
 
@@ -20,14 +17,6 @@ public class LostWriteData {
 
     @SerializedName("campus")
     String campus;
-
-    public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
-    }
 
     public String getTitle() {
         return title;
@@ -69,8 +58,7 @@ public class LostWriteData {
         this.campus = campus;
     }
 
-    public LostWriteData(int number, String title, String nickname, String content, String type, String campus) {
-        this.number = number;
+    public LostWriteData(String title, String nickname, String content, String type, String campus) {
         this.title = title;
         this.nickname = nickname;
         this.content = content;

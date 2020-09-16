@@ -6,14 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".Join.JoinActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="회원가입"
+        android:textSize="50sp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/username"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/genderText" />
+
     <EditText
         android:id="@+id/username"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="170dp"
         android:layout_marginEnd="24dp"
-
+        android:textSize="20sp"
         android:hint="단국대 이메일"
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="true"
@@ -24,11 +35,11 @@
     <EditText
         android:id="@+id/password"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
-
+        android:textSize="20sp"
         android:hint="비밀번호 입력"
         android:imeActionLabel="@string/action_sign_in_short"
         android:imeOptions="actionDone"
@@ -41,11 +52,11 @@
     <EditText
         android:id="@+id/passwordconfirm"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
-
+        android:textSize="20sp"
         android:hint="비밀번호 재입력"
         android:imeActionLabel="@string/action_sign_in_short"
         android:imeOptions="actionDone"
@@ -58,11 +69,11 @@
     <EditText
         android:id="@+id/name"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
-
+        android:textSize="20sp"
         android:hint="이름"
         android:inputType="textPersonName"
         android:selectAllOnFocus="true"
@@ -73,11 +84,11 @@
     <EditText
         android:id="@+id/nickname"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
-
+        android:textSize="20sp"
         android:hint="별명"
         android:inputType="textPersonName"
         android:selectAllOnFocus="true"
@@ -87,11 +98,10 @@
 
     <RadioGroup
         android:id="@+id/genderGroup"
-        android:layout_width="360dp"
-        android:layout_height="49dp"
-        android:layout_gravity="center_horizontal"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:layout_gravity="start"
         android:orientation="horizontal"
-        android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -101,25 +111,28 @@
         <RadioButton
             android:id="@+id/genderWoman"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
             android:layout_weight="1"
-            android:text="여성" />
+            android:text="여성"
+            android:textSize="20sp" />
         <RadioButton
             android:id="@+id/genderMan"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
             android:layout_weight="1"
+            android:textSize="20sp"
             android:text="남성" />
     </RadioGroup>
 
     <Button
+        android:layout_width="140dp"
+        android:layout_height="54dp"
+        android:background="@drawable/btncustom"
+        android:backgroundTint="#D2DCEA"
+        android:textSize="20sp"
         android:id="@+id/join"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_gravity="start"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="120dp"
+        android:layout_marginEnd="160dp"
         android:layout_marginBottom="64dp"
         android:enabled="true"
         android:text="등록"
@@ -138,12 +151,13 @@
 
     <Button
         android:id="@+id/cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="140dp"
+        android:layout_height="54dp"
+        android:background="@drawable/btncustom"
+        android:backgroundTint="#D2DCEA"
+        android:textSize="20sp"
         android:layout_gravity="start"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginStart="160dp"
         android:layout_marginBottom="64dp"
         android:enabled="true"
         android:text="취소"

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -32,6 +33,8 @@ public class GetActivity extends AppCompatActivity {
     private ServiceApi service;
     private ProgressBar mProgressView;
     private ListView listView = null;
+
+    private final String NICKNAME_EXTRA = "NICKNAME_EXTRA";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,14 +72,28 @@ public class GetActivity extends AppCompatActivity {
                         LostData oItem = new LostData();
                         oItem.campus = "[" + a.getCampus() + "]";
                         oItem.title = a.getTitle();
-                        oItem.id = a.getId();
+                        oItem.nickname = a.getNickname();
                         oData.add(oItem);
                     }
                     listView = (ListView)findViewById(R.id.listView);
                     ListAdapter oAdapter = new ListAdapter((ArrayList<LostData>) oData);
                     listView.setAdapter(oAdapter);
 
-                    finish();
+                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+                        @Override
+                        public void onItemClick(AdapterView parent, View v, int position, long id){
+                            Intent intent = new Intent(getApplicationContext(), LostViewActivity.class);
+                            intent.putExtra("TYPE_EXTRA", oData.get(position).type);
+                            intent.putExtra("NUMBER_EXTRA", oData.get(position).number);
+                            intent.putExtra("TITLE_EXTRA", oData.get(position).title);
+                            intent.putExtra("NICKNAME_EXTRA2", oData.get(position).nickname);
+                            intent.putExtra("CONTENT_EXTRA", oData.get(position).content);
+                            intent.putExtra("CAMPUS_EXTRA", oData.get(position).campus);
+                            intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
+                            startActivity(intent);
+                        }
+                    });
+
                 }
             }
 

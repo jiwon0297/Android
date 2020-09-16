@@ -22,6 +22,13 @@
     <TextView
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:id="@+id/textCate"
+        android:text="카테고리"
+        android:visibility="gone"
+        />
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:id="@+id/textNumber"
         android:text="글번호"
         android:visibility="gone"
