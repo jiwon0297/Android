@@ -35,7 +35,9 @@ public class MateResponse {
     private String campus;
     private String date;
     private String content;
+    private String cate;
 
+    public String getCate() {return cate;}
     public int getNumber() { return number;}
     public String getTitle() { return title;}
     public String getNickname() { return nickname;}
