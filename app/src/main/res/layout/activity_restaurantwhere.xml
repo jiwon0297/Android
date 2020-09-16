@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="100dp"
         android:fontFamily="@font/kyobo"
         android:text="캠퍼스 선택"
@@ -27,16 +27,24 @@
         app:itemBackground="@android:color/white"
         app:itemIconTint="#5785CF"
         app:itemTextColor="#000000"
-        app:menu="@menu/menu_bottomnavigationview"
-        tools:layout_editor_absoluteY="675dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_bottomnavigationview" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="410dp"
         android:layout_height="200dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="50dp"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteX="2dp"
-        tools:layout_editor_absoluteY="244dp">
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.904"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/textView7">
 
         <ImageButton
             android:id="@+id/imageButton11"
@@ -69,14 +77,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView7"
             app:srcCompat="@mipmap/cheonan_foreground" />
+
+
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="410dp"
         android:layout_height="50dp"
+        android:layout_marginStart="1dp"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="435dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <Button
             android:id="@+id/button34"
