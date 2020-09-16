@@ -22,7 +22,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:fontFamily="@font/lottemartdreamlight"
-        android:id="@+id/textCate"
+        android:id="@+id/type"
         android:text="카테고리"
         android:visibility="gone"
         />
