@@ -46,4 +46,5 @@ public class SoleilActivity extends AppCompatActivity {
             return true;
         }
     }
+
 }

@@ -9,8 +9,8 @@ public class LostData {
     @SerializedName("title")
     String title;
 
-    @SerializedName("id")
-    String id;
+    @SerializedName("nickname")
+    String nickname;
 
     @SerializedName("type")
     String type;
@@ -21,10 +21,10 @@ public class LostData {
     @SerializedName("number")
     String number;
 
-    public LostData(String campus, String title, String id) {
+    public LostData(String campus, String title, String nickname) {
         this.campus = campus;
         this.title = title;
-        this.id = id;
+        this.nickname = nickname;
     }
 
     public LostData(String type) {

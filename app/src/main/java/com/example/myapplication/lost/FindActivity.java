@@ -73,7 +73,7 @@ public class FindActivity extends AppCompatActivity {
                         LostData oItem = new LostData();
                         oItem.campus = "[" + a.getCampus() + "]";
                         oItem.title = a.getTitle();
-                        oItem.id = a.getId();
+                        oItem.nickname = a.getNickname();
                         oData.add(oItem);
                     }
                     listView = (ListView)findViewById(R.id.listView);
@@ -87,7 +87,7 @@ public class FindActivity extends AppCompatActivity {
                             intent.putExtra("TYPE_EXTRA", oData.get(position).type);
                             intent.putExtra("NUMBER_EXTRA", oData.get(position).number);
                             intent.putExtra("TITLE_EXTRA", oData.get(position).title);
-                            intent.putExtra("NICKNAME_EXTRA2", oData.get(position).id);
+                            intent.putExtra("NICKNAME_EXTRA2", oData.get(position).nickname);
                             intent.putExtra("CONTENT_EXTRA", oData.get(position).content);
                             intent.putExtra("CAMPUS_EXTRA", oData.get(position).campus);
                             intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
