@@ -80,7 +80,7 @@ public class EdiyaActivity extends AppCompatActivity implements ExpandableListVi
                     ViewGroup.LayoutParams.MATCH_PARENT,64);
             TextView textView = new TextView(EdiyaActivity.this);
             textView.setGravity(Gravity.CENTER_VERTICAL|Gravity.LEFT);
-            textView.setPadding(30,100,0,100);
+            textView.setPadding(30,40,0,40);
 
             return textView;
         }

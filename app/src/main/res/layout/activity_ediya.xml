@@ -93,9 +93,9 @@
                 android:textStyle="bold" />
 
             <ExpandableListView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/expandableListView"
+                android:layout_width="match_parent"
+                android:layout_height="260dp"
                 android:fadingEdge="horizontal|vertical"
                 android:fontFamily="@font/kyobo"
                 android:textSize="20dp" />
