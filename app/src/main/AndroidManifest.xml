@@ -20,9 +20,7 @@
             android:label="@string/title_activity_content"
             android:theme="@style/AppTheme.NoActionBar"></activity>
 =======
-        <meta-data
-            android:name="com.google.android.actions"
-            android:resource="@xml/actions" />
+
 
         <activity android:name=".lost.LostEditActivity" />
         <activity android:name=".mate.MateEditActivity" />
