@@ -69,17 +69,17 @@ public class CafeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void soleil(View view) {Toast.makeText(this,"위치스아일랜드",Toast.LENGTH_LONG).show();
+    public void soleil(View view) {Toast.makeText(this,"솔레일",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, DarakActivity.class);
         startActivity(intent);
     }
 
-    public void trianon(View view) {Toast.makeText(this,"솔레일",Toast.LENGTH_LONG).show();
+    public void trianon(View view) {Toast.makeText(this,"cafe trianon",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, SoleilActivity.class);
         startActivity(intent);
     }
 
-    public void creative(View view) {Toast.makeText(this,"cafe trianon",Toast.LENGTH_LONG).show();
+    public void creative(View view) {Toast.makeText(this,"크리에이티브커피",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, TrianonActivity.class);
         startActivity(intent);
     }

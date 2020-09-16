@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication.R;
+import com.example.myapplication.mate.AloneActivity;
 import com.example.myapplication.network.ServiceApi;
 import com.example.myapplication.network.RetrofitClient;
 import com.example.myapplication.ui.MypageActivity;
@@ -93,6 +94,7 @@ public class MypageActivity extends AppCompatActivity {
     public void content(View v) {
         Toast.makeText(this,"내 목록 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, ContentActivity.class);
+        intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 

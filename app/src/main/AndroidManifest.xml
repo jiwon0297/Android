@@ -15,9 +15,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<<<<<<< HEAD
+        <activity
+            android:name=".ui.ContentActivity"
+            android:label="@string/title_activity_content"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+=======
         <meta-data
             android:name="com.google.android.actions" />
 
+>>>>>>> 5f23d10138b7920d696c7e9ee490cc20ca306ccf
         <activity android:name=".lost.LostEditActivity" />
         <activity android:name=".mate.MateEditActivity" />
         <activity android:name=".restaurant.jukjeon.western.DosmasActivity" />
@@ -83,7 +90,6 @@
         <activity android:name=".restaurant.cheonan.cafe.CafeActivity2" />
         <activity android:name=".restaurant.jukjeon.western.WesternActivity" />
         <activity android:name=".ui.MailActivity" />
-        <activity android:name=".ui.ContentActivity" />
         <activity
             android:name=".ui.UserActivity"
             android:label="회원정보 수정" />
