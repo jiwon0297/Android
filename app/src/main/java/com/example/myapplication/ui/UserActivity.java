@@ -67,8 +67,9 @@ public class UserActivity extends AppCompatActivity {
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent cancelIntent = new Intent(UserActivity.this, HomeActivity.class);
-                UserActivity.this.startActivity(cancelIntent);
+                Intent intent3 = new Intent(UserActivity.this, MypageActivity.class);
+                intent3.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
+                startActivity(intent3);
             }
         });
     }
