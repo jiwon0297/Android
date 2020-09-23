@@ -25,7 +25,7 @@
         android:layout_marginTop="70dp"
         android:layout_marginEnd="100dp"
         android:fontFamily="@font/kyobo"
-        android:text="홍콩반점0410"
+        android:text="천향마라탕"
         android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -25,7 +25,7 @@
         android:layout_marginTop="70dp"
         android:layout_marginEnd="100dp"
         android:fontFamily="@font/kyobo"
-        android:text="사부"
+        android:text="호식당"
         android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,7 +62,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/kyobo"
-                android:text="경기 용인시 수지구 죽전로168번길 29\n"
+                android:text="경기 용인시 수지구 죽전로 136 월드프라자 106호\n"
                 android:textSize="20dp" />
 
             <TextView
@@ -79,7 +79,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/kyobo"
-                android:text="매일 11:30 - 22:00\n"
+                android:text="평일 11:00 - 20:00\n토요일 11:00 - 15:00\n일요일 휴무\n공휴일 휴무\n"
                 android:textSize="20dp" />
 
             <TextView
