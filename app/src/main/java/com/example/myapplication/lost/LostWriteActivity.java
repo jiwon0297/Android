@@ -56,8 +56,8 @@ public class LostWriteActivity extends AppCompatActivity {
 
         service = RetrofitClient.getClient().create(ServiceApi.class);
 
-        ImageButton loginButton = (ImageButton) findViewById(R.id.imageButton1);
-        loginButton.setOnClickListener(new View.OnClickListener() {
+        ImageButton BackButton = (ImageButton) findViewById(R.id.imageButton1);
+        BackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();
@@ -152,11 +152,11 @@ public class LostWriteActivity extends AppCompatActivity {
 
                 if (result.getCode() == 200) {
                     if(typeText.getText().toString() == "찾아요"){
-                        Intent intent = new Intent(LostWriteActivity.this, AloneActivity.class);
+                        Intent intent = new Intent(LostWriteActivity.this, FindActivity.class);
                         intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
                         LostWriteActivity.this.startActivity(intent);
                     } else if(typeText.getText().toString() == "주웠어요"){
-                        Intent intent = new Intent(LostWriteActivity.this, ContestActivity.class);
+                        Intent intent = new Intent(LostWriteActivity.this, GetActivity.class);
                         intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
                         LostWriteActivity.this.startActivity(intent);
                     }
