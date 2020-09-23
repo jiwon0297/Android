@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    android:backgroundTint="#FFFFFF"
+    android:backgroundTint="#65DEE4F6"
     tools:context=".ui.HomeActivity">
 
     <TextView
@@ -34,102 +34,133 @@
         app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.179" />
+        app:layout_constraintVertical_bias="0.196" />
 
-    <androidx.gridlayout.widget.GridLayout
-        android:layout_width="360dp"
-        android:layout_height="140dp"
-        app:columnCount="4"
-        android:layout_marginBottom="25dp"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="400dp"
+        android:layout_height="170dp"
+        android:layout_gravity="center"
+        android:background="@drawable/btncustom7"
+        android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toTopOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.895"
-        app:rowCount="2">
+        app:layout_constraintVertical_bias="0.895" >
 
-        <Button
-            android:id="@+id/View1"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:background="@drawable/homepage"
-            app:layout_gravity="fill" />
-
-        <Button
-            android:id="@+id/View2"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:background="@drawable/webinfo"
-            app:layout_gravity="fill" />
-
-        <Button
-            android:id="@+id/View3"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:background="@drawable/elearning"
-            app:layout_gravity="fill"
-            app:layout_row="0" />
-
-        <Button
-            android:id="@+id/View4"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:background="@drawable/shuttle"
-            app:layout_gravity="fill" />
-
-        <TextView
-            android:id="@+id/text1"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_gravity="center"
             android:layout_height="wrap_content"
-            android:background="#00FFFFFF"
-            android:backgroundTint="#00FFFFFF"
-            android:fontFamily="@font/lottemartdreammedium"
-            android:gravity="center_horizontal"
-            android:textAlignment="center"
-            android:text="학교\n홈페이지"
-            android:textSize="20sp"
-            app:layout_gravity="fill" />
+            android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/text2"
-            android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/View1"
+                android:layout_width="70dp"
+                android:layout_gravity="center"
+                android:layout_height="70dp"
+                android:background="@drawable/homepage"
+                app:layout_gravity="fill" />
+
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="100dp"
+                android:layout_height="45dp"
+                android:background="#00FFFFFF"
+                android:backgroundTint="#00FFFFFF"
+                android:fontFamily="@font/lottemartdreammedium"
+                android:gravity="center_horizontal"
+                android:text="학교\n홈페이지"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                app:layout_gravity="fill" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_gravity="center"
             android:layout_height="wrap_content"
-            android:background="#00FFFFFF"
-            android:backgroundTint="#00FFFFFF"
-            android:textSize="20sp"
-            android:gravity="center_horizontal"
-            android:textAlignment="center"
-            android:fontFamily="@font/lottemartdreammedium"
-            android:text="웹정보\n시스템"
-            app:layout_gravity="fill" />
+            android:orientation="vertical" >
+            <Button
+                android:id="@+id/View2"
+                android:layout_width="70dp"
+                android:layout_gravity="center"
+                android:layout_height="70dp"
+                android:background="@drawable/webinfo"
+                app:layout_gravity="fill" />
 
-        <TextView
-            android:id="@+id/text3"
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/text2"
+                android:layout_width="100dp"
+                android:layout_height="45dp"
+                android:background="#00FFFFFF"
+                android:backgroundTint="#00FFFFFF"
+                android:fontFamily="@font/lottemartdreammedium"
+                android:gravity="center_horizontal"
+                android:text="웹정보\n시스템"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                app:layout_gravity="fill" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_gravity="center"
             android:layout_height="wrap_content"
-            android:background="#00FFFFFF"
-            android:backgroundTint="#00FFFFFF"
-            android:textSize="20sp"
-            android:gravity="center_horizontal"
-            android:textAlignment="center"
-            android:fontFamily="@font/lottemartdreammedium"
-            android:text="이러닝\n시스템"
-            app:layout_gravity="fill" />
+            android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/text4"
-            android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/View3"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:background="@drawable/elearning"
+                app:layout_gravity="fill" />
+
+            <TextView
+                android:id="@+id/text3"
+                android:layout_width="100dp"
+                android:layout_height="45dp"
+                android:background="#00FFFFFF"
+                android:backgroundTint="#00FFFFFF"
+                android:fontFamily="@font/lottemartdreammedium"
+                android:gravity="center_horizontal"
+                android:text="이러닝\n시스템"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                app:layout_gravity="fill" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_gravity="center"
             android:layout_height="wrap_content"
-            android:background="#00FFFFFF"
-            android:backgroundTint="#00FFFFFF"
-            android:text="셔틀버스"
-            android:textSize="20sp"
-            android:gravity="center_horizontal"
-            android:textAlignment="center"
-            android:fontFamily="@font/lottemartdreammedium"
-            app:layout_gravity="fill" />
+            android:orientation="vertical" >
 
-    </androidx.gridlayout.widget.GridLayout>
+            <Button
+                android:id="@+id/View4"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:background="@drawable/shuttle"
+                app:layout_gravity="fill" />
+
+            <TextView
+                android:id="@+id/text4"
+                android:layout_width="100dp"
+                android:layout_height="45dp"
+                android:background="#00FFFFFF"
+                android:backgroundTint="#00FFFFFF"
+                android:fontFamily="@font/lottemartdreammedium"
+                android:gravity="center_horizontal"
+                android:text="셔틀버스"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                app:layout_gravity="fill" />
+        </LinearLayout>
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/textView2"
@@ -137,9 +168,8 @@
         android:layout_height="420dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="28dp"
-        android:background="@drawable/btncustom3"
-        android:backgroundTint="#8EA2B1"
+        android:layout_marginBottom="36dp"
+        android:background="@drawable/btncustom6"
         android:clickable="true"
         android:fontFamily="@font/tmonmonsorii"
         android:gravity="center"
@@ -150,16 +180,15 @@
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
         app:layout_constraintEnd_toStartOf="@+id/textView3"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/textView3"
         android:layout_width="128dp"
         android:layout_height="420dp"
-        android:layout_marginBottom="28dp"
-        android:background="@drawable/btncustom3"
-        android:backgroundTint="#8EA2B1"
+        android:layout_marginBottom="36dp"
+        android:background="@drawable/btncustom6"
         android:clickable="true"
         android:fontFamily="@font/tmonmonsorii"
         android:gravity="center"
@@ -179,9 +208,8 @@
         android:layout_height="420dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="84dp"
-        android:background="@drawable/btncustom3"
-        android:backgroundTint="#8EA2B1"
+        android:layout_marginBottom="92dp"
+        android:background="@drawable/btncustom6"
         android:clickable="true"
         android:fontFamily="@font/tmonmonsorii"
         android:gravity="center"
@@ -200,6 +228,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="81dp"
         android:fontFamily="@font/lottemartdreammedium"
+        android:theme="@style/Widget.BottomNavigationView"
         app:itemBackground="@android:color/white"
         app:itemIconTint="#5785CF"
         app:itemTextColor="#000000"
@@ -207,7 +236,6 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5"
         app:layout_constraintVertical_bias="1.0"
         app:menu="@menu/menu_bottomnavigationview"
-        android:theme="@style/Widget.BottomNavigationView"
         tools:layout_editor_absoluteX="-8dp" />
 
     <SearchView
