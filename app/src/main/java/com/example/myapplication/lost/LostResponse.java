@@ -36,11 +36,13 @@ public class LostResponse {
     private String campus;
     private String content;
     private String type;
+    private String date;
 
     public String getType() {return type;}
     public int getNumber() { return number;}
     public String getTitle() { return title;}
     public String getNickname() { return nickname;}
     public String getCampus() { return campus;}
-    public String getContent() {return content;}
+    public String getContent() { return content;}
+    public String getDate() { return date;}
 }

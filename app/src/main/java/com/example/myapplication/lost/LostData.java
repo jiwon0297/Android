@@ -21,6 +21,9 @@ public class LostData {
     @SerializedName("number")
     int number;
 
+    @SerializedName("date")
+    String date;
+
     public LostData(String type) {
         this.type = type;
     }

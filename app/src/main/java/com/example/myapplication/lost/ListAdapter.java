@@ -60,6 +60,7 @@ public class ListAdapter extends BaseAdapter {
         TextView oTextNumber = (TextView) convertView.findViewById(R.id.textNumber);
         TextView oTextContent = (TextView) convertView.findViewById(R.id.textContent);
         TextView oTextType = (TextView) convertView.findViewById(R.id.type);
+        TextView oTextDate = (TextView) convertView.findViewById(R.id.textDate);
 
         oTextCampus.setText(data.get(position).campus);
         oTextTitle.setText(data.get(position).title);
@@ -67,6 +68,7 @@ public class ListAdapter extends BaseAdapter {
         oTextNumber.setText(String.valueOf(data.get(position).number));
         oTextContent.setText(data.get(position).content);
         oTextType.setText(data.get(position).type);
+        oTextDate.setText(data.get(position).date);
 
         return convertView;
 

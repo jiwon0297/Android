@@ -15,10 +15,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication.R;
+import com.example.myapplication.mate.AloneActivity;
+import com.example.myapplication.mate.ContestActivity;
+import com.example.myapplication.mate.HouseActivity;
 import com.example.myapplication.mate.MateDeleteData;
 import com.example.myapplication.mate.MateDeleteResponse;
 import com.example.myapplication.mate.MateEditActivity;
 import com.example.myapplication.mate.MateViewActivity;
+import com.example.myapplication.mate.StudyActivity;
 import com.example.myapplication.network.RetrofitClient;
 import com.example.myapplication.network.ServiceApi;
 
@@ -40,6 +44,7 @@ public class LostViewActivity extends AppCompatActivity {
         TextView writer = (TextView) findViewById(R.id.writer);
         TextView type = (TextView) findViewById(R.id.type);
         TextView content = (TextView) findViewById(R.id.content);
+        TextView date = (TextView) findViewById(R.id.date);
 
         mProgressView = (ProgressBar) findViewById(R.id.progressBar2);
         service = RetrofitClient.getClient().create(ServiceApi.class);
@@ -48,6 +53,7 @@ public class LostViewActivity extends AppCompatActivity {
         writer.setText(getIntent().getStringExtra("NICKNAME_EXTRA2"));
         type.setText(getIntent().getStringExtra("TYPE_EXTRA"));
         content.setText(getIntent().getStringExtra("CONTENT_EXTRA"));
+        date.setText(getIntent().getStringExtra("DATE_EXTRA"));
 
         ImageButton backButton = (ImageButton) findViewById(R.id.imageButton1);
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +73,8 @@ public class LostViewActivity extends AppCompatActivity {
                     Intent intent = new Intent(LostViewActivity.this, LostEditActivity.class);
                     intent.putExtra("NUMBER_EXTRA", title.getText().toString());
                     intent.putExtra("TITLE_EXTRA", title.getText().toString());
+                    intent.putExtra("TYPE_EXTRA", getIntent().getStringExtra("TYPE_EXTRA"));
+                    intent.putExtra("CAMPUS_EXTRA", getIntent().getStringExtra("CAMPUS_EXTRA"));
                     intent.putExtra("CONTENT_EXTRA", content.getText().toString());
                     intent.putExtra("NUMBER_EXTRA", getIntent().getIntExtra("NUMBER_EXTRA",1));
                     intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
@@ -129,7 +137,16 @@ public class LostViewActivity extends AppCompatActivity {
                 showProgress(false);
 
                 if (result.getCode() == 200) {
-                    finish();
+                    String cate = getIntent().getStringExtra("TYPE_EXTRA");
+                    if(cate.equals("찾아요")){
+                        Intent intent = new Intent(LostViewActivity.this, FindActivity.class);
+                        intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
+                        LostViewActivity.this.startActivity(intent);
+                    } else if(cate.equals("공모전")){
+                        Intent intent = new Intent(LostViewActivity.this, GetActivity.class);
+                        intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
+                        LostViewActivity.this.startActivity(intent);
+                    }
                 }
             }
 
