@@ -58,7 +58,7 @@
                 android:clickable="true"
                 android:fontFamily="monospace"
                 android:onClick="ilmi"
-                android:text="일미닭갈비"
+                android:text="일미닭갈비파전"
                 android:textSize="24sp"
                 tools:layout_editor_absoluteY="91dp" />
 
