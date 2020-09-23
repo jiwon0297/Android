@@ -2,9 +2,11 @@ package com.example.myapplication.mate;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,11 +31,13 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class HouseActivity extends AppCompatActivity {
+public class HouseActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
     private String cate = "하우스";
     private ServiceApi service;
     private ProgressBar mProgressView;
     private ListView listView = null;
+
+    SwipeRefreshLayout mSwipeRefreshLayout;
 
     private final String NICKNAME_EXTRA = "NICKNAME_EXTRA";
 
@@ -42,6 +46,9 @@ public class HouseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_house);
 
+        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefresh);
+        mSwipeRefreshLayout.setOnRefreshListener(this);
+
         mProgressView = (ProgressBar) findViewById(R.id.progressBar);
         service = RetrofitClient.getClient().create(ServiceApi.class);
         attemptList();
@@ -49,6 +56,19 @@ public class HouseActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new HouseActivity.ItemSelectedListener());
 
+    }
+
+    @Override
+    public void onRefresh(){
+        mSwipeRefreshLayout.setRefreshing(true);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                service = RetrofitClient.getClient().create(ServiceApi.class);
+                attemptList();
+                mSwipeRefreshLayout.setRefreshing(false);
+            }
+        }, 1000);
     }
 
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{

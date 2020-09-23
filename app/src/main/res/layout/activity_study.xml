@@ -11,48 +11,57 @@ tools:context=".mate.StudyActivity">
     android:id="@+id/textView"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginTop="0dp"
+    android:layout_marginTop="30dp"
+    android:layout_marginBottom="30dp"
     android:fontFamily="@font/lottemartdreammedium"
     android:background="#F6F2FF"
     android:text="  스터디 메이트 구하기  "
     android:textSize="35sp"
-    app:layout_constraintBottom_toTopOf="@+id/listView1"
+    app:layout_constraintBottom_toTopOf="@+id/swipeRefresh"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintHorizontal_bias="0.488"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintVertical_bias="0.481" />
 
-<ImageButton
-    android:id="@+id/imageButton1"
-    android:layout_width="54dp"
-    android:layout_height="56dp"
-    android:layout_marginTop="34dp"
-    android:layout_marginEnd="36dp"
-    android:layout_marginBottom="34dp"
-    android:background="@drawable/plus"
-    android:onClick="write"
-    android:padding="0dp"
-    android:scaleType="fitXY"
-    android:src="@drawable/plus"
-    app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="1.0" />
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="412dp"
+        android:layout_height="680dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView">
 
-<ListView
-    android:id="@+id/listView1"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="80dp"
-    android:background="#F6F2FF"
-    android:fontFamily="@font/lottemartdreamlight"
-    app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.0"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="@id/textView"
-    app:layout_constraintVertical_bias="0.0" />
+        <ListView
+            android:id="@+id/listView1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:background="#F6F2FF"
+            android:fontFamily="@font/lottemartdreamlight"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <ImageButton
+        android:id="@+id/imageButton1"
+        android:layout_width="54dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="34dp"
+        android:background="@drawable/plus"
+        android:onClick="write"
+        android:padding="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/plus"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 <com.google.android.material.bottomnavigation.BottomNavigationView
     android:id="@+id/bottomNavi"
