@@ -24,8 +24,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class JjimActivity extends AppCompatActivity implements ExpandableListView.OnGroupClickListener,
         ExpandableListView.OnChildClickListener{
     ExpandableListView listView;
-    String[] groups= new String[]{""};
-    String[][] childs={{""}, {""}};
+    String[] groups= new String[]{"찜닭 메뉴","추가메뉴"};
+    String[][] childs={{"치즈순살찜달\n小 21,000원\n中 30,000원\n大 39,000원","순살안동찜닭\n小 18,000원\n中 27,000원\n大36,000원","순살고추장찜닭\n小 18,000원\n中 27,000원\n大36,000원","뼈있는 안동찜닭\n小 18,000원\n中 27,000원\n大 36,000원","뼈있는 고추장찜닭\n小 18,000원\n中 27,000원\n大36,000원"},
+            {"공기밥 1,000원","콜라(500mL) 1,500원","사이다(500mL) 1,500원","콜라(1.25) 2,500원","사이다(1.5L) 2,500원"}};
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

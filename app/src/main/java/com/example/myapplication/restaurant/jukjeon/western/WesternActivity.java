@@ -69,11 +69,6 @@ public class WesternActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void bistro(View view) { Toast.makeText(this,"비스트로 모아이",Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, BistroActivity.class);
-        startActivity(intent);
-    }
-
     public void burrito(View view) { Toast.makeText(this,"부리또 정거장",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, BurritoActivity.class);
         startActivity(intent);
