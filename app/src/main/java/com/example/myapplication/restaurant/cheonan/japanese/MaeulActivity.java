@@ -2,7 +2,15 @@ package com.example.myapplication.restaurant.cheonan.japanese;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.BaseExpandableListAdapter;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,15 +21,100 @@ import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MaeulActivity extends AppCompatActivity {
+public class MaeulActivity extends AppCompatActivity implements ExpandableListView.OnGroupClickListener,
+        ExpandableListView.OnChildClickListener{
+    ExpandableListView listView;
+    String[] groups= new String[]{"돈까스류","밥류"};
+    String[][] childs={{"돈까스 곱배기 2,000원 추가","마을돈까스 6,000원","카레돈까스 6,000원","반반돈까스(카레+마을) 6,000원","일식돈까스 7,000원","치즈돈까스 7,00원","제육돈까스 7,000원","김치뽀까스 7,000원"},
+            {"밥류 곱배기 1,000원 추가","불고기덮밥 7,000원","제육덮밥 6,500원","카레덮밥 5,500원","김치볶음밥 5,500원","새우볶음밥 6,000원","야채볶음밥 6,000원","오므라이스 6,000원"}};
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maeul);
 
+        ExpandableListAdapter listAdapter = new MaeulActivity.MyExpandableListAdapter();
+        listView = (ExpandableListView)findViewById(R.id.expandableListView);
+        listView.setAdapter(listAdapter);
+        listView.setOnGroupClickListener(this);
+        listView.setOnChildClickListener(this);
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new MaeulActivity.ItemSelectedListener());
+    }
+
+    @Override
+    public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+        return false;
+    }
+
+    @Override
+    public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
+        return false;
+    }
+
+    public class MyExpandableListAdapter extends BaseExpandableListAdapter {
+
+        public Object getChild(int groupPosition, int childPosition){
+            return childs[groupPosition][childPosition];
+        }
+
+        public long getChildId(int groupPosition, int childPosition){
+            return childPosition;
+        }
+
+        public int getChildrenCount(int groupPosition){
+            return childs[groupPosition].length;
+        }
+
+        public TextView getGenericView(){
+            AbsListView.LayoutParams lp = new AbsListView.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,64);
+            TextView textView = new TextView(MaeulActivity.this);
+            textView.setGravity(Gravity.CENTER_VERTICAL|Gravity.LEFT);
+            textView.setPadding(30,40,0,40);
+            textView.setTextSize(15);
+
+            return textView;
+        }
+
+        public View getChildView(int groupPosition, int childPosition,
+                                 boolean isLastChild, View convertView, ViewGroup parent){
+            TextView textView = getGenericView();
+            textView.setText(getChild(groupPosition,childPosition).toString());
+
+            return textView;
+        }
+
+        public Object getGroup(int groupPosition){
+            return groups[groupPosition];
+        }
+
+        public int getGroupCount(){
+            return groups.length;
+        }
+
+        public long getGroupId(int groupPosition){
+            return groupPosition;
+        }
+
+        public View getGroupView(int groupPosition,boolean isExpanded,
+                                 View convertView, ViewGroup parent){
+            TextView textView = getGenericView();
+            textView.setText(getGroup(groupPosition).toString());
+
+            listView.setGroupIndicator(null);
+
+            return textView;
+        }
+
+        public boolean isChildSelectable(int groupPosition, int childPosition){
+            return true;
+        }
+
+        public boolean hasStableIds(){
+            return true;
+        }
     }
 
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener {
