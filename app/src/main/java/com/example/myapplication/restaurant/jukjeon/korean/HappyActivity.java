@@ -24,8 +24,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class HappyActivity extends AppCompatActivity implements ExpandableListView.OnGroupClickListener,
         ExpandableListView.OnChildClickListener{
     ExpandableListView listView;
-    String[] groups= new String[]{""};
-    String[][] childs={{""}, {""}};
+    String[] groups= new String[]{"삼겹살덮밥 종류","소고기덮밥 종류","연어 종류","튀김&사이드"};
+    String[][] childs={{"고추장삼겹살덮밥 6,500원","간장삼겹살덮밥 6,500원","쌈겹덮밥 6,500원","오징어삼겹살덮밥 6,500원"},
+            {"소불고기덮밥 7,500원"},
+            {"연어덮밥 따로 6,500원","연어덮밥 6,500원","연어비빔밥 6,500원","연어조림 6,500원"},
+            {"생선가스 6,500원","비빔만두 4,500원","우동 4,000원","튀김우동 4,500원"}};
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

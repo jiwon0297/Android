@@ -24,8 +24,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class KalActivity extends AppCompatActivity implements ExpandableListView.OnGroupClickListener,
         ExpandableListView.OnChildClickListener{
     ExpandableListView listView;
-    String[] groups= new String[]{""};
-    String[][] childs={{""}, {""}};
+    String[] groups= new String[]{"수제비/칼국수","전/볶음"};
+    String[][] childs={{"칼제비(반조리)(2인) 14,000원","칼제비(반조리)(3인) 21,000원","칼국수(반조리) 7,000원","수제비(반조리) 7,000원"},
+            {"해물파전 12,000원","감자전 12,000원","오징어볶음 15,000원"}};
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

@@ -27,7 +27,6 @@
         <activity android:name=".mate.MateEditActivity" />
         <activity android:name=".restaurant.jukjeon.western.DosmasActivity" />
         <activity android:name=".restaurant.jukjeon.western.BurritoActivity" />
-        <activity android:name=".restaurant.jukjeon.western.BistroActivity" />
         <activity android:name=".restaurant.jukjeon.western.ObliqActivity" />
         <activity android:name=".restaurant.jukjeon.western.DarinActivity" />
         <activity android:name=".restaurant.jukjeon.western.GrandeActivity" />

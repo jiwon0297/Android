@@ -26,7 +26,7 @@
         android:layout_marginTop="70dp"
         android:layout_marginEnd="100dp"
         android:fontFamily="@font/kyobo"
-        android:text="손가네칼국수"
+        android:text="내가찜한닭"
         android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,7 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/kyobo"
-                android:text="경기 용인시 수지구 죽전로 140 104호\n"
+                android:text="경기 용인시 수지구 죽전로168번길 21\n"
                 android:textSize="20dp" />
 
             <TextView
@@ -80,7 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/kyobo"
-                android:text="-----------\n"
+                android:text="매일 10:30 - 22:30\n"
                 android:textSize="20dp" />
 
             <TextView
