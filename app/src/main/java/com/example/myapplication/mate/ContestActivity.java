@@ -3,11 +3,13 @@ package com.example.myapplication.mate;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.os.Handler;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,11 +34,13 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class ContestActivity extends AppCompatActivity {
+public class ContestActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
     private String cate = "공모전";
     private ServiceApi service;
     private ProgressBar mProgressView;
     private ListView listView = null;
+
+    SwipeRefreshLayout mSwipeRefreshLayout;
 
     private final String NICKNAME_EXTRA = "NICKNAME_EXTRA";
 
@@ -45,6 +49,9 @@ public class ContestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contest);
 
+        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefresh);
+        mSwipeRefreshLayout.setOnRefreshListener(this);
+
         mProgressView = (ProgressBar) findViewById(R.id.progressBar);
         service = RetrofitClient.getClient().create(ServiceApi.class);
         attemptList();
@@ -52,6 +59,19 @@ public class ContestActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new ContestActivity.ItemSelectedListener());
 
+    }
+
+    @Override
+    public void onRefresh(){
+        mSwipeRefreshLayout.setRefreshing(true);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                service = RetrofitClient.getClient().create(ServiceApi.class);
+                attemptList();
+                mSwipeRefreshLayout.setRefreshing(false);
+            }
+        }, 1000);
     }
 
     private void attemptList() {
