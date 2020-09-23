@@ -43,7 +43,6 @@ public class JoinActivity extends AppCompatActivity {
     private ServiceApi service;
     private boolean emailValidate = false;
     private boolean nicknameValidate = false;
-    private TextView validate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,7 +124,6 @@ public class JoinActivity extends AppCompatActivity {
         nameText.setError(null);
         nicknameText.setError(null);
         genderText.setError(null);
-        validate.setError(null);
 
         String name = nameText.getText().toString();
         String email = emailText.getText().toString();
@@ -137,18 +135,16 @@ public class JoinActivity extends AppCompatActivity {
         boolean cancel = false;
         View focusView = null;
 
-
-        if(emailValidate == false) {
-            validate.setError("이메일 중복확인 해주세요.");
+        if (emailValidate == false) {
+            emailText.setError("이메일 중복확인을 해주세요.");
             focusView = emailText;
             cancel = true;
         }
-        if(nicknameValidate == false) {
-            validate.setError("닉네임 중복확인 해주세요.");
+        if (nicknameValidate == false) {
+            nicknameText.setError("닉네임 중복확인을 해주세요.");
             focusView = nicknameText;
             cancel = true;
         }
-
 
         // 패스워드의 유효성 검사
         if (password.isEmpty()) {
