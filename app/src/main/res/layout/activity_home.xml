@@ -4,101 +4,195 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#5CFFFFFF"
-    android:backgroundTint="#72FFFFFF"
+    android:background="#FFFFFF"
+    android:backgroundTint="#FFFFFF"
     tools:context=".ui.HomeActivity">
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="332dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="5dp"
+        android:layout_width="102dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="36dp"
         android:fontFamily="@font/lottemarthappybold"
-        android:text="슬기로운 단국생활"
+        android:text="슬기로운\n단국생활"
         android:textColor="#C3252424"
-        android:textSize="44sp"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton1"
+        android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/imageButton1"
-        android:layout_width="54dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="34dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="34dp"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
         android:background="@drawable/bell"
         android:padding="0dp"
         android:scaleType="fitXY"
         android:src="@drawable/bell"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintEnd_toStartOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.067" />
+        app:layout_constraintVertical_bias="0.15" />
+
+    <androidx.gridlayout.widget.GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="191dp"
+        app:columnCount="4"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.895"
+        app:rowCount="2">
+
+        <Button
+            android:id="@+id/View1"
+            android:layout_width="360px"
+            android:layout_height="360px"
+            android:background="@drawable/homepage"
+            app:layout_gravity="fill" />
+
+        <Button
+            android:id="@+id/View2"
+            android:layout_width="360px"
+            android:layout_height="360px"
+            android:background="@drawable/webinfo"
+            app:layout_gravity="fill" />
+
+        <Button
+            android:id="@+id/View3"
+            android:layout_width="360px"
+            android:layout_height="360px"
+            android:background="@drawable/elearning"
+            app:layout_gravity="fill"
+            app:layout_row="0" />
+
+        <Button
+            android:id="@+id/View4"
+            android:layout_width="360px"
+            android:layout_height="360px"
+            android:background="@drawable/shuttle"
+            app:layout_gravity="fill" />
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00FFFFFF"
+            android:backgroundTint="#00FFFFFF"
+            android:fontFamily="@font/lottemartdreammedium"
+            android:gravity="center_horizontal"
+            android:textAlignment="center"
+            android:text="학교\n홈페이지"
+            android:textSize="20sp"
+            app:layout_gravity="fill" />
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00FFFFFF"
+            android:backgroundTint="#00FFFFFF"
+            android:textSize="20sp"
+            android:gravity="center_horizontal"
+            android:textAlignment="center"
+            android:fontFamily="@font/lottemartdreammedium"
+            android:text="웹정보\n시스템"
+            app:layout_gravity="fill" />
+
+        <TextView
+            android:id="@+id/text3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00FFFFFF"
+            android:backgroundTint="#00FFFFFF"
+            android:textSize="20sp"
+            android:gravity="center_horizontal"
+            android:textAlignment="center"
+            android:fontFamily="@font/lottemartdreammedium"
+            android:text="이러닝\n시스템"
+            app:layout_gravity="fill" />
+
+        <TextView
+            android:id="@+id/text4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00FFFFFF"
+            android:backgroundTint="#00FFFFFF"
+            android:text="셔틀버스"
+            android:textSize="20sp"
+            android:gravity="center_horizontal"
+            android:textAlignment="center"
+            android:fontFamily="@font/lottemartdreammedium"
+            app:layout_gravity="fill" />
+
+    </androidx.gridlayout.widget.GridLayout>
 
     <Button
         android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="190dp"
-        android:layout_marginTop="44dp"
-        android:background="@drawable/meeting"
+        android:layout_width="440px"
+        android:layout_height="420dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/btncustom3"
+        android:backgroundTint="#8EA2B1"
         android:clickable="true"
-        android:gravity="center"
         android:fontFamily="@font/tmonmonsorii"
+        android:gravity="center"
         android:onClick="mate"
         android:text="Mate"
         android:textAlignment="center"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:textStyle="bold|italic"
-        app:layout_constraintEnd_toStartOf="@+id/textView5"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
+        app:layout_constraintEnd_toStartOf="@+id/textView3"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="190dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="17dp"
-        android:background="@drawable/lost"
-        android:fontFamily="@font/tmonmonsorii"
+        android:layout_width="440px"
+        android:layout_height="420dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/btncustom3"
+        android:backgroundTint="#8EA2B1"
         android:clickable="true"
+        android:fontFamily="@font/tmonmonsorii"
         android:gravity="center"
         android:onClick="lost"
         android:text="LOST/FIND"
         android:textAlignment="center"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:textStyle="bold|italic"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/textView5"
-        android:layout_width="match_parent"
-        android:layout_height="190dp"
-        android:layout_marginBottom="80dp"
-        android:background="@drawable/restaurant"
+        android:layout_width="440px"
+        android:layout_height="420dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="64dp"
+        android:background="@drawable/btncustom3"
+        android:backgroundTint="#8EA2B1"
         android:clickable="true"
-        android:gravity="center"
         android:fontFamily="@font/tmonmonsorii"
+        android:gravity="center"
         android:onClick="restaurantwhere"
-        android:text="RESTAURANT"
+        android:text="FOOD/CAFE"
         android:textAlignment="center"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:textStyle="bold|italic"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/bottomNavi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/textView3" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavi"
@@ -114,6 +208,19 @@
         app:layout_constraintVertical_bias="1.0"
         app:menu="@menu/menu_bottomnavigationview"
         tools:layout_editor_absoluteX="-8dp" />
+
+    <SearchView
+        android:layout_width="234dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="48dp"
+        android:fontFamily="@font/lottemartdreamlight"
+        android:textSize="15sp"
+        app:iconifiedByDefault="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:queryHint="검색어를 입력하세요." />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
