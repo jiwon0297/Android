@@ -87,8 +87,13 @@ public class JoinActivity extends AppCompatActivity {
                     focusView = emailText;
                     cancel = true;
                 }
-                startCheckEmail(new CheckEmailData(email));
-                showProgress(true);
+                if (cancel) {
+                    focusView.requestFocus();
+                } else {
+                    startCheckEmail(new CheckEmailData(email));
+                    showProgress(true);
+                }
+
             }
         });
 
@@ -110,8 +115,13 @@ public class JoinActivity extends AppCompatActivity {
                     focusView = nicknameText;
                     cancel = true;
                 }
-                startCheckNickname(new CheckNicknameData(nickname));
-                showProgress(true);
+                if (cancel) {
+                    focusView.requestFocus();
+                } else {
+                    startCheckNickname(new CheckNicknameData(nickname));
+                    showProgress(true);
+                }
+
             }
         });
 
@@ -241,6 +251,9 @@ public class JoinActivity extends AppCompatActivity {
                     emailValidate = true;
                     emailCkButton.setText("확인완료");
                 }
+                else {
+                    emailValidate = false;
+                }
             }
 
             @Override
@@ -264,6 +277,9 @@ public class JoinActivity extends AppCompatActivity {
                 if (result.getCode() == 200) {
                     nicknameValidate = true;
                     nicknameCkButton.setText("확인완료");
+                }
+                else {
+                    nicknameValidate = false;
                 }
             }
 
