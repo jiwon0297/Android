@@ -99,7 +99,7 @@
         app:layout_constraintHorizontal_bias="0.051"
         app:layout_constraintStart_toStartOf="@+id/imageView15"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.696"
+        app:layout_constraintVertical_bias="0.453"
         app:srcCompat="@drawable/woman"
         tools:visibility="invisible" />
 
@@ -112,7 +112,7 @@
         app:layout_constraintHorizontal_bias="0.051"
         app:layout_constraintStart_toStartOf="@+id/imageView15"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.696"
+        app:layout_constraintVertical_bias="0.296"
         app:srcCompat="@drawable/man"
         tools:visibility="invisible" />
 
@@ -149,7 +149,7 @@
         android:fontFamily="@font/lottemartdreammedium"
         android:gravity="center_vertical"
         android:text="학번"
-        android:textSize="60px"
+        android:textSize="50px"
         app:layout_constraintEnd_toEndOf="@+id/imageView15"
         app:layout_constraintHorizontal_bias="0.917"
         app:layout_constraintStart_toStartOf="parent"
@@ -191,8 +191,8 @@
         android:id="@+id/gender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="112dp"
-        android:layout_marginBottom="108dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginBottom="56dp"
         android:fontFamily="@font/lottemartdreammedium"
         android:gravity="center_vertical"
         android:text="성별"
