@@ -2,9 +2,11 @@ package com.example.myapplication.lost;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,11 +30,12 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class GetActivity extends AppCompatActivity {
+public class GetActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
     private String type = "주웠어요";
     private ServiceApi service;
     private ProgressBar mProgressView;
     private ListView listView = null;
+    SwipeRefreshLayout mSwipeRefreshLayout;
 
     private final String NICKNAME_EXTRA = "NICKNAME_EXTRA";
 
@@ -47,9 +50,27 @@ public class GetActivity extends AppCompatActivity {
 
         attemptList();
 
+        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefresh);
+        mSwipeRefreshLayout.setOnRefreshListener(this);
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new GetActivity.ItemSelectedListener());
 
+    }
+
+    @Override
+    public void onRefresh() {
+        mSwipeRefreshLayout.setRefreshing(true);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                service = RetrofitClient.getClient().create(ServiceApi.class);
+
+                attemptList();
+
+                mSwipeRefreshLayout.setRefreshing(false);
+            }
+        }, 1000);
     }
 
     private void attemptList() {
