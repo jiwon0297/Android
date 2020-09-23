@@ -81,7 +81,7 @@ public class MymateActivity extends AppCompatActivity {
     }
 
     private void attemptList() {
-        String nickname = nicknameText.getText().toString();
+        String nickname = getIntent().getStringExtra("NICKNAME_EXTRA");
 
         boolean cancel = false;
         View focusView = null;
@@ -110,10 +110,10 @@ public class MymateActivity extends AppCompatActivity {
 
                 if (result.getCode() == 200) {
                     MyMateResponse sample = result;
-                    nicknameText.setText(result.getNickname());
                     for (MyMateResponse a :sample.getResult() ){
                         MyMateData oItem = new MyMateData();
-                        oItem.campus = a.getCate();
+                        oItem.cate = a.getCate();
+                        oItem.campus = a.getCampus();
                         oItem.title = a.getTitle();
                         oItem.nickname = a.getNickname();
                         oItem.date = a.getDate();
