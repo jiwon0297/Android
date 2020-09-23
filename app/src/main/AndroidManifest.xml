@@ -15,7 +15,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".restaurant.jukjeon.japanese.HosikdangActivity"></activity>
+        <activity android:name=".restaurant.jukjeon.korean.KalActivity"></activity>
+        <activity android:name=".restaurant.jukjeon.korean.JjimActivity" />
+        <activity android:name=".restaurant.jukjeon.korean.HappyActivity" />
+        <activity android:name=".restaurant.jukjeon.japanese.HosikdangActivity" />
         <activity
             android:name=".ui.ContentActivity"
             android:label="@string/title_activity_content"
@@ -91,15 +94,14 @@
             android:label="내가 쓴 글/댓글 단 글" />
         <activity
             android:name=".ui.MymateActivity"
-            android:label="내가 쓴 메이트 목록"
             android:hardwareAccelerated="false"
-            android:largeHeap="true"/>
+            android:label="내가 쓴 메이트 목록"
+            android:largeHeap="true" />
         <activity
             android:name=".ui.MylostActivity"
-            android:label="내가 쓴 분실물목록"
             android:hardwareAccelerated="false"
-            android:largeHeap="true"/>
-
+            android:label="내가 쓴 분실물목록"
+            android:largeHeap="true" />
         <activity android:name=".lost.LostViewActivity" />
         <activity android:name=".mate.MateViewActivity" />
         <activity android:name=".mate.MateWriteActivity" />
