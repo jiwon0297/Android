@@ -24,8 +24,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class HosikdangActivity extends AppCompatActivity implements ExpandableListView.OnGroupClickListener,
         ExpandableListView.OnChildClickListener{
     ExpandableListView listView;
-    String[] groups= new String[]{"커", "피"};
-    String[][] childs={{"아","아아","아아아"},{"가","가가","가가가"}};
+    String[] groups= new String[]{"덮밥", "카레","기타"};
+    String[][] childs={{"연어덮밥(S) 9,500원","차슈덮밥 7,000원","마늘간장치킨덮밥 6,500원","치킨칠리덮밥 6,500원","매콤대창덮밥 8,500원"},
+            {"호카레 6,000원","오믈렛카레 7,000원","제주흑돼지 돈까스카레 8,500원"},
+            {"치킨가라아게 4,000원","새우튀김 메밀소바 7,000원","돈까스 메밀소바 7,000원"}};
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
