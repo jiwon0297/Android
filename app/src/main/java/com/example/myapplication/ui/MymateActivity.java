@@ -47,8 +47,6 @@ public class MymateActivity extends AppCompatActivity {
 
         mProgressView = (ProgressBar) findViewById(R.id.progressBar);
         service = RetrofitClient.getClient().create(ServiceApi.class);
-        nicknameText = (TextView) findViewById(R.id.textView);
-        nicknameText.setText(getIntent().getStringExtra("NICKNAME_EXTRA"));
         attemptList();
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
@@ -115,7 +113,7 @@ public class MymateActivity extends AppCompatActivity {
                     nicknameText.setText(result.getNickname());
                     for (MyMateResponse a :sample.getResult() ){
                         MyMateData oItem = new MyMateData();
-                        oItem.campus = a.getCampus();
+                        oItem.campus = a.getCate();
                         oItem.title = a.getTitle();
                         oItem.nickname = a.getNickname();
                         oItem.date = a.getDate();

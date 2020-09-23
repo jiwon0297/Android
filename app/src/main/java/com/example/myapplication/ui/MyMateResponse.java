@@ -35,6 +35,7 @@ public class MyMateResponse {
     private String campus;
     private String date;
     private String content;
+    private String cate;
 
     public int getNumber() { return number;}
     public String getTitle() { return title;}
@@ -42,5 +43,6 @@ public class MyMateResponse {
     public String getCampus() { return campus;}
     public String getDate() { return date; }
     public String getContent() {return content;}
+    public String getCate(){return cate;}
 
 }
