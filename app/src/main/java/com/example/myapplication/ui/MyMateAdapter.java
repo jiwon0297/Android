@@ -54,14 +54,14 @@ public class MyMateAdapter extends BaseAdapter {
         }
 
         TextView oTextNumber = (TextView) convertView.findViewById(R.id.textNumber);
-        TextView oTextCampus = (TextView) convertView.findViewById(R.id.textCampus);
+        TextView oTextCate = (TextView) convertView.findViewById(R.id.textCate);
         TextView oTextTitle = (TextView) convertView.findViewById(R.id.textTitle);
         TextView oTextNickname = (TextView) convertView.findViewById(R.id.textNickname);
         TextView oTextDate = (TextView) convertView.findViewById(R.id.textDate);
         TextView oTextContent = (TextView) convertView.findViewById(R.id.textContent);
 
         oTextNumber.setText(String.valueOf(sample.get(position).number));
-        oTextCampus.setText(sample.get(position).campus);
+        oTextCate.setText(sample.get(position).cate);
         oTextTitle.setText(sample.get(position).title);
         oTextNickname.setText(sample.get(position).nickname);
         oTextDate.setText(sample.get(position).date);
