@@ -69,9 +69,23 @@ public class JoinActivity extends AppCompatActivity {
         emailCkButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = emailText.getText().toString();
                 if(emailValidate){
                     return;
+                }
+                emailText.setError(null);
+                String email = emailText.getText().toString();
+                boolean cancel = false;
+                View focusView = null;
+
+                // 이메일의 유효성 검사
+                if (email.isEmpty()) {
+                    emailText.setError("이메일을 입력해주세요.");
+                    focusView = emailText;
+                    cancel = true;
+                } else if (!isEmailValid(email)) {
+                    emailText.setError("단국대 이메일을 입력해주세요.");
+                    focusView = emailText;
+                    cancel = true;
                 }
                 startCheckEmail(new CheckEmailData(email));
                 showProgress(true);
@@ -81,9 +95,20 @@ public class JoinActivity extends AppCompatActivity {
         nicknameCkButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                nicknameText.setError(null);
                 String nickname = nicknameText.getText().toString();
+
+                boolean cancel = false;
+                View focusView = null;
+
                 if(nicknameValidate){
                     return;
+                }
+                // 닉네임의 유효성 검사
+                if (nickname.isEmpty()) {
+                    nicknameText.setError("닉네임을 입력해주세요.");
+                    focusView = nicknameText;
+                    cancel = true;
                 }
                 startCheckNickname(new CheckNicknameData(nickname));
                 showProgress(true);
@@ -122,7 +147,6 @@ public class JoinActivity extends AppCompatActivity {
         passwordText.setError(null);
         passwordconfirmText.setError(null);
         nameText.setError(null);
-        nicknameText.setError(null);
         genderText.setError(null);
 
         String name = nameText.getText().toString();
@@ -161,28 +185,10 @@ public class JoinActivity extends AppCompatActivity {
             cancel = true;
         }
 
-        // 이메일의 유효성 검사
-        if (email.isEmpty()) {
-            emailText.setError("이메일을 입력해주세요.");
-            focusView = emailText;
-            cancel = true;
-        } else if (!isEmailValid(email)) {
-            emailText.setError("단국대 이메일을 입력해주세요.");
-            focusView = emailText;
-            cancel = true;
-        }
-
         // 이름의 유효성 검사
         if (name.isEmpty()) {
             nameText.setError("이름을 입력해주세요.");
             focusView = nameText;
-            cancel = true;
-        }
-
-        // 닉네임의 유효성 검사
-        if (nickname.isEmpty()) {
-            nicknameText.setError("닉네임을 입력해주세요.");
-            focusView = nicknameText;
             cancel = true;
         }
 
