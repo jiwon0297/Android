@@ -49,12 +49,12 @@ public class FindActivity extends AppCompatActivity implements SwipeRefreshLayou
         setContentView(R.layout.activity_find);
         mProgressView = (ProgressBar) findViewById(R.id.loading);
 
+        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefresh);
+        mSwipeRefreshLayout.setOnRefreshListener(this);
+
         service = RetrofitClient.getClient().create(ServiceApi.class);
 
         attemptList();
-
-        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefresh);
-        mSwipeRefreshLayout.setOnRefreshListener(this);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new FindActivity.ItemSelectedListener());
