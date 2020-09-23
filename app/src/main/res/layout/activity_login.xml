@@ -16,7 +16,7 @@
         android:layout_width="376dp"
         android:layout_height="115dp"
         android:fontFamily="@font/lottemartdreammedium"
-        android:text="슬기로운 단국생활                     로그인"
+        android:text="슬기로운 단국생활\n로그인"
         android:textAlignment="center"
         android:textSize="45sp"
         app:layout_constraintBottom_toBottomOf="@+id/loading"
@@ -24,21 +24,22 @@
         app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.779" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/username"
         android:layout_width="338dp"
         android:layout_height="70dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="260dp"
+        android:layout_marginTop="308dp"
         android:layout_marginEnd="24dp"
-        android:hint="단국대 이메일"
         android:fontFamily="@font/lottemartdreammedium"
-        android:textSize="20sp"
+        android:hint="단국대 이메일"
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="true"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -47,16 +48,17 @@
         android:layout_width="338dp"
         android:layout_height="70dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:fontFamily="@font/lottemartdreammedium"
         android:hint="비밀번호"
-        android:textSize="20sp"
         android:imeActionLabel="@string/action_sign_in_short"
         android:imeOptions="actionDone"
         android:inputType="textPassword"
         android:selectAllOnFocus="true"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username" />
 
@@ -96,17 +98,18 @@
         app:layout_constraintTop_toBottomOf="@+id/password"
         app:layout_constraintVertical_bias="0.2" />
 
-    <Button
-        android:id="@+id/cancel"
-        android:layout_width="310dp"
-        android:layout_height="50dp"
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/autologin"
+        android:layout_width="121dp"
+        android:layout_height="33dp"
         android:layout_gravity="start"
         android:layout_marginStart="24dp"
         android:layout_marginTop="120dp"
         android:layout_marginEnd="24dp"
         android:enabled="true"
-        android:text="첫 화면으로 돌아가기"
         android:fontFamily="@font/lottemartdreammedium"
+        android:gravity="center"
+        android:text="자동 로그인"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
