@@ -1,5 +1,9 @@
 package com.example.myapplication.network;
 
+import com.example.myapplication.Join.CheckEmailData;
+import com.example.myapplication.Join.CheckEmailResponse;
+import com.example.myapplication.Join.CheckNicknameData;
+import com.example.myapplication.Join.CheckNicknameResponse;
 import com.example.myapplication.Join.JoinData;
 import com.example.myapplication.Join.JoinResponse;
 import com.example.myapplication.login.LoginData;
@@ -77,6 +81,12 @@ public interface ServiceApi {
     @POST("/lost/edit")
     Call<LostEditResponse> lostedit(@Body LostEditData data);
 
-    @POST("/lost/delte")
+    @POST("/lost/delete")
     Call<LostDeleteResponse> lostdelete(@Body LostDeleteData data);
+
+    @POST("/check/checkEmail")
+    Call<CheckEmailResponse> checkEmail(@Body CheckEmailData data);
+
+    @POST("/check/checkNickname")
+    Call<CheckNicknameResponse> checkNickname(@Body CheckNicknameData data);
 }

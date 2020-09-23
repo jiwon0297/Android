@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.IdRes;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
@@ -36,8 +37,12 @@ public class JoinActivity extends AppCompatActivity {
     private RadioGroup genderRadio;
     private Button registerButton;
     private Button cancelButton;
+    private Button emailCkButton;
+    private Button nicknameCkButton;
     private ProgressBar mProgressView;
     private ServiceApi service;
+    private boolean emailValidate = false;
+    private boolean nicknameValidate = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,9 +59,36 @@ public class JoinActivity extends AppCompatActivity {
         genderRadio.setOnCheckedChangeListener(radioGroupButtonChangeListener);
         registerButton = (Button) findViewById(R.id.join);
         cancelButton = (Button) findViewById(R.id.cancel);
+        emailCkButton = (Button) findViewById(R.id.emailCheck);
+        nicknameCkButton = (Button) findViewById(R.id.nicknameCheck);
         mProgressView = (ProgressBar) findViewById(R.id.loading);
 
+
         service = RetrofitClient.getClient().create(ServiceApi.class);
+
+        emailCkButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String email = emailText.getText().toString();
+                if(emailValidate){
+                    return;
+                }
+                startCheckEmail(new CheckEmailData(email));
+                showProgress(true);
+            }
+        });
+
+        nicknameCkButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String nickname = nicknameText.getText().toString();
+                if(nicknameValidate){
+                    return;
+                }
+                startCheckNickname(new CheckNicknameData(nickname));
+                showProgress(true);
+            }
+        });
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,10 +135,21 @@ public class JoinActivity extends AppCompatActivity {
         boolean cancel = false;
         View focusView = null;
 
+        if (emailValidate == false) {
+            emailText.setError("이메일 중복확인을 해주세요.");
+            focusView = emailText;
+            cancel = true;
+        }
+        if (nicknameValidate == false) {
+            nicknameText.setError("닉네임 중복확인을 해주세요.");
+            focusView = nicknameText;
+            cancel = true;
+        }
+
         // 패스워드의 유효성 검사
         if (password.isEmpty()) {
             emailText.setError("비밀번호를 입력해주세요.");
-            focusView = emailText;
+            focusView = passwordText;
             cancel = true;
         } else if (!isPasswordValid(password)) {
             passwordText.setError("6자 이상의 비밀번호를 입력해주세요.");
@@ -155,6 +198,7 @@ public class JoinActivity extends AppCompatActivity {
             startJoin(new JoinData(email, password, name, nickname, gender));
             showProgress(true);
         }
+
     }
 
     private void startJoin(JoinData data) {
@@ -176,6 +220,54 @@ public class JoinActivity extends AppCompatActivity {
                 Log.e("회원가입 에러 발생", t.getMessage());
                 showProgress(false);
             }
+        });
+    }
+
+    private void startCheckEmail(CheckEmailData data) {
+        service.checkEmail(data).enqueue(new Callback<CheckEmailResponse>() {
+            @Override
+            public void onResponse(Call<CheckEmailResponse> call, Response<CheckEmailResponse> response) {
+                CheckEmailResponse result = response.body();
+                Toast.makeText(JoinActivity.this, result.getMessage(), Toast.LENGTH_SHORT).show();
+                showProgress(false);
+
+                if (result.getCode() == 200) {
+                    emailValidate = true;
+                    emailCkButton.setText("확인완료");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CheckEmailResponse> call, Throwable t) {
+                Toast.makeText(JoinActivity.this, "이메일 중복 확인 에러 발생", Toast.LENGTH_SHORT).show();
+                Log.e("이메일 중복 확인 에러 발생", t.getMessage());
+                showProgress(false);
+            }
+
+        });
+    }
+
+    private void startCheckNickname(CheckNicknameData data) {
+        service.checkNickname(data).enqueue(new Callback<CheckNicknameResponse>() {
+            @Override
+            public void onResponse(Call<CheckNicknameResponse> call, Response<CheckNicknameResponse> response) {
+                CheckNicknameResponse result = response.body();
+                Toast.makeText(JoinActivity.this, result.getMessage(), Toast.LENGTH_SHORT).show();
+                showProgress(false);
+
+                if (result.getCode() == 200) {
+                    nicknameValidate = true;
+                    nicknameCkButton.setText("확인완료");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CheckNicknameResponse> call, Throwable t) {
+                Toast.makeText(JoinActivity.this, "닉네임 중복 확인 에러 발생", Toast.LENGTH_SHORT).show();
+                Log.e("닉네임 중복 확인 에러 발생", t.getMessage());
+                showProgress(false);
+            }
+
         });
     }
 

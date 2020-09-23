@@ -25,4 +25,5 @@ public class JoinData {
         this.nickname = nickname;
         this.gender = gender;
     }
+
 }
