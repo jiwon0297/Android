@@ -24,6 +24,7 @@
         android:layout_height="wrap_content"
         app:itemBackground="@android:color/white"
         app:itemIconTint="#5785CF"
+        android:theme="@style/Widget.BottomNavigationView"
         app:itemTextColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

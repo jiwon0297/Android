@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:itemBackground="@android:color/white"
+        android:theme="@style/Widget.BottomNavigationView"
         app:itemIconTint="#5785CF"
         app:itemTextColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"

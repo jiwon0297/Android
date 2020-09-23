@@ -207,6 +207,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5"
         app:layout_constraintVertical_bias="1.0"
         app:menu="@menu/menu_bottomnavigationview"
+        android:theme="@style/Widget.BottomNavigationView"
         tools:layout_editor_absoluteX="-8dp" />
 
     <SearchView
@@ -220,9 +221,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent"
-        app:queryHint="검색어를 입력하세요."
-        android:facusable="false"
-        android:facusableInTouchMode="false"/>
+        app:queryHint="검색어를 입력하세요." />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

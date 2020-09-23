@@ -46,6 +46,7 @@
         android:fontFamily="@font/lottemartdreammedium"
         app:itemIconTint="#5785CF"
         app:itemTextColor="#000000"
+        android:theme="@style/Widget.BottomNavigationView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/menu_bottomnavigationview"
         tools:layout_editor_absoluteX="16dp" />

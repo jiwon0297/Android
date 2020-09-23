@@ -73,6 +73,7 @@
         app:itemTextColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/menu_bottomnavigationview"
+        android:theme="@style/Widget.BottomNavigationView"
         tools:layout_editor_absoluteX="16dp" />
 
     <ProgressBar
