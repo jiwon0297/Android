@@ -114,6 +114,7 @@ public class MylostActivity extends AppCompatActivity {
                         oItem.nickname = a.getNickname();
                         oItem.content = a.getContent();
                         oItem.number = a.getNumber();
+                        oItem.date = a.getDate();
                         oData.add(oItem);
                     }
                     listView = (ListView)findViewById(R.id.listView1);
@@ -128,6 +129,7 @@ public class MylostActivity extends AppCompatActivity {
                             intent.putExtra("NUMBER_EXTRA", oData.get(position).number);
                             intent.putExtra("TITLE_EXTRA", oData.get(position).title);
                             intent.putExtra("NICKNAME_EXTRA2", oData.get(position).nickname);
+                            intent.putExtra("DATE_EXTRA", oData.get(position).date);
                             intent.putExtra("CONTENT_EXTRA", oData.get(position).content);
                             intent.putExtra("CAMPUS_EXTRA", oData.get(position).campus);
                             intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));

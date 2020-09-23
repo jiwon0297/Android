@@ -15,6 +15,9 @@ public class MyLostData {
     @SerializedName("type")
     String type;
 
+    @SerializedName("date")
+    String date;
+
     @SerializedName("content")
     String content;
 
