@@ -90,6 +90,17 @@
         <activity
             android:name=".ui.MypageActivity"
             android:label="내가 쓴 글/댓글 단 글" />
+        <activity
+            android:name=".ui.MymateActivity"
+            android:label="내가 쓴 메이트 목록"
+            android:hardwareAccelerated="false"
+            android:largeHeap="true"/>
+        <activity
+            android:name=".ui.MylostActivity"
+            android:label="내가 쓴 분실물목록"
+            android:hardwareAccelerated="false"
+            android:largeHeap="true"/>
+
         <activity android:name=".lost.LostViewActivity" />
         <activity android:name=".mate.MateViewActivity" />
         <activity android:name=".mate.MateWriteActivity" />
@@ -112,7 +123,8 @@
             android:label="회원가입" />
         <activity
             android:name=".ui.HomeActivity"
-            android:label="홈" />
+            android:label="홈"
+            android:largeHeap="true" />
         <activity
             android:name=".lost.LostActivity"
             android:label="잃어버림" />

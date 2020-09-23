@@ -50,7 +50,7 @@ public class MyMateAdapter extends BaseAdapter {
             {
                 mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             }
-            convertView = mLayoutInflater.inflate(R.layout.matelist_item, parent, false);
+            convertView = mLayoutInflater.inflate(R.layout.mymatelist_item, parent, false);
         }
 
         TextView oTextNumber = (TextView) convertView.findViewById(R.id.textNumber);
