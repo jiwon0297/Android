@@ -14,15 +14,14 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="13dp"
         android:fontFamily="@font/lottemartdreamlight"
-        android:text="어떤 메이트를
-         구하고 싶으신가요?"
+        android:text="어떤 메이트를\n구하고 싶으신가요?"
         android:textAlignment="textStart"
         android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toStartOf="@+id/imageButton1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageButton1"
-        app:layout_constraintVertical_bias="0.368" />
+        app:layout_constraintVertical_bias="0.526" />
 
     <ImageButton
         android:id="@+id/imageButton1"

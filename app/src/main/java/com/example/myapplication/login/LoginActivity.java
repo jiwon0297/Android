@@ -3,12 +3,16 @@ package com.example.myapplication.login;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.myapplication.Join.JoinActivity;
@@ -30,6 +34,9 @@ public class LoginActivity extends AppCompatActivity {
     private ServiceApi service;
     private ProgressBar mProgressView;
     private final String NICKNAME_EXTRA = "NICKNAME_EXTRA";
+    private CheckBox auto_login;
+    SharedPreferences setting;
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,18 +48,41 @@ public class LoginActivity extends AppCompatActivity {
 
         Button loginButton = (Button) findViewById(R.id.signin);
         Button registerButton = (Button) findViewById(R.id.register);
-        Button cancelButton = (Button) findViewById(R.id.cancel);
         mProgressView = (ProgressBar) findViewById(R.id.loading);
+
+        auto_login = (CheckBox) findViewById(R.id.autologin);
+
+        setting = getSharedPreferences("setting",0);
+        editor = setting.edit();
 
         service = RetrofitClient.getClient().create(ServiceApi.class);
 
-        //loginButton.setOnClickListener(new View.OnClickListener() {
-            //@Override
-            //public void onClick(View v){
-                //Intent loginIntent = new Intent(LoginActivity.this, HomeActivity.class);
-                //LoginActivity.this.startActivity(loginIntent);
-            //}
-        //});
+        auto_login.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
+                if(isChecked){
+                    String email = emailText.getText().toString();
+                    String password = passwordText.getText().toString();
+
+                    editor.putString("email", email);
+                    editor.putString("password",password);
+                    editor.putBoolean("auto_login_enabled", true);
+                    editor.commit();
+
+                } else{
+                    editor.clear();
+                    editor.commit();
+                }
+            }
+        });
+
+        if(setting.getBoolean("auto_login_enabled",false)){
+            emailText.setText(setting.getString("email",""));
+            passwordText.setText(setting.getString("password",""));
+            auto_login.setChecked(true);
+            attemptLogin();
+        }
+
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,13 +98,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        cancelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                Intent cancelIntent = new Intent(LoginActivity.this, MainActivity.class);
-                LoginActivity.this.startActivity(cancelIntent);
-            }
-        });
     }
 
     private void attemptLogin() {
