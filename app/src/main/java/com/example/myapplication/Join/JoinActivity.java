@@ -145,9 +145,9 @@ public class JoinActivity extends AppCompatActivity {
         @Override
         public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
             if(i == R.id.genderWoman){
-                genderText.setText("죽전캠");
+                genderText.setText("여성");
             } else if(i == R.id.genderMan){
-                genderText.setText("천안캠");
+                genderText.setText("남성");
             }
         }
     };
