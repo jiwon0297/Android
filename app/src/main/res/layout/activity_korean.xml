@@ -168,6 +168,39 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/button21" />
 
+            <Button
+                android:id="@+id/button32"
+                android:layout_width="410dp"
+                android:layout_height="120dp"
+                android:background="#00ff0000"
+                android:clickable="true"
+                android:fontFamily="monospace"
+                android:onClick="happy"
+                android:text="해피덮"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/button33"
+                android:layout_width="410dp"
+                android:layout_height="120dp"
+                android:background="#00ff0000"
+                android:clickable="true"
+                android:fontFamily="monospace"
+                android:onClick="jjim"
+                android:text="내가찜한닭"
+                android:textSize="24sp"/>
+
+            <Button
+                android:id="@+id/button37"
+                android:layout_width="410dp"
+                android:layout_height="120dp"
+                android:background="#00ff0000"
+                android:clickable="true"
+                android:fontFamily="monospace"
+                android:onClick="kal"
+                android:text="참바지락칼제비"
+                android:textSize="24sp" />
+
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

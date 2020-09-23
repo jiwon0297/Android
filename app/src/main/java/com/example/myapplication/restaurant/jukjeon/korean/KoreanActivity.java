@@ -26,6 +26,7 @@ public class KoreanActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(new KoreanActivity.ItemSelectedListener());
     }
 
+
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -87,6 +88,21 @@ public class KoreanActivity extends AppCompatActivity {
 
     public void redpipe(View view) { Toast.makeText(this,"빨강파이프",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this,RedpipeActivity.class);
+        startActivity(intent);
+    }
+
+    public void happy(View view) { Toast.makeText(this,"해피덮",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this,HappyActivity.class);
+        startActivity(intent);
+    }
+
+    public void jjim(View view) { Toast.makeText(this,"내가찜한닭",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this,JjimActivity.class);
+        startActivity(intent);
+    }
+
+    public void kal(View view) { Toast.makeText(this,"참바지락칼제비",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this,KalActivity.class);
         startActivity(intent);
     }
 }
