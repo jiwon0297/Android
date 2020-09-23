@@ -87,8 +87,13 @@ public class JoinActivity extends AppCompatActivity {
                     focusView = emailText;
                     cancel = true;
                 }
-                startCheckEmail(new CheckEmailData(email));
-                showProgress(true);
+                if (cancel) {
+                    focusView.requestFocus();
+                } else {
+                    startCheckEmail(new CheckEmailData(email));
+                    showProgress(true);
+                }
+
             }
         });
 
@@ -110,8 +115,13 @@ public class JoinActivity extends AppCompatActivity {
                     focusView = nicknameText;
                     cancel = true;
                 }
-                startCheckNickname(new CheckNicknameData(nickname));
-                showProgress(true);
+                if (cancel) {
+                    focusView.requestFocus();
+                } else {
+                    startCheckNickname(new CheckNicknameData(nickname));
+                    showProgress(true);
+                }
+
             }
         });
 
