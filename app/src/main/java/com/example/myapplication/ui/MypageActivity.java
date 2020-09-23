@@ -1,10 +1,12 @@
 package com.example.myapplication.ui;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -13,11 +15,13 @@ import android.widget.Toast;
 
 import com.example.myapplication.R;
 import com.example.myapplication.mate.AloneActivity;
+import com.example.myapplication.mate.MateActivity;
 import com.example.myapplication.network.ServiceApi;
 import com.example.myapplication.network.RetrofitClient;
 import com.example.myapplication.ui.MypageActivity;
 import com.example.myapplication.ui.MypageResponse;
 import com.example.myapplication.ui.MypageData;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 import retrofit2.Call;
@@ -41,6 +45,8 @@ public class MypageActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mypage);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new MypageActivity.ItemSelectedListener());
         emailText = (TextView) findViewById(R.id.email);
         nicknameText = (TextView) findViewById(R.id.nickname);
         nameText = (TextView) findViewById(R.id.name);
@@ -54,6 +60,31 @@ public class MypageActivity extends AppCompatActivity {
         startMypage(new MypageData(nickname));
         showProgress(true);
 
+    }
+    class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+            switch(menuItem.getItemId())
+            {
+                case R.id.home:
+                    Intent intent = new Intent(MypageActivity.this, HomeActivity.class);
+                    intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
+                    startActivity(intent);
+                    break;
+                case R.id.mail:
+                    Intent intent2 = new Intent(MypageActivity.this, MailActivity.class);
+                    intent2.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
+                    startActivity(intent2);
+                    break;
+                case R.id.mypage:
+                    Intent intent3 = new Intent(MypageActivity.this, MypageActivity.class);
+                    intent3.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
+                    startActivity(intent3);
+                    break;
+            }
+            return true;
+        }
     }
     private void startMypage(MypageData data) {
         service.userMypage(data).enqueue(new Callback<MypageResponse>() {
