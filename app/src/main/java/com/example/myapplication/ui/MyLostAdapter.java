@@ -50,19 +50,21 @@ public class MyLostAdapter extends BaseAdapter {
             {
                 mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             }
-            convertView = mLayoutInflater.inflate(R.layout.mymatelist_item, parent, false);
+            convertView = mLayoutInflater.inflate(R.layout.mylostlist_item, parent, false);
         }
 
         TextView oTextNumber = (TextView) convertView.findViewById(R.id.textNumber);
-        TextView oTextCate = (TextView) convertView.findViewById(R.id.textCate);
+        TextView oTextType = (TextView) convertView.findViewById(R.id.textType);
         TextView oTextTitle = (TextView) convertView.findViewById(R.id.textTitle);
         TextView oTextNickname = (TextView) convertView.findViewById(R.id.textNickname);
         TextView oTextDate = (TextView) convertView.findViewById(R.id.textDate);
         TextView oTextContent = (TextView) convertView.findViewById(R.id.textContent);
 
         oTextNumber.setText(String.valueOf(sample.get(position).number));
+        oTextType.setText(sample.get(position).type);
         oTextTitle.setText(sample.get(position).title);
         oTextNickname.setText(sample.get(position).nickname);
+        oTextDate.setText(sample.get(position).date);
         oTextContent.setText(sample.get(position).content);
 
         return convertView;

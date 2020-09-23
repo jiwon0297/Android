@@ -143,14 +143,15 @@
 
     <EditText
         android:id="@+id/content"
-        android:layout_width="361dp"
-        android:layout_height="261dp"
+        android:layout_width="360dp"
+        android:layout_height="419dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         android:background="#F6F2FF"
         android:hint="내용을 입력하세요."
-        android:inputType="text"
+        android:inputType="textMultiLine"
+        android:scrollHorizontally="false"
         android:selectAllOnFocus="true"
         android:textAlignment="center"
         android:textSize="24sp"

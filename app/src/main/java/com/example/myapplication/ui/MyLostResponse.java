@@ -34,6 +34,7 @@ public class MyLostResponse {
     private String campus;
     private String content;
     private String type;
+    private String date;
 
     public int getNumber() { return number;}
     public String getTitle() { return title;}
@@ -41,5 +42,6 @@ public class MyLostResponse {
     public String getCampus() { return campus;}
     public String getContent() {return content;}
     public String getType(){return type;}
+    public String getDate(){return date;}
 
 }
