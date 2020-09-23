@@ -142,12 +142,12 @@ public class LostEditActivity extends AppCompatActivity {
         if (cancel) {
             focusView.requestFocus();
         } else {
-            staratLostEdit(new LostEditData(title, number, campus, type, content));
+            startLostEdit(new LostEditData(title, number, campus, type, content));
             showProgress(true);
         }
     }
 
-    private void staratLostEdit(LostEditData data) {
+    private void startLostEdit(LostEditData data) {
         service.lostedit(data).enqueue(new Callback<LostEditResponse>(){
             @Override
             public void onResponse(Call<LostEditResponse> call, Response<LostEditResponse> response) {
@@ -157,11 +157,11 @@ public class LostEditActivity extends AppCompatActivity {
 
                 if (result.getCode() == 200) {
                     if(typeText.getText().toString() == "찾아요"){
-                        Intent intent = new Intent(LostEditActivity.this, AloneActivity.class);
+                        Intent intent = new Intent(LostEditActivity.this, FindActivity.class);
                         intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
                         LostEditActivity.this.startActivity(intent);
                     } else if(typeText.getText().toString() == "주웠어요"){
-                        Intent intent = new Intent(LostEditActivity.this, ContestActivity.class);
+                        Intent intent = new Intent(LostEditActivity.this, GetActivity.class);
                         intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
                         LostEditActivity.this.startActivity(intent);
                     }
