@@ -15,11 +15,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".restaurant.jukjeon.japanese.HosikdangActivity"></activity>
         <activity
             android:name=".ui.ContentActivity"
             android:label="@string/title_activity_content"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".lost.LostEditActivity" />
         <activity android:name=".mate.MateEditActivity" />
         <activity android:name=".restaurant.jukjeon.western.DosmasActivity" />
@@ -41,7 +41,6 @@
         <activity android:name=".restaurant.jukjeon.japanese.KenkoActivity" />
         <activity android:name=".restaurant.jukjeon.japanese.UmedaActivity" />
         <activity android:name=".restaurant.jukjeon.japanese.MamaActivity" />
-        <activity android:name=".restaurant.jukjeon.japanese.HosikdangActivity" />
         <activity android:name=".restaurant.jukjeon.chinese.HongbanActivity" />
         <activity android:name=".restaurant.jukjeon.chinese.SabuActivity" />
         <activity android:name=".restaurant.jukjeon.chinese.MaratangActivity" />
@@ -90,6 +89,17 @@
         <activity
             android:name=".ui.MypageActivity"
             android:label="내가 쓴 글/댓글 단 글" />
+        <activity
+            android:name=".ui.MymateActivity"
+            android:label="내가 쓴 메이트 목록"
+            android:hardwareAccelerated="false"
+            android:largeHeap="true"/>
+        <activity
+            android:name=".ui.MylostActivity"
+            android:label="내가 쓴 분실물목록"
+            android:hardwareAccelerated="false"
+            android:largeHeap="true"/>
+
         <activity android:name=".lost.LostViewActivity" />
         <activity android:name=".mate.MateViewActivity" />
         <activity android:name=".mate.MateWriteActivity" />
@@ -112,7 +122,8 @@
             android:label="회원가입" />
         <activity
             android:name=".ui.HomeActivity"
-            android:label="홈" />
+            android:label="홈"
+            android:largeHeap="true" />
         <activity
             android:name=".lost.LostActivity"
             android:label="잃어버림" />
