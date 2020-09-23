@@ -11,73 +11,57 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="5dp"
-        android:text="주웠어요"
-        android:textSize="100px"
-        app:layout_constraintBottom_toTopOf="@+id/listView"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton1"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="60dp"
+        android:fontFamily="@font/lottemartdreammedium"
+        android:background="#F6F2FF"
+        android:text="  주웠어요  "
+        android:textSize="35sp"
+        app:layout_constraintBottom_toTopOf="@+id/swipeRefresh"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageButton1"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.481" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="412dp"
+        android:layout_height="630dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView">
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:background="#F6F2FF"
+            android:fontFamily="@font/lottemartdreamlight"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <ImageButton
         android:id="@+id/imageButton1"
         android:layout_width="54dp"
         android:layout_height="56dp"
-        android:layout_marginStart="5dp"
         android:layout_marginTop="34dp"
-        android:layout_marginEnd="5dp"
+        android:layout_marginEnd="36dp"
         android:layout_marginBottom="34dp"
-        android:padding="0dp"
+        android:background="@drawable/plus"
         android:onClick="write"
+        android:padding="0dp"
         android:scaleType="fitXY"
         android:src="@drawable/plus"
-        android:background="@drawable/plus"
-        app:layout_constraintBottom_toTopOf="@+id/listView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swipeRefresh"
-        android:layout_width="412dp"
-        android:layout_height="680dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
-        android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
-        app:layout_constraintBottom_toBottomOf="@+id/bottomNavi"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
-    <ProgressBar
-        android:id="@+id/loading"
-        style="@style/Widget.AppCompat.ProgressBar"
-        android:layout_width="114dp"
-        android:layout_height="118dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="108dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
-        android:progressTint="#5C87AA"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/password"
-        app:layout_constraintStart_toStartOf="@+id/password"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavi"
@@ -89,4 +73,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/menu_bottomnavigationview"
         tools:layout_editor_absoluteX="16dp" />
+
+    <ProgressBar
+        android:id="@+id/loading"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_width="86dp"
+        android:layout_height="83dp"
+        android:layout_gravity="center"
+        android:progressTint="#5C87AA"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
 </androidx.constraintlayout.widget.ConstraintLayout>

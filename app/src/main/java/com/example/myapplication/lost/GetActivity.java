@@ -42,20 +42,18 @@ public class GetActivity extends AppCompatActivity implements SwipeRefreshLayout
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_get);
-
+        setContentView(R.layout.activity_find);
         mProgressView = (ProgressBar) findViewById(R.id.loading);
+
+        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefresh);
+        mSwipeRefreshLayout.setOnRefreshListener(this);
 
         service = RetrofitClient.getClient().create(ServiceApi.class);
 
         attemptList();
 
-        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefresh);
-        mSwipeRefreshLayout.setOnRefreshListener(this);
-
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new GetActivity.ItemSelectedListener());
-
     }
 
     @Override
