@@ -51,6 +51,22 @@
         app:layout_constraintStart_toStartOf="@+id/username" />
 
     <Button
+        android:id="@+id/mailButton"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/btncustom"
+        android:backgroundTint="#D2DCEA"
+        android:fontFamily="@font/lottemartdreammedium"
+        android:text="이메일 확인"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/username"
+        app:layout_constraintEnd_toEndOf="@+id/username"
+        app:layout_constraintHorizontal_bias="0.643"
+        app:layout_constraintStart_toStartOf="@+id/username" />
+
+    <Button
         android:id="@+id/nicknameCheck"
         android:layout_width="80dp"
         android:layout_height="40dp"

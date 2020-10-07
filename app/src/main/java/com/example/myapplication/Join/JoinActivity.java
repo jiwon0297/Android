@@ -2,33 +2,31 @@ package com.example.myapplication.Join;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.IdRes;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
 import com.example.myapplication.login.LoginActivity;
 import com.example.myapplication.network.RetrofitClient;
 import com.example.myapplication.network.ServiceApi;
-import com.example.myapplication.Join.JoinData;
-import com.example.myapplication.Join.JoinResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class JoinActivity extends AppCompatActivity {
-    private EditText emailText;
+    Button mailButton = null;
+    EditText emailText = null;
     private EditText passwordText;
     private EditText passwordconfirmText;
     private EditText nameText;
@@ -49,6 +47,12 @@ public class JoinActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_join);
 
+        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
+                .permitDiskReads()
+                .permitDiskWrites()
+                .permitNetwork().build());
+
+        mailButton = (Button) findViewById(R.id.mailButton);
         emailText = (EditText) findViewById(R.id.username);
         passwordText = (EditText) findViewById(R.id.password);
         passwordconfirmText = (EditText) findViewById(R.id.passwordconfirm);
@@ -65,6 +69,20 @@ public class JoinActivity extends AppCompatActivity {
 
 
         service = RetrofitClient.getClient().create(ServiceApi.class);
+
+        mailButton.setOnClickListener(new View.OnClickListener() {
+            String email = emailText.getText().toString();
+            @Override
+            public void onClick(View v){
+                if (email.isEmpty()) {
+                emailText.setError("이메일을 입력해주세요.");
+            }
+                SendMail mailServer = new SendMail();
+                mailServer.sendSecurityCode(getApplicationContext(), emailText.getText().toString());
+            }
+        });
+
+
 
         emailCkButton.setOnClickListener(new View.OnClickListener() {
             @Override
