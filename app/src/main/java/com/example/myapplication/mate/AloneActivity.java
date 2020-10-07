@@ -30,6 +30,7 @@ import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -124,12 +125,14 @@ public class AloneActivity extends AppCompatActivity implements SwipeRefreshLayo
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
                         @Override
                         public void onItemClick(AdapterView parent, View v, int position, long id){
+                            SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                            String datetext = transFormat.format(oData.get(position).date);
                             Intent intent = new Intent(getApplicationContext(), MateViewActivity.class);
                             intent.putExtra("CATE_EXTRA", oData.get(position).cate);
                             intent.putExtra("NUMBER_EXTRA", oData.get(position).number);
                             intent.putExtra("TITLE_EXTRA", oData.get(position).title);
                             intent.putExtra("NICKNAME_EXTRA2", oData.get(position).nickname);
-                            intent.putExtra("DATE_EXTRA", oData.get(position).date);
+                            intent.putExtra("DATE_EXTRA", datetext);
                             intent.putExtra("CONTENT_EXTRA", oData.get(position).content);
                             intent.putExtra("CAMPUS_EXTRA", oData.get(position).campus);
                             intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
