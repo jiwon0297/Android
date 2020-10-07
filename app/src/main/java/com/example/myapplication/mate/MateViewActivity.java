@@ -1,5 +1,6 @@
 package com.example.myapplication.mate;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
@@ -10,9 +11,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -32,15 +36,13 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MateViewActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
+public class MateViewActivity extends AppCompatActivity {
     private final String NICKNAME_EXTRA = "NICKNAME_EXTRA";
     private ServiceApi service;
     private ProgressBar mProgressView;
     private ListView listView = null;
 
     SwipeRefreshLayout mSwipeRefreshLayout;
-
-    int postnumber = getIntent().getIntExtra("NUMBER_EXTRA",1);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,13 +53,11 @@ public class MateViewActivity extends AppCompatActivity implements SwipeRefreshL
         TextView writer = (TextView) findViewById(R.id.writer);
         TextView date = (TextView) findViewById(R.id.date);
         TextView content = (TextView) findViewById(R.id.content);
+        EditText commentcontent = (EditText) findViewById(R.id.commenttext);
 
         mProgressView = (ProgressBar) findViewById(R.id.progressBar);
         service = RetrofitClient.getClient().create(ServiceApi.class);
         attemptList();
-
-        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefresh);
-        mSwipeRefreshLayout.setOnRefreshListener(this);
 
         title.setText(getIntent().getStringExtra("TITLE_EXTRA"));
         writer.setText(getIntent().getStringExtra("NICKNAME_EXTRA2"));
@@ -72,6 +72,19 @@ public class MateViewActivity extends AppCompatActivity implements SwipeRefreshL
             }
         });
 
+        Button commentButton = (Button) findViewById(R.id.commentbutton);
+        commentButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String user = getIntent().getStringExtra("NICKNAME_EXTRA");
+                int postnumber = getIntent().getIntExtra("NUMBER_EXTRA",1);
+                String content = commentcontent.getText().toString();
+                startCommentWrite(new MateCommentWriteData(postnumber, user, content));
+                showProgress(true);
+                commentcontent.setText(null);
+            }
+        });
+
         Button editButton = (Button) findViewById(R.id.edit);
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,7 +95,7 @@ public class MateViewActivity extends AppCompatActivity implements SwipeRefreshL
                     Intent intent = new Intent(MateViewActivity.this, MateEditActivity.class);
                     intent.putExtra("CATE_EXTRA", getIntent().getStringExtra("CATE_EXTRA"));
                     intent.putExtra("CAMPUS_EXTRA", getIntent().getStringExtra("CAMPUS_EXTRA"));
-                    intent.putExtra("NUMBER_EXTRA", title.getText().toString());
+                    intent.putExtra("DATE_EXTRA", date.getText().toString());
                     intent.putExtra("TITLE_EXTRA", title.getText().toString());
                     intent.putExtra("CONTENT_EXTRA", content.getText().toString());
                     intent.putExtra("NUMBER_EXTRA", getIntent().getIntExtra("NUMBER_EXTRA",1));
@@ -138,8 +151,30 @@ public class MateViewActivity extends AppCompatActivity implements SwipeRefreshL
         });
     }
 
+    private void startCommentDelete(MateCommentDeleteData data){
+        service.matecommentdelete(data).enqueue(new Callback<MateCommentDeleteResponse>() {
+            @Override
+            public void onResponse(Call<MateCommentDeleteResponse> call, Response<MateCommentDeleteResponse> response) {
+                MateCommentDeleteResponse result = response.body();
+                Toast.makeText(MateViewActivity.this, result.getMessage(), Toast.LENGTH_SHORT).show();
+                showProgress(false);
+
+                if (result.getCode() == 200) {
+                    attemptList();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<MateCommentDeleteResponse> call, Throwable t) {
+                Toast.makeText(MateViewActivity.this, "에러 발생", Toast.LENGTH_SHORT).show();
+                Log.e("에러 발생", t.getMessage());
+                showProgress(false);
+            }
+        });
+    }
 
     private void attemptList() {
+        int postnumber = getIntent().getIntExtra("NUMBER_EXTRA",1);
 
         boolean cancel = false;
         View focusView = null;
@@ -179,7 +214,53 @@ public class MateViewActivity extends AppCompatActivity implements SwipeRefreshL
                     }
                     listView = (ListView)findViewById(R.id.listView1);
                     CommentAdapter oAdapter = new CommentAdapter((ArrayList<MateCommentData>) oData);
+                    int totalHeight = 0;
+                    for (int i=0; i<oAdapter.getCount(); i++){
+                        View listItem = oAdapter.getView(i,null,listView);
+                        listItem.measure(0,0);
+                        totalHeight += listItem.getMeasuredHeight();
+                    }
+
+                    ViewGroup.LayoutParams params = listView.getLayoutParams();
+                    params.height = totalHeight + (listView.getDividerHeight() * (oAdapter.getCount() - 1));
+                    listView.setLayoutParams(params);
+
                     listView.setAdapter(oAdapter);
+
+                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+                        @Override
+                        public void onItemClick(AdapterView parent, View v, int position, long id){
+                            String writer = oData.get(position).nickname;
+                            String user = getIntent().getStringExtra("NICKNAME_EXTRA");
+                            if(writer.equals(user)){
+                                new AlertDialog.Builder(MateViewActivity.this)
+                                        .setTitle("댓글 삭제 여부")
+                                        .setMessage("정말 삭제하시겠습니까?")
+                                        .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int which){
+                                                int number = oData.get(position).number;
+                                                startCommentDelete(new MateCommentDeleteData(number));
+                                                showProgress(true);
+                                            }
+                                        })
+                                        .setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int which){
+                                                dialog.cancel();
+                                            }
+                                        })
+                                        .show();
+                            } else {
+                                new AlertDialog.Builder(MateViewActivity.this)
+                                        .setMessage("삭제 권한이 없습니다.")
+                                        .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int which){
+                                                dialog.cancel();
+                                            }
+                                        })
+                                        .show();
+                            }
+                        }
+                    });
                 }
             }
 
@@ -231,20 +312,30 @@ public class MateViewActivity extends AppCompatActivity implements SwipeRefreshL
         });
     }
 
+    private void startCommentWrite(MateCommentWriteData data) {
+        service.matecommentwrite(data).enqueue(new Callback<MateCommentWriteResponse>() {
+            @Override
+            public void onResponse(Call<MateCommentWriteResponse> call, Response<MateCommentWriteResponse> response) {
+                MateCommentWriteResponse result = response.body();
+                Toast.makeText(MateViewActivity.this, result.getMessage(), Toast.LENGTH_SHORT).show();
+                showProgress(false);
+
+                if (result.getCode() == 200) {
+                    attemptList();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<MateCommentWriteResponse> call, Throwable t) {
+                Toast.makeText(MateViewActivity.this, "에러 발생", Toast.LENGTH_SHORT).show();
+                Log.e("에러 발생", t.getMessage());
+                showProgress(false);
+            }
+        });
+    }
+
     private void showProgress(boolean show) {
         mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
     }
 
-    @Override
-    public void onRefresh() {
-        mSwipeRefreshLayout.setRefreshing(true);
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                service = RetrofitClient.getClient().create(ServiceApi.class);
-                attemptList();
-                mSwipeRefreshLayout.setRefreshing(false);
-            }
-        }, 1000);
-    }
 }

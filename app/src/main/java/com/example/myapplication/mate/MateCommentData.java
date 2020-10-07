@@ -2,6 +2,8 @@ package com.example.myapplication.mate;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Date;
+
 public class MateCommentData {
     @SerializedName("postnumber")
     int postnumber;
@@ -10,11 +12,10 @@ public class MateCommentData {
     String nickname;
 
     @SerializedName("date")
-    String date;
+    Date date;
 
     @SerializedName("number")
     int number;
-
 
     @SerializedName("content")
     String content;
