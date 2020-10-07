@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -17,14 +19,31 @@ import com.example.myapplication.mate.MateActivity;
 import com.example.myapplication.restaurant.RestaurantwhereActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.Random;
 
 public class HomeActivity extends AppCompatActivity {
     private final String NICKNAME_EXTRA = "NICKNAME_EXTRA";
+
+    String[] str = {"Cafe다락다락방", "위치스아일랜드", "아지트커피", "이디야커피","솔레일","CAFE TRIANON","크리에이티브커피"};
+    private TextView textView;
+    private ImageButton button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        textView = (TextView) findViewById(R.id.textView10);
+        button = (ImageButton) findViewById(R.id.imageButton);
+        button.setOnClickListener(new View.OnClickListener(){
+            @Override
+                public void onClick(View v){
+                Random r = new Random();
+                int index = r.nextInt(str.length);
+                textView.setText(str[index]);
+            }
+        });
+
 
         Button mate = (Button) findViewById(R.id.textView2);
         Drawable alpha1 = mate.getBackground();
@@ -88,5 +107,4 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
-
 }
