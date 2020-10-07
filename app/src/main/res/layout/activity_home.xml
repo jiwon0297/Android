@@ -254,108 +254,77 @@
         app:queryHint="검색어를 입력하세요." />
 
     <LinearLayout
-        android:layout_width="200dp"
-        android:layout_height="140dp"
-        android:layout_marginEnd="205dp"
-        android:orientation="vertical"
+        android:layout_width="400dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:orientation="horizontal">
+            android:layout_width="200dp"
+            android:layout_height="140dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="205dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="죽전"
+                    android:textStyle="bold" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroup1"
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent">
+
+                    <RadioButton
+                        android:id="@+id/radioButton14"
+                        android:layout_width="60dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:text="식당" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton15"
+                        android:layout_width="60dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:text="카페" />
+                </RadioGroup>
+
+                <ImageButton
+                    android:id="@+id/imageButton"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:srcCompat="@android:drawable/ic_popup_sync" />
+
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/textView11"
-                android:layout_width="40dp"
-                android:layout_height="30dp"
-                android:text="죽전"
-                android:textStyle="bold"/>
-
-            <RadioButton
-                android:id="@+id/radioButton14"
-                android:layout_width="60dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
-                android:text="식당" />
-
-            <RadioButton
-                android:id="@+id/radioButton15"
-                android:layout_width="60dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
-                android:text="카페" />
-
-            <ImageButton
-                android:id="@+id/imageButton"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                app:srcCompat="@android:drawable/ic_popup_sync" />
-
-        </LinearLayout>
-
-        <TextView
                 android:id="@+id/textView10"
                 android:layout_width="match_parent"
-                android:layout_height="110dp"
-                android:text="식당 추천"
-                android:textSize="15sp"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="200dp"
-        android:layout_height="140dp"
-        android:layout_marginStart="205dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="40dp"
-                android:layout_height="30dp"
-                android:text="천안"
-                android:textStyle="bold"/>
-
-            <RadioButton
-                android:id="@+id/radioButton16"
-                android:layout_width="60dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
-                android:text="식당" />
-
-            <RadioButton
-                android:id="@+id/radioButton17"
-                android:layout_width="60dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
-                android:text="카페" />
-
-            <ImageButton
-                android:id="@+id/imageButton2"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                app:srcCompat="@android:drawable/ic_popup_sync" />
-
+                android:layout_height="80dp"
+                android:text="\n식당 추천"
+                android:textSize="15sp" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/textView13"
-            android:layout_width="match_parent"
-            android:layout_height="110dp"
-            android:text="식당 추천"
-            android:textSize="15sp"/>
-
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
