@@ -1,15 +1,19 @@
 package com.example.myapplication.mate;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,14 +25,22 @@ import com.example.myapplication.R;
 import com.example.myapplication.network.RetrofitClient;
 import com.example.myapplication.network.ServiceApi;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MateViewActivity extends AppCompatActivity {
+public class MateViewActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
     private final String NICKNAME_EXTRA = "NICKNAME_EXTRA";
     private ServiceApi service;
     private ProgressBar mProgressView;
+    private ListView listView = null;
+
+    SwipeRefreshLayout mSwipeRefreshLayout;
+
+    int postnumber = getIntent().getIntExtra("NUMBER_EXTRA",1);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +54,10 @@ public class MateViewActivity extends AppCompatActivity {
 
         mProgressView = (ProgressBar) findViewById(R.id.progressBar);
         service = RetrofitClient.getClient().create(ServiceApi.class);
+        attemptList();
+
+        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefresh);
+        mSwipeRefreshLayout.setOnRefreshListener(this);
 
         title.setText(getIntent().getStringExtra("TITLE_EXTRA"));
         writer.setText(getIntent().getStringExtra("NICKNAME_EXTRA2"));
@@ -122,6 +138,60 @@ public class MateViewActivity extends AppCompatActivity {
         });
     }
 
+
+    private void attemptList() {
+
+        boolean cancel = false;
+        View focusView = null;
+
+        if (postnumber==0) {
+            cancel = true;
+        }
+
+        if (cancel) {
+            focusView.requestFocus();
+        } else {
+            startCommentList(new MateCommentData(postnumber));
+            showProgress(true);
+        }
+    }
+
+    private void startCommentList(MateCommentData data) {
+        List<MateCommentData> oData = new ArrayList<>();
+
+        service.matecommentlist(data).enqueue(new Callback<MateCommentResponse>() {
+            @Override
+            public void onResponse(Call<MateCommentResponse> call, Response<MateCommentResponse> response) {
+                MateCommentResponse result = response.body();
+                Toast.makeText(MateViewActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                showProgress(false);
+
+                if (result.getCode() == 200) {
+                    MateCommentResponse sample = result;
+                    for (MateCommentResponse a :sample.getResult() ){
+                        MateCommentData oItem = new MateCommentData();
+                        oItem.nickname = a.getNickname();
+                        oItem.date = a.getDate();
+                        oItem.content = a.getContent();
+                        oItem.number = a.getNumber();
+                        oItem.postnumber = a.getPostnumber();
+                        oData.add(oItem);
+                    }
+                    listView = (ListView)findViewById(R.id.listView1);
+                    CommentAdapter oAdapter = new CommentAdapter((ArrayList<MateCommentData>) oData);
+                    listView.setAdapter(oAdapter);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<MateCommentResponse> call, Throwable t) {
+                Toast.makeText(MateViewActivity.this, "에러 발생", Toast.LENGTH_SHORT).show();
+                Log.e("에러 발생", t.getMessage());
+                showProgress(false);
+            }
+        });
+    }
+
     private void startDelete(MateDeleteData data) {
         service.matedelete(data).enqueue(new Callback<MateDeleteResponse>() {
             @Override
@@ -163,5 +233,18 @@ public class MateViewActivity extends AppCompatActivity {
 
     private void showProgress(boolean show) {
         mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+    }
+
+    @Override
+    public void onRefresh() {
+        mSwipeRefreshLayout.setRefreshing(true);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                service = RetrofitClient.getClient().create(ServiceApi.class);
+                attemptList();
+                mSwipeRefreshLayout.setRefreshing(false);
+            }
+        }, 1000);
     }
 }
