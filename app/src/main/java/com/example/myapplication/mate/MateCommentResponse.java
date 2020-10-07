@@ -3,6 +3,7 @@ package com.example.myapplication.mate;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Date;
 import java.util.List;
 
 public class MateCommentResponse {
@@ -32,12 +33,12 @@ public class MateCommentResponse {
     private int number;
     private int postnumber;
     private String nickname;
-    private String date;
+    private Date date;
     private String content;
 
     public int getNumber() { return number;}
     public String getNickname() { return nickname;}
     public int getPostnumber() { return postnumber;}
-    public String getDate() { return date; }
+    public Date getDate() { return date; }
     public String getContent() {return content;}
 }
