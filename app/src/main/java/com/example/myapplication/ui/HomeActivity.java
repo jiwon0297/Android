@@ -56,6 +56,7 @@ public class HomeActivity extends AppCompatActivity {
                                         textView.setText(str1[index]);
                                     }
                                 });
+                                break;
                             }
                             case R.id.radioButton15:
                             {
@@ -67,7 +68,10 @@ public class HomeActivity extends AppCompatActivity {
                                         textView.setText(str2[index]);
                                     }
                                 });
+                                break;
                             }
+                            default:
+                                break;
                         }
                     }
                 });
