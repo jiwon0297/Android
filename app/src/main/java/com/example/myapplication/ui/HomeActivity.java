@@ -28,44 +28,88 @@ public class HomeActivity extends AppCompatActivity {
     String[] str1 = {"일미닭갈비파전","손가네칼국수","엉뚱상상","고래심줄","선영이네김치짜글이","이모네산골","맛의전쟁","빨강파이프","해피덮","내가찜한닭","참바지락칼제비",
             "홍춘","천향마라탕","사부","홍콩반점0410", "호식당","아리가또맘마","우메다","겐코","미소야", "브라더 양식당","그란데","다린","오블리끄","부리또 정거장","도스마스"};
     String[] str2 = {"Cafe다락다락방", "위치스아일랜드", "아지트커피", "이디야커피","솔레일","CAFE TRIANON","크리에이티브커피"};
-    TextView textView;
-    ImageButton imgbutton;
-    RadioGroup group;
+    String[] str3 = {"천호지","원조부안집","은하철도곱곱곱","수업이 끝난 오후","참새방","동춘옥","하이린","흥부반점","스시마당","돈까스이야기","유생촌","돈까스마을","성탄수제버거앤갈비",
+            "SUBMEAL","BABALAB","로씨"};
+    String[] str4 = {"마리스커피","카페고메","지로스터","피플앤스토리","GRAVITY LAKE","카페라이크","슬로우커피2"};
+    private TextView tV1;
+    private TextView tV2;
+    private ImageButton imgbutton2;
+    private ImageButton imgbutton3;
+    private RadioGroup group1;
+    private RadioGroup group2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        textView = (TextView) findViewById(R.id.textView10);
-        group= (RadioGroup) findViewById(R.id.radioGroup1);
-        imgbutton = (ImageButton) findViewById(R.id.imageButton);
+        tV1 = (TextView) findViewById(R.id.textView10);
+        tV2 = (TextView) findViewById(R.id.textView13);
+        group1= (RadioGroup) findViewById(R.id.radioGroup1);
+        group2= (RadioGroup) findViewById(R.id.radioGroup2);
+        imgbutton2 = (ImageButton) findViewById(R.id.imageButton2);
+        imgbutton3 = (ImageButton) findViewById(R.id.imageButton3);
 
-        group.setOnCheckedChangeListener(
+        group1.setOnCheckedChangeListener(
                 new RadioGroup.OnCheckedChangeListener() {
                     @Override
-                    public void onCheckedChanged(RadioGroup group, int checkedId) {
+                    public void onCheckedChanged(RadioGroup group1, int checkedId) {
                         switch (checkedId) {
                             case R.id.radioButton14:
                             {
-                                imgbutton.setOnClickListener(new View.OnClickListener(){
+                                imgbutton2.setOnClickListener(new View.OnClickListener(){
                                     @Override
                                     public void onClick(View v){
                                         Random r = new Random();
                                         int index = r.nextInt(str1.length);
-                                        textView.setText(str1[index]);
+                                        tV1.setText(str1[index]);
                                     }
                                 });
                                 break;
                             }
                             case R.id.radioButton15:
                             {
-                                imgbutton.setOnClickListener(new View.OnClickListener(){
+                                imgbutton2.setOnClickListener(new View.OnClickListener(){
                                     @Override
                                     public void onClick(View v){
                                         Random r = new Random();
                                         int index = r.nextInt(str2.length);
-                                        textView.setText(str2[index]);
+                                        tV1.setText(str2[index]);
+                                    }
+                                });
+                                break;
+                            }
+                            default:
+                                break;
+                        }
+                    }
+                });
+
+        group2.setOnCheckedChangeListener(
+                new RadioGroup.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(RadioGroup group2, int checkedId) {
+                        switch (checkedId) {
+                            case R.id.radioButton16:
+                            {
+                                imgbutton3.setOnClickListener(new View.OnClickListener(){
+                                    @Override
+                                    public void onClick(View v){
+                                        Random r = new Random();
+                                        int index = r.nextInt(str3.length);
+                                        tV2.setText(str3[index]);
+                                    }
+                                });
+                                break;
+                            }
+                            case R.id.radioButton17:
+                            {
+                                imgbutton3.setOnClickListener(new View.OnClickListener(){
+                                    @Override
+                                    public void onClick(View v){
+                                        Random r = new Random();
+                                        int index = r.nextInt(str4.length);
+                                        tV2.setText(str4[index]);
                                     }
                                 });
                                 break;
