@@ -8,49 +8,78 @@
     android:backgroundTint="#65DEE4F6"
     tools:context=".ui.HomeActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="102dp"
-        android:layout_height="66dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="48dp"
-        android:fontFamily="@font/lottemarthappybold"
-        android:text="슬기로운\n단국생활"
-        android:textColor="#C3252424"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toStartOf="@+id/searchView2"
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageButton
-        android:id="@+id/imageButton1"
-        android:layout_width="44dp"
-        android:layout_height="44dp"
-        android:layout_marginBottom="50dp"
-        android:background="@drawable/bell"
-        android:padding="0dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/bell"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toStartOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.666"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.196" />
+        <ImageButton
+            android:id="@+id/imageButton1"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_gravity="center"
+            android:background="@drawable/bell"
+            android:padding="0dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/bell"
+            app:layout_constraintBottom_toTopOf="@+id/textView2"
+            app:layout_constraintEnd_toStartOf="@+id/textView"
+            app:layout_constraintHorizontal_bias="0.666"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.196" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="102dp"
+            android:layout_height="66dp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/lottemarthappybold"
+            android:gravity="center"
+            android:text="슬기로운\n단국생활"
+            android:textColor="#C3252424"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toStartOf="@+id/searchView2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <SearchView
+            android:id="@+id/searchView2"
+            android:layout_width="234dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/lottemartdreamlight"
+            android:textSize="15sp"
+            app:iconifiedByDefault="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:queryHint="검색어를 입력하세요." />
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="400dp"
+        android:layout_width="match_parent"
         android:layout_height="140dp"
         android:layout_gravity="center"
-        android:layout_marginBottom="80dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
         android:background="@drawable/btncustom7"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.895">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:layout_width="100dp"
@@ -166,6 +195,155 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/linearLayout8"
+        android:layout_width="match_parent"
+        android:layout_height="188dp"
+        android:orientation="horizontal"
+        android:layout_marginEnd="10dp"
+        android:background="#FFFFFF"
+        android:layout_marginStart="10dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+        <LinearLayout
+            android:id="@+id/linearLayout5"
+            android:layout_width="190dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:fontFamily="@font/lottemartdreammedium"
+                    android:textSize="20sp"
+                    android:text="죽전"
+                    android:textStyle="bold" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroup1"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent">
+
+                    <RadioButton
+                        android:id="@+id/radioButton14"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/lottemartdreammedium"
+                        android:text="식당" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton15"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/lottemartdreammedium"
+                        android:text="카페" />
+                </RadioGroup>
+
+                <ImageButton
+                    android:id="@+id/imageButton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:srcCompat="@android:drawable/ic_popup_sync" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="식당 추천"
+                android:textColor="#BF000000"
+                android:fontFamily="@font/lottemartdreammedium"
+                android:textSize="40sp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout6"
+            android:layout_width="190dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:fontFamily="@font/lottemartdreammedium"
+                    android:textSize="20sp"
+                    android:text="천안"
+                    android:textStyle="bold" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroup2"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent">
+
+                    <RadioButton
+                        android:id="@+id/radioButton16"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:text="식당" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton17"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:text="카페" />
+                </RadioGroup>
+
+                <ImageButton
+                    android:id="@+id/imageButton3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:srcCompat="@android:drawable/ic_popup_sync" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="식당 추천"
+                android:textColor="#BF000000"
+                android:fontFamily="@font/lottemartdreammedium"
+                android:textSize="40sp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
     <Button
         android:id="@+id/textView2"
         android:layout_width="128dp"
@@ -241,139 +419,5 @@
         app:layout_constraintVertical_bias="1.0"
         app:menu="@menu/menu_bottomnavigationview"
         tools:layout_editor_absoluteX="-8dp" />
-
-    <SearchView
-        android:id="@+id/searchView2"
-        android:layout_width="234dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="56dp"
-        android:fontFamily="@font/lottemartdreamlight"
-        android:textSize="15sp"
-        app:iconifiedByDefault="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="parent"
-        app:queryHint="검색어를 입력하세요." />
-
-    <LinearLayout
-        android:layout_width="200dp"
-        android:layout_height="90dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="205dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:text="죽전"
-                android:textStyle="bold" />
-
-            <RadioGroup
-                android:id="@+id/radioGroup1"
-                android:layout_width="100dp"
-                android:layout_height="match_parent">
-
-                <RadioButton
-                    android:id="@+id/radioButton14"
-                    android:layout_width="60dp"
-                    android:layout_height="20dp"
-                    android:layout_weight="1"
-                    android:text="식당" />
-
-                <RadioButton
-                    android:id="@+id/radioButton15"
-                    android:layout_width="60dp"
-                    android:layout_height="20dp"
-                    android:layout_weight="1"
-                    android:text="카페" />
-            </RadioGroup>
-
-            <ImageButton
-                android:id="@+id/imageButton2"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                app:srcCompat="@android:drawable/ic_popup_sync" />
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:text="식당 추천"
-            android:textSize="15sp"
-            android:textStyle="bold"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="200dp"
-        android:layout_height="90dp"
-        android:layout_marginStart="205dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:text="천안"
-                android:textStyle="bold" />
-
-            <RadioGroup
-                android:id="@+id/radioGroup2"
-                android:layout_width="100dp"
-                android:layout_height="match_parent">
-
-                <RadioButton
-                    android:id="@+id/radioButton16"
-                    android:layout_width="60dp"
-                    android:layout_height="20dp"
-                    android:layout_weight="1"
-                    android:text="식당" />
-
-                <RadioButton
-                    android:id="@+id/radioButton17"
-                    android:layout_width="60dp"
-                    android:layout_height="20dp"
-                    android:layout_weight="1"
-                    android:text="카페" />
-            </RadioGroup>
-
-            <ImageButton
-                android:id="@+id/imageButton3"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                app:srcCompat="@android:drawable/ic_popup_sync" />
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView13"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:text="식당 추천"
-            android:textSize="15sp"
-            android:textStyle="bold"/>
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
