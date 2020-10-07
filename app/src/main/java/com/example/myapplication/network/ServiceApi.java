@@ -16,6 +16,10 @@ import com.example.myapplication.lost.LostEditResponse;
 import com.example.myapplication.lost.LostResponse;
 import com.example.myapplication.lost.LostWriteData;
 import com.example.myapplication.lost.LostWriteResponse;
+import com.example.myapplication.mate.MateCommentData;
+import com.example.myapplication.mate.MateCommentDeleteData;
+import com.example.myapplication.mate.MateCommentEditData;
+import com.example.myapplication.mate.MateCommentWriteData;
 import com.example.myapplication.mate.MateData;
 import com.example.myapplication.mate.MateDeleteData;
 import com.example.myapplication.mate.MateDeleteResponse;
@@ -57,6 +61,7 @@ public interface ServiceApi {
 
     @POST("/member/matelist")
     Call<MyMateResponse> userMatelist(@Body MyMateData data);
+
     @POST("/member/lostlist")
     Call<MyLostResponse> userLostlist(@Body MyLostData data);
 
@@ -71,6 +76,18 @@ public interface ServiceApi {
 
     @POST("/mate/delete")
     Call<MateDeleteResponse> matedelete(@Body MateDeleteData data);
+
+    @POST("/mate/commentlist")
+    Call<MateResponse> matecommentlist(@Body MateCommentData data);
+
+    @POST("/mate/commentwrite")
+    Call<MateResponse> matecommentwrite(@Body MateCommentWriteData data);
+
+    @POST("/mate/commentedit")
+    Call<MateResponse> matecommentedit(@Body MateCommentEditData data);
+
+    @POST("/mate/commentdelete")
+    Call<MateResponse> matecommentdelete(@Body MateCommentDeleteData data);
 
     @POST("/lost/list")
     Call<LostResponse> lostList(@Body LostData data);
