@@ -19,8 +19,7 @@ import com.naver.maps.map.OnMapReadyCallback;
 import com.naver.maps.map.util.FusedLocationSource;
 
 public class MapFragmentActivity extends AppCompatActivity implements OnMapReadyCallback {
-
-    private static  final int LOCATION_PERMISSION_REQUEST_CODE=1000;
+    private static final int LOCATION_PERMISSION_REQUEST_CODE=1000;
     private FusedLocationSource locationSource;
     private NaverMap naverMap;
     private MapView mapView;
@@ -32,21 +31,13 @@ public class MapFragmentActivity extends AppCompatActivity implements OnMapReady
 
         mapView=findViewById(R.id.map_view);
         mapView.onCreate(savedInstanceState);
+
+        mapView.getMapAsync(this);
         locationSource=
                 new FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new MapFragmentActivity.ItemSelectedListener());
-    }
-
-    public void onRequestPermissionsResult(int requestCode,
-                                           @NonNull String[] permissions, @NonNull int[] grantResults){
-        if(locationSource.onRequestPermissionsResult(
-                requestCode, permissions, grantResults)) {
-            return;
-        }
-        super.onRequestPermissionsResult(
-                requestCode, permissions, grantResults);
     }
 
     @Override
@@ -94,8 +85,18 @@ public class MapFragmentActivity extends AppCompatActivity implements OnMapReady
     @Override
     public void onMapReady(@NonNull NaverMap naverMap) {
         this.naverMap = naverMap;
-        naverMap.setLocationSource((locationSource));
+        naverMap.setLocationSource(locationSource);
         naverMap.setLocationTrackingMode(LocationTrackingMode.Follow);
+    }
+
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String[] permissions, @NonNull int[] grantResults){
+        if(locationSource.onRequestPermissionsResult(
+                requestCode, permissions, grantResults)) {
+            return;
+        }
+        super.onRequestPermissionsResult(
+                requestCode, permissions, grantResults);
     }
 
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
