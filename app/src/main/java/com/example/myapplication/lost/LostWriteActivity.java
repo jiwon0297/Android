@@ -13,6 +13,7 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
@@ -35,9 +36,14 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 
+import java.io.DataOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -66,6 +72,7 @@ public class LostWriteActivity extends AppCompatActivity {
     private Button uploadImg;
     String getImgURL="";
     String getImgName="";
+    private String serverURL = "http://13.125.107.224:3000/testDB2/jdbcTest.jsp";  //<<서버주소
 
     final int REQ_CODE_SELECT_IMAGE=100;
     ProgressDialog asyncDialog;
@@ -75,6 +82,11 @@ public class LostWriteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lost_write);
+
+        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
+                .permitDiskReads()
+                .permitDiskWrites()
+                .permitNetwork().build());
 
         titleText = (EditText) findViewById(R.id.title);
         String nicknameText = getIntent().getStringExtra("NICKNAME_EXTRA");
@@ -136,6 +148,7 @@ public class LostWriteActivity extends AppCompatActivity {
                 asyncDialog.show();
 
                 uploadFile(getImgURL , getImgName);
+                //DoFileUpload(serverURL, getImgURL);
 
 
             }
@@ -199,7 +212,97 @@ public class LostWriteActivity extends AppCompatActivity {
      * Upload Image Client Code
      */
 
+    public void DoFileUpload(String apiUrl, String absolutePath) {
+        HttpFileUpload(apiUrl, "", absolutePath);
+    }
+
+    String lineEnd = "\r\n";
+    String twoHyphens = "--";
+    String boundary = "*****";
+
+    public void HttpFileUpload(String urlString, String params, String fileName) {
+        try {
+
+            FileInputStream mFileInputStream = new FileInputStream(fileName);
+            URL connectUrl = new URL(urlString);
+            Log.d("Test", "mFileInputStream  is " + mFileInputStream);
+
+            // HttpURLConnection 통신
+            HttpURLConnection conn = (HttpURLConnection) connectUrl.openConnection();
+            conn.setDoInput(true);
+            conn.setDoOutput(true);
+            conn.setUseCaches(false);
+            conn.setRequestMethod("POST");
+            conn.setRequestProperty("Connection", "Keep-Alive");
+            conn.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + boundary);
+
+            // write data
+            DataOutputStream dos = new DataOutputStream(conn.getOutputStream());
+            dos.writeBytes(twoHyphens + boundary + lineEnd);
+            dos.writeBytes("Content-Disposition: form-data; name=\"uploadedfile\";filename=\"" + fileName + "\"" + lineEnd);
+            dos.writeBytes(lineEnd);
+
+            int bytesAvailable = mFileInputStream.available();
+            int maxBufferSize = 1024;
+            int bufferSize = Math.min(bytesAvailable, maxBufferSize);
+
+            byte[] buffer = new byte[bufferSize];
+            int bytesRead = mFileInputStream.read(buffer, 0, bufferSize);
+
+            Log.d("Test", "image byte is " + bytesRead);
+
+            // read image
+            while (bytesRead > 0) {
+                dos.write(buffer, 0, bufferSize);
+                bytesAvailable = mFileInputStream.available();
+                bufferSize = Math.min(bytesAvailable, maxBufferSize);
+                bytesRead = mFileInputStream.read(buffer, 0, bufferSize);
+            }
+
+            dos.writeBytes(lineEnd);
+            dos.writeBytes(twoHyphens + boundary + twoHyphens + lineEnd);
+
+            // close streams
+            Log.e("Test", "File is written");
+            mFileInputStream.close();
+            dos.flush();
+            // finish upload...
+
+            // get response
+            InputStream is = conn.getInputStream();
+
+            StringBuffer b = new StringBuffer();
+            for (int ch = 0; (ch = is.read()) != -1; ) {
+                b.append((char) ch);
+            }
+            is.close();
+            Log.e("Test", b.toString());
+
+
+        } catch (Exception e) {
+            Log.d("Test", "exception " + e.getMessage());
+            // TODO: handle exception
+        }
+    } // end of HttpFileUpload()
+
+
+
     private void uploadFile(String ImgURL, String ImgName) {
+        /**
+         * 현재 연결된 서버의 URL을 받아옴
+         */
+        String url = "http://13.125.107.224/index.php";
+
+        /**
+         * 다시 연결 시도
+         */
+        // create upload service client
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .build();
+
+        ServiceApi service = retrofit.create(ServiceApi.class);
+
         /**
          * 서버로 보낼 파일의 전체 url을 이용해 작업
          */
