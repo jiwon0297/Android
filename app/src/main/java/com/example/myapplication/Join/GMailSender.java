@@ -30,12 +30,13 @@ public class GMailSender extends javax.mail.Authenticator {
         props.setProperty("mail.transport.protocol", "smtp");
         props.setProperty("mail.host", mailhost);
         props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.port", "465");
-        props.put("mail.smtp.socketFactory.port", "465");
+        props.put("mail.smtp.port", "587");
+        /*props.put("mail.smtp.socketFactory.port", "465");
         props.put("mail.smtp.socketFactory.class",
                 "javax.net.ssl.SSLSocketFactory");
-        props.put("mail.smtp.socketFactory.fallback", "false");
+        props.put("mail.smtp.socketFactory.fallback", "false");*/
         props.setProperty("mail.smtp.quitwait", "false");
+        props.put("mail.smtp.starttls.enable","true");
 
         //구글에서 지원하는 smtp 정보를 받아와 MimeMessage 객체에 전달해준다.
         session = Session.getDefaultInstance(props, this);

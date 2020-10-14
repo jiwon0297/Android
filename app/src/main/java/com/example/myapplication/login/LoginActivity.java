@@ -1,7 +1,5 @@
 package com.example.myapplication.login;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -14,11 +12,13 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.myapplication.Join.JoinActivity;
-import com.example.myapplication.ui.HomeActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.network.RetrofitClient;
 import com.example.myapplication.network.ServiceApi;
+import com.example.myapplication.ui.HomeActivity;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,7 +33,6 @@ public class LoginActivity extends AppCompatActivity {
     private CheckBox auto_login;
     SharedPreferences setting;
     SharedPreferences.Editor editor;
-    private BackPressCloseHandler backPressCloseHandler;
     private long backBtnTime = 0;
 
     @Override
