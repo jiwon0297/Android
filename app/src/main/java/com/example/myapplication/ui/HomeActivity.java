@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RadioGroup;
@@ -106,6 +107,39 @@ public class HomeActivity extends AppCompatActivity {
         group2= (RadioGroup) findViewById(R.id.radioGroup2);
         imgbutton2 = (ImageButton) findViewById(R.id.imageButton2);
         imgbutton3 = (ImageButton) findViewById(R.id.imageButton3);
+
+        ViewGroup homepage = (ViewGroup) findViewById(R.id.homepage);
+        homepage.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://portal.dankook.ac.kr/web/portal/"));
+                startActivity(intent);
+            }
+        });
+
+        ViewGroup webinfo = (ViewGroup) findViewById(R.id.map);
+        webinfo.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.dankook.ac.kr/web/kor/campusmap?p_p_id=Campus_WAR_campusportlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_Campus_WAR_campusportlet_sCampusId=1&_Campus_WAR_campusportlet_pageView=detail&_Campus_WAR_campusportlet_action=view"));
+                startActivity(intent);
+            }
+        });
+
+        ViewGroup elearning = (ViewGroup) findViewById(R.id.elearning);
+        elearning.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://nlms.dankook.ac.kr/"));
+                startActivity(intent);
+            }
+        });
+
+        ViewGroup bus = (ViewGroup) findViewById(R.id.bus);
+        bus.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.dankook.ac.kr/web/kor/-69"));
+                startActivity(intent);
+            }
+        });
+
 
         group1.setOnCheckedChangeListener(
                 new RadioGroup.OnCheckedChangeListener() {
