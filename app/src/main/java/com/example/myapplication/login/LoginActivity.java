@@ -100,6 +100,11 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+    }
+
     private void attemptLogin() {
         emailText.setError(null);
         passwordText.setError(null);

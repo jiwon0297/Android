@@ -679,6 +679,11 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+    }
+
     public void mate(View v) {
         Toast.makeText(this,"메이트 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, MateActivity.class);
