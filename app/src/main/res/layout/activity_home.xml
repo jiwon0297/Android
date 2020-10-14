@@ -88,11 +88,12 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/View1"
+                android:id="@+id/homepage"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_gravity="center"
                 android:background="@drawable/homepage"
+                android:onClick="onButtonClick1"
                 app:layout_gravity="fill" />
 
             <TextView
@@ -116,11 +117,12 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/View2"
+                android:id="@+id/webinformation"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_gravity="center"
                 android:background="@drawable/webinfo"
+                android:onClick="onButtonClick2"
                 app:layout_gravity="fill" />
 
             <TextView
@@ -144,11 +146,12 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/View3"
+                android:id="@+id/elearning"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_gravity="center"
                 android:background="@drawable/elearning"
+                android:onClick="onButtonClick3"
                 app:layout_gravity="fill" />
 
             <TextView
@@ -172,11 +175,12 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/View4"
+                android:id="@+id/bus"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_gravity="center"
                 android:background="@drawable/shuttle"
+                android:onClick="onButtonClick4"
                 app:layout_gravity="fill" />
 
             <TextView

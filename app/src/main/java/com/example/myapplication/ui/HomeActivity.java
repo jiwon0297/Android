@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+import android.net.Uri;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -652,7 +653,32 @@ public class HomeActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
 
+
+
     }
+
+    public void onButtonClick1(View v)
+    {
+        Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.dankook.ac.kr/web/kor"));
+        startActivity(myIntent);
+    }
+
+    public void onButtonClick2(View v)
+    {
+        Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://portal.dankook.ac.kr/web/portal"));
+        startActivity(myIntent);
+    }
+    public void onButtonClick3(View v)
+    {
+        Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://nlms.dankook.ac.kr"));
+        startActivity(myIntent);
+    }
+    public void onButtonClick4(View v)
+    {
+        Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.dankook.ac.kr/web/kor/-69"));
+        startActivity(myIntent);
+    }
+
 
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
         @Override
