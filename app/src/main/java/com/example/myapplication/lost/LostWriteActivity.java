@@ -77,7 +77,7 @@ public class LostWriteActivity extends AppCompatActivity {
 
     final int REQ_CODE_SELECT_IMAGE=100;
     ProgressDialog asyncDialog;
-    ProgressDialog dialog = null;
+    ProgressDialog dialog;
     int serverResponseCode = 0;
     /* -- 요기까지 -- */
 
@@ -150,6 +150,9 @@ public class LostWriteActivity extends AppCompatActivity {
                 // show dialog
                 asyncDialog.show();
 
+                dialog = ProgressDialog.show(LostWriteActivity.this, "", "Uploading file...", true);
+
+                출처: https://taetanee.tistory.com/entry/안드로이드-php-파일-전송-예제 [좋은 정보]
                 uploadFile2(getImgURL + "" + getImgName);
 
                 //uploadFile(getImgURL , getImgName);
