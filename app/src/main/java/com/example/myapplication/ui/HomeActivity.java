@@ -92,7 +92,7 @@ public class HomeActivity extends AppCompatActivity {
     private ImageButton imgbutton3;
     private RadioGroup group1;
     private RadioGroup group2;
-    private long backBtnTime = 0;
+    long backKeyPressedTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -683,16 +683,21 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
-        long curTime = System.currentTimeMillis();
-        long gapTime = curTime - backBtnTime;
+        //1번째 백버튼 클릭
+        if(System.currentTimeMillis()>backKeyPressedTime+2000){
+            backKeyPressedTime = System.currentTimeMillis();
+            Toast.makeText(this, "한번 더 누르시면 앱을 종료합니다.", Toast.LENGTH_SHORT).show();
+        }
+        //2번째 백버튼 클릭 (종료)
+        else{
+            AppFinish();
+        }
+    }
 
-        if(0 <= gapTime && 2000 >= gapTime) {
-            super.onBackPressed();
-        }
-        else {
-            backBtnTime = curTime;
-            Toast.makeText(this, "한번 더 누르면 종료됩니다.",Toast.LENGTH_SHORT).show();
-        }
+    public void AppFinish(){
+        finish();
+        System.exit(0);
+        android.os.Process.killProcess(android.os.Process.myPid());
     }
 
     public void mate(View v) {
