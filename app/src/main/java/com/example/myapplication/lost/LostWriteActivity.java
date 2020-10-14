@@ -77,7 +77,6 @@ public class LostWriteActivity extends AppCompatActivity {
 
     final int REQ_CODE_SELECT_IMAGE=100;
     ProgressDialog asyncDialog;
-    ProgressDialog dialog;
     int serverResponseCode = 0;
     /* -- 요기까지 -- */
 
@@ -262,7 +261,7 @@ public class LostWriteActivity extends AppCompatActivity {
                 });
                 Log.e("Upload file to server", "error: " + ex.getMessage(), ex);
             } catch (Exception e) {
-                dialog.dismiss();
+                asyncDialog.dismiss();
                 e.printStackTrace();
 
                 runOnUiThread(new Runnable() {
@@ -274,7 +273,7 @@ public class LostWriteActivity extends AppCompatActivity {
                 Log.e("Upld to server Excption", "Exception : "
                         + e.getMessage(), e);
             }
-            dialog.dismiss();
+            asyncDialog.dismiss();
             return serverResponseCode;
         } // End else block
 
