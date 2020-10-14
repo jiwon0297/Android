@@ -41,8 +41,6 @@ import com.example.myapplication.ui.MyMateResponse;
 import com.example.myapplication.ui.MypageData;
 import com.example.myapplication.ui.MypageResponse;
 
-import javax.xml.transform.Result;
-
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
