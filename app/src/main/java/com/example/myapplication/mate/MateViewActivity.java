@@ -173,6 +173,11 @@ public class MateViewActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+    }
+
     private void attemptList() {
         int postnumber = getIntent().getIntExtra("NUMBER_EXTRA",1);
 
