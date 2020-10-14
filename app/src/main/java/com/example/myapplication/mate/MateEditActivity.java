@@ -115,11 +115,6 @@ public class MateEditActivity extends AppCompatActivity {
         }
     };
 
-    @Override
-    public void onBackPressed() {
-        //super.onBackPressed();
-    }
-
     private void attemptedit() {
         titleText.setError(null);
         contentText.setError(null);

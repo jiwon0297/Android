@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -63,6 +64,15 @@ public class AloneActivity extends AppCompatActivity implements SwipeRefreshLayo
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new AloneActivity.ItemSelectedListener());
+
+        ImageButton backbutton = (ImageButton) findViewById(R.id.imageButton);
+        backbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AloneActivity.this, MateActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
     @Override
@@ -151,6 +161,10 @@ public class AloneActivity extends AppCompatActivity implements SwipeRefreshLayo
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+    }
 
     public void write(View v){
         Intent intent = new Intent(this, MateWriteActivity.class);

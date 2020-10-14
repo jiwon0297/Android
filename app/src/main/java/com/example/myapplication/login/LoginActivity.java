@@ -111,6 +111,7 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(this, "한번 더 누르면 종료됩니다.",Toast.LENGTH_SHORT).show();
         }
     }
+
     private void attemptLogin() {
         emailText.setError(null);
         passwordText.setError(null);
