@@ -64,8 +64,8 @@ public class MateViewActivity extends AppCompatActivity {
         date.setText(getIntent().getStringExtra("DATE_EXTRA"));
         content.setText(getIntent().getStringExtra("CONTENT_EXTRA"));
 
-        ImageButton loginButton = (ImageButton) findViewById(R.id.imageButton1);
-        loginButton.setOnClickListener(new View.OnClickListener() {
+        ImageButton backbutton = (ImageButton) findViewById(R.id.imageButton1);
+        backbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();
@@ -171,11 +171,6 @@ public class MateViewActivity extends AppCompatActivity {
                 showProgress(false);
             }
         });
-    }
-
-    @Override
-    public void onBackPressed() {
-        //super.onBackPressed();
     }
 
     private void attemptList() {
