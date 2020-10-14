@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.example.myapplication.R;
 import com.example.myapplication.network.ServiceApi;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class ListAdapter extends BaseAdapter {
@@ -62,13 +63,16 @@ public class ListAdapter extends BaseAdapter {
         TextView oTextType = (TextView) convertView.findViewById(R.id.type);
         TextView oTextDate = (TextView) convertView.findViewById(R.id.textDate);
 
+        SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String datetext = transFormat.format(data.get(position).date);
+
         oTextCampus.setText(data.get(position).campus);
         oTextTitle.setText(data.get(position).title);
         oTextId.setText(data.get(position).nickname);
         oTextNumber.setText(String.valueOf(data.get(position).number));
         oTextContent.setText(data.get(position).content);
         oTextType.setText(data.get(position).type);
-        oTextDate.setText(data.get(position).date);
+        oTextDate.setText(datetext);
 
         return convertView;
 

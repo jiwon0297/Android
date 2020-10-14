@@ -2,6 +2,8 @@ package com.example.myapplication.lost;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Date;
+
 public class LostData {
     @SerializedName("campus")
     String campus;
@@ -22,7 +24,7 @@ public class LostData {
     int number;
 
     @SerializedName("date")
-    String date;
+    Date date;
 
     public LostData(String type) {
         this.type = type;

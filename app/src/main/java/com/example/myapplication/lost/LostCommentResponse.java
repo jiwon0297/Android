@@ -1,14 +1,13 @@
 package com.example.myapplication.lost;
 
-import com.example.myapplication.mate.MateResponse;
+import com.example.myapplication.mate.MateCommentResponse;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class LostResponse {
+public class LostCommentResponse {
     @SerializedName("code")
     private int code;
 
@@ -25,25 +24,21 @@ public class LostResponse {
 
     @SerializedName("result")
     @Expose
-    private List<LostResponse> result;
+    private List<LostCommentResponse> result;
 
-    public List<LostResponse> getResult() {
+    public List<LostCommentResponse> getResult() {
         return result;
     }
 
     private int number;
-    private String title;
+    private int postnumber;
     private String nickname;
-    private String campus;
-    private String content;
-    private String type;
     private Date date;
+    private String content;
 
-    public String getType() {return type;}
     public int getNumber() { return number;}
-    public String getTitle() { return title;}
     public String getNickname() { return nickname;}
-    public String getCampus() { return campus;}
-    public String getContent() { return content;}
-    public Date getDate() { return date;}
+    public int getPostnumber() { return postnumber;}
+    public Date getDate() { return date; }
+    public String getContent() {return content;}
 }
