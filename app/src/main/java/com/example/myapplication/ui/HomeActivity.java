@@ -116,8 +116,8 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        ViewGroup webinfo = (ViewGroup) findViewById(R.id.map);
-        webinfo.setOnClickListener(new View.OnClickListener() {
+        ViewGroup map = (ViewGroup) findViewById(R.id.map);
+        map.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.dankook.ac.kr/web/kor/campusmap?p_p_id=Campus_WAR_campusportlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_Campus_WAR_campusportlet_sCampusId=1&_Campus_WAR_campusportlet_pageView=detail&_Campus_WAR_campusportlet_action=view"));
                 startActivity(intent);
@@ -690,29 +690,6 @@ public class HomeActivity extends AppCompatActivity {
 
 
     }
-
-    public void onButtonClick1(View v)
-    {
-        Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.dankook.ac.kr/web/kor"));
-        startActivity(myIntent);
-    }
-
-    public void onButtonClick2(View v)
-    {
-        Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://portal.dankook.ac.kr/web/portal"));
-        startActivity(myIntent);
-    }
-    public void onButtonClick3(View v)
-    {
-        Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://nlms.dankook.ac.kr"));
-        startActivity(myIntent);
-    }
-    public void onButtonClick4(View v)
-    {
-        Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.dankook.ac.kr/web/kor/-69"));
-        startActivity(myIntent);
-    }
-
 
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
         @Override
