@@ -16,6 +16,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.myapplication.Join.JoinActivity;
+import com.example.myapplication.ui.BackPressCloseHandler;
 import com.example.myapplication.ui.HomeActivity;
 import com.example.myapplication.ui.MainActivity;
 import com.example.myapplication.R;
@@ -37,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
     private CheckBox auto_login;
     SharedPreferences setting;
     SharedPreferences.Editor editor;
+    private BackPressCloseHandler backPressCloseHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,6 +105,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
+        backPressCloseHandler.onBackPressed();
     }
 
     private void attemptLogin() {

@@ -92,6 +92,7 @@ public class HomeActivity extends AppCompatActivity {
     private ImageButton imgbutton3;
     private RadioGroup group1;
     private RadioGroup group2;
+    private BackPressCloseHandler backPressCloseHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -682,6 +683,7 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
+        backPressCloseHandler.onBackPressed();
     }
 
     public void mate(View v) {
