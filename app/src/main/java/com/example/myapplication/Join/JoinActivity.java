@@ -71,12 +71,10 @@ public class JoinActivity extends AppCompatActivity {
         service = RetrofitClient.getClient().create(ServiceApi.class);
 
         mailButton.setOnClickListener(new View.OnClickListener() {
-            String email = emailText.getText().toString();
             @Override
             public void onClick(View v){
-                Toast.makeText(JoinActivity.this, email, Toast.LENGTH_SHORT).show();
                 SendMail mailServer = new SendMail();
-                mailServer.sendSecurityCode(getApplicationContext(),email);
+                mailServer.sendSecurityCode(getApplicationContext(),emailText.getText().toString());
             }
         });
 
