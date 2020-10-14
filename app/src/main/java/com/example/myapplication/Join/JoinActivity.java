@@ -67,7 +67,6 @@ public class JoinActivity extends AppCompatActivity {
         nicknameCkButton = (Button) findViewById(R.id.nicknameCheck);
         mProgressView = (ProgressBar) findViewById(R.id.loading);
 
-
         service = RetrofitClient.getClient().create(ServiceApi.class);
 
         mailButton.setOnClickListener(new View.OnClickListener() {
@@ -75,10 +74,10 @@ public class JoinActivity extends AppCompatActivity {
             public void onClick(View v){
                 SendMail mailServer = new SendMail();
                 mailServer.sendSecurityCode(getApplicationContext(),emailText.getText().toString());
+                String code = getIntent().getStringExtra("CODE");
+                mailButton.setText(code);
             }
         });
-
-
 
         emailCkButton.setOnClickListener(new View.OnClickListener() {
             @Override
