@@ -7,7 +7,7 @@ import javax.mail.MessagingException;
 import javax.mail.SendFailedException;
 
 public class SendMail extends AppCompatActivity {
-    String user ="tmdal5857@naver.com"; // 보내는 계정의 id
+    String user ="tmdal5857"; // 보내는 계정의 id
     String password = "asdf87600"; // 보내는 계정의 pw
 
     public void sendSecurityCode(Context context, String sendTo) {
