@@ -1,5 +1,7 @@
 package com.example.myapplication.Join;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -19,6 +21,9 @@ import com.example.myapplication.R;
 import com.example.myapplication.login.LoginActivity;
 import com.example.myapplication.network.RetrofitClient;
 import com.example.myapplication.network.ServiceApi;
+
+import javax.mail.MessagingException;
+import javax.mail.SendFailedException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -52,7 +57,6 @@ public class JoinActivity extends AppCompatActivity {
                 .permitDiskWrites()
                 .permitNetwork().build());
 
-        mailButton = (Button) findViewById(R.id.mailButton);
         emailText = (EditText) findViewById(R.id.username);
         passwordText = (EditText) findViewById(R.id.password);
         passwordconfirmText = (EditText) findViewById(R.id.passwordconfirm);
@@ -68,16 +72,6 @@ public class JoinActivity extends AppCompatActivity {
         mProgressView = (ProgressBar) findViewById(R.id.loading);
 
         service = RetrofitClient.getClient().create(ServiceApi.class);
-
-        mailButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                SendMail mailServer = new SendMail();
-                mailServer.sendSecurityCode(getApplicationContext(),emailText.getText().toString());
-                String code = getIntent().getStringExtra("CODE");
-                mailButton.setText(code);
-            }
-        });
 
         emailCkButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,7 +135,7 @@ public class JoinActivity extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                attemptJoin();
+                sendSecurityCode(getApplicationContext(),emailText.getText().toString());
             }
         });
 
@@ -152,6 +146,43 @@ public class JoinActivity extends AppCompatActivity {
                 JoinActivity.this.startActivity(cancelIntent);
             }
         });
+    }
+
+    public void sendSecurityCode(Context context, String sendTo) {
+        try {
+            String user ="unniedankook"; // 보내는 계정의 id
+            String password = "llxtexvgtacpeoqz"; // 보내는 계정의 pw
+
+            GMailSender gMailSender = new GMailSender(user, password);
+            String code = gMailSender.getEmailCode();
+            gMailSender.sendMail("제목입니다", "인증번호입니다\n" + code, sendTo);
+            Toast.makeText(context, "이메일을 성공적으로 보냈습니다.", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this,PopupActivity.class);
+            intent.putExtra("CODE",code);
+            startActivityForResult(intent, 1);
+        } catch (SendFailedException e) {
+            Toast.makeText(context, "이메일 형식이 잘못되었습니다.", Toast.LENGTH_SHORT).show();
+        } catch (MessagingException e) {
+            e.printStackTrace();
+            Toast.makeText(context, "인터넷 연결을 확인해주십시오", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1) {
+            if (resultCode == RESULT_OK) {
+                //데이터 받기
+                String result = data.getStringExtra("result");
+                attemptJoin();
+            } else if (resultCode == RESULT_CANCELED){
+                String result = data.getStringExtra("result");
+                Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     RadioGroup.OnCheckedChangeListener radioGroupButtonChangeListener = new RadioGroup.OnCheckedChangeListener() {
