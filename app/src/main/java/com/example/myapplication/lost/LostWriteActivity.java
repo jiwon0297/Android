@@ -152,7 +152,7 @@ public class LostWriteActivity extends AppCompatActivity {
 
                 dialog = ProgressDialog.show(LostWriteActivity.this, "", "Uploading file...", true);
 
-                uploadFile2(getImgURL + "" + getImgName);
+                uploadFile2(getImgURL);
 
                 //uploadFile(getImgURL , getImgName);
                 //DoFileUpload(serverURL, getImgURL);
@@ -182,7 +182,7 @@ public class LostWriteActivity extends AppCompatActivity {
         if (!sourceFile.isFile()) {
             dialog.dismiss();
             Log.e("uploadFile", "Source File not exist :"
-                    +getImgURL + "" + getImgName);
+                    +getImgURL);
 
             runOnUiThread(new Runnable() {
                 public void run() {
