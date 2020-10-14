@@ -235,6 +235,7 @@ public class JoinActivity extends AppCompatActivity {
 
     }
 
+
     private void startJoin(JoinData data) {
         service.userJoin(data).enqueue(new Callback<JoinResponse>() {
             @Override
