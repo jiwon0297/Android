@@ -150,8 +150,6 @@ public class LostWriteActivity extends AppCompatActivity {
                 // show dialog
                 asyncDialog.show();
 
-                dialog = ProgressDialog.show(LostWriteActivity.this, "", "Uploading file...", true);
-
                 uploadFile2(getImgURL);
 
                 //uploadFile(getImgURL , getImgName);
@@ -180,7 +178,7 @@ public class LostWriteActivity extends AppCompatActivity {
         File sourceFile = new File(sourceFileUri);
 
         if (!sourceFile.isFile()) {
-            dialog.dismiss();
+            asyncDialog.dismiss();
             Log.e("uploadFile", "Source File not exist :"
                     +getImgURL);
 
@@ -253,7 +251,7 @@ public class LostWriteActivity extends AppCompatActivity {
                 dos.close();
 
             } catch (MalformedURLException ex) {
-                dialog.dismiss();
+                asyncDialog.dismiss();
                 ex.printStackTrace();
 
                 runOnUiThread(new Runnable() {
