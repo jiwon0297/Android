@@ -264,17 +264,19 @@
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/textView10"
+            <Button
+                android:id="@+id/button36"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:fontFamily="@font/lottemartdreammedium"
+                android:gravity="center"
                 android:text="오늘 뭐먹지?"
                 android:textColor="#BF000000"
-                android:fontFamily="@font/lottemartdreammedium"
                 android:textSize="32sp"
-                android:layout_gravity="center"
-                android:gravity="center"
                 android:textStyle="bold" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -330,8 +332,8 @@
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/textView13"
+            <Button
+                android:id="@+id/button37"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="오늘 뭐먹지?"
