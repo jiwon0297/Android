@@ -94,7 +94,6 @@
                 android:layout_height="70dp"
                 android:layout_gravity="center"
                 android:background="@drawable/homepage"
-                android:onClick="onButtonClick1"
                 app:layout_gravity="fill" />
 
             <TextView
@@ -124,7 +123,6 @@
                 android:layout_height="70dp"
                 android:layout_gravity="center"
                 android:background="@drawable/map"
-                android:onClick="onButtonClick2"
                 app:layout_gravity="fill" />
 
             <TextView
@@ -154,7 +152,6 @@
                 android:layout_height="70dp"
                 android:layout_gravity="center"
                 android:background="@drawable/elearning"
-                android:onClick="onButtonClick3"
                 app:layout_gravity="fill" />
 
             <TextView
@@ -184,7 +181,6 @@
                 android:layout_height="70dp"
                 android:layout_gravity="center"
                 android:background="@drawable/shuttle"
-                android:onClick="onButtonClick4"
                 app:layout_gravity="fill" />
 
             <TextView
