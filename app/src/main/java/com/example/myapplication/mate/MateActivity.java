@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.myapplication.R;
@@ -29,6 +30,15 @@ public class MateActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new MateActivity.ItemSelectedListener());
+
+        ImageButton backbutton = (ImageButton) findViewById(R.id.imageButton);
+        backbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MateActivity.this, HomeActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
@@ -55,6 +65,10 @@ public class MateActivity extends AppCompatActivity {
             }
             return true;
         }
+    }
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
     }
 
     public void alone(View v) {
