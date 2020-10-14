@@ -152,7 +152,6 @@ public class LostWriteActivity extends AppCompatActivity {
 
                 dialog = ProgressDialog.show(LostWriteActivity.this, "", "Uploading file...", true);
 
-                출처: https://taetanee.tistory.com/entry/안드로이드-php-파일-전송-예제 [좋은 정보]
                 uploadFile2(getImgURL + "" + getImgName);
 
                 //uploadFile(getImgURL , getImgName);
