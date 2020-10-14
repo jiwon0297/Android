@@ -67,22 +67,17 @@ public class JoinActivity extends AppCompatActivity {
         nicknameCkButton = (Button) findViewById(R.id.nicknameCheck);
         mProgressView = (ProgressBar) findViewById(R.id.loading);
 
-
         service = RetrofitClient.getClient().create(ServiceApi.class);
 
         mailButton.setOnClickListener(new View.OnClickListener() {
-            String email = emailText.getText().toString();
             @Override
             public void onClick(View v){
-                if (email.isEmpty()) {
-                emailText.setError("이메일을 입력해주세요.");
-            }
                 SendMail mailServer = new SendMail();
-                mailServer.sendSecurityCode(getApplicationContext(), emailText.getText().toString());
+                mailServer.sendSecurityCode(getApplicationContext(),emailText.getText().toString());
+                String code = getIntent().getStringExtra("CODE");
+                mailButton.setText(code);
             }
         });
-
-
 
         emailCkButton.setOnClickListener(new View.OnClickListener() {
             @Override

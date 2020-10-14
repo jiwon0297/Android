@@ -36,6 +36,7 @@ public class GMailSender extends javax.mail.Authenticator {
                 "javax.net.ssl.SSLSocketFactory");
         props.put("mail.smtp.socketFactory.fallback", "false");
         props.setProperty("mail.smtp.quitwait", "false");
+        props.put("mail.smtp.starttls.enable","true");
 
         //구글에서 지원하는 smtp 정보를 받아와 MimeMessage 객체에 전달해준다.
         session = Session.getDefaultInstance(props, this);

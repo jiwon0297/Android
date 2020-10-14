@@ -1,7 +1,5 @@
 package com.example.myapplication.login;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,17 +10,15 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.myapplication.Join.JoinActivity;
-import com.example.myapplication.ui.HomeActivity;
-import com.example.myapplication.ui.MainActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.network.RetrofitClient;
 import com.example.myapplication.network.ServiceApi;
-import com.example.myapplication.login.LoginData;
-import com.example.myapplication.login.LoginResponse;
+import com.example.myapplication.ui.HomeActivity;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
     private CheckBox auto_login;
     SharedPreferences setting;
     SharedPreferences.Editor editor;
+    private long backBtnTime = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,6 +97,20 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        long curTime = System.currentTimeMillis();
+        long gapTime = curTime - backBtnTime;
+
+        if(0 <= gapTime && 2000 >= gapTime) {
+            super.onBackPressed();
+        }
+        else {
+            backBtnTime = curTime;
+            Toast.makeText(this, "한번 더 누르면 종료됩니다.",Toast.LENGTH_SHORT).show();
+        }
+    }
     private void attemptLogin() {
         emailText.setError(null);
         passwordText.setError(null);

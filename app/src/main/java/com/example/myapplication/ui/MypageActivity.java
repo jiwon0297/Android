@@ -3,7 +3,9 @@ package com.example.myapplication.ui;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -14,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication.R;
+import com.example.myapplication.login.LoginActivity;
 import com.example.myapplication.mate.AloneActivity;
 import com.example.myapplication.mate.MateActivity;
 import com.example.myapplication.network.ServiceApi;
@@ -130,8 +133,14 @@ public class MypageActivity extends AppCompatActivity {
     }
 
     public void logout(View v) {
-        Toast.makeText(this,"로그아웃 되어 홈화면으로 이동합니다.",Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(MypageActivity.this, LoginActivity.class);
+        startActivity(intent);
+        SharedPreferences setting = getSharedPreferences("setting", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = setting.edit();
+        editor.clear();
+        editor.commit();
+        finish();
+        Toast.makeText(this,"로그아웃 되었습니다.",Toast.LENGTH_LONG).show();
         startActivity(intent);
     }
     public void user(View v) {
