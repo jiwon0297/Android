@@ -85,10 +85,11 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:id ="@+id/homepage"
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/homepage"
+                android:id="@+id/homepageicon"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_gravity="center"
@@ -104,7 +105,7 @@
                 android:backgroundTint="#00FFFFFF"
                 android:fontFamily="@font/lottemartdreammedium"
                 android:gravity="center_horizontal"
-                android:text="학교\n홈페이지"
+                android:text="단국대\n포털"
                 android:textAlignment="center"
                 android:textSize="20sp"
                 app:layout_gravity="fill" />
@@ -114,14 +115,15 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:id="@+id/map"
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/webinformation"
+                android:id="@+id/mapicon"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_gravity="center"
-                android:background="@drawable/webinfo"
+                android:background="@drawable/map"
                 android:onClick="onButtonClick2"
                 app:layout_gravity="fill" />
 
@@ -133,7 +135,7 @@
                 android:backgroundTint="#00FFFFFF"
                 android:fontFamily="@font/lottemartdreammedium"
                 android:gravity="center_horizontal"
-                android:text="웹정보\n시스템"
+                android:text="캠퍼스\n지도"
                 android:textAlignment="center"
                 android:textSize="20sp"
                 app:layout_gravity="fill" />
@@ -143,10 +145,11 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:id="@+id/elearning"
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/elearning"
+                android:id="@+id/elearningicon"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_gravity="center"
@@ -172,10 +175,11 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:id="@+id/bus"
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/bus"
+                android:id="@+id/busicon"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_gravity="center"
@@ -191,7 +195,7 @@
                 android:backgroundTint="#00FFFFFF"
                 android:fontFamily="@font/lottemartdreammedium"
                 android:gravity="center_horizontal"
-                android:text="셔틀버스"
+                android:text="셔틀버스\n안내"
                 android:textAlignment="center"
                 android:textSize="20sp"
                 app:layout_gravity="fill" />
