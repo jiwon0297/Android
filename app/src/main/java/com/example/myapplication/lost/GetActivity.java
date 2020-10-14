@@ -23,6 +23,7 @@ import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -104,6 +105,7 @@ public class GetActivity extends AppCompatActivity implements SwipeRefreshLayout
                         oItem.campus = a.getCampus();
                         oItem.title = a.getTitle();
                         oItem.nickname = a.getNickname();
+                        oItem.date = a.getDate();
                         oItem.number = a.getNumber();
                         oItem.content = a.getContent();
                         oItem.type = a.getType();
@@ -116,12 +118,15 @@ public class GetActivity extends AppCompatActivity implements SwipeRefreshLayout
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
                         @Override
                         public void onItemClick(AdapterView parent, View v, int position, long id){
+                            SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                            String datetext = transFormat.format(oData.get(position).date);
                             Intent intent = new Intent(getApplicationContext(), LostViewActivity.class);
                             intent.putExtra("TYPE_EXTRA", oData.get(position).type);
                             intent.putExtra("NUMBER_EXTRA", oData.get(position).number);
                             intent.putExtra("TITLE_EXTRA", oData.get(position).title);
                             intent.putExtra("NICKNAME_EXTRA2", oData.get(position).nickname);
                             intent.putExtra("CONTENT_EXTRA", oData.get(position).content);
+                            intent.putExtra("DATE_EXTRA", datetext);
                             intent.putExtra("CAMPUS_EXTRA", oData.get(position).campus);
                             intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
                             startActivity(intent);
@@ -150,14 +155,17 @@ public class GetActivity extends AppCompatActivity implements SwipeRefreshLayout
             {
                 case R.id.home:
                     Intent intent = new Intent(GetActivity.this, HomeActivity.class);
+                    intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent);
                     break;
                 case R.id.mail:
                     Intent intent2 = new Intent(GetActivity.this, MailActivity.class);
+                    intent2.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent2);
                     break;
                 case R.id.mypage:
                     Intent intent3 = new Intent(GetActivity.this, MypageActivity.class);
+                    intent3.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent3);
                     break;
             }

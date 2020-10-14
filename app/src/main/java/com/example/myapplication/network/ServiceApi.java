@@ -8,6 +8,12 @@ import com.example.myapplication.Join.JoinData;
 import com.example.myapplication.Join.JoinResponse;
 import com.example.myapplication.login.LoginData;
 import com.example.myapplication.login.LoginResponse;
+import com.example.myapplication.lost.LostCommentData;
+import com.example.myapplication.lost.LostCommentDeleteData;
+import com.example.myapplication.lost.LostCommentDeleteResponse;
+import com.example.myapplication.lost.LostCommentResponse;
+import com.example.myapplication.lost.LostCommentWriteData;
+import com.example.myapplication.lost.LostCommentWriteResponse;
 import com.example.myapplication.lost.LostData;
 import com.example.myapplication.lost.LostDeleteData;
 import com.example.myapplication.lost.LostDeleteResponse;
@@ -117,6 +123,15 @@ public interface ServiceApi {
 
     @POST("/check/checkNickname")
     Call<CheckNicknameResponse> checkNickname(@Body CheckNicknameData data);
+
+    @POST("/lost/commentlist")
+    Call<LostCommentResponse> lostcommentlist(@Body LostCommentData data);
+
+    @POST("/lost/commentwrite")
+    Call<LostCommentWriteResponse> lostcommentwrite(@Body LostCommentWriteData data);
+
+    @POST("/lost/commentdelete")
+    Call<LostCommentDeleteResponse> lostcommentdelete(@Body LostCommentDeleteData data);
 
     @Multipart
     @POST("/upload")

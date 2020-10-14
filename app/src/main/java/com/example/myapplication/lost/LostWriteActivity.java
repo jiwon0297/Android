@@ -77,8 +77,7 @@ public class LostWriteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lost_write);
 
         titleText = (EditText) findViewById(R.id.title);
-        nicknameText = (TextView) findViewById(R.id.nickname);
-        nicknameText.setText(getIntent().getStringExtra("NICKNAME_EXTRA"));
+        String nicknameText = getIntent().getStringExtra("NICKNAME_EXTRA");
         contentText = (EditText) findViewById(R.id.content);
         campusgroup = (RadioGroup) findViewById(R.id.campusgroup);
         typeGroup = (RadioGroup) findViewById(R.id.typeGroup);
