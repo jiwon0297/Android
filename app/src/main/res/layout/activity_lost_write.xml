@@ -84,6 +84,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="천안캠퍼스" />
+
     </RadioGroup>
 
     <RadioGroup
@@ -146,6 +147,22 @@
         app:layout_constraintTop_toBottomOf="@+id/content"
         />
 
+    <Button
+        android:id="@+id/getImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GET IMAGE"
+        tools:layout_editor_absoluteX="41dp"
+        tools:layout_editor_absoluteY="602dp" />
+
+    <Button
+        android:id="@+id/uploadImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UPLOAD IMAGE"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="667dp" />
+
     <ProgressBar
         android:id="@+id/progressBar2"
         style="?android:attr/progressBarStyle"
@@ -157,5 +174,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.499"
         tools:layout_editor_absoluteX="152dp" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="#333333"
+        tools:layout_editor_absoluteX="250dp"
+        tools:layout_editor_absoluteY="602dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

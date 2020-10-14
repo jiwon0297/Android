@@ -41,6 +41,8 @@ import com.example.myapplication.ui.MyMateResponse;
 import com.example.myapplication.ui.MypageData;
 import com.example.myapplication.ui.MypageResponse;
 
+import javax.xml.transform.Result;
+
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
@@ -113,5 +115,5 @@ public interface ServiceApi {
 
     @Multipart
     @POST("/upload")
-    Call<ResponseBody> postImage(@Part MultipartBody.Part image, @Part("upload") RequestBody name);
+    Call<ResponseBody> upload(@Part MultipartBody.Part file, @Part("name") RequestBody description);
 }
