@@ -74,11 +74,9 @@ public class JoinActivity extends AppCompatActivity {
             String email = emailText.getText().toString();
             @Override
             public void onClick(View v){
-                if (email.isEmpty()) {
-                emailText.setError("이메일을 입력해주세요.");
-            }
+                Toast.makeText(JoinActivity.this, email, Toast.LENGTH_SHORT).show();
                 SendMail mailServer = new SendMail();
-                mailServer.sendSecurityCode(getApplicationContext(), emailText.getText().toString());
+                mailServer.sendSecurityCode(getApplicationContext(),email);
             }
         });
 
