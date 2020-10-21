@@ -149,7 +149,6 @@ public class LostWriteActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 selectBtn(view);
-
             }
         });
         selectBtn.setOnClickListener(new View.OnClickListener() {
@@ -186,6 +185,7 @@ public class LostWriteActivity extends AppCompatActivity {
                         f
                 );
                 URI = f.getName();
+                urlText.setText(URI);
                 break;
             case R.id.getImg:
                 selectImage();
@@ -372,6 +372,7 @@ public class LostWriteActivity extends AppCompatActivity {
 
         if (imagetype == SELECT_FILE) {
             f = new File(imagePath);
+            URI = imagePath;
             imageview.setImageBitmap(bm);
         }
     }
@@ -548,14 +549,13 @@ public class LostWriteActivity extends AppCompatActivity {
         contentText.setError(null);
         typeText.setError(null);
         campusText.setError(null);
-        urlText.setError(null);
 
         String title = titleText.getText().toString();
         String nickname = nicknameText.getText().toString();
         String content = contentText.getText().toString();
         String campus = campusText.getText().toString();
         String type = typeText.getText().toString();
-        String url = urlText.getText().toString();
+        String url = "";
 
         boolean cancel = false;
         View focusView = null;
@@ -592,7 +592,7 @@ public class LostWriteActivity extends AppCompatActivity {
             cancel = true;
         }
 
-        if (URI.isEmpty()) {
+        if (urlText.getText().toString().isEmpty()) {
             url = "";
         } else
         {
