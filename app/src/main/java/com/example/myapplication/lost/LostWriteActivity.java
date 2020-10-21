@@ -179,7 +179,7 @@ public class LostWriteActivity extends AppCompatActivity {
 
             // 선택한 이미지 임시 저장
             String date = new SimpleDateFormat("yyyy_MM_dd_hh_mm_ss").format(new Date());
-            tempSelectFile = new File(Environment.getExternalStorageDirectory() + "/Pictures/Test/", "temp_" + date + ".jpeg");
+            tempSelectFile = new File(Environment.getExternalStorageDirectory() + "/Pictures/", "temp_" + date + ".jpeg");
             OutputStream out = new FileOutputStream(tempSelectFile);
             image.compress(Bitmap.CompressFormat.JPEG, 100, out);
         } catch (IOException ioe) {
