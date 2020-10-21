@@ -120,9 +120,10 @@ public class ReceiveListFragment extends Fragment {
                         public void onItemClick(AdapterView parent, View v, int position, long id){
                             SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                             String datetext = transFormat.format(oData.get(position).date);
-                            Intent intent = new Intent(getContext(), HomeActivity.class);
+                            Intent intent = new Intent(getContext(), MailViewActivity.class);
                             intent.putExtra("SENDER", oData.get(position).sender);
                             intent.putExtra("NUMBER_EXTRA", oData.get(position).number);
+                            intent.putExtra("RECIPIENT", oData.get(position).recipient);
                             intent.putExtra("NICKNAME_EXTRA", oData.get(position).recipient);
                             intent.putExtra("DATE_EXTRA", datetext);
                             intent.putExtra("CONTENT_EXTRA", oData.get(position).content);
