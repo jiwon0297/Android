@@ -146,13 +146,10 @@ public class LostWriteActivity extends AppCompatActivity {
         btnImageSelection.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                // Intent를 통해 이미지를 선택
-                Intent intent = new Intent();
-                // intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-                intent.setType("image/*");
-                intent.setAction(Intent.ACTION_GET_CONTENT);
+                Intent intent = new Intent(Intent.ACTION_PICK);
+                intent.setType(android.provider.MediaStore.Images.Media.CONTENT_TYPE);
+                intent.setData(android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(intent, 1);
-
 
             }
         });
@@ -182,7 +179,7 @@ public class LostWriteActivity extends AppCompatActivity {
 
             // 선택한 이미지 임시 저장
             String date = new SimpleDateFormat("yyyy_MM_dd_hh_mm_ss").format(new Date());
-            tempSelectFile = new File(Environment.getExternalStorageDirectory() + "/Pictures/Test/", "temp_" + date + ".jpeg");
+            tempSelectFile = new File(Environment.getExternalStorageDirectory() + "/Pictures/", "temp_" + date + ".jpeg");
             OutputStream out = new FileOutputStream(tempSelectFile);
             image.compress(Bitmap.CompressFormat.JPEG, 100, out);
         } catch (IOException ioe) {

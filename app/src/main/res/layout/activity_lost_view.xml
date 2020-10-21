@@ -11,49 +11,16 @@
     android:windowSoftInputMode="adjustPan"
     tools:context=".lost.LostViewActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:fontFamily="@font/lottemarthappybold"
-        android:text="게시글"
-        android:textSize="35sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.041" />
-
-    <ImageButton
-        android:id="@+id/imageButton1"
-        android:layout_width="54dp"
-        android:layout_height="56dp"
-        android:layout_marginEnd="13dp"
-        android:background="@drawable/back"
-        android:padding="0dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/back"
-        app:layout_constraintBottom_toTopOf="@+id/username"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.139"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.0" />
-
     <ScrollView
         android:id="@+id/scrollView4"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_height="match_parent"
         android:fillViewport="true"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.051">
 
         <LinearLayout
@@ -65,12 +32,44 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
+            <LinearLayout
+                android:id="@+id/linearLayout7"
+                android:layout_width="368dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <ImageButton
+                    android:id="@+id/imageButton1"
+                    android:layout_width="54dp"
+                    android:layout_height="56dp"
+                    android:layout_gravity="start"
+                    android:background="@drawable/back"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/back"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="259dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/lottemarthappybold"
+                    android:gravity="center"
+                    android:text="게시글"
+                    android:textAlignment="center"
+                    android:textSize="35sp"
+                    app:layout_constraintVertical_bias="0.041" />
+            </LinearLayout>
+
             <TextView
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginEnd="24dp"
+                android:layout_marginTop="20dp"
                 android:background="#65DEE4F6"
                 android:fontFamily="@font/lottemartdreamlight"
                 android:gravity="center"
@@ -183,12 +182,22 @@
                 app:layout_constraintTop_toBottomOf="@+id/content"
                 app:layout_constraintVertical_bias="0.083">
 
+                <ImageButton
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/refreshbtn"
+                    android:layout_marginStart="12dp"
+                    android:background="@drawable/refresh"
+                    android:layout_gravity="center"
+                    android:backgroundTint="#CD315E63"
+                    android:gravity="center"/>
+
                 <EditText
                     android:id="@+id/commenttext"
-                    android:layout_width="250dp"
+                    android:layout_width="200dp"
                     android:layout_height="50dp"
-                    android:layout_marginStart="24dp"
                     android:layout_marginEnd="24dp"
+                    android:layout_marginStart="12dp"
                     android:background="#65DEE4F6"
                     android:fontFamily="@font/lottemartdreamlight"
                     android:gravity="center" />
