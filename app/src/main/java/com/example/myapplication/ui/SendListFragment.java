@@ -78,7 +78,7 @@ public class SendListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        FrameLayout layout = (FrameLayout)inflater.inflate(R.layout.fragment_receive_list, container, false);
+        FrameLayout layout = (FrameLayout)inflater.inflate(R.layout.fragment_send_list, container, false);
 
         service = RetrofitClient.getClient().create(ServiceApi.class);
         ImageButton refreshbutton = (ImageButton) layout.findViewById(R.id.refreshbtn);
@@ -114,9 +114,9 @@ public class SendListFragment extends Fragment {
                             SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                             String datetext = transFormat.format(oData.get(position).date);
                             Intent intent = new Intent(getContext(), HomeActivity.class);
-                            intent.putExtra("SENDER", oData.get(position).sender);
+                            intent.putExtra("NICKNAME_EXTRA", oData.get(position).sender);
                             intent.putExtra("NUMBER_EXTRA", oData.get(position).number);
-                            intent.putExtra("NICKNAME_EXTRA", oData.get(position).recipient);
+                            intent.putExtra("RECIPIENT", oData.get(position).recipient);
                             intent.putExtra("DATE_EXTRA", datetext);
                             intent.putExtra("CONTENT_EXTRA", oData.get(position).content);
                             startActivity(intent);
