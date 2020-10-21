@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.provider.ContactsContract;
 import android.util.Log;
+import android.view.ContextMenu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -19,6 +21,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,6 +32,8 @@ import com.example.myapplication.Join.JoinResponse;
 import com.example.myapplication.R;
 import com.example.myapplication.network.RetrofitClient;
 import com.example.myapplication.network.ServiceApi;
+import com.example.myapplication.ui.MainActivity;
+import com.example.myapplication.ui.SendMessageActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -258,40 +263,76 @@ public class MateViewActivity extends AppCompatActivity{
                     ViewGroup.LayoutParams params = listView.getLayoutParams();
                     params.height = totalHeight + (listView.getDividerHeight() * (oAdapter.getCount() - 1));
                     listView.setLayoutParams(params);
-
                     listView.setAdapter(oAdapter);
-
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
                         @Override
-                        public void onItemClick(AdapterView parent, View v, int position, long id){
-                            String writer = oData.get(position).nickname;
-                            String user = getIntent().getStringExtra("NICKNAME_EXTRA");
-                            if(writer.equals(user)){
-                                new AlertDialog.Builder(MateViewActivity.this)
-                                        .setTitle("댓글 삭제 여부")
-                                        .setMessage("정말 삭제하시겠습니까?")
-                                        .setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                                            public void onClick(DialogInterface dialog, int which){
-                                                int number = oData.get(position).number;
-                                                startCommentDelete(new MateCommentDeleteData(number));
-                                                showProgress(true);
-                                            }
-                                        })
-                                        .setNegativeButton("취소", new DialogInterface.OnClickListener() {
-                                            public void onClick(DialogInterface dialog, int which){
-                                                dialog.cancel();
-                                            }
-                                        })
-                                        .show();
-                            } else {
-                                new AlertDialog.Builder(MateViewActivity.this)
-                                        .setMessage("삭제 권한이 없습니다.")
-                                        .setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                                            public void onClick(DialogInterface dialog, int which){
-                                                dialog.cancel();
-                                            }
-                                        })
-                                        .show();
+                        public void onItemClick(AdapterView parent, View view, int position, long id){
+                            {
+                                //PopupMenu객체 생성.
+                                //생성자함수의 첫번재 파라미터 : Context
+                                //생성자함수의 두번째 파라미터 : Popup Menu를 붙일 anchor 뷰
+                                PopupMenu popup= new PopupMenu(MateViewActivity.this, view);//view는 오래 눌러진 뷰를 의미
+                                //Popup Menu에 들어갈 MenuItem 추가.
+                                //이전 포스트의 컨텍스트 메뉴(Context menu)처럼 xml 메뉴 리소스 사용
+                                //첫번재 파라미터 : res폴더>>menu폴더>>menu_listview.xml파일 리소스
+                                //두번재 파라미터 : Menu 객체->Popup Menu 객체로 부터 Menu 객체 얻어오기
+                                getMenuInflater().inflate(R.menu.menu_commentmenu, popup.getMenu());
+                                //Popup menu의 메뉴아이템을 눌렀을  때 보여질 ListView 항목의 위치
+                                //Listener 안에서 사용해야 하기에 final로 선언
+                                final int index= position;
+                                //Popup Menu의 MenuItem을 클릭하는 것을 감지하는 listener 설정
+
+                                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                                    @Override
+                                    public boolean onMenuItemClick(MenuItem item) {
+                                        //선택된 Popup Menu의  아이템아이디를 구별하여 원하는 작업 수행
+                                        //예제에서는 선택된 ListView의 항목(String 문자열) data와 해당 메뉴이름을 출력함
+                                        switch( item.getItemId() ){
+                                            case R.id.mail:
+                                                String recipient = oData.get(position).nickname;
+                                                String sender = getIntent().getStringExtra("NICKNAME_EXTRA");
+                                                Intent intent = new Intent(MateViewActivity.this, SendMessageActivity.class);
+                                                intent.putExtra("SENDER", sender);
+                                                intent.putExtra("RECIPIENT", recipient);
+                                                startActivity(intent);
+                                                break;
+
+                                            case R.id.delete:
+                                                String writer = oData.get(position).nickname;
+                                                String user = getIntent().getStringExtra("NICKNAME_EXTRA");
+                                                if(writer.equals(user)){
+                                                    new AlertDialog.Builder(MateViewActivity.this)
+                                                            .setTitle("댓글 삭제 여부")
+                                                            .setMessage("정말 삭제하시겠습니까?")
+                                                            .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                                                public void onClick(DialogInterface dialog, int which){
+                                                                    int number = oData.get(position).number;
+                                                                    startCommentDelete(new MateCommentDeleteData(number));
+                                                                    showProgress(true);
+                                                                }
+                                                            })
+                                                            .setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                                                public void onClick(DialogInterface dialog, int which){
+                                                                    dialog.cancel();
+                                                                }
+                                                            })
+                                                            .show();
+                                                } else {
+                                                    new AlertDialog.Builder(MateViewActivity.this)
+                                                            .setMessage("삭제 권한이 없습니다.")
+                                                            .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                                                public void onClick(DialogInterface dialog, int which){
+                                                                    dialog.cancel();
+                                                                }
+                                                            })
+                                                            .show();
+                                                }
+                                                break;
+                                        }
+                                        return false;
+                                    }
+                                });
+                                popup.show();//Popup Menu 보이기
                             }
                         }
                     });
