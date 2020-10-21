@@ -6,4 +6,11 @@
         <item>공모전</item>
         <item>하우스</item>
     </string-array>
+    <string-array name="question">
+        <item>선택 </item>
+        <item>MATE</item>
+        <item>LOST</item>
+    </string-array>
+
+
 </resources>
