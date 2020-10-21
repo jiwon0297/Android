@@ -11,8 +11,10 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.StrictMode;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -29,6 +31,7 @@ import android.widget.Toast;
 import com.example.myapplication.R;
 import com.example.myapplication.mate.AloneActivity;
 import com.example.myapplication.mate.ContestActivity;
+import com.example.myapplication.network.FileUploadUtils;
 import com.example.myapplication.network.RetrofitClient;
 import com.example.myapplication.network.ServiceApi;
 import com.example.myapplication.network.UploadResult;
@@ -40,11 +43,15 @@ import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -78,6 +85,10 @@ public class LostWriteActivity extends AppCompatActivity {
     final int REQ_CODE_SELECT_IMAGE=100;
     ProgressDialog asyncDialog;
     int serverResponseCode = 0;
+
+    ImageView imgVwSelected;
+    Button btnImageSend, btnImageSelection;
+    File tempSelectFile;
     /* -- 요기까지 -- */
 
     @Override
@@ -91,7 +102,8 @@ public class LostWriteActivity extends AppCompatActivity {
                 .permitNetwork().build());
 
         titleText = (EditText) findViewById(R.id.title);
-        String nicknameText = getIntent().getStringExtra("NICKNAME_EXTRA");
+        nicknameText = (TextView) findViewById(R.id.nickname);
+        nicknameText.setText(getIntent().getStringExtra("NICKNAME_EXTRA"));
         contentText = (EditText) findViewById(R.id.content);
         campusgroup = (RadioGroup) findViewById(R.id.campusgroup);
         typeGroup = (RadioGroup) findViewById(R.id.typeGroup);
@@ -120,47 +132,68 @@ public class LostWriteActivity extends AppCompatActivity {
         });
 
         /* -- 이미지 업로드 부분임당(2) -- */
-        getImgBtn = (Button)findViewById(R.id.getImg);
-        getImgBtn.setOnClickListener(new View.OnClickListener() {
+        btnImageSend = findViewById(R.id.uploadImg);
+        btnImageSend.setEnabled(false);
+        btnImageSend.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view) {
-                // 사진 갤러리 호출
-                Intent intent = new Intent(Intent.ACTION_PICK);
-                intent.setType(android.provider.MediaStore.Images.Media.CONTENT_TYPE);
-                intent.setData(android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(intent, REQ_CODE_SELECT_IMAGE);
+            public void onClick(View view){
+                FileUploadUtils.goSend(tempSelectFile);
             }
         });
 
-        uploadImg = (Button)findViewById(R.id.uploadImg);
-        uploadImg.setOnClickListener(new View.OnClickListener() {
+
+        btnImageSelection = findViewById(R.id.getImg);
+        btnImageSelection.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view) {
-//                Toast.makeText(getApplicationContext(),getImgURL,Toast.LENGTH_SHORT).show();
-                /**
-                 * getImgBtn 버튼 클릭을 통해, 업로드할 사진의 절대경로를 가져옴
-                 * 서버로 보내는 시간을 고려하여 진행바를 넣어줌
-                 */
-
-                asyncDialog = new ProgressDialog(LostWriteActivity.this);
-                asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-                asyncDialog.setMessage("로딩중입니다..");
-
-                // show dialog
-                asyncDialog.show();
-
-                uploadFile2(getImgURL);
-
-                //uploadFile(getImgURL , getImgName);
-                //DoFileUpload(serverURL, getImgURL);
+            public void onClick(View view){
+                // Intent를 통해 이미지를 선택
+                Intent intent = new Intent();
+                // intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(intent, 1);
 
 
             }
         });
+
+        imgVwSelected = findViewById(R.id.imageView1);
         /* -- 요기까지 -- */
     }
 
     /* -- 이미지 업로드 부분임당(3) -- */
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode != 1 || resultCode != RESULT_OK) {
+            return;
+        }
+
+        Uri dataUri = data.getData();
+        imgVwSelected.setImageURI(dataUri);
+
+        try {
+            // ImageView 에 이미지 출력
+            InputStream in = getContentResolver().openInputStream(dataUri);
+            Bitmap image = BitmapFactory.decodeStream(in);
+            imgVwSelected.setImageBitmap(image);
+            in.close();
+
+            // 선택한 이미지 임시 저장
+            String date = new SimpleDateFormat("yyyy_MM_dd_hh_mm_ss").format(new Date());
+            tempSelectFile = new File(Environment.getExternalStorageDirectory() + "/Pictures/Test/", "temp_" + date + ".jpeg");
+            OutputStream out = new FileOutputStream(tempSelectFile);
+            image.compress(Bitmap.CompressFormat.JPEG, 100, out);
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+
+
+        btnImageSend.setEnabled(true);
+
+    }
+
     public int uploadFile2(String sourceFileUri) {
         String fileName = sourceFileUri;
 
@@ -281,6 +314,7 @@ public class LostWriteActivity extends AppCompatActivity {
 
 
     // 선택된 이미지 가져오기
+    /*
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 //        Toast.makeText(getBaseContext(), "resultCode : "+resultCode,Toast.LENGTH_SHORT).show();
 
@@ -312,6 +346,7 @@ public class LostWriteActivity extends AppCompatActivity {
             }
         }
     }
+    */
 
     // 선택된 이미지 파일명 가져오기
     public String getImageNameToUri(Uri data)
@@ -517,6 +552,7 @@ public class LostWriteActivity extends AppCompatActivity {
             }
         }
     };
+
     private void attemptWrite() {
         titleText.setError(null);
         contentText.setError(null);
