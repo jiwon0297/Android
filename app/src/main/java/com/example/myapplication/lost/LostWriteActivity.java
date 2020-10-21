@@ -184,6 +184,7 @@ public class LostWriteActivity extends AppCompatActivity {
                         f.getName(),
                         f
                 );
+                URI = f.getName();
                 break;
             case R.id.getImg:
                 selectImage();
@@ -371,8 +372,6 @@ public class LostWriteActivity extends AppCompatActivity {
         if (imagetype == SELECT_FILE) {
             f = new File(imagePath);
             imageview.setImageBitmap(bm);
-            //
-            URI = getImageNameToUri(imageUri);
         }
     }
 
@@ -525,6 +524,7 @@ public class LostWriteActivity extends AppCompatActivity {
         }
     }
 
+    //
     public String getImageNameToUri(Uri data) {
         String[] proj = { MediaStore.Images.Media.DATA };
         Cursor cursor = managedQuery(data, proj, null, null, null);
@@ -599,7 +599,7 @@ public class LostWriteActivity extends AppCompatActivity {
         }
 
         if (URI.isEmpty()) {
-            url = null;
+            url = "";
         } else
         {
             url = "https://android12.s3.ap-northeast-2.amazonaws.com/" + URI;

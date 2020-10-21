@@ -183,6 +183,7 @@ public class LostEditActivity extends AppCompatActivity {
                         f.getName(),
                         f
                 );
+                URI = f.getName();
                 break;
             case R.id.getImg:
                 selectImage();
@@ -370,8 +371,6 @@ public class LostEditActivity extends AppCompatActivity {
         if (imagetype == SELECT_FILE) {
             f = new File(imagePath);
             imageview.setImageBitmap(bm);
-            //
-            URI = getImageNameToUri(imageUri);
         }
     }
 
@@ -524,6 +523,7 @@ public class LostEditActivity extends AppCompatActivity {
         }
     }
 
+    //
     public String getImageNameToUri(Uri data) {
         String[] proj = { MediaStore.Images.Media.DATA };
         Cursor cursor = managedQuery(data, proj, null, null, null);
