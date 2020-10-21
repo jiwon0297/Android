@@ -33,12 +33,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
+        android:layout_marginStart="60dp"
         android:layout_marginBottom="30dp"
         android:gravity="center"
         android:layout_gravity="center"
         android:background="#F6F2FF"
         android:fontFamily="@font/lottemartdreammedium"
-        android:text="  혼밥 메이트  "
+        android:text="  쪽지함  "
         android:textSize="35sp" />
         </LinearLayout>
 
