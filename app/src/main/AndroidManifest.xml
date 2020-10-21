@@ -23,7 +23,7 @@
         android:allowBackup="true"
 
         <activity android:name=".Join.PopupActivity" android:theme="@android:style/Theme.Dialog" />
-        <activity android:name=".restaurant.MapFragmentActivity" />
+        <activity android:name=".restaurant.map.MapFragmentActivity" />
 
         <uses-library
             android:name="org.apache.http.legacy"
