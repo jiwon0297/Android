@@ -524,14 +524,6 @@ public class LostWriteActivity extends AppCompatActivity {
         }
     }
 
-    //
-    public String getImageNameToUri(Uri data) {
-        String[] proj = { MediaStore.Images.Media.DATA };
-        Cursor cursor = managedQuery(data, proj, null, null, null);
-        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-        cursor.moveToFirst(); String imgPath = cursor.getString(column_index);
-        String imgName = imgPath.substring(imgPath.lastIndexOf("/")+1); return imgName;
-    }
 
     /* -- 요기까지 -- */
 
@@ -561,7 +553,7 @@ public class LostWriteActivity extends AppCompatActivity {
         String content = contentText.getText().toString();
         String campus = campusText.getText().toString();
         String type = typeText.getText().toString();
-        String url;
+        String url="";
 
         boolean cancel = false;
         View focusView = null;
