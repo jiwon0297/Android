@@ -107,16 +107,17 @@ public class LostWriteActivity extends AppCompatActivity {
                 .permitDiskWrites()
                 .permitNetwork().build());
 
+        campusText = (TextView) findViewById(R.id.campus);
+        typeText = (TextView) findViewById(R.id.type);
         titleText = (EditText) findViewById(R.id.title);
         nicknameText = (TextView) findViewById(R.id.nickname);
         nicknameText.setText(getIntent().getStringExtra("NICKNAME_EXTRA"));
         contentText = (EditText) findViewById(R.id.content);
         campusgroup = (RadioGroup) findViewById(R.id.campusgroup);
-        typeGroup = (RadioGroup) findViewById(R.id.typeGroup);
-        campusgroup = (RadioGroup) findViewById(R.id.campusgroup);
         campusgroup.setOnCheckedChangeListener(radioGroupButtonChangeListener);
         typeGroup = (RadioGroup) findViewById(R.id.typeGroup);
         typeGroup.setOnCheckedChangeListener(radioGroupButtonChangeListener);
+        urlText = (TextView) findViewById(R.id.url);
         mProgressView = (ProgressBar) findViewById(R.id.progressBar2);
 
         service = RetrofitClient.getClient().create(ServiceApi.class);
@@ -524,14 +525,6 @@ public class LostWriteActivity extends AppCompatActivity {
         }
     }
 
-    //
-    public String getImageNameToUri(Uri data) {
-        String[] proj = { MediaStore.Images.Media.DATA };
-        Cursor cursor = managedQuery(data, proj, null, null, null);
-        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-        cursor.moveToFirst(); String imgPath = cursor.getString(column_index);
-        String imgName = imgPath.substring(imgPath.lastIndexOf("/")+1); return imgName;
-    }
 
     /* -- 요기까지 -- */
 
@@ -555,13 +548,14 @@ public class LostWriteActivity extends AppCompatActivity {
         contentText.setError(null);
         typeText.setError(null);
         campusText.setError(null);
+        urlText.setError(null);
 
         String title = titleText.getText().toString();
         String nickname = nicknameText.getText().toString();
         String content = contentText.getText().toString();
         String campus = campusText.getText().toString();
         String type = typeText.getText().toString();
-        String url;
+        String url = urlText.getText().toString();
 
         boolean cancel = false;
         View focusView = null;
