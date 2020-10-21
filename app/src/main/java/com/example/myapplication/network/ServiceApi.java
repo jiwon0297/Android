@@ -42,8 +42,10 @@ import com.example.myapplication.ui.EditData;
 import com.example.myapplication.ui.EditResponse;
 import com.example.myapplication.ui.MailDeleteData;
 import com.example.myapplication.ui.MailDeleteResponse;
-import com.example.myapplication.ui.MailListData;
-import com.example.myapplication.ui.MailListResponse;
+import com.example.myapplication.ui.MailReceiveListData;
+import com.example.myapplication.ui.MailReceiveListResponse;
+import com.example.myapplication.ui.MailSendListData;
+import com.example.myapplication.ui.MailSendListResponse;
 import com.example.myapplication.ui.MailWriteData;
 import com.example.myapplication.ui.MailWriteResponse;
 import com.example.myapplication.ui.MyLostData;
@@ -139,8 +141,11 @@ public interface ServiceApi {
     @POST("/mail/write")
     Call<MailWriteResponse> mailwrite(@Body MailWriteData data);
 
-    @POST("/mail/list")
-    Call<MailListResponse> maillist(@Body MailListData data);
+    @POST("/mail/sendlist")
+    Call<MailSendListResponse> mailsendlist(@Body MailSendListData data);
+
+    @POST("/mail/receivelist")
+    Call<MailReceiveListResponse> mailreceivelist(@Body MailReceiveListData data);
 
     @POST("/mail/delete")
     Call<MailDeleteResponse> maildelete(@Body MailDeleteData data);

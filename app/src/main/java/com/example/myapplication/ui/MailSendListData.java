@@ -1,4 +1,4 @@
 package com.example.myapplication.ui;
 
-public class MailListResponse {
+public class MailSendListData {
 }
