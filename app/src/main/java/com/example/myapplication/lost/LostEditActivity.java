@@ -597,7 +597,7 @@ public class LostEditActivity extends AppCompatActivity {
         }
 
         if (URI.isEmpty()) {
-            url = null;
+            url = "";
         } else
         {
             url = "https://android12.s3.ap-northeast-2.amazonaws.com/" + URI;
