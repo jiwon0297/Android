@@ -182,12 +182,22 @@
                             app:layout_constraintTop_toBottomOf="@+id/content"
                             app:layout_constraintVertical_bias="0.083">
 
+                                <ImageButton
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:id="@+id/refreshbtn"
+                                    android:layout_marginStart="12dp"
+                                    android:background="@drawable/refresh"
+                                    android:layout_gravity="center"
+                                    android:backgroundTint="#CD315E63"
+                                    android:gravity="center"/>
+
                                 <EditText
                                     android:id="@+id/commenttext"
-                                    android:layout_width="250dp"
+                                    android:layout_width="200dp"
                                     android:layout_height="50dp"
-                                    android:layout_marginStart="24dp"
                                     android:layout_marginEnd="24dp"
+                                    android:layout_marginStart="12dp"
                                     android:background="#65DEE4F6"
                                     android:fontFamily="@font/lottemartdreamlight"
                                     android:gravity="center" />

@@ -17,7 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
-import com.example.myapplication.restaurant.MapFragmentActivity;
+import com.example.myapplication.restaurant.map.MapFragmentActivity;
 import com.example.myapplication.ui.HomeActivity;
 import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
