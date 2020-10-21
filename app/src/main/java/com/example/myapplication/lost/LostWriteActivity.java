@@ -548,13 +548,14 @@ public class LostWriteActivity extends AppCompatActivity {
         contentText.setError(null);
         typeText.setError(null);
         campusText.setError(null);
+        urlText.setError(null);
 
         String title = titleText.getText().toString();
         String nickname = nicknameText.getText().toString();
         String content = contentText.getText().toString();
         String campus = campusText.getText().toString();
         String type = typeText.getText().toString();
-        String url="";
+        String url = urlText.getText().toString();
 
         boolean cancel = false;
         View focusView = null;
