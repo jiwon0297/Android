@@ -26,6 +26,9 @@ public class LostData {
     @SerializedName("date")
     Date date;
 
+    @SerializedName("url")
+    String url;
+
     public LostData(String type) {
         this.type = type;
     }

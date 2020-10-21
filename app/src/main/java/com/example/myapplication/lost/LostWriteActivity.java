@@ -14,6 +14,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
@@ -89,6 +90,9 @@ public class LostWriteActivity extends AppCompatActivity {
     private int REQUEST_CAMERA = 2;
     private int SELECT_FILE = 3;
 
+    private TextView urlText;
+    String URI;
+
     public static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 123;
     public static final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 112;
     /* -- 요기까지 -- */
@@ -138,10 +142,13 @@ public class LostWriteActivity extends AppCompatActivity {
         selectBtn = (Button) findViewById(R.id.getImg);
         imageview = (ImageView) findViewById(R.id.imageView1);
 
+        urlText = (TextView) findViewById(R.id.url);
+
         uploadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 selectBtn(view);
+
             }
         });
         selectBtn.setOnClickListener(new View.OnClickListener() {
@@ -364,6 +371,8 @@ public class LostWriteActivity extends AppCompatActivity {
         if (imagetype == SELECT_FILE) {
             f = new File(imagePath);
             imageview.setImageBitmap(bm);
+            //
+            URI = getImageNameToUri(imageUri);
         }
     }
 
@@ -515,6 +524,15 @@ public class LostWriteActivity extends AppCompatActivity {
             return true;
         }
     }
+
+    public String getImageNameToUri(Uri data) {
+        String[] proj = { MediaStore.Images.Media.DATA };
+        Cursor cursor = managedQuery(data, proj, null, null, null);
+        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+        cursor.moveToFirst(); String imgPath = cursor.getString(column_index);
+        String imgName = imgPath.substring(imgPath.lastIndexOf("/")+1); return imgName;
+    }
+
     /* -- 요기까지 -- */
 
     RadioGroup.OnCheckedChangeListener radioGroupButtonChangeListener = new RadioGroup.OnCheckedChangeListener() {
@@ -543,6 +561,7 @@ public class LostWriteActivity extends AppCompatActivity {
         String content = contentText.getText().toString();
         String campus = campusText.getText().toString();
         String type = typeText.getText().toString();
+        String url;
 
         boolean cancel = false;
         View focusView = null;
@@ -579,10 +598,17 @@ public class LostWriteActivity extends AppCompatActivity {
             cancel = true;
         }
 
+        if (URI.isEmpty()) {
+            url = null;
+        } else
+        {
+            url = URI;
+        }
+
         if (cancel) {
             focusView.requestFocus();
         } else {
-            startLostWrite(new LostWriteData(title, nickname, content, type, campus));
+            startLostWrite(new LostWriteData(title, nickname, content, type, campus, url));
             showProgress(true);
         }
     }
