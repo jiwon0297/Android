@@ -114,9 +114,9 @@ public class SendListFragment extends Fragment {
                             SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                             String datetext = transFormat.format(oData.get(position).date);
                             Intent intent = new Intent(getContext(), HomeActivity.class);
-                            intent.putExtra("SENDER", oData.get(position).sender);
+                            intent.putExtra("NICKNAME_EXTRA", oData.get(position).sender);
                             intent.putExtra("NUMBER_EXTRA", oData.get(position).number);
-                            intent.putExtra("NICKNAME_EXTRA", oData.get(position).recipient);
+                            intent.putExtra("RECIPIENT", oData.get(position).recipient);
                             intent.putExtra("DATE_EXTRA", datetext);
                             intent.putExtra("CONTENT_EXTRA", oData.get(position).content);
                             startActivity(intent);
