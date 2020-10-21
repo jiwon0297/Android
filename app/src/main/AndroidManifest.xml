@@ -19,8 +19,6 @@
         android:usesCleartextTraffic="true"
         android:requestLegacyExternalStorage="true"
         android:configChanges = "orientation|screenSize">
-        android:name=".common.ApplicationClass"
-        android:allowBackup="true"
 
         <activity android:name=".Join.PopupActivity" android:theme="@android:style/Theme.Dialog" />
         <activity android:name=".restaurant.MapFragmentActivity" />
