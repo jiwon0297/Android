@@ -602,7 +602,7 @@ public class LostWriteActivity extends AppCompatActivity {
             url = null;
         } else
         {
-            url = URI;
+            url = "https://android12.s3.ap-northeast-2.amazonaws.com/" + URI;
         }
 
         if (cancel) {
