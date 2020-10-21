@@ -51,7 +51,6 @@ public class ContestActivity extends AppCompatActivity implements SwipeRefreshLa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contest);
 
-
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefresh);
         mSwipeRefreshLayout.setOnRefreshListener(this);
 
@@ -72,25 +71,7 @@ public class ContestActivity extends AppCompatActivity implements SwipeRefreshLa
         });
 
 
-        editText = (EditText) findViewById(R.id.search);
-        editText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                listView.setFilterText(editText.getText().toString());
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if(editText.getText().length() == 0){
-                    listView.clearTextFilter();
-                }
-            }
-        });
     }
 
 
@@ -132,6 +113,7 @@ public class ContestActivity extends AppCompatActivity implements SwipeRefreshLa
 
     private void startList(MateData data) {
         List<MateData> oData = new ArrayList<>();
+        List<MateData> oData_e = new ArrayList<>();
 
         service.matelist(data).enqueue(new Callback<MateResponse>() {
             @Override
@@ -182,6 +164,44 @@ public class ContestActivity extends AppCompatActivity implements SwipeRefreshLa
                 showProgress(false);
             }
         });
+        editText = (EditText) findViewById(R.id.search);
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                listView.setFilterText(editText.getText().toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String searchText = editText.getText().toString();
+                fillter(searchText);
+            }
+            public void fillter(String searchText) {
+                oData_e.clear();
+                if(searchText.length() == 0)
+                {
+                    oData_e.addAll(oData);
+                }
+                else
+                {
+                    for( MateData item : oData)
+                    {
+                        if(item.title.contains(searchText))
+                        {
+                            oData_e.add(item);
+                        }
+                    }
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+        });
+
     }
 
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
@@ -219,6 +239,7 @@ public class ContestActivity extends AppCompatActivity implements SwipeRefreshLa
         intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
+
 
 
 }
