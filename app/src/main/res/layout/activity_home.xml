@@ -51,7 +51,7 @@
 
         <Spinner
             android:id="@+id/spinner"
-            android:layout_width="103dp"
+            android:layout_width="99dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
             android:entries="@array/question"
@@ -65,8 +65,24 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:layout_width="match_parent"
+            android:id="@+id/search"
+            android:layout_width="129dp"
             android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/searchButton"
+            android:layout_width="35dp"
+            android:layout_height="27dp"
+            android:layout_gravity="center"
+            android:background="@drawable/btncustom"
+            android:backgroundTint="#D2DCEA"
+            android:fontFamily="@font/lottemartdreammedium"
+            android:text="검색"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.961"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </LinearLayout>
 
