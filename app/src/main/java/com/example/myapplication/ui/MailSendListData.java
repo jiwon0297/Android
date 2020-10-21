@@ -20,8 +20,8 @@ public class MailSendListData {
     @SerializedName("content")
     String content;
 
-    public MailSendListData(String recipient) {
-        this.recipient = recipient;
+    public MailSendListData(String sender) {
+        this.sender = sender;
     }
 
     public MailSendListData(){
