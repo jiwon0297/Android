@@ -10,21 +10,18 @@
 
     <application
         android:allowBackup="true"
-        android:configChanges="orientation|screenSize"
         android:icon="@mipmap/ic_launcher"
         android:label="슬기로운 단국생활"
         android:networkSecurityConfig="@xml/network_security_config"
-        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true">
-        <activity android:name=".ui.MailActivity"></activity>
-        <activity android:name=".ChatActivity" />
-        <activity
-            android:name=".Join.PopupActivity"
-            android:theme="@android:style/Theme.Dialog" />
-        <activity android:name=".restaurant.MapFragmentActivity" />
+        android:usesCleartextTraffic="true"
+        android:requestLegacyExternalStorage="true"
+        android:configChanges = "orientation|screenSize">
+
+        <activity android:name=".Join.PopupActivity" android:theme="@android:style/Theme.Dialog" />
+        <activity android:name=".restaurant.map.MapFragmentActivity" />
 
         <uses-library
             android:name="org.apache.http.legacy"
@@ -99,6 +96,7 @@
         <activity android:name=".restaurant.cheonan.chinese.ChineseActivity2" />
         <activity android:name=".restaurant.cheonan.cafe.CafeActivity2" />
         <activity android:name=".restaurant.jukjeon.western.WesternActivity" />
+        <activity android:name=".ui.MailActivity" />
         <activity
             android:name=".ui.UserActivity"
             android:label="회원정보 수정" />
