@@ -7,6 +7,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -86,11 +87,26 @@ public class LostViewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String user = getIntent().getStringExtra("NICKNAME_EXTRA");
-                int postnumber = getIntent().getIntExtra("NUMBER_EXTRA",1);
+                int postnumber = getIntent().getIntExtra("NUMBER_EXTRA",0);
+
+                commentcontent.setError(null);
                 String content = commentcontent.getText().toString();
-                startCommentWrite(new LostCommentWriteData(postnumber, user, content));
-                showProgress(true);
-                commentcontent.setText(null);
+                boolean cancel = false;
+                View focusView = null;
+
+                if (content.isEmpty()) {
+                    commentcontent.setError("댓글을 입력해주세요.");
+                    focusView = commentcontent;
+                    cancel = true;
+                }
+
+                if (cancel) {
+                    focusView.requestFocus();
+                } else {
+                    startCommentWrite(new LostCommentWriteData(postnumber, user, content));
+                    showProgress(true);
+                    commentcontent.setText(null);
+                }
             }
         });
 
@@ -158,7 +174,27 @@ public class LostViewActivity extends AppCompatActivity {
                 }
             }
         });
+
+        ImageButton refreshbutton = (ImageButton) findViewById(R.id.refreshbtn);
+        refreshbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onRefresh();
+            }
+        });
+
     }
+
+    public void onRefresh(){
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                service = RetrofitClient.getClient().create(ServiceApi.class);
+                attemptList();
+            }
+        }, 1000);
+    }
+
     private void startCommentDelete(LostCommentDeleteData data){
         service.lostcommentdelete(data).enqueue(new Callback<LostCommentDeleteResponse>() {
             @Override
