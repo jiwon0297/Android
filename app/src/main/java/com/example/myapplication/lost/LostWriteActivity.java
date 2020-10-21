@@ -107,6 +107,8 @@ public class LostWriteActivity extends AppCompatActivity {
                 .permitDiskWrites()
                 .permitNetwork().build());
 
+        campusText = (TextView) findViewById(R.id.campus);
+        typeText = (TextView) findViewById(R.id.type);
         titleText = (EditText) findViewById(R.id.title);
         nicknameText = (TextView) findViewById(R.id.nickname);
         nicknameText.setText(getIntent().getStringExtra("NICKNAME_EXTRA"));
@@ -117,6 +119,7 @@ public class LostWriteActivity extends AppCompatActivity {
         campusgroup.setOnCheckedChangeListener(radioGroupButtonChangeListener);
         typeGroup = (RadioGroup) findViewById(R.id.typeGroup);
         typeGroup.setOnCheckedChangeListener(radioGroupButtonChangeListener);
+        urlText = (TextView) findViewById(R.id.url);
         mProgressView = (ProgressBar) findViewById(R.id.progressBar2);
 
         service = RetrofitClient.getClient().create(ServiceApi.class);
