@@ -146,13 +146,10 @@ public class LostWriteActivity extends AppCompatActivity {
         btnImageSelection.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                // Intent를 통해 이미지를 선택
-                Intent intent = new Intent();
-                // intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-                intent.setType("image/*");
-                intent.setAction(Intent.ACTION_GET_CONTENT);
+                Intent intent = new Intent(Intent.ACTION_PICK);
+                intent.setType(android.provider.MediaStore.Images.Media.CONTENT_TYPE);
+                intent.setData(android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(intent, 1);
-
 
             }
         });
