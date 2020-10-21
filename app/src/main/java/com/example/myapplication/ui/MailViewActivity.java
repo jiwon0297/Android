@@ -109,7 +109,7 @@ public class MailViewActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     Intent intent = new Intent(MailViewActivity.this, SendMessageActivity.class);
                     intent.putExtra("SENDER", getIntent().getStringExtra("NICKNAME_EXTRA"));
-                    intent.putExtra("RECIPIENT", getIntent().getStringExtra("RECIPIENT"));
+                    intent.putExtra("RECIPIENT", getIntent().getStringExtra("SENDER"));
                     startActivity(intent);
                 }
             });
