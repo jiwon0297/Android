@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Handler;
@@ -92,6 +93,7 @@ public class ReceiveListFragment extends Fragment {
         refreshbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                refresh();
             }
         });
         String nickname = getArguments().getString("nickname");
@@ -139,6 +141,11 @@ public class ReceiveListFragment extends Fragment {
             }
         });
         return layout;
+    }
+
+    private void refresh(){
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.detach(this).attach(this).commit();
     }
 
 }
