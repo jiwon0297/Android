@@ -165,8 +165,18 @@ public class LostWriteActivity extends AppCompatActivity {
         selectBtn = (Button) findViewById(R.id.getImg);
         imageview = (ImageView) findViewById(R.id.imageView1);
 
-        uploadBtn.setOnClickListener((View.OnClickListener) this);
-        selectBtn.setOnClickListener((View.OnClickListener) this);
+        uploadBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selectBtn(view);
+            }
+        });
+        selectBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selectBtn(view);
+            }
+        });
 
         credentialsProvider = new CognitoCachingCredentialsProvider(
                 getApplicationContext(),
@@ -186,7 +196,7 @@ public class LostWriteActivity extends AppCompatActivity {
 
     /* -- 이미지 업로드 부분임당(3) -- */
     // s3
-    public void onClick(View view) {
+    private void selectBtn(View view) {
         switch (view.getId()) {
             case R.id.uploadImg:
                 TransferObserver observer = transferUtility.upload(
