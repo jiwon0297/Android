@@ -18,6 +18,9 @@ public class LostWriteData {
     @SerializedName("campus")
     String campus;
 
+    @SerializedName("url")
+    String url;
+
     public String getTitle() {
         return title;
     }
@@ -58,11 +61,16 @@ public class LostWriteData {
         this.campus = campus;
     }
 
-    public LostWriteData(String title, String nickname, String content, String type, String campus) {
+    public String getUrl() { return url; }
+
+    public void setUrl(String url) { this.url = url; }
+
+    public LostWriteData(String title, String nickname, String content, String type, String campus, String url) {
         this.title = title;
         this.nickname = nickname;
         this.content = content;
         this.type = type;
         this.campus = campus;
+        this.url = url;
     }
 }

@@ -1,23 +1,24 @@
 package com.example.myapplication.mate;
 
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
-
 import android.content.Intent;
 import android.os.Bundle;
-
 import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.myapplication.R;
 import com.example.myapplication.network.RetrofitClient;
@@ -40,15 +41,16 @@ public class ContestActivity extends AppCompatActivity implements SwipeRefreshLa
     private ServiceApi service;
     private ProgressBar mProgressView;
     private ListView listView = null;
-
+    private EditText editText;
+    private MyAdapter adapter;
     SwipeRefreshLayout mSwipeRefreshLayout;
-
     private final String NICKNAME_EXTRA = "NICKNAME_EXTRA";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contest);
+
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefresh);
         mSwipeRefreshLayout.setOnRefreshListener(this);
@@ -69,7 +71,29 @@ public class ContestActivity extends AppCompatActivity implements SwipeRefreshLa
             }
         });
 
+
+        editText = (EditText) findViewById(R.id.search);
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                listView.setFilterText(editText.getText().toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(editText.getText().length() == 0){
+                    listView.clearTextFilter();
+                }
+            }
+        });
     }
+
+
 
     @Override
     public void onBackPressed() {

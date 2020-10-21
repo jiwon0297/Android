@@ -16,9 +16,11 @@ import java.util.ArrayList;
 
 public class MyAdapter extends BaseAdapter {
 
+    Context context;
     LayoutInflater mLayoutInflater = null;
     ArrayList<MateData> sample = null;
     private ServiceApi service;
+    private ArrayList<MateData> listItem = new ArrayList<MateData>();
 
     private int nlistCnt=0;
 
@@ -76,4 +78,7 @@ public class MyAdapter extends BaseAdapter {
         return convertView;
 
     }
-}
+
+
+    }
+
