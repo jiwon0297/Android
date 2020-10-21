@@ -7,7 +7,43 @@
     android:gravity="center_horizontal"
     tools:context=".ui.MailActivity">
 
-    <android.support.design.widget.TabLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="54dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/back"
+        android:padding="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/back" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:background="#F6F2FF"
+        android:fontFamily="@font/lottemartdreammedium"
+        android:text="  혼밥 메이트  "
+        android:textSize="35sp" />
+        </LinearLayout>
+
+
+    <com.google.android.material.tabs.TabLayout
         android:id="@+id/layout_tab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,4 +52,11 @@
         app:tabTextColor="#000000"
         app:tabSelectedTextColor="@color/colorPrimary"
         app:tabIndicatorColor="@color/colorPrimary"/>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/pager_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    </LinearLayout>
+
 </LinearLayout>
