@@ -136,12 +136,12 @@ public interface ServiceApi {
     @POST("/upload")
     Call<ResponseBody> upload(@Part MultipartBody.Part file, @Part("name") RequestBody description);
 
-    @POST("/mail/mailwrite")
+    @POST("/mail/write")
     Call<MailWriteResponse> mailwrite(@Body MailWriteData data);
 
-    @POST("/mail/maillist")
+    @POST("/mail/list")
     Call<MailListResponse> maillist(@Body MailListData data);
 
-    @POST("/mail/maildelete")
+    @POST("/mail/delete")
     Call<MailDeleteResponse> maildelete(@Body MailDeleteData data);
 }
