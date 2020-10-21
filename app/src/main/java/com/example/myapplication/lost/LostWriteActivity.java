@@ -112,8 +112,6 @@ public class LostWriteActivity extends AppCompatActivity {
         nicknameText.setText(getIntent().getStringExtra("NICKNAME_EXTRA"));
         contentText = (EditText) findViewById(R.id.content);
         campusgroup = (RadioGroup) findViewById(R.id.campusgroup);
-        typeGroup = (RadioGroup) findViewById(R.id.typeGroup);
-        campusgroup = (RadioGroup) findViewById(R.id.campusgroup);
         campusgroup.setOnCheckedChangeListener(radioGroupButtonChangeListener);
         typeGroup = (RadioGroup) findViewById(R.id.typeGroup);
         typeGroup.setOnCheckedChangeListener(radioGroupButtonChangeListener);
