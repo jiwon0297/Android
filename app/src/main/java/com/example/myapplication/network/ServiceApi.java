@@ -40,6 +40,12 @@ import com.example.myapplication.mate.MateWriteData;
 import com.example.myapplication.mate.MateWriteResponse;
 import com.example.myapplication.ui.EditData;
 import com.example.myapplication.ui.EditResponse;
+import com.example.myapplication.ui.MailDeleteData;
+import com.example.myapplication.ui.MailDeleteResponse;
+import com.example.myapplication.ui.MailListData;
+import com.example.myapplication.ui.MailListResponse;
+import com.example.myapplication.ui.MailWriteData;
+import com.example.myapplication.ui.MailWriteResponse;
 import com.example.myapplication.ui.MyLostData;
 import com.example.myapplication.ui.MyLostResponse;
 import com.example.myapplication.ui.MyMateData;
@@ -129,4 +135,13 @@ public interface ServiceApi {
     @Multipart
     @POST("/upload")
     Call<ResponseBody> upload(@Part MultipartBody.Part file, @Part("name") RequestBody description);
+
+    @POST("/mail/mailwrite")
+    Call<MailWriteResponse> mailwrite(@Body MailWriteData data);
+
+    @POST("/mail/maillist")
+    Call<MailListResponse> maillist(@Body MailListData data);
+
+    @POST("/mail/maildelete")
+    Call<MailDeleteResponse> maildelete(@Body MailDeleteData data);
 }

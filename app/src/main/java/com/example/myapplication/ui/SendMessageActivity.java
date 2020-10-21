@@ -17,10 +17,8 @@ public class SendMessageActivity extends AppCompatActivity {
         String sender = getIntent().getStringExtra("SENDER");
         String recipient = getIntent().getStringExtra("RECIPIENT");
 
-        TextView SenderText = (TextView) findViewById(R.id.sender);
         TextView RecipText = (TextView) findViewById(R.id.recipient);
 
-        SenderText.setText(sender);
         RecipText.setText(recipient);
 
     }

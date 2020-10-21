@@ -332,11 +332,18 @@ public class LostViewActivity extends AppCompatActivity {
                                             case R.id.mail:
                                                 String recipient = oData.get(position).nickname;
                                                 String sender = getIntent().getStringExtra("NICKNAME_EXTRA");
-                                                Intent intent = new Intent(LostViewActivity.this, SendMessageActivity.class);
-                                                intent.putExtra("SENDER", sender);
-                                                intent.putExtra("RECIPIENT", recipient);
-                                                startActivity(intent);
-                                                break;
+
+                                                if(recipient.equals(sender)){
+                                                    Toast.makeText(LostViewActivity.this,"본인에게 쪽지를 보낼 수는 없습니다.",Toast.LENGTH_SHORT).show();
+                                                    break;
+
+                                                } else{
+                                                    Intent intent = new Intent(LostViewActivity.this, SendMessageActivity.class);
+                                                    intent.putExtra("SENDER", sender);
+                                                    intent.putExtra("RECIPIENT", recipient);
+                                                    startActivity(intent);
+                                                    break;
+                                                }
 
                                             case R.id.delete:
                                                 String writer = oData.get(position).nickname;
