@@ -28,7 +28,6 @@ import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.net.DatagramSocket;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,19 +43,14 @@ public class ContestActivity extends AppCompatActivity implements SwipeRefreshLa
     private ListView listView = null;
     private EditText editText;
     private MyAdapter adapter;
-
-
     SwipeRefreshLayout mSwipeRefreshLayout;
-
     private final String NICKNAME_EXTRA = "NICKNAME_EXTRA";
-    private DatagramSocket ButterKnife;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contest);
 
-        editText = (EditText) findViewById(R.id.search);
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefresh);
         mSwipeRefreshLayout.setOnRefreshListener(this);
@@ -77,6 +71,8 @@ public class ContestActivity extends AppCompatActivity implements SwipeRefreshLa
             }
         });
 
+
+        editText = (EditText) findViewById(R.id.search);
         editText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -85,17 +81,16 @@ public class ContestActivity extends AppCompatActivity implements SwipeRefreshLa
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
+                listView.setFilterText(editText.getText().toString());
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-                String searchText = editText.getText().toString();
-                adapter.filter(searchText);
-
+                if(editText.getText().length() == 0){
+                    listView.clearTextFilter();
+                }
             }
         });
-
     }
 
 
