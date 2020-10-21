@@ -65,7 +65,14 @@ dependencies {
     implementation 'com.naver.maps:map-sdk:3.7.1'
     implementation 'com.google.android.gms:play-services-location:16.0.0'
 
+    compile 'com.amazonaws:aws-android-sdk-core:2.+'
+    compile 'com.amazonaws:aws-android-sdk-cognito:2.+'
+    compile 'com.amazonaws:aws-android-sdk-s3:2.+'
 
+    // s3
+    implementation ('com.amazonaws:aws-android-sdk-mobile-client:2.6.+@aar') { transitive = true }
+    implementation 'com.amazonaws:aws-android-sdk-s3:2.6.+'
+    implementation 'com.amazonaws:aws-android-sdk-cognito:2.6.+'
 
 
 }
