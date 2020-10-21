@@ -8,11 +8,16 @@ import androidx.loader.content.CursorLoader;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.media.ExifInterface;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.StrictMode;
@@ -28,17 +33,28 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.amazonaws.ClientConfiguration;
+import com.amazonaws.auth.CognitoCachingCredentialsProvider;
+import com.amazonaws.mobileconnectors.s3.transferutility.TransferObserver;
+import com.amazonaws.mobileconnectors.s3.transferutility.TransferUtility;
+import com.amazonaws.regions.Region;
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3Client;
 import com.example.myapplication.R;
 import com.example.myapplication.mate.AloneActivity;
 import com.example.myapplication.mate.ContestActivity;
 import com.example.myapplication.network.FileUploadUtils;
+import com.example.myapplication.network.RealPathUtil;
 import com.example.myapplication.network.RetrofitClient;
 import com.example.myapplication.network.ServiceApi;
 import com.example.myapplication.network.UploadResult;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
+import com.sun.mail.imap.Utility;
 
+import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -76,19 +92,23 @@ public class LostWriteActivity extends AppCompatActivity {
     private final String NICKNAME_EXTRA = "NICKNAME_EXTRA";
 
     /* -- 이미지 업로드 부분임당(1) -- */
-    private Button getImgBtn;
-    private Button uploadImg;
-    String getImgURL="";
-    String getImgName="";
-    String upLoadServerUri = "http://13.125.107.224/index.php";
+    // s3
+    private String TAG = "LostWriteActivity";
+    CognitoCachingCredentialsProvider credentialsProvider;
+    AmazonS3 s3;
+    TransferUtility transferUtility;
 
-    final int REQ_CODE_SELECT_IMAGE=100;
-    ProgressDialog asyncDialog;
-    int serverResponseCode = 0;
+    Button uploadBtn, selectBtn;
+    ImageView imageview;
+    File f;
 
-    ImageView imgVwSelected;
-    Button btnImageSend, btnImageSelection;
-    File tempSelectFile;
+    private String userChoosenTask;
+    Uri imageUri;
+    String imagePath;
+    private Uri mImageUri;
+    private int PICTURE_CHOICE = 1;
+    private int REQUEST_CAMERA = 2;
+    private int SELECT_FILE = 3;
     /* -- 요기까지 -- */
 
     @Override
@@ -132,405 +152,343 @@ public class LostWriteActivity extends AppCompatActivity {
         });
 
         /* -- 이미지 업로드 부분임당(2) -- */
-        btnImageSend = findViewById(R.id.uploadImg);
-        btnImageSend.setEnabled(false);
-        btnImageSend.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                FileUploadUtils.goSend(tempSelectFile);
-            }
-        });
+        uploadBtn = (Button) findViewById(R.id.uploadImg);
+        selectBtn = (Button) findViewById(R.id.getImg);
+        imageview = (ImageView) findViewById(R.id.imageView1);
+
+        uploadBtn.setOnClickListener((View.OnClickListener) this);
+        selectBtn.setOnClickListener((View.OnClickListener) this);
+
+        credentialsProvider = new CognitoCachingCredentialsProvider(
+                getApplicationContext(),
+                "ap-northeast-2:405a774a-f540-4699-ba3a-d1426be3fc63", // Identity Pool ID
+                Regions.AP_NORTHEAST_2 // Region
+        );
+        s3 = new AmazonS3Client(credentialsProvider);
+        transferUtility = new TransferUtility(s3, getApplicationContext());
+        s3.setRegion(Region.getRegion(Regions.AP_NORTHEAST_2));
+        s3.setEndpoint("s3.ap-northeast-2.amazonaws.com");
+
+        transferUtility = new TransferUtility(s3, getApplicationContext());
 
 
-        btnImageSelection = findViewById(R.id.getImg);
-        btnImageSelection.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent(Intent.ACTION_PICK);
-                intent.setType(android.provider.MediaStore.Images.Media.CONTENT_TYPE);
-                intent.setData(android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(intent, 1);
-
-            }
-        });
-
-        imgVwSelected = findViewById(R.id.imageView1);
         /* -- 요기까지 -- */
-    }
+    } // End onCreate
 
     /* -- 이미지 업로드 부분임당(3) -- */
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode != 1 || resultCode != RESULT_OK) {
-            return;
+    // s3
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.uploadImg:
+                TransferObserver observer = transferUtility.upload(
+                        "android12",
+                        f.getName(),
+                        f
+                );
+                break;
+            case R.id.getImg:
+                selectImage();
+                break;
         }
-
-        Uri dataUri = data.getData();
-        imgVwSelected.setImageURI(dataUri);
-
-        try {
-            // ImageView 에 이미지 출력
-            InputStream in = getContentResolver().openInputStream(dataUri);
-            Bitmap image = BitmapFactory.decodeStream(in);
-            imgVwSelected.setImageBitmap(image);
-            in.close();
-
-            // 선택한 이미지 임시 저장
-            String date = new SimpleDateFormat("yyyy_MM_dd_hh_mm_ss").format(new Date());
-            tempSelectFile = new File(Environment.getExternalStorageDirectory() + "/Pictures/", "temp_" + date + ".jpeg");
-            OutputStream out = new FileOutputStream(tempSelectFile);
-            image.compress(Bitmap.CompressFormat.JPEG, 100, out);
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
-        }
-
-
-        btnImageSend.setEnabled(true);
-
-    }
-
-    public int uploadFile2(String sourceFileUri) {
-        String fileName = sourceFileUri;
-
-        HttpURLConnection conn = null;
-        DataOutputStream dos = null;
-        String lineEnd = "\r\n";
-        String twoHyphens = "--";
-        String boundary = "*****";
-
-        int bytesRead, bytesAvailable, bufferSize;
-        byte[] buffer;
-        int maxBufferSize = 1 * 1024 * 1024;
-
-        File sourceFile = new File(sourceFileUri);
-
-        if (!sourceFile.isFile()) {
-            asyncDialog.dismiss();
-            Log.e("uploadFile", "Source File not exist :"
-                    +getImgURL);
-
-            runOnUiThread(new Runnable() {
-                public void run() {
-                }
-            });
-            return 0;
-        }
-        else
-        {
-            try {
-                // open a URL connection to the Servlet
-                FileInputStream fileInputStream = new FileInputStream(sourceFile);
-                URL url = new URL(upLoadServerUri);
-
-                // Open a HTTP  connection to  the URL
-                conn = (HttpURLConnection) url.openConnection();
-                conn.setDoInput(true); // Allow Inputs
-                conn.setDoOutput(true); // Allow Outputs
-                conn.setUseCaches(false); // Don't use a Cached Copy
-                conn.setRequestMethod("POST");
-                conn.setRequestProperty("Connection", "Keep-Alive");
-                conn.setRequestProperty("ENCTYPE", "multipart/form-data");
-                conn.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + boundary);
-                conn.setRequestProperty("uploaded_file", fileName);
-
-                dos = new DataOutputStream(conn.getOutputStream());
-                dos.writeBytes(twoHyphens + boundary + lineEnd);
-                dos.writeBytes("Content-Disposition: form-data; name=\"uploaded_file\";filename=\""
-                        + fileName + "\"" + lineEnd);
-                dos.writeBytes(lineEnd);
-
-                // create a buffer of  maximum size
-                bytesAvailable = fileInputStream.available();
-                bufferSize = Math.min(bytesAvailable, maxBufferSize);
-                buffer = new byte[bufferSize];
-
-                // read file and write it into form...
-                bytesRead = fileInputStream.read(buffer, 0, bufferSize);
-                while (bytesRead > 0) {
-                    dos.write(buffer, 0, bufferSize);
-                    bytesAvailable = fileInputStream.available();
-                    bufferSize = Math.min(bytesAvailable, maxBufferSize);
-                    bytesRead = fileInputStream.read(buffer, 0, bufferSize);
-                }
-
-                // send multipart form data necesssary after file data...
-                dos.writeBytes(lineEnd);
-                dos.writeBytes(twoHyphens + boundary + twoHyphens + lineEnd);
-
-                // Responses from the server (code and message)
-                serverResponseCode = conn.getResponseCode();
-                String serverResponseMessage = conn.getResponseMessage();
-                Log.i("uploadFile", "HTTP Response is : "
-                        + serverResponseMessage + ": " + serverResponseCode);
-
-                if(serverResponseCode == 200){
-                    runOnUiThread(new Runnable() {
-                        public void run() {
-                            Toast.makeText(LostWriteActivity.this, "File Upload Complete.",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                }
-
-                //close the streams //
-                fileInputStream.close();
-                dos.flush();
-                dos.close();
-
-            } catch (MalformedURLException ex) {
-                asyncDialog.dismiss();
-                ex.printStackTrace();
-
-                runOnUiThread(new Runnable() {
-                    public void run() {
-                        Toast.makeText(LostWriteActivity.this, "MalformedURLException",
-                                Toast.LENGTH_SHORT).show();
-                    }
-                });
-                Log.e("Upload file to server", "error: " + ex.getMessage(), ex);
-            } catch (Exception e) {
-                asyncDialog.dismiss();
-                e.printStackTrace();
-
-                runOnUiThread(new Runnable() {
-                    public void run() {
-                        Toast.makeText(LostWriteActivity.this, "Got Exception : see logcat ",
-                                Toast.LENGTH_SHORT).show();
-                    }
-                });
-                Log.e("Upld to server Excption", "Exception : "
-                        + e.getMessage(), e);
-            }
-            asyncDialog.dismiss();
-            return serverResponseCode;
-        } // End else block
-
-    }
-
-
-    // 선택된 이미지 가져오기
-    /*
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        Toast.makeText(getBaseContext(), "resultCode : "+resultCode,Toast.LENGTH_SHORT).show();
-
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQ_CODE_SELECT_IMAGE) {
-            if (resultCode == Activity.RESULT_OK) {
-                try {
-                    //Uri에서 이미지 이름을 얻어온다.
-                    String name_Str = getImageNameToUri(data.getData());
-
-                    Log.i("myTag", name_Str);
-
-                    //이미지 데이터를 비트맵으로 받아온다.
-                    Bitmap image_bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), data.getData());
-                    ImageView image = (ImageView) findViewById(R.id.imageView1);
-
-                    //배치해놓은 ImageView에 set
-                    image.setImageBitmap(image_bitmap);
-
-                    //Toast.makeText(getBaseContext(), "name_Str : "+name_Str , Toast.LENGTH_SHORT).show();
-
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-    */
-
-    // 선택된 이미지 파일명 가져오기
-    public String getImageNameToUri(Uri data)
-    {
-        String[] proj = { MediaStore.Images.Media.DATA };
-        Cursor cursor = managedQuery(data, proj, null, null, null);
-        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-
-        cursor.moveToFirst();
-
-        String imgPath = cursor.getString(column_index);
-        String imgName = imgPath.substring(imgPath.lastIndexOf("/")+1);
-
-        getImgURL = imgPath;
-        getImgName = imgName;
-
-        return "success";
-    }
-
-    /**
-     * Upload Image Client Code
-     */
-
-    public void DoFileUpload(String apiUrl, String absolutePath) {
-        HttpFileUpload(apiUrl, "", absolutePath);
-    }
-
-    String lineEnd = "\r\n";
-    String twoHyphens = "--";
-    String boundary = "*****";
-
-    public void HttpFileUpload(String urlString, String params, String fileName) {
-        try {
-
-            FileInputStream mFileInputStream = new FileInputStream(fileName);
-            URL connectUrl = new URL(urlString);
-            Log.d("Test", "mFileInputStream  is " + mFileInputStream);
-
-            // HttpURLConnection 통신
-            HttpURLConnection conn = (HttpURLConnection) connectUrl.openConnection();
-            conn.setDoInput(true);
-            conn.setDoOutput(true);
-            conn.setUseCaches(false);
-            conn.setRequestMethod("POST");
-            conn.setRequestProperty("Connection", "Keep-Alive");
-            conn.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + boundary);
-
-            // write data
-            DataOutputStream dos = new DataOutputStream(conn.getOutputStream());
-            dos.writeBytes(twoHyphens + boundary + lineEnd);
-            dos.writeBytes("Content-Disposition: form-data; name=\"uploadedfile\";filename=\"" + fileName + "\"" + lineEnd);
-            dos.writeBytes(lineEnd);
-
-            int bytesAvailable = mFileInputStream.available();
-            int maxBufferSize = 1024;
-            int bufferSize = Math.min(bytesAvailable, maxBufferSize);
-
-            byte[] buffer = new byte[bufferSize];
-            int bytesRead = mFileInputStream.read(buffer, 0, bufferSize);
-
-            Log.d("Test", "image byte is " + bytesRead);
-
-            // read image
-            while (bytesRead > 0) {
-                dos.write(buffer, 0, bufferSize);
-                bytesAvailable = mFileInputStream.available();
-                bufferSize = Math.min(bytesAvailable, maxBufferSize);
-                bytesRead = mFileInputStream.read(buffer, 0, bufferSize);
-            }
-
-            dos.writeBytes(lineEnd);
-            dos.writeBytes(twoHyphens + boundary + twoHyphens + lineEnd);
-
-            // close streams
-            Log.e("Test", "File is written");
-            mFileInputStream.close();
-            dos.flush();
-            // finish upload...
-
-            // get response
-            InputStream is = conn.getInputStream();
-
-            StringBuffer b = new StringBuffer();
-            for (int ch = 0; (ch = is.read()) != -1; ) {
-                b.append((char) ch);
-            }
-            is.close();
-            Log.e("Test", b.toString());
-
-
-        } catch (Exception e) {
-            Log.d("Test", "exception " + e.getMessage());
-            // TODO: handle exception
-        }
-    } // end of HttpFileUpload()
-
-
-
-    private void uploadFile(String ImgURL, String ImgName) {
-        /**
-         * 현재 연결된 서버의 URL을 받아옴
-         */
-        String url = "http://13.125.107.224/index.php";
-
-        /**
-         * 다시 연결 시도
-         */
-        // create upload service client
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(url)
-                .build();
-
-        ServiceApi service = retrofit.create(ServiceApi.class);
-
-        /**
-         * 서버로 보낼 파일의 전체 url을 이용해 작업
-         */
-
-        File photo = new File(ImgURL);
-        RequestBody photoBody = RequestBody.create(MediaType.parse("image/jpg"), photo);
-
-        // MultipartBody.Part is used to send also the actual file name
-        MultipartBody.Part body = MultipartBody.Part.createFormData("picture", photo.getName(), photoBody);
-
-//        Log.i("myTag","this file'name is "+ photo.getName());
-
-        /**
-         * 서버에 사진이외의 텍스트를 보낼 경우를 생각해서 일단 넣어둠
-         */
-        // add another part within the multipart request
-        String descriptionString = "android";
-
-        RequestBody description = RequestBody.create(MediaType.parse("multipart/form-data"), descriptionString);
-
-
-        /**
-         * 사진 업로드하는 부분 // POST방식 이용
-         */
-        Call<ResponseBody> call = service.upload(body, description);
-        call.enqueue(new Callback<ResponseBody>() {
+    } // End onClick
+
+    private void selectImage() {
+        Log.d(TAG, "select Image");
+        final CharSequence[] items = {"촬영하기", "사진 가져오기",
+                "취소"};
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("사진가져오기");
+        builder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+            public void onClick(DialogInterface dialog, int item) {
+                boolean result = Utility.checkPermission(getApplicationContext());
 
-                if(response.isSuccessful()){
-
-                    Gson gson = new Gson();
-                    try {
-                        String getResult = response.body().string();
-
-                        JsonParser parser = new JsonParser();
-                        JsonElement rootObejct = parser.parse(getResult);
-
-//                        Log.i("mytag",rootObejct.toString());
-
-                        UploadResult example = gson.fromJson(rootObejct, UploadResult.class);
-
-                        Log.i("mytag",example.url);
-
-                        String result = example.result;
-
-                        if(result.equals("success")){
-                            Toast.makeText(getApplicationContext(),"사진 업로드 성공!",Toast.LENGTH_SHORT).show();
-                        }
-
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        Log.i("MyTag", "error : "+e.getMessage());
-                    }
+                if (items[item].equals("촬영하기")) {
+                    userChoosenTask = "촬영하기";
+                    if (result)
+                        cameraIntent();
 
 
-                }else{
-                    Toast.makeText(getApplicationContext(),"사진 업로드 실패!",Toast.LENGTH_SHORT).show();
+                } else if (items[item].equals("사진 가져오기")) {
+                    userChoosenTask = "사진 가져오기";
+                    if (result)
+                        galleryIntent();
+
+                } else if (items[item].equals("취소")) {
+                    dialog.dismiss();
                 }
-
-
-                // dismiss dialog
-                asyncDialog.dismiss();
-            }
-
-            @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-                Log.e("Upload error:", t.getMessage());
-
-                // dismiss dialog
-                asyncDialog.dismiss();
             }
         });
+        builder.show();
+    } // End selectImage
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        switch (requestCode) {
+            case Utility.MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    if (userChoosenTask.equals("촬영하기"))
+                        cameraIntent();
+                    else if (userChoosenTask.equals("사진 가져오기"))
+                        galleryIntent();
+                } else {
+                    //code for deny
+                }
+                break;
+        }
+    } // End onRequestPermissionResult
+
+    private void galleryIntent() {
+        Log.d(TAG, "Gallery Intent");
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);//
+        startActivityForResult(Intent.createChooser(intent, "Select File"), SELECT_FILE);
+    } // End galleryIntent
+
+    private void cameraIntent() {
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+        File photo = null;
+        try {
+            // place where to store camera taken picture
+            photo = this.createTemporaryFile("picture", ".jpg");
+            photo.delete();
+        } catch (Exception e) {
+            Log.v(TAG, "Can't create file to take picture!");
+            Toast.makeText(this, "sd카드를 확인해주세요", Toast.LENGTH_SHORT);
+        }
+        mImageUri = Uri.fromFile(photo);
+        Log.d(TAG, mImageUri.toString());
+        if (Build.VERSION.SDK_INT <= 19) {
+
+        } else {
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, mImageUri);
+        }
+        startActivityForResult(intent, REQUEST_CAMERA);
+    } // End cameraIntent
+
+    private File createTemporaryFile(String part, String ext) throws Exception {
+        File tempDir = Environment.getExternalStorageDirectory();
+        tempDir = new File(tempDir.getAbsolutePath() + "/.temp/");
+        if (!tempDir.exists()) {
+            tempDir.mkdirs();
+        }
+        return File.createTempFile(part, ext, tempDir);
+    } // End CreateTemporaryFile
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == SELECT_FILE) {
+                Log.d(TAG, "onActivityResult, SELECT_FILE");
+                onSelectFromGalleryResult(data, SELECT_FILE);
+            } else if (requestCode == REQUEST_CAMERA) {
+                try {
+                    onCaptureImageResult(data, REQUEST_CAMERA);
+                } catch (Exception e) {
+                    this.grabImage(imageview, REQUEST_CAMERA);
+                }
+            }
+
+        }
+    } // End onActivityResult
+
+    private void onCaptureImageResult(Intent data, int imagetype) {
+        Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        thumbnail.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+        Bitmap bm = null;
+        bm = null;
+        File destination = new File(Environment.getExternalStorageDirectory(),
+                System.currentTimeMillis() + ".jpg");
+        Bitmap correctBmp = null;
+        FileOutputStream fo;
+        try {
+            destination.createNewFile();
+            fo = new FileOutputStream(destination);
+            fo.write(bytes.toByteArray());
+            fo.close();
+
+            File f = new File(RealPathUtil.getRealPathFromURI_API19(this, data.getData()));
+            ExifInterface exif = new ExifInterface(f.getPath());
+            int orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
+
+            int angle = 0;
+
+            if (orientation == ExifInterface.ORIENTATION_ROTATE_90) {
+                angle = 90;
+            } else if (orientation == ExifInterface.ORIENTATION_ROTATE_180) {
+                angle = 180;
+            } else if (orientation == ExifInterface.ORIENTATION_ROTATE_270) {
+                angle = 270;
+            }
+
+            Matrix mat = new Matrix();
+            mat.postRotate(angle);
+
+            Bitmap bmp = BitmapFactory.decodeStream(new FileInputStream(f), null, null);
+            correctBmp = Bitmap.createBitmap(bmp, 0, 0, bmp.getWidth(), bmp.getHeight(), mat, true);
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        bm = getResizedBitmap(correctBmp, getResources().getDimensionPixelSize(R.dimen.idcard_pic_height), getResources().getDimensionPixelSize(R.dimen.idcard_pic_width));
+        if (imagetype == REQUEST_CAMERA) {
+            f = SaveImage(bm);
+            imageview.setImageBitmap(bm);
+        }
+    }
+    private void onSelectFromGalleryResult(Intent data, int imagetype) {
+
+        Log.d(TAG, "onSelectFromGalleryResult");
+        Bitmap bm = null;
+        imageUri = data.getData();
+        if (Build.VERSION.SDK_INT < 11) {
+            imagePath = RealPathUtil.getRealPathFromURI_BelowAPI11(this, imageUri);
+            Log.d(TAG, Build.VERSION.SDK_INT + "");
+        } else if (Build.VERSION.SDK_INT < 19) {
+            Log.d(TAG, Build.VERSION.SDK_INT + "");
+            imagePath = RealPathUtil.getRealPathFromURI_API11to18(this, imageUri);
+        } else {
+            Log.d(TAG, Build.VERSION.SDK_INT + "");
+            imagePath = RealPathUtil.getRealPathFromURI_API19(this, imageUri);
+        }
+        Log.d(TAG, imagePath);
+
+
+        try {
+            bm = getResizedBitmap(decodeUri(data.getData()), getResources().getDimensionPixelSize(R.dimen.idcard_pic_height), getResources().getDimensionPixelSize(R.dimen.idcard_pic_width));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        if (imagetype == SELECT_FILE) {
+            f = new File(imagePath);
+            imageview.setImageBitmap(bm);
+        }
+    }
+
+    public static Bitmap getResizedBitmap(Bitmap image, int newHeight, int newWidth) {
+        int width = image.getWidth();
+        int height = image.getHeight();
+        float scaleWidth = ((float) newWidth) / width;
+        float scaleHeight = ((float) newHeight) / height;
+        // create a matrix for the manipulation
+        Matrix matrix = new Matrix();
+        matrix.postScale(scaleWidth, scaleHeight);
+        if (Build.VERSION.SDK_INT <= 19) {
+            //matrix.postRotate(90);
+        }
+        // recreate the new Bitmap
+        Bitmap resizedBitmap = Bitmap.createBitmap(image, 0, 0, width, height,
+                matrix, false);
+        return resizedBitmap;
+    }
+
+    private Bitmap decodeUri(Uri selectedImage) throws FileNotFoundException {
+        BitmapFactory.Options o = new BitmapFactory.Options();
+        o.inJustDecodeBounds = true;
+        BitmapFactory.decodeStream(
+                this.getContentResolver().openInputStream(selectedImage), null, o);
+
+        final int REQUIRED_SIZE = 100;
+
+        int width_tmp = o.outWidth, height_tmp = o.outHeight;
+        int scale = 1;
+        while (true) {
+            if (width_tmp / 2 < REQUIRED_SIZE || height_tmp / 2 < REQUIRED_SIZE) {
+                break;
+            }
+            width_tmp /= 2;
+            height_tmp /= 2;
+            scale *= 2;
+        }
+
+        BitmapFactory.Options o2 = new BitmapFactory.Options();
+        o2.inSampleSize = scale;
+        return BitmapFactory.decodeStream(
+                this.getContentResolver().openInputStream(selectedImage), null, o2);
+    }
+
+    public File SaveImage(Bitmap finalBitmap) {
+        String root = Environment.getExternalStorageDirectory().toString();
+        File myDir = new File(root + "/MobileCard");
+
+        if (!myDir.exists()) {
+            Log.d("SaveImage", "non exists : " + myDir);
+            myDir.mkdirs();
+        }
+
+        long now = System.currentTimeMillis();
+        String fname = now + ".jpg";
+        File file = new File(myDir, fname);
+
+        if (file.exists()) {
+            Log.d("SaveImage", "file exists");
+            file.delete();
+        } else {
+            Log.d("SaveImage", "file non exists");
+        }
+
+        try {
+            FileOutputStream out = new FileOutputStream(file);
+            finalBitmap.compress(Bitmap.CompressFormat.JPEG, 90, out);
+            Log.d("SaveImage", "file save");
+            out.flush();
+            out.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return file;
+    }
+    public void grabImage(ImageView imgView, int imagetype) {
+
+        this.getContentResolver().notifyChange(mImageUri, null);
+        ContentResolver cr = this.getContentResolver();
+        Bitmap bitmap = null;
+        Bitmap bm = null;
+        Bitmap correctBmp = null;
+        try {
+            bitmap = android.provider.MediaStore.Images.Media.getBitmap(cr, mImageUri);
+
+            File f = new File(RealPathUtil.getRealPathFromURI_API19(this, mImageUri));
+            ExifInterface exif = new ExifInterface(f.getPath());
+            int orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
+
+            int angle = 0;
+
+            if (orientation == ExifInterface.ORIENTATION_ROTATE_90) {
+                angle = 90;
+            } else if (orientation == ExifInterface.ORIENTATION_ROTATE_180) {
+                angle = 180;
+            } else if (orientation == ExifInterface.ORIENTATION_ROTATE_270) {
+                angle = 270;
+            }
+
+            Matrix mat = new Matrix();
+            mat.postRotate(angle);
+
+            Bitmap bmp = BitmapFactory.decodeStream(new FileInputStream(f), null, null);
+            correctBmp = Bitmap.createBitmap(bmp, 0, 0, bmp.getWidth(), bmp.getHeight(), mat, true);
+
+        } catch (Exception e) {
+            Toast.makeText(this, "불러오기에 실패했습니다", Toast.LENGTH_SHORT).show();
+            Log.d(TAG, "Failed to load", e);
+        }
+        bm = getResizedBitmap(correctBmp, getResources().getDimensionPixelSize(R.dimen.idcard_pic_height), getResources().getDimensionPixelSize(R.dimen.idcard_pic_width));
+
+        if (imagetype == REQUEST_CAMERA) {
+            f = SaveImage(bm);
+            imageview.setImageBitmap(bm);
+        }
     }
 
     /* -- 요기까지 -- */
