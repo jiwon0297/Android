@@ -7,4 +7,7 @@
     <dimen name="appbar_padding">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
+
+    <dimen name="idcard_pic_width">230px</dimen>
+    <dimen name="idcard_pic_height">310px</dimen>
 </resources>
