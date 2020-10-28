@@ -26,8 +26,9 @@ public class MateSearchData {
     @SerializedName("content")
     String content;
 
-    public MateSearchData(String cate) {
+    public MateSearchData(String cate, String title) {
         this.cate = cate;
+        this.title = title;
     }
 
     public MateSearchData(){

@@ -78,6 +78,17 @@ public class AloneActivity extends AppCompatActivity implements SwipeRefreshLayo
             }
         });
 
+        ImageButton searchbtn = (ImageButton) findViewById(R.id.search);
+        searchbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AloneActivity.this, MateSearchActivity.class);
+                intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
+                intent.putExtra("CATE","혼밥");
+                startActivity(intent);
+            }
+        });
+
     }
     @Override
     public void onRefresh(){

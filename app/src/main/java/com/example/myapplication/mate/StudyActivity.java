@@ -70,6 +70,17 @@ public class StudyActivity extends AppCompatActivity implements SwipeRefreshLayo
             }
         });
 
+        ImageButton searchbtn = (ImageButton) findViewById(R.id.search);
+        searchbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(StudyActivity.this, MateSearchActivity.class);
+                intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
+                intent.putExtra("CATE","스터디");
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override
@@ -135,7 +146,6 @@ public class StudyActivity extends AppCompatActivity implements SwipeRefreshLayo
 
     private void startList(MateData data) {
         List<MateData> oData = new ArrayList<>();
-        ArrayList<MateData> arrayList = new ArrayList<>();
 
         service.matelist(data).enqueue(new Callback<MateResponse>() {
             @Override
@@ -158,7 +168,6 @@ public class StudyActivity extends AppCompatActivity implements SwipeRefreshLayo
                         oData.add(oItem);
                     }
                     listView = (ListView) findViewById(R.id.listView1);
-                    arrayList.addAll(oData);
                     MyAdapter oAdapter = new MyAdapter((ArrayList<MateData>) oData);
                     listView.setAdapter(oAdapter);
 
@@ -175,25 +184,6 @@ public class StudyActivity extends AppCompatActivity implements SwipeRefreshLayo
                             intent.putExtra("CAMPUS_EXTRA", oData.get(position).campus);
                             intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
                             startActivity(intent);
-                        }
-                    });
-
-                    listView.setTextFilterEnabled(true);
-                    EditText editsearch = (EditText) findViewById(R.id.editSearch);
-                    editsearch.addTextChangedListener(new TextWatcher() {
-                        @Override
-                        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-                        }
-                        @Override
-                        public void onTextChanged (CharSequence s,int start, int before, int count){
-                            listView.setFilterText(editsearch.getText().toString());
-                        }
-                        @Override
-                        public void afterTextChanged (Editable s){
-                            if(editsearch.getText().length() == 0) {
-                                listView.clearTextFilter();
-                            }
                         }
                     });
                 }

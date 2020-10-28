@@ -66,6 +66,17 @@ public class HouseActivity extends AppCompatActivity implements SwipeRefreshLayo
             }
         });
 
+        ImageButton searchbtn = (ImageButton) findViewById(R.id.search);
+        searchbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HouseActivity.this, MateSearchActivity.class);
+                intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
+                intent.putExtra("CATE","하우스");
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override
