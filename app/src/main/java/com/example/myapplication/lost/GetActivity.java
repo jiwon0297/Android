@@ -71,7 +71,7 @@ public class GetActivity extends AppCompatActivity implements SwipeRefreshLayout
         searchbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(GetActivity.this, MateSearchActivity.class);
+                Intent intent = new Intent(GetActivity.this, LostSearchActivity.class);
                 intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
                 intent.putExtra("TYPE","주웠어요");
                 startActivity(intent);

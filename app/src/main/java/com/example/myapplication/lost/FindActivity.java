@@ -71,7 +71,7 @@ public class FindActivity extends AppCompatActivity implements SwipeRefreshLayou
         searchbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(FindActivity.this, MateSearchActivity.class);
+                Intent intent = new Intent(FindActivity.this, LostSearchActivity.class);
                 intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
                 intent.putExtra("TYPE","찾아요");
                 startActivity(intent);

@@ -70,6 +70,8 @@ public class MateSearchActivity extends AppCompatActivity {
         String cate = getIntent().getStringExtra("CATE");
 
         if (title.isEmpty()) {
+            searchtitle.setError("검색어를 입력해주세요.");
+            focusView = searchtitle;
             cancel = true;
         } else if (!isSearchTitleValid(title)) {
             searchtitle.setError("두 글자 이상 입력해주세요.");

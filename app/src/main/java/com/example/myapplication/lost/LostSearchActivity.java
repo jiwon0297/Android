@@ -44,6 +44,7 @@ public class LostSearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lost_search);
 
+        mProgressView = (ProgressBar) findViewById(R.id.progressBar);
         service = RetrofitClient.getClient().create(ServiceApi.class);
 
         searchtitle = (EditText) findViewById(R.id.search);
@@ -73,6 +74,12 @@ public class LostSearchActivity extends AppCompatActivity {
         String type = getIntent().getStringExtra("TYPE");
 
         if (type.isEmpty()) {
+            searchtitle.setError("검색어를 입력해주세요.");
+            focusView = searchtitle;
+            cancel = true;
+        } else if (!isSearchTitleValid(title)) {
+            searchtitle.setError("두 글자 이상 입력해주세요.");
+            focusView = searchtitle;
             cancel = true;
         }
 
@@ -123,7 +130,7 @@ public class LostSearchActivity extends AppCompatActivity {
                         oItem.url = a.getUrl();
                         oData.add(oItem);
                     }
-                    listView = (ListView)findViewById(R.id.listView);
+                    listView = (ListView)findViewById(R.id.listView1);
                     LostSearchAdapter oAdapter = new LostSearchAdapter((ArrayList<LostSearchData>) oData);
                     listView.setAdapter(oAdapter);
 
@@ -157,8 +164,12 @@ public class LostSearchActivity extends AppCompatActivity {
                 showProgress(false);
             }
         });
-
     }
+
+    private boolean isSearchTitleValid(String title) {
+        return title.length() >= 2;
+    }
+
     private void showProgress(boolean show) {
         mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
     }
