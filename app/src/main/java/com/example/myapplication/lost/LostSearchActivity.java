@@ -18,9 +18,6 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.example.myapplication.R;
 import com.example.myapplication.mate.AloneActivity;
 import com.example.myapplication.mate.ContestActivity;
-import com.example.myapplication.mate.HouseActivity;
-import com.example.myapplication.mate.MateSearchActivity;
-import com.example.myapplication.mate.StudyActivity;
 import com.example.myapplication.network.RetrofitClient;
 import com.example.myapplication.network.ServiceApi;
 
@@ -94,11 +91,11 @@ public class LostSearchActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
-        if(getIntent().getStringExtra("TYPE").equals("혼밥")){
+        if(getIntent().getStringExtra("TYPE").equals("찾아요")){
             Intent intent = new Intent(LostSearchActivity.this, AloneActivity.class);
             intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
             LostSearchActivity.this.startActivity(intent);
-        } else if(getIntent().getStringExtra("TYPE").equals("공모전")){
+        } else if(getIntent().getStringExtra("TYPE").equals("주웠어요")){
             Intent intent = new Intent(LostSearchActivity.this, ContestActivity.class);
             intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
             LostSearchActivity.this.startActivity(intent);
