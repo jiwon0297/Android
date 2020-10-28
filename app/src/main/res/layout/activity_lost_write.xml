@@ -216,7 +216,7 @@
             android:layout_height="match_parent"
             android:layout_marginStart="25dp"
             android:layout_gravity="right"
-            android:background="#333333"
+            android:background="#FFFFFF"
             app:layout_constraintHorizontal_bias="1.0" />
     </LinearLayout>
 
