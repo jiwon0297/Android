@@ -41,7 +41,7 @@ public class ContestActivity extends AppCompatActivity implements SwipeRefreshLa
     private List<String> list;          // 데이터를 넣은 리스트변수
     private ListView listView;          // 검색을 보여줄 리스트변수
     private EditText editSearch;        // 검색어를 입력할 Input 창
-    private SearchAdapter adapter;      // 리스트뷰에 연결할 아답터
+    private MyAdapter adapter;      // 리스트뷰에 연결할 아답터
     private ArrayList<String> arraylist;
     SwipeRefreshLayout mSwipeRefreshLayout;
     private final String NICKNAME_EXTRA = "NICKNAME_EXTRA";
@@ -59,9 +59,7 @@ public class ContestActivity extends AppCompatActivity implements SwipeRefreshLa
         // 리스트의 모든 데이터를 arraylist에 복사한다.// list 복사본을 만든다.
         arraylist = new ArrayList<String>();
         arraylist.addAll(list);
-
-        // 리스트에 연동될 아답터를 생성한다.
-        adapter = new SearchAdapter(list, this);
+        
 
         // 리스트뷰에 아답터를 연결한다.
         listView.setAdapter(adapter);
@@ -190,7 +188,7 @@ public class ContestActivity extends AppCompatActivity implements SwipeRefreshLa
                         oItem.cate = a.getCate();
                         oData.add(oItem);
                     }
-                    listView = (ListView)findViewById(R.id.listView1);
+                    listView = (ListView)findViewById(R.id.listView);
                     MyAdapter oAdapter = new MyAdapter((ArrayList<MateData>) oData);
                     listView.setAdapter(oAdapter);
 
