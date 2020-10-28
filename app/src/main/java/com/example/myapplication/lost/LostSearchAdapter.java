@@ -64,6 +64,7 @@ public class LostSearchAdapter extends BaseAdapter {
         TextView oTextContent = (TextView) convertView.findViewById(R.id.textContent);
         TextView oTextType = (TextView) convertView.findViewById(R.id.type);
         TextView oTextDate = (TextView) convertView.findViewById(R.id.textDate);
+        TextView oTextUrl = (TextView) convertView.findViewById(R.id.url);
 
         SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String datetext = transFormat.format(data.get(position).date);
@@ -74,6 +75,7 @@ public class LostSearchAdapter extends BaseAdapter {
         oTextNumber.setText(String.valueOf(data.get(position).number));
         oTextContent.setText(data.get(position).content);
         oTextType.setText(data.get(position).type);
+        oTextUrl.setText(data.get(position).url);
         oTextDate.setText(datetext);
 
         return convertView;
