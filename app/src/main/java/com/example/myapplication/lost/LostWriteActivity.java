@@ -78,7 +78,7 @@ public class LostWriteActivity extends AppCompatActivity {
     AmazonS3 s3;
     TransferUtility transferUtility;
 
-    Button uploadBtn, selectBtn;
+    Button selectBtn;
     ImageView imageview;
     File f;
 
@@ -152,12 +152,6 @@ public class LostWriteActivity extends AppCompatActivity {
 
         urlText = (TextView) findViewById(R.id.url);
 
-        uploadBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                selectBtn(view);
-            }
-        });
         selectBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
