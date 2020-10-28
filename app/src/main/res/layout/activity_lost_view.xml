@@ -128,10 +128,28 @@
                 android:text="내용"
                 android:textAlignment="center"
                 android:textSize="24sp"
-                app:layout_constraintBottom_toTopOf="@+id/buttongroup"
+                app:layout_constraintBottom_toTopOf="@+id/image"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/date" />
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="24dp"
+                android:background="#65DEE4F6"
+                android:fontFamily="@font/lottemartdreamlight"
+                android:gravity="center"
+                android:text="사진"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toTopOf="@+id/buttongroup"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/content" />
 
             <LinearLayout
                 android:id="@+id/buttongroup"

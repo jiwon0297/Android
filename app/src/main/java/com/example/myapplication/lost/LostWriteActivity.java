@@ -114,9 +114,9 @@ public class LostWriteActivity extends AppCompatActivity {
         nicknameText.setText(getIntent().getStringExtra("NICKNAME_EXTRA"));
         contentText = (EditText) findViewById(R.id.content);
         campusgroup = (RadioGroup) findViewById(R.id.campusgroup);
-        campusgroup.setOnCheckedChangeListener(radioGroupButtonChangeListener);
+        campusgroup.setOnCheckedChangeListener(radioGroupButtonChangeListener1);
         typeGroup = (RadioGroup) findViewById(R.id.typeGroup);
-        typeGroup.setOnCheckedChangeListener(radioGroupButtonChangeListener);
+        typeGroup.setOnCheckedChangeListener(radioGroupButtonChangeListener2);
         urlText = (TextView) findViewById(R.id.url);
         mProgressView = (ProgressBar) findViewById(R.id.progressBar2);
 
@@ -130,8 +130,8 @@ public class LostWriteActivity extends AppCompatActivity {
             }
         });
 
-        Button excuteButton = (Button) findViewById(R.id.excute);
-        excuteButton.setOnClickListener(new View.OnClickListener() {
+        Button writeButton = (Button) findViewById(R.id.write);
+        writeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
                 attemptWrite();
@@ -258,7 +258,7 @@ public class LostWriteActivity extends AppCompatActivity {
             photo.delete();
         } catch (Exception e) {
             Log.v(TAG, "Can't create file to take picture!");
-            Toast.makeText(this, "sd카드를 확인해주세요", Toast.LENGTH_SHORT);
+            Toast.makeText(this, "sd카드를 확인해주세요", Toast.LENGTH_SHORT).show();
         }
         mImageUri = Uri.fromFile(photo);
         Log.d(TAG, mImageUri.toString());
@@ -529,14 +529,21 @@ public class LostWriteActivity extends AppCompatActivity {
 
     /* -- 요기까지 -- */
 
-    RadioGroup.OnCheckedChangeListener radioGroupButtonChangeListener = new RadioGroup.OnCheckedChangeListener() {
+    RadioGroup.OnCheckedChangeListener radioGroupButtonChangeListener1 = new RadioGroup.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
             if(i == R.id.campusjj){
                 campusText.setText("죽전캠");
             } else if(i == R.id.campusca){
                 campusText.setText("천안캠");
-            } else if(i == R.id.radio0){
+            }
+        }
+    };
+
+    RadioGroup.OnCheckedChangeListener radioGroupButtonChangeListener2 = new RadioGroup.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
+            if(i == R.id.radio0){
                 typeText.setText("찾아요");
             } else if(i == R.id.radio1){
                 typeText.setText("주웠어요");
@@ -555,7 +562,7 @@ public class LostWriteActivity extends AppCompatActivity {
         String content = contentText.getText().toString();
         String campus = campusText.getText().toString();
         String type = typeText.getText().toString();
-        String url = "";
+        String url = "hello";
 
         boolean cancel = false;
         View focusView = null;
@@ -592,15 +599,14 @@ public class LostWriteActivity extends AppCompatActivity {
             cancel = true;
         }
 
-        /*
+
         if (urlText.getText().toString().isEmpty()) {
             url = "";
         } else
         {
             url = "https://android12.s3.ap-northeast-2.amazonaws.com/" + URI;
         }
-        *
-         */
+
 
         if (cancel) {
             focusView.requestFocus();
