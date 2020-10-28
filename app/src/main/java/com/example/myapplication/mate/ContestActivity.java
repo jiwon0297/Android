@@ -189,11 +189,11 @@ public class ContestActivity extends AppCompatActivity implements SwipeRefreshLa
                 }
                 else
                 {
-                    for( MateData item : oData)
+                    for( MateData oItem : oData)
                     {
-                        if(item.title.contains(searchText))
+                        if(oItem.title.contains(searchText))
                         {
-                            oData_e.add(item);
+                            oData_e.add(oItem);
                         }
                     }
                 }
