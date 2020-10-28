@@ -63,6 +63,7 @@ public class GetActivity extends AppCompatActivity implements SwipeRefreshLayout
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(GetActivity.this, LostActivity.class);
+                intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
                 startActivity(intent);
             }
         });
@@ -82,6 +83,9 @@ public class GetActivity extends AppCompatActivity implements SwipeRefreshLayout
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
+        Intent intent = new Intent(GetActivity.this, LostActivity.class);
+        intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
+        startActivity(intent);
     }
 
     @Override

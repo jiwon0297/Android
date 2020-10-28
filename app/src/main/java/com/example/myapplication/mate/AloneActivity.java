@@ -74,6 +74,7 @@ public class AloneActivity extends AppCompatActivity implements SwipeRefreshLayo
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(AloneActivity.this, MateActivity.class);
+                intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
                 startActivity(intent);
             }
         });
@@ -179,6 +180,9 @@ public class AloneActivity extends AppCompatActivity implements SwipeRefreshLayo
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
+        Intent intent = new Intent(AloneActivity.this, MateActivity.class);
+        intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
+        startActivity(intent);
     }
 
     public void write(View v){

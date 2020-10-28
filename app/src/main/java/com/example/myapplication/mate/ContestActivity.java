@@ -66,6 +66,7 @@ public class ContestActivity extends AppCompatActivity implements SwipeRefreshLa
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ContestActivity.this, MateActivity.class);
+                intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
                 startActivity(intent);
             }
         });
@@ -85,6 +86,9 @@ public class ContestActivity extends AppCompatActivity implements SwipeRefreshLa
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
+        Intent intent = new Intent(ContestActivity.this, MateActivity.class);
+        intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
+        startActivity(intent);
     }
 
     @Override
