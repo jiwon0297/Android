@@ -164,7 +164,7 @@ public class MateSearchActivity extends AppCompatActivity {
     }
 
     private boolean isSearchTitleValid(String title) {
-        return title.length() >= 6;
+        return title.length() >= 2;
     }
 
     private void showProgress(boolean show) {
