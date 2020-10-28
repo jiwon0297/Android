@@ -109,6 +109,7 @@ public class GetActivity extends AppCompatActivity implements SwipeRefreshLayout
                         oItem.number = a.getNumber();
                         oItem.content = a.getContent();
                         oItem.type = a.getType();
+                        oItem.url = a.getUrl();
                         oData.add(oItem);
                     }
                     listView = (ListView)findViewById(R.id.listView);
@@ -128,6 +129,7 @@ public class GetActivity extends AppCompatActivity implements SwipeRefreshLayout
                             intent.putExtra("CONTENT_EXTRA", oData.get(position).content);
                             intent.putExtra("DATE_EXTRA", datetext);
                             intent.putExtra("CAMPUS_EXTRA", oData.get(position).campus);
+                            intent.putExtra("URL_EXTRA", oData.get(position).url);
                             intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
                             startActivity(intent);
                         }

@@ -149,7 +149,6 @@ public class LostEditActivity extends AppCompatActivity {
         });
 
         /* -- 이미지 업로드 부분임당(2) -- */
-        uploadBtn = (Button) findViewById(R.id.uploadImg);
         selectBtn = (Button) findViewById(R.id.getImg);
         imageview = (ImageView) findViewById(R.id.imageView1);
 
@@ -202,14 +201,6 @@ public class LostEditActivity extends AppCompatActivity {
     // s3
     private void selectBtn(View view) {
         switch (view.getId()) {
-            case R.id.uploadImg:
-                TransferObserver observer = transferUtility.upload(
-                        "android12",
-                        f.getName(),
-                        f
-                );
-                URI = f.getName();
-                break;
             case R.id.getImg:
                 selectImage();
                 break;
@@ -218,7 +209,7 @@ public class LostEditActivity extends AppCompatActivity {
 
     private void selectImage() {
         Log.d(TAG, "select Image");
-        final CharSequence[] items = {"촬영하기", "사진 가져오기",
+        final CharSequence[] items = {"사진 가져오기",
                 "취소"};
 
         androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(this);
@@ -227,14 +218,7 @@ public class LostEditActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int item) {
                 boolean result = checkPermission(getApplicationContext());
-
-                if (items[item].equals("촬영하기")) {
-                    userChoosenTask = "촬영하기";
-                    if (result)
-                        cameraIntent();
-
-
-                } else if (items[item].equals("사진 가져오기")) {
+                if (items[item].equals("사진 가져오기")) {
                     userChoosenTask = "사진 가져오기";
                     if (result)
                         galleryIntent();
@@ -252,9 +236,7 @@ public class LostEditActivity extends AppCompatActivity {
         switch (requestCode) {
             case MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    if (userChoosenTask.equals("촬영하기"))
-                        cameraIntent();
-                    else if (userChoosenTask.equals("사진 가져오기"))
+                    if (userChoosenTask.equals("사진 가져오기"))
                         galleryIntent();
                 } else {
                     //code for deny
@@ -271,36 +253,7 @@ public class LostEditActivity extends AppCompatActivity {
         startActivityForResult(Intent.createChooser(intent, "Select File"), SELECT_FILE);
     } // End galleryIntent
 
-    private void cameraIntent() {
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
-        File photo = null;
-        try {
-            // place where to store camera taken picture
-            photo = this.createTemporaryFile("picture", ".jpg");
-            photo.delete();
-        } catch (Exception e) {
-            Log.v(TAG, "Can't create file to take picture!");
-            Toast.makeText(this, "sd카드를 확인해주세요", Toast.LENGTH_SHORT);
-        }
-        mImageUri = Uri.fromFile(photo);
-        Log.d(TAG, mImageUri.toString());
-        if (Build.VERSION.SDK_INT <= 19) {
-
-        } else {
-            intent.putExtra(MediaStore.EXTRA_OUTPUT, mImageUri);
-        }
-        startActivityForResult(intent, REQUEST_CAMERA);
-    } // End cameraIntent
-
-    private File createTemporaryFile(String part, String ext) throws Exception {
-        File tempDir = Environment.getExternalStorageDirectory();
-        tempDir = new File(tempDir.getAbsolutePath() + "/.temp/");
-        if (!tempDir.exists()) {
-            tempDir.mkdirs();
-        }
-        return File.createTempFile(part, ext, tempDir);
-    } // End CreateTemporaryFile
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

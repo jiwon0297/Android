@@ -38,6 +38,7 @@ public class LostResponse {
     private String content;
     private String type;
     private Date date;
+    private String url;
 
     public String getType() {return type;}
     public int getNumber() { return number;}
@@ -46,4 +47,5 @@ public class LostResponse {
     public String getCampus() { return campus;}
     public String getContent() { return content;}
     public Date getDate() { return date;}
+    public String getUrl() { return url;}
 }
