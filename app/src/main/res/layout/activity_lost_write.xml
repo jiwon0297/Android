@@ -75,14 +75,13 @@
             android:id="@+id/campusjj"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="죽전캠퍼스" />
+            android:text="죽전캠" />
 
         <RadioButton
             android:id="@+id/campusca"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="천안캠퍼스" />
+            android:text="천안캠" />
 
     </RadioGroup>
 
@@ -105,7 +104,6 @@
             android:id="@+id/radio0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="true"
             android:text="찾아요" />
 
         <RadioButton
@@ -166,7 +164,7 @@
 
 
     <Button
-        android:id="@+id/excute"
+        android:id="@+id/write"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
