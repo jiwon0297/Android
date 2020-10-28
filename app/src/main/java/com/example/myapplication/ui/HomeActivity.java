@@ -105,17 +105,6 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        Spinner s = (Spinner)findViewById(R.id.spinner);
-        s.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view,
-                                       int position, long id) {
-                cateText = (TextView)s.getSelectedView();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {}
-        });
-
         btn1 = (Button) findViewById(R.id.button36);
         btn2 = (Button) findViewById(R.id.button37);
         group1= (RadioGroup) findViewById(R.id.radioGroup1);

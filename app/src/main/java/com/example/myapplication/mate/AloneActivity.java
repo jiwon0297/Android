@@ -111,7 +111,6 @@ public class AloneActivity extends AppCompatActivity implements SwipeRefreshLayo
 
     private void startList(MateData data) {
         List<MateData> oData = new ArrayList<>();
-        ArrayList<MateData> arrayList = new ArrayList<>();
 
         service.matelist(data).enqueue(new Callback<MateResponse>() {
             @Override
@@ -134,7 +133,6 @@ public class AloneActivity extends AppCompatActivity implements SwipeRefreshLayo
                         oData.add(oItem);
                     }
                     listView = (ListView) findViewById(R.id.listView1);
-                    arrayList.addAll(oData);
                     MyAdapter oAdapter = new MyAdapter((ArrayList<MateData>) oData);
                     listView.setAdapter(oAdapter);
 
@@ -160,26 +158,13 @@ public class AloneActivity extends AppCompatActivity implements SwipeRefreshLayo
                     editsearch.addTextChangedListener(new TextWatcher() {
                         @Override
                         public void afterTextChanged(Editable arg0) {
-                            String text = editsearch.getText().toString().toLowerCase(Locale.getDefault());
-                            oData.clear();
-                            if(text.length()==0){
-                                oData.addAll(arrayList);
-                            } else {
-                                for (MateData a : arrayList) {
-                                    if (a.title.toLowerCase().contains(text)) {
-                                        MateData oItem = new MateData();
-                                        oItem.campus = a.campus;
-                                        oItem.title = a.title;
-                                        oItem.nickname = a.nickname;
-                                        oItem.date = a.date;
-                                        oItem.content = a.content;
-                                        oItem.number = a.number;
-                                        oItem.cate = a.cate;
-                                        oData.add(oItem);
-                                    }
-                                }
+                            String search = arg0.toString();
+                            if(search.length()>0){
+                                listView.setFilterText(search);
                             }
-                            oAdapter.notifyDataSetChanged();
+                            else{
+                                listView.clearTextFilter();
+                            }
                         }
 
                         @Override

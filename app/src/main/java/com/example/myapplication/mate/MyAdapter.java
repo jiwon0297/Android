@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
@@ -14,17 +16,18 @@ import com.example.myapplication.network.ServiceApi;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-public class MyAdapter extends BaseAdapter {
+public class MyAdapter extends BaseAdapter implements Filterable {
 
     Context context;
     LayoutInflater mLayoutInflater = null;
-    ArrayList<MateData> sample = null;
+    ArrayList<MateData> sample = new ArrayList<MateData>();
     private ServiceApi service;
-    private ArrayList<MateData> listItem = new ArrayList<MateData>();
+    private ArrayList<MateData> listItem = sample;
+    Filter listFilter;
 
-    private int nlistCnt=0;
+    private int nlistCnt = 0;
 
-    public MyAdapter(ArrayList<MateData> _data){
+    public MyAdapter(ArrayList<MateData> _data) {
         sample = _data;
         nlistCnt = sample.size();
     }
@@ -46,11 +49,9 @@ public class MyAdapter extends BaseAdapter {
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
-        if (convertView == null)
-        {
+        if (convertView == null) {
             final Context context = parent.getContext();
-            if (mLayoutInflater == null)
-            {
+            if (mLayoutInflater == null) {
                 mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             }
             convertView = mLayoutInflater.inflate(R.layout.matelist_item, parent, false);
@@ -79,6 +80,44 @@ public class MyAdapter extends BaseAdapter {
 
     }
 
+    @Override
+    public Filter getFilter() {
+        return listFilter;
+    }
+
+    private class ListFilter extends Filter {
+
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            FilterResults results = new FilterResults();
+            if (constraint == null || constraint.length() == 0) {
+                results.values = listItem;
+                results.count = listItem.size();
+            } else {
+                ArrayList<MateData> itemList = new ArrayList<>();
+                for (MateData item : listItem) {
+                    if (item.title.toUpperCase().contains(constraint.toString().toUpperCase()))
+                        itemList.add(item);
+                }
+                results.values = itemList;
+                results.count = itemList.size();
+            }
+
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+
+            sample = (ArrayList<MateData>) results.values;
+            if (results.count > 0) {
+                notifyDataSetChanged();
+            } else {
+                notifyDataSetInvalidated();
+            }
+        }
+
 
     }
+}
 
