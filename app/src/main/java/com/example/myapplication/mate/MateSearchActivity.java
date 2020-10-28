@@ -45,12 +45,11 @@ public class MateSearchActivity extends AppCompatActivity {
         searchtitle.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View view, int i, KeyEvent keyEvent) {
-                switch (i){
-                    case KeyEvent.KEYCODE_ENTER:
-                        //event
-                        attemptList();
+                if ((keyEvent.getAction() == KeyEvent.ACTION_DOWN) && (i == KeyEvent.KEYCODE_ENTER)){
+                    attemptList();
+                    return true;
                 }
-                return true;
+                return false;
             }
         });
 
@@ -140,6 +139,28 @@ public class MateSearchActivity extends AppCompatActivity {
                 showProgress(false);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        if(getIntent().getStringExtra("CATE").equals("혼밥")){
+            Intent intent = new Intent(MateSearchActivity.this, AloneActivity.class);
+            intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
+            MateSearchActivity.this.startActivity(intent);
+        } else if(getIntent().getStringExtra("CATE").equals("공모전")){
+            Intent intent = new Intent(MateSearchActivity.this, ContestActivity.class);
+            intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
+            MateSearchActivity.this.startActivity(intent);
+        } else if(getIntent().getStringExtra("CATE").equals("스터디")){
+            Intent intent = new Intent(MateSearchActivity.this, StudyActivity.class);
+            intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
+            MateSearchActivity.this.startActivity(intent);
+        } else if(getIntent().getStringExtra("CATE").equals("하우스")){
+            Intent intent = new Intent(MateSearchActivity.this, HouseActivity.class);
+            intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
+            MateSearchActivity.this.startActivity(intent);
+        }
     }
 
     private boolean isSearchTitleValid(String title) {
