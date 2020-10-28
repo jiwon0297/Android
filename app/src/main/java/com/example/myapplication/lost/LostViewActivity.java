@@ -206,6 +206,42 @@ public class LostViewActivity extends AppCompatActivity {
             }
         });
 
+        writer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                String writer = getIntent().getStringExtra("NICKNAME_EXTRA2");
+                String user = getIntent().getStringExtra("NICKNAME_EXTRA");
+                if(writer.equals(user)){
+                    new AlertDialog.Builder(LostViewActivity.this)
+                            .setMessage("본인에게는 쪽지를 보낼 수 없습니다.")
+                            .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which){
+                                    dialog.cancel();
+                                }
+                            })
+                            .show();
+                } else {
+                    new AlertDialog.Builder(LostViewActivity.this)
+                            .setTitle("쪽지보내기")
+                            .setMessage("작성자에게 쪽지를 보내시겠습니까?")
+                            .setPositiveButton("예", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which){
+                                    Intent intent = new Intent(LostViewActivity.this, SendMessageActivity.class);
+                                    intent.putExtra("SENDER", user);
+                                    intent.putExtra("RECIPIENT", writer);
+                                    startActivity(intent);
+                                }
+                            })
+                            .setNegativeButton("아니요", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which){
+                                    dialog.cancel();
+                                }
+                            })
+                            .show();
+                }
+            }
+        });
+
         ImageButton refreshbutton = (ImageButton) findViewById(R.id.refreshbtn);
         refreshbutton.setOnClickListener(new View.OnClickListener() {
             @Override

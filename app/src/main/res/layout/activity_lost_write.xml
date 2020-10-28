@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:windowSoftInputMode="adjustPan"
     tools:context=".lost.LostWriteActivity">
 
     <TextView
@@ -14,8 +15,9 @@
         android:layout_marginTop="34dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="34dp"
+        android:fontFamily="@font/lottemarthappybold"
         android:text="글 작성하기"
-        android:textSize="100px"
+        android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/username"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageButton1"
@@ -42,30 +44,36 @@
 
     <EditText
         android:id="@+id/title"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="360dp"
+        android:layout_height="49dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="24dp"
-        android:background="#F6F2FF"
-        android:hint="  제목"
+        android:background="#65DEE4F6"
+        android:hint="제목"
         android:inputType="text"
         android:selectAllOnFocus="true"
-        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        android:fontFamily="@font/lottemartdreamlight"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 
     <RadioGroup
         android:id="@+id/campusgroup"
         android:layout_width="360dp"
-        android:layout_height="30dp"
-        android:layout_gravity="center_horizontal"
+        android:layout_height="49dp"
+        android:fontFamily="@font/lottemartdreamlight"
+        android:gravity="center_horizontal"
+        android:textSize="30sp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
-        android:background="#F6F2FF"
+        android:background="#65DEE4F6"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,27 +81,34 @@
 
         <RadioButton
             android:id="@+id/campusjj"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="죽전캠" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/lottemartdreamlight"
+            android:layout_weight="1"
+            android:text="죽전캠"
+            android:textSize="22sp" />
 
         <RadioButton
             android:id="@+id/campusca"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="천안캠" />
-
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/lottemartdreamlight"
+            android:layout_weight="1"
+            android:text="천안캠"
+            android:textSize="22sp" />
     </RadioGroup>
 
     <RadioGroup
         android:id="@+id/typeGroup"
         android:layout_width="360dp"
-        android:layout_height="30dp"
-        android:layout_gravity="center_horizontal"
+        android:layout_height="49dp"
+        android:fontFamily="@font/lottemartdreamlight"
+        android:gravity="center_horizontal"
+        android:textSize="30sp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
-        android:background="#F6F2FF"
+        android:background="#65DEE4F6"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -102,28 +117,39 @@
 
         <RadioButton
             android:id="@+id/radio0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/lottemartdreamlight"
+            android:layout_weight="1"
+            android:textSize="22sp"
             android:text="찾아요" />
 
         <RadioButton
             android:id="@+id/radio1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/lottemartdreamlight"
+            android:layout_weight="1"
+            android:textSize="22sp"
             android:text="주웠어요" />
     </RadioGroup>
 
     <EditText
         android:id="@+id/content"
-        android:layout_width="362dp"
-        android:layout_height="315dp"
+        android:layout_width="360dp"
+        android:layout_height="350dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
-        android:background="#F6F2FF"
-        android:hint="  내용을 입력하세요."
-        android:inputType="text"
+        android:background="#65DEE4F6"
+        android:fontFamily="@font/lottemartdreamlight"
+        android:gravity="center"
+        android:hint="내용을 입력하세요."
+        android:inputType="textMultiLine"
+        android:scrollHorizontally="false"
         android:selectAllOnFocus="true"
+        android:textAlignment="center"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/typeGroup" />
@@ -162,6 +188,37 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
+    <LinearLayout
+        android:id="@+id/linearLayout9"
+        android:layout_width="360dp"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/write"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/content">
+
+        <Button
+            android:id="@+id/getImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="사진 가져오기"
+            android:layout_gravity="center"
+            android:backgroundTint="#D2DCEA"
+            android:gravity="center"
+            android:layout_marginStart="25dp"
+            tools:layout_editor_absoluteX="41dp"
+            tools:layout_editor_absoluteY="602dp" />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="25dp"
+            android:layout_gravity="right"
+            android:background="#333333"
+            app:layout_constraintHorizontal_bias="1.0" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/write"
@@ -169,56 +226,17 @@
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="148dp"
         android:layout_marginEnd="24dp"
+        android:background="@drawable/btncustom"
+        android:backgroundTint="#D2DCEA"
         android:enabled="true"
         android:text="작성"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/content" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="176dp"
-        android:orientation="horizontal"
+        android:fontFamily="@font/lottemartdreammedium"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/excute">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginEnd="50dp"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageView1"
-            app:layout_constraintHorizontal_bias="0.482"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintVertical_bias="0.296">
-
-            <Button
-                android:id="@+id/getImg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="GET IMAGE"
-                tools:layout_editor_absoluteX="41dp"
-                tools:layout_editor_absoluteY="602dp" />
-
-        </LinearLayout>
-
-        <ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="#333333"
-            app:layout_constraintHorizontal_bias="1.0" />
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout9" />
 
     <TextView
         android:id="@+id/campus"

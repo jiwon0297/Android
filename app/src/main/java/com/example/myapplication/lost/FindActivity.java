@@ -11,12 +11,15 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.myapplication.Join.JoinData;
 import com.example.myapplication.R;
+import com.example.myapplication.mate.AloneActivity;
+import com.example.myapplication.mate.MateActivity;
 import com.example.myapplication.mate.MateData;
 import com.example.myapplication.mate.MateViewActivity;
 import com.example.myapplication.mate.MateWriteActivity;
@@ -60,6 +63,20 @@ public class FindActivity extends AppCompatActivity implements SwipeRefreshLayou
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new FindActivity.ItemSelectedListener());
 
+        ImageButton backbutton = (ImageButton) findViewById(R.id.imageButton);
+        backbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(FindActivity.this, LostActivity.class);
+                startActivity(intent);
+            }
+        });
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
     }
 
     @Override

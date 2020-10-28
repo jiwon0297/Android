@@ -16,7 +16,7 @@
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="34dp"
         android:fontFamily="@font/lottemarthappybold"
-        android:text="쪽지함"
+        android:text="쪽지"
         android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/username"
         app:layout_constraintEnd_toEndOf="parent"

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:windowSoftInputMode="adjustPan"
     android:background="#FFFFFF"
     android:focusable="true"
     android:focusableInTouchMode="true"
@@ -135,7 +136,7 @@
 
         <RadioButton
             android:id="@+id/campusjj"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="@font/lottemartdreamlight"
             android:layout_weight="1"
@@ -144,8 +145,8 @@
 
         <RadioButton
             android:id="@+id/campusca"
-            android:layout_width="0dp"
-            android:layout_height="49dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:fontFamily="@font/lottemartdreamlight"
             android:layout_weight="1"
             android:text="천안캠"
