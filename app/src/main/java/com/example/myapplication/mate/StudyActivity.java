@@ -7,10 +7,13 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -24,6 +27,7 @@ import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -131,6 +135,7 @@ public class StudyActivity extends AppCompatActivity implements SwipeRefreshLayo
 
     private void startList(MateData data) {
         List<MateData> oData = new ArrayList<>();
+        ArrayList<MateData> arrayList = new ArrayList<>();
 
         service.matelist(data).enqueue(new Callback<MateResponse>() {
             @Override
@@ -141,7 +146,7 @@ public class StudyActivity extends AppCompatActivity implements SwipeRefreshLayo
 
                 if (result.getCode() == 200) {
                     MateResponse sample = result;
-                    for (MateResponse a :sample.getResult() ){
+                    for (MateResponse a : sample.getResult()) {
                         MateData oItem = new MateData();
                         oItem.campus = a.getCampus();
                         oItem.title = a.getTitle();
@@ -152,13 +157,14 @@ public class StudyActivity extends AppCompatActivity implements SwipeRefreshLayo
                         oItem.cate = a.getCate();
                         oData.add(oItem);
                     }
-                    listView = (ListView)findViewById(R.id.listView1);
+                    listView = (ListView) findViewById(R.id.listView1);
+                    arrayList.addAll(oData);
                     MyAdapter oAdapter = new MyAdapter((ArrayList<MateData>) oData);
                     listView.setAdapter(oAdapter);
 
-                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
-                        public void onItemClick(AdapterView parent, View v, int position, long id){
+                        public void onItemClick(AdapterView parent, View v, int position, long id) {
                             Intent intent = new Intent(getApplicationContext(), MateViewActivity.class);
                             intent.putExtra("CATE_EXTRA", oData.get(position).cate);
                             intent.putExtra("NUMBER_EXTRA", oData.get(position).number);
@@ -171,7 +177,27 @@ public class StudyActivity extends AppCompatActivity implements SwipeRefreshLayo
                             startActivity(intent);
                         }
                     });
+
+                    listView.setTextFilterEnabled(true);
+                    EditText editsearch = (EditText) findViewById(R.id.editSearch);
+                    editsearch.addTextChangedListener(new TextWatcher() {
+                        @Override
+                        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                        }
+                        @Override
+                        public void onTextChanged (CharSequence s,int start, int before, int count){
+                            listView.setFilterText(editsearch.getText().toString());
+                        }
+                        @Override
+                        public void afterTextChanged (Editable s){
+                            if(editsearch.getText().length() == 0) {
+                                listView.clearTextFilter();
+                            }
+                        }
+                    });
                 }
+
             }
 
             @Override

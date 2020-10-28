@@ -42,21 +42,33 @@ tools:context=".mate.StudyActivity">
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
+    <EditText
+        android:id="@+id/editSearch"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="검색어를 입력하세요."
+        android:textSize="23sp"
+        android:textAlignment="center"
+        android:background="#F6F2FF"
+        app:layout_constraintBottom_toTopOf="@+id/swipeRefresh"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView"/>
+
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefresh"
         android:layout_width="412dp"
-        android:layout_height="630dp"
+        android:layout_height="600dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView">
+        app:layout_constraintTop_toBottomOf="@id/editSearch">
 
         <ListView
             android:id="@+id/listView1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
             android:background="#F6F2FF"
             android:fontFamily="@font/lottemartdreamlight"
             app:layout_constraintHorizontal_bias="0.0"
