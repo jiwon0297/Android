@@ -7,11 +7,9 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RadioGroup;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,7 +39,6 @@ import com.example.myapplication.restaurant.cheonan.korean.BuanActivity;
 import com.example.myapplication.restaurant.cheonan.korean.CheonhojiActivity;
 import com.example.myapplication.restaurant.cheonan.korean.GobgobgobActivity;
 import com.example.myapplication.restaurant.cheonan.western.BabalabActivity;
-import com.example.myapplication.restaurant.cheonan.western.RossiActivity;
 import com.example.myapplication.restaurant.cheonan.western.SubmealActivity;
 import com.example.myapplication.restaurant.cheonan.western.SungtanActivity;
 import com.example.myapplication.restaurant.jukjeon.cafe.AzitActivity;
@@ -417,7 +414,7 @@ public class HomeActivity extends AppCompatActivity {
                                                     }
                                                 });
                                                 break;
-                                            case "솔레일":
+                                            case "쏠레이":
                                                 btn1.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, SoleilActivity.class);
@@ -585,14 +582,6 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn2.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, BabalabActivity.class);
-                                                        startActivity(intent);
-                                                    }
-                                                });
-                                                break;
-                                            case "로씨":
-                                                btn2.setOnClickListener(new View.OnClickListener(){
-                                                    public void onClick(View v){
-                                                        Intent intent = new Intent(HomeActivity.this, RossiActivity.class);
                                                         startActivity(intent);
                                                     }
                                                 });

@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
+import com.example.myapplication.restaurant.map.MapFragmentActivity;
 import com.example.myapplication.ui.HomeActivity;
 import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
@@ -32,6 +34,8 @@ public class HeungbuActivity extends AppCompatActivity implements ExpandableList
             {"짜장밥 7,000원","짬뽕밥 7,000원","볶음밥 7,000원","오므라이스 7,000원","갈비탕 7,000원","육개장 7,000원","제육덮밥 7,000원","오징어덮밥 8,000원","송이덮밥 8,000원","잡채밥 8,000원","마파두부밥 8,000원","새우볶음밥 8,000원","삼선볶음밥 8,000원","유산슬밥 10,000원","고추잡채밥 10,000원","잡탕밥 10,000원","삼선짬뽕밥 9,000원","고추짬뽕밥 9,000원","삼선폭탄짬뽕밥\n(보통) 9,000원\n(곱빼기) 11,000원","공기밥 추가 1,000원"},
             {"탕수육\n(소) 15,000원\n(중) 20,000원\n(대) 25,000원","잡채 20,000원","깐풍기 30,000원","고추잡채 30,000원","팔보채 30,000원","양장피 30,000원","잡탕 30,000원","유산슬 30,000원","깐쇼새우 30,000원"}};
 
+    private Button map_button;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +46,16 @@ public class HeungbuActivity extends AppCompatActivity implements ExpandableList
         listView.setAdapter(listAdapter);
         listView.setOnGroupClickListener(this);
         listView.setOnChildClickListener(this);
+
+        map_button = findViewById(R.id.map_button);
+
+        map_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HeungbuActivity.this, MapFragmentActivity.class);
+                startActivity(intent);
+            }
+        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new HeungbuActivity.ItemSelectedListener());

@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
+import com.example.myapplication.restaurant.map.MapFragmentActivity;
 import com.example.myapplication.ui.HomeActivity;
 import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
@@ -31,6 +33,8 @@ public class GomeActivity extends AppCompatActivity implements ExpandableListVie
             {"제철과일 주스 7.0\n (토마토/키위/딸기/오렌지/바나나/오렌지&자몽/딸기&바나나)","복숭아 아이스티 5.5","에이드  6.5\n(수제 레몬/수제 꿀자몽/문경오미자차/청포도)","초코쿠키라떼 5.5","초코라떼 5.5","고구마라떼 5.5","녹차라떼 5.5","딸기라떼 7.0","로열밀크티 6.5"},
             {"후르츠 모히또(패션후르츠/스트로베리/라임) 6.5","콕(체리/레몬) 6.5"}};
 
+    private Button map_button;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +45,16 @@ public class GomeActivity extends AppCompatActivity implements ExpandableListVie
         listView.setAdapter(listAdapter);
         listView.setOnGroupClickListener(this);
         listView.setOnChildClickListener(this);
+
+        map_button = findViewById(R.id.map_button);
+
+        map_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GomeActivity.this, MapFragmentActivity.class);
+                startActivity(intent);
+            }
+        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new GomeActivity.ItemSelectedListener());

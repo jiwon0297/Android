@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
+import com.example.myapplication.restaurant.map.MapFragmentActivity;
 import com.example.myapplication.ui.HomeActivity;
 import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
@@ -31,6 +33,8 @@ public class SlowActivity extends AppCompatActivity implements ExpandableListVie
             {"카모마일 4,000원","얼 그레이 4,000원","밀크 티 5,000원","트리플 초콜릿 5,000원","그린티 라떼 5,000원","플레인 요거트 6,000원","레몬에이드 6,000원","오렌지 주스 6,000원","토마토 주스 6,000원","그레이트프룻 블랙티 5,000원"},
             {"당근 케이크 6,000원","치즈 케이크 6,000원","브라우니 5,000원","파운드 케이크 3,000원"}};
 
+    private Button map_button;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +45,16 @@ public class SlowActivity extends AppCompatActivity implements ExpandableListVie
         listView.setAdapter(listAdapter);
         listView.setOnGroupClickListener(this);
         listView.setOnChildClickListener(this);
+
+        map_button = findViewById(R.id.map_button);
+
+        map_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SlowActivity.this, MapFragmentActivity.class);
+                startActivity(intent);
+            }
+        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new SlowActivity.ItemSelectedListener());

@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
+import com.example.myapplication.restaurant.map.MapFragmentActivity;
 import com.example.myapplication.ui.HomeActivity;
 import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
@@ -32,6 +34,8 @@ public class MadangActivity extends AppCompatActivity implements ExpandableListV
                     "어린이세트(1인) 11,000원\n초밥 8pcs + 치즈스틱 3pcs + 미니우동 1","덤앤덤세트A(1인) 12,000원\n순살돈까스 + 초밥 5pcs + 미니우동 1","덤앤덤세트B(1인) 13,000원\n이탈리안돈까스 + 초밥 5pcs + 미니우동 1","돈까스&뽁밥세트A(2인) 17,000원\n순살돈까스 + 낙지볶음밥 + 미니우동 2","돈까스&뽁밥세트B(2인) 17,500원\n이탈리안돈까스 + 새우볶음밥 + 미니우동 2",
             "알밥&우동세트(1인) 8,000원\n알밥 + 미니우동 1","덮밥&우동세트(1인) 8,500원\n회덮밥 + 미니우동 1","뽁밥&우동세트(1인) 8,000원\n낙지볶음밥 + 미니우동 1"}};
 
+    private Button map_button;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +46,16 @@ public class MadangActivity extends AppCompatActivity implements ExpandableListV
         listView.setAdapter(listAdapter);
         listView.setOnGroupClickListener(this);
         listView.setOnChildClickListener(this);
+
+        map_button = findViewById(R.id.map_button);
+
+        map_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MadangActivity.this, MapFragmentActivity.class);
+                startActivity(intent);
+            }
+        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new MadangActivity.ItemSelectedListener());

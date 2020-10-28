@@ -95,11 +95,40 @@ public class MapFragmentActivity extends AppCompatActivity implements OnMapReady
         uiSettings.setLocationButtonEnabled(true);
 
         markersPosition = new Vector<LatLng>();
-        markersPosition.add(new LatLng(37.5670135, 126.9783740));
-        markersPosition.add(new LatLng(14151438.8512501, 4484205.1367426));
-        markersPosition.add(new LatLng(14151563.9571675, 4484369.0583384));
-        markersPosition.add(new LatLng(14151049.7987194, 4484364.5796063));
-        markersPosition.add(new LatLng(14150892.1473485, 4484398.0208062));
+        markersPosition.add(new LatLng(37.25488986581125, 127.07789554016432));
+        markersPosition.add(new LatLng(37.324048, 127.125056)); //Cafe다락다락방
+        markersPosition.add(new LatLng(37.323863,127.1242992)); //위치스아일랜드
+        markersPosition.add(new LatLng(37.322791, 127.124997)); //아지트커피
+        markersPosition.add(new LatLng(37.323569, 127.123933)); //이디야커피
+        markersPosition.add(new LatLng(37.323337, 127.124172)); //쏠레이
+        markersPosition.add(new LatLng(37.322785, 127.124700)); //CAFE TRIANON
+        markersPosition.add(new LatLng(37.322936, 127.124883)); //크리에이티브커피
+        markersPosition.add(new LatLng(37.323215, 127.123435)); //일미닭갈비파전
+        markersPosition.add(new LatLng(37.323598, 127.123226)); //손가네칼국수
+        markersPosition.add(new LatLng(37.324104, 127.125433)); //엉뚱상상
+        markersPosition.add(new LatLng(37.323002, 127.124560)); //고래심줄
+        markersPosition.add(new LatLng(37.322992, 127.125071)); //선영이네김치짜글이
+        markersPosition.add(new LatLng(37.323113, 127.123051)); //이모네산골
+        markersPosition.add(new LatLng(37.323079, 127.123522)); //맛의전쟁
+        markersPosition.add(new LatLng(37.323526, 127.124231)); //빨강파이프
+        markersPosition.add(new LatLng(37.324306, 127.125981)); //해피덮
+        markersPosition.add(new LatLng(37.324303, 127.125422)); //내가찜한닭
+        markersPosition.add(new LatLng(37.325495, 127.125318)); //참바지락칼제비
+        markersPosition.add(new LatLng(37.325471, 127.125308)); //홍춘
+        markersPosition.add(new LatLng(37.323494, 127.124765)); //천향마라탕
+        markersPosition.add(new LatLng(37.324192, 127.126048)); //사부
+        markersPosition.add(new LatLng(37.323438, 127.124013)); //홍콩반점0410
+        markersPosition.add(new LatLng(37.323631, 127.123232)); //호식당
+        markersPosition.add(new LatLng(37.323289, 127.124328)); //아리가또맘마
+        markersPosition.add(new LatLng(37.323173, 127.123912)); //우메다
+        markersPosition.add(new LatLng(37.323922, 127.124462)); //겐코
+        markersPosition.add(new LatLng(37.323472, 127.123763)); //미소야
+        markersPosition.add(new LatLng(37.323609, 127.123182)); //브라더 양식당
+        markersPosition.add(new LatLng(37.323735, 127.124693)); //그란데
+        markersPosition.add(new LatLng(37.324368, 127.127040)); //다린
+        markersPosition.add(new LatLng(37.324612, 127.125314)); //오블리끄
+        markersPosition.add(new LatLng(323003, 127.123629)); //부리또 정거장
+        markersPosition.add(new LatLng(323618, 127.124013)); //도스마스
 
         // 카메라 이동 되면 호출 되는 이벤트
         naverMap.addOnCameraChangeListener(new NaverMap.OnCameraChangeListener() {

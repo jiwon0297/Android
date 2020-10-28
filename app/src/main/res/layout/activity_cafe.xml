@@ -144,7 +144,7 @@
                 android:fadingEdge="horizontal|vertical"
                 android:fontFamily="@font/kyobo"
                 android:onClick="soleil"
-                android:text="솔레일"
+                android:text="쏠레이"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/button14"
                 app:layout_constraintEnd_toStartOf="@+id/button12"

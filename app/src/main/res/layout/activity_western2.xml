@@ -82,17 +82,6 @@
                 android:background="#00ff0000"
                 android:textSize="20sp" />
 
-            <Button
-                android:layout_width="410dp"
-                android:layout_height="120dp"
-                android:clickable="true"
-                android:fontFamily="monospace"
-                android:onClick="rossi"
-                android:text="로씨"
-                android:background="#00ff0000"
-                android:textSize="20sp" />
-
-
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

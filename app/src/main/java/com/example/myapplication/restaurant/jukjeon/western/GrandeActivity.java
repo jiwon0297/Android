@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
+import com.example.myapplication.restaurant.map.MapFragmentActivity;
 import com.example.myapplication.ui.HomeActivity;
 import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
@@ -32,6 +34,8 @@ public class GrandeActivity extends AppCompatActivity implements ExpandableListV
             {"Ricotta calzone(리코타 깔쵸네) 18.0","Caprese(카프레제) 18.0","Insalata di funghi(풍기 샐러드) 18.0","Insalata di manzo(만조 샐러드) 19.0","Gyros(기로스) 19.0"},
             {"Aglio e olio(알리오 올리오) 15.0","Carbonara(까르보나라) 16.0","Bolonese(볼로네제) 17.0","Buffalo(버팔로) 17.0","Vongole e vino bianco(봉골레) 18.0","Mare(마레) 18.0","Seafood paella(해산물 빠에야) 17.0","Risotto di mare(리조또 마레) 18.0","Real Madrid(리얼 마드리드) 19.0","Pane di Seafood(빠네) 19.0","Hangover(행오버) 19.0","Granchio con rosa(그란치오) 19.0"}};
 
+    private Button map_button;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +46,16 @@ public class GrandeActivity extends AppCompatActivity implements ExpandableListV
         listView.setAdapter(listAdapter);
         listView.setOnGroupClickListener(this);
         listView.setOnChildClickListener(this);
+
+        map_button = findViewById(R.id.map_button);
+
+        map_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GrandeActivity.this, MapFragmentActivity.class);
+                startActivity(intent);
+            }
+        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new GrandeActivity.ItemSelectedListener());

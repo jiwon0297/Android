@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
+import com.example.myapplication.restaurant.map.MapFragmentActivity;
 import com.example.myapplication.ui.HomeActivity;
 import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
@@ -28,6 +30,8 @@ public class JjimActivity extends AppCompatActivity implements ExpandableListVie
     String[][] childs={{"치즈순살찜달\n小 21,000원\n中 30,000원\n大 39,000원","순살안동찜닭\n小 18,000원\n中 27,000원\n大36,000원","순살고추장찜닭\n小 18,000원\n中 27,000원\n大36,000원","뼈있는 안동찜닭\n小 18,000원\n中 27,000원\n大 36,000원","뼈있는 고추장찜닭\n小 18,000원\n中 27,000원\n大36,000원"},
             {"공기밥 1,000원","콜라(500mL) 1,500원","사이다(500mL) 1,500원","콜라(1.25) 2,500원","사이다(1.5L) 2,500원"}};
 
+    private Button map_button;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +42,16 @@ public class JjimActivity extends AppCompatActivity implements ExpandableListVie
         listView.setAdapter(listAdapter);
         listView.setOnGroupClickListener(this);
         listView.setOnChildClickListener(this);
+
+        map_button = findViewById(R.id.map_button);
+
+        map_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(JjimActivity.this, MapFragmentActivity.class);
+                startActivity(intent);
+            }
+        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new JjimActivity.ItemSelectedListener());
