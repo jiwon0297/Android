@@ -166,13 +166,6 @@ public class LostEditActivity extends AppCompatActivity {
             }
         }
 
-        uploadBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                selectBtn(view);
-
-            }
-        });
         selectBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

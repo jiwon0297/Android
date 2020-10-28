@@ -8,10 +8,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -34,6 +37,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -107,6 +111,7 @@ public class AloneActivity extends AppCompatActivity implements SwipeRefreshLayo
 
     private void startList(MateData data) {
         List<MateData> oData = new ArrayList<>();
+        ArrayList<MateData> arrayList = new ArrayList<MateData>();
 
         service.matelist(data).enqueue(new Callback<MateResponse>() {
             @Override
@@ -117,7 +122,7 @@ public class AloneActivity extends AppCompatActivity implements SwipeRefreshLayo
 
                 if (result.getCode() == 200) {
                     MateResponse sample = result;
-                    for (MateResponse a :sample.getResult() ){
+                    for (MateResponse a : sample.getResult()) {
                         MateData oItem = new MateData();
                         oItem.campus = a.getCampus();
                         oItem.title = a.getTitle();
@@ -128,13 +133,13 @@ public class AloneActivity extends AppCompatActivity implements SwipeRefreshLayo
                         oItem.cate = a.getCate();
                         oData.add(oItem);
                     }
-                    listView = (ListView)findViewById(R.id.listView1);
+                    listView = (ListView) findViewById(R.id.listView1);
                     MyAdapter oAdapter = new MyAdapter((ArrayList<MateData>) oData);
                     listView.setAdapter(oAdapter);
 
-                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
-                        public void onItemClick(AdapterView parent, View v, int position, long id){
+                        public void onItemClick(AdapterView parent, View v, int position, long id) {
                             SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                             String datetext = transFormat.format(oData.get(position).date);
                             Intent intent = new Intent(getApplicationContext(), MateViewActivity.class);
@@ -147,6 +152,46 @@ public class AloneActivity extends AppCompatActivity implements SwipeRefreshLayo
                             intent.putExtra("CAMPUS_EXTRA", oData.get(position).campus);
                             intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
                             startActivity(intent);
+                        }
+                    });
+
+                    EditText editsearch = (EditText) findViewById(R.id.editSearch);
+                    editsearch.addTextChangedListener(new TextWatcher() {
+                        @Override
+                        public void afterTextChanged(Editable arg0) {
+                            String text = editsearch.getText().toString().toLowerCase(Locale.getDefault());
+                            oData.clear();
+                            if(text.length()==0){
+                                oData.addAll(arrayList);
+                            } else {
+                                MateResponse sample = result;
+                                for (MateResponse a : sample.getResult()) {
+                                    if (sample.getTitle().toLowerCase().contains(text)) {
+                                        MateData oItem = new MateData();
+                                        oItem.campus = a.getCampus();
+                                        oItem.title = a.getTitle();
+                                        oItem.nickname = a.getNickname();
+                                        oItem.date = a.getDate();
+                                        oItem.content = a.getContent();
+                                        oItem.number = a.getNumber();
+                                        oItem.cate = a.getCate();
+                                        oData.add(oItem);
+                                    }
+                                }
+                            }
+                            oAdapter.notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public void beforeTextChanged(CharSequence arg0, int arg1,
+                                                      int arg2, int arg3) {
+                            // TODO Auto-generated method stub
+                        }
+
+                        @Override
+                        public void onTextChanged(CharSequence arg0, int arg1, int arg2,
+                                                  int arg3) {
+                            // TODO Auto-generated method stub
                         }
                     });
                 }
