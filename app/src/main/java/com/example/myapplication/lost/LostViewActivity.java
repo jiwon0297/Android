@@ -6,6 +6,8 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -16,6 +18,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.ProgressBar;
@@ -42,6 +45,9 @@ import com.example.myapplication.network.RetrofitClient;
 import com.example.myapplication.network.ServiceApi;
 import com.example.myapplication.ui.SendMessageActivity;
 
+import java.io.BufferedInputStream;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,6 +61,9 @@ public class LostViewActivity extends AppCompatActivity {
     private ProgressBar mProgressView;
     private ListView listView = null;
 
+    ImageView imageview;
+    String URI;
+
     SwipeRefreshLayout mSwipeRefreshLayout;
 
     @Override
@@ -67,6 +76,7 @@ public class LostViewActivity extends AppCompatActivity {
         TextView content = (TextView) findViewById(R.id.content);
         TextView date = (TextView) findViewById(R.id.date);
         EditText commentcontent = (EditText) findViewById(R.id.commenttext);
+        TextView urlText = (TextView) findViewById(R.id.url);
 
         mProgressView = (ProgressBar) findViewById(R.id.progressBar);
         service = RetrofitClient.getClient().create(ServiceApi.class);
@@ -76,6 +86,23 @@ public class LostViewActivity extends AppCompatActivity {
         writer.setText(getIntent().getStringExtra("NICKNAME_EXTRA2"));
         content.setText(getIntent().getStringExtra("CONTENT_EXTRA"));
         date.setText(getIntent().getStringExtra("DATE_EXTRA"));
+        urlText.setText(getIntent().getStringExtra("URL_EXTRA"));
+
+        imageview = (ImageView) findViewById(R.id.image);
+
+        URI = urlText.getText().toString();
+        if (URI != ""){
+            try {
+                URL url = new URL(URI);
+                URLConnection conn = url.openConnection();
+                conn.connect();
+                BufferedInputStream bis = new BufferedInputStream(conn.getInputStream());
+                Bitmap bm = BitmapFactory.decodeStream(bis);
+                bis.close();
+                imageview.setImageBitmap(bm);
+            } catch (Exception e) {
+            }
+        }
 
         ImageButton backButton = (ImageButton) findViewById(R.id.imageButton1);
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -128,6 +155,7 @@ public class LostViewActivity extends AppCompatActivity {
                     intent.putExtra("CONTENT_EXTRA", content.getText().toString());
                     intent.putExtra("NUMBER_EXTRA", getIntent().getIntExtra("NUMBER_EXTRA",1));
                     intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
+                    intent.putExtra("URL_EXTRA", getIntent().getStringExtra("URL_EXTRA"));
                     LostViewActivity.this.startActivity(intent);
                 } else {
                     new AlertDialog.Builder(LostViewActivity.this)

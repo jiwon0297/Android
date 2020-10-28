@@ -134,6 +134,14 @@ public class LostWriteActivity extends AppCompatActivity {
         writeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
+                TransferObserver observer = transferUtility.upload(
+                        "android12",
+                        f.getName(),
+                        f
+                );
+                URI = f.getName();
+                urlText.setText(URI);
+
                 attemptWrite();
             }
         });
@@ -562,7 +570,7 @@ public class LostWriteActivity extends AppCompatActivity {
         String content = contentText.getText().toString();
         String campus = campusText.getText().toString();
         String type = typeText.getText().toString();
-        String url = "hello";
+        String url = "";
 
         boolean cancel = false;
         View focusView = null;

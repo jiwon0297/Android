@@ -49,12 +49,15 @@ import com.example.myapplication.network.RealPathUtil;
 import com.example.myapplication.network.RetrofitClient;
 import com.example.myapplication.network.ServiceApi;
 
+import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URL;
+import java.net.URLConnection;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -115,6 +118,8 @@ public class LostEditActivity extends AppCompatActivity {
         typeGroup.setOnCheckedChangeListener(radioGroupButtonChangeListener);
         typeText = (TextView) findViewById(R.id.type);
         typeText.setText(getIntent().getStringExtra("TYPE_EXTRA"));
+        urlText = (TextView) findViewById(R.id.url);
+        urlText.setText(getIntent().getStringExtra("URL_EXTRA"));
         mProgressView = (ProgressBar) findViewById(R.id.progressBar2);
 
         service = RetrofitClient.getClient().create(ServiceApi.class);
@@ -131,6 +136,14 @@ public class LostEditActivity extends AppCompatActivity {
         excuteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
+                TransferObserver observer = transferUtility.upload(
+                        "android12",
+                        f.getName(),
+                        f
+                );
+                URI = f.getName();
+                urlText.setText(URI);
+
                 attemptEdit();
             }
         });
@@ -140,7 +153,19 @@ public class LostEditActivity extends AppCompatActivity {
         selectBtn = (Button) findViewById(R.id.getImg);
         imageview = (ImageView) findViewById(R.id.imageView1);
 
-        urlText = (TextView) findViewById(R.id.url);
+        URI = urlText.getText().toString();
+        if (URI != ""){
+            try {
+                URL url = new URL(URI);
+                URLConnection conn = url.openConnection();
+                conn.connect();
+                BufferedInputStream bis = new BufferedInputStream(conn.getInputStream());
+                Bitmap bm = BitmapFactory.decodeStream(bis);
+                bis.close();
+                imageview.setImageBitmap(bm);
+            } catch (Exception e) {
+            }
+        }
 
         uploadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
