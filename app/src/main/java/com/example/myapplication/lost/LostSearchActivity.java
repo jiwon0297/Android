@@ -16,6 +16,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.myapplication.R;
+import com.example.myapplication.mate.AloneActivity;
+import com.example.myapplication.mate.ContestActivity;
+import com.example.myapplication.mate.HouseActivity;
+import com.example.myapplication.mate.MateSearchActivity;
+import com.example.myapplication.mate.StudyActivity;
 import com.example.myapplication.network.RetrofitClient;
 import com.example.myapplication.network.ServiceApi;
 
@@ -45,12 +50,11 @@ public class LostSearchActivity extends AppCompatActivity {
         searchtitle.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View view, int i, KeyEvent keyEvent) {
-                switch (i){
-                    case KeyEvent.KEYCODE_ENTER:
-                        //event
-                        attemptList();
+                if ((keyEvent.getAction() == KeyEvent.ACTION_DOWN) && (i == KeyEvent.KEYCODE_ENTER)){
+                    attemptList();
+                    return true;
                 }
-                return true;
+                return false;
             }
         });
         ImageButton searchbtn = (ImageButton) findViewById(R.id.searchButton);
@@ -77,6 +81,20 @@ public class LostSearchActivity extends AppCompatActivity {
         } else {
             startList(new LostSearchData(type,title));
             showProgress(true);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        if(getIntent().getStringExtra("TYPE").equals("혼밥")){
+            Intent intent = new Intent(LostSearchActivity.this, AloneActivity.class);
+            intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
+            LostSearchActivity.this.startActivity(intent);
+        } else if(getIntent().getStringExtra("TYPE").equals("공모전")){
+            Intent intent = new Intent(LostSearchActivity.this, ContestActivity.class);
+            intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
+            LostSearchActivity.this.startActivity(intent);
         }
     }
 
