@@ -7,84 +7,65 @@
     android:background="#FFFFFF"
     tools:context=".mate.ContestActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp"
-        android:background="#F6F2FF"
-        android:fontFamily="@font/lottemartdreammedium"
-        android:text="  공모전 메이트  "
-        android:textSize="35sp"
+        android:gravity="center"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/swipeRefresh"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.481" />
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="54dp"
-        android:layout_height="56dp"
-        android:layout_marginEnd="13dp"
-        android:background="@drawable/back"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="30dp"
-        android:padding="0dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/back"
-        app:layout_constraintBottom_toTopOf="@+id/swipeRefresh"
-        app:layout_constraintEnd_toStartOf="@+id/textView"
         app:layout_constraintHorizontal_bias="0.139"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/search"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="30dp"
-        android:padding="0dp"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toTopOf="@+id/swipeRefresh"
-        app:layout_constraintEnd_toStartOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="54dp"
+            android:layout_height="56dp"
+            android:background="@drawable/back"
+            android:layout_gravity="center"
+            android:padding="0dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/back" />
 
-    <Button
-        android:id="@+id/searchButton"
-        android:layout_width="35dp"
-        android:layout_height="27dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="305dp"
-        android:layout_marginTop="80dp"
-        android:background="@drawable/btncustom"
-        android:backgroundTint="#D2DCEA"
-        android:fontFamily="@font/lottemartdreammedium"
-        android:text="검색"
-        android:textSize="11sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintStart_toEndOf="@+id/search"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.317" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/lottemartdreammedium"
+            android:background="#F6F2FF"
+            android:text="  공모전 메이트  "
+            android:textSize="35sp" />
+
+        <ImageButton
+            android:id="@+id/search"
+            android:layout_width="54dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/search"
+            android:layout_gravity="center"
+            android:padding="0dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/search"
+            app:layout_constraintBottom_toTopOf="@+id/swipeRefresh"
+            app:layout_constraintEnd_toStartOf="@+id/textView"
+            app:layout_constraintHorizontal_bias="0.139"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+    </LinearLayout>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefresh"
-        android:layout_width="412dp"
-        android:layout_height="630dp"
+        android:layout_width="match_parent"
+        android:layout_height="620dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView">
+        app:layout_constraintTop_toBottomOf="@id/header">
 
         <ListView
             android:id="@+id/listView"
