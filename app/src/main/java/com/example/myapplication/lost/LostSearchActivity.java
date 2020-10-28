@@ -7,6 +7,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -50,6 +51,13 @@ public class LostSearchActivity extends AppCompatActivity {
                         attemptList();
                 }
                 return true;
+            }
+        });
+        ImageButton searchbtn = (ImageButton) findViewById(R.id.searchButton);
+        searchbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                attemptList();
             }
         });
     }
