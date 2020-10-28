@@ -134,10 +134,6 @@ public interface ServiceApi {
     @POST("/lost/commentdelete")
     Call<LostCommentDeleteResponse> lostcommentdelete(@Body LostCommentDeleteData data);
 
-    @Multipart
-    @POST("/upload")
-    Call<ResponseBody> upload(@Part MultipartBody.Part file, @Part("name") RequestBody description);
-
     @POST("/mail/write")
     Call<MailWriteResponse> mailwrite(@Body MailWriteData data);
 
