@@ -78,7 +78,7 @@ public class LostWriteActivity extends AppCompatActivity {
     AmazonS3 s3;
     TransferUtility transferUtility;
 
-    Button uploadBtn, selectBtn;
+    Button selectBtn;
     ImageView imageview;
     File f;
 
