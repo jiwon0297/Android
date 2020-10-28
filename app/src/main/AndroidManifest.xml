@@ -9,7 +9,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -22,7 +22,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.MailViewActivity"></activity>
+        <activity android:name=".lost.LostSearchActivity"></activity>
+        <activity android:name=".mate.MateSearchActivity" />
+        <activity android:name=".ui.MailViewActivity" />
         <activity android:name=".ui.SendMessageActivity" />
         <activity android:name=".ui.MailActivity" />
         <activity android:name=".ui.ChatRoomActivity" />
