@@ -72,6 +72,10 @@ public class MateSearchActivity extends AppCompatActivity {
 
         if (title.isEmpty()) {
             cancel = true;
+        } else if (!isSearchTitleValid(title)) {
+            searchtitle.setError("두 글자 이상 입력해주세요.");
+            focusView = searchtitle;
+            cancel = true;
         }
 
         if (cancel) {
@@ -136,6 +140,10 @@ public class MateSearchActivity extends AppCompatActivity {
                 showProgress(false);
             }
         });
+    }
+
+    private boolean isSearchTitleValid(String title) {
+        return title.length() >= 6;
     }
 
     private void showProgress(boolean show) {
