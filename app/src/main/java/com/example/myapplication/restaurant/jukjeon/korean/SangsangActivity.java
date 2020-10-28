@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
+import com.example.myapplication.restaurant.map.MapFragmentActivity;
 import com.example.myapplication.ui.HomeActivity;
 import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
@@ -28,6 +30,8 @@ public class SangsangActivity extends AppCompatActivity implements ExpandableLis
     String[][] childs={{"쭈꾸미정식(1인기준) 7,500원","쭈꾸미 2인 세트 22,000원","쭈꾸미 3인 세트 33,000원","쭈꾸미 4인 세트 44,000원"},
             {"소고기 샤브 칼국수 7,500원","버섯 샤브 칼국수 7,500원","한우 샤브 칼국수 16,000원"}};
 
+    private Button map_button;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +42,16 @@ public class SangsangActivity extends AppCompatActivity implements ExpandableLis
         listView.setAdapter(listAdapter);
         listView.setOnGroupClickListener(this);
         listView.setOnChildClickListener(this);
+
+        map_button = findViewById(R.id.map_button);
+
+        map_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SangsangActivity.this, MapFragmentActivity.class);
+                startActivity(intent);
+            }
+        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new SangsangActivity.ItemSelectedListener());

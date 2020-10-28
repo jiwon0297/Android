@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
+import com.example.myapplication.restaurant.map.MapFragmentActivity;
 import com.example.myapplication.ui.HomeActivity;
 import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
@@ -29,6 +31,8 @@ public class CheonhojiActivity extends AppCompatActivity implements ExpandableLi
             {"육회 12,000원","육회비빔밥 8,000원","육회막국수 9,000원"},
             {"편육 7,000원","모둠순대 13,000원","왕만두(1인분 5개) 5,000원","천호지막국수 7,000원","해물라면 6,000원"}};
 
+    private Button map_button;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +43,16 @@ public class CheonhojiActivity extends AppCompatActivity implements ExpandableLi
         listView.setAdapter(listAdapter);
         listView.setOnGroupClickListener(this);
         listView.setOnChildClickListener(this);
+
+        map_button = findViewById(R.id.map_button);
+
+        map_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CheonhojiActivity.this, MapFragmentActivity.class);
+                startActivity(intent);
+            }
+        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new  CheonhojiActivity.ItemSelectedListener());

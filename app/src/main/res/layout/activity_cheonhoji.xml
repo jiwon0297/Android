@@ -67,6 +67,12 @@
                 android:text="충남 천안시 동남구 천호지길 3\n"
                 android:textSize="20dp" />
 
+            <Button
+                android:id="@+id/map_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="지도로 보기" />
+
             <TextView
                 android:id="@+id/textview3"
                 android:layout_width="match_parent"

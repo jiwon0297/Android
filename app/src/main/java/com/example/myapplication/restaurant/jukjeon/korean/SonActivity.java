@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
+import com.example.myapplication.restaurant.map.MapFragmentActivity;
 import com.example.myapplication.ui.HomeActivity;
 import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
@@ -29,6 +31,8 @@ public class SonActivity extends AppCompatActivity implements ExpandableListView
             {"냉면(물/비빔) 5.5","돌솥비빔밥 6.5"},
             {"면추가/공기밥 1.0","소주/맥주 4.0","음료수 1.5"}};
 
+    private Button map_button;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +43,16 @@ public class SonActivity extends AppCompatActivity implements ExpandableListView
         listView.setAdapter(listAdapter);
         listView.setOnGroupClickListener(this);
         listView.setOnChildClickListener(this);
+
+        map_button = findViewById(R.id.map_button);
+
+        map_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SonActivity.this, MapFragmentActivity.class);
+                startActivity(intent);
+            }
+        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new SonActivity.ItemSelectedListener());

@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
+import com.example.myapplication.restaurant.map.MapFragmentActivity;
 import com.example.myapplication.ui.HomeActivity;
 import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
@@ -29,6 +31,8 @@ public class MisoyaActivity extends AppCompatActivity implements ExpandableListV
             {"돈카츠김치우동전골 8,500원","우삼겹우동전골 8,500원","돈카츠야끼우동 8,000원"},
             {"알밥정식 8,500원","치킨데리야끼벤토 7,500원","카츠모밀 알밥정식 9,000원","냉모밀 6,500원"}};
 
+    private Button map_button;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +43,16 @@ public class MisoyaActivity extends AppCompatActivity implements ExpandableListV
         listView.setAdapter(listAdapter);
         listView.setOnGroupClickListener(this);
         listView.setOnChildClickListener(this);
+
+        map_button = findViewById(R.id.map_button);
+
+        map_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MisoyaActivity.this, MapFragmentActivity.class);
+                startActivity(intent);
+            }
+        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new MisoyaActivity.ItemSelectedListener());

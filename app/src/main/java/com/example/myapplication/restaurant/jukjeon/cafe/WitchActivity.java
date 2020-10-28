@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
+import com.example.myapplication.restaurant.map.MapFragmentActivity;
 import com.example.myapplication.ui.HomeActivity;
 import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
@@ -30,6 +32,8 @@ public class WitchActivity extends AppCompatActivity implements ExpandableListVi
             {"요거트/그린티/더블초코/딸기/망고/블루베리 스무디 5,800원","딸기요거트 스무디 5,800원","쿠키앤크림 스무디 6,000원"},
             {"로얄밀크티 4,500원","생과일착즙에이드(레몬,자몽,오렌지) 5,800원","아이스티(복숭아,레몬) 3,500원","차(유자,레몬,자몽,광양매실,생강) 3,800원","허브티(캐모마일,페퍼민트,루이보스,라벤더,자스민) 5,000원","블랙티(잉글리시블랙퍼스트,얼그레이,다즐링) 5,000원"}};
 
+    private Button map_button;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +44,16 @@ public class WitchActivity extends AppCompatActivity implements ExpandableListVi
         listView.setAdapter(listAdapter);
         listView.setOnGroupClickListener(this);
         listView.setOnChildClickListener(this);
+
+        map_button = findViewById(R.id.map_button);
+
+        map_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WitchActivity.this, MapFragmentActivity.class);
+                startActivity(intent);
+            }
+        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new WitchActivity.ItemSelectedListener());

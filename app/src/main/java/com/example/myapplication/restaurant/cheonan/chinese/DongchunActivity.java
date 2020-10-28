@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
+import com.example.myapplication.restaurant.map.MapFragmentActivity;
 import com.example.myapplication.ui.HomeActivity;
 import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
@@ -32,6 +34,8 @@ public class DongchunActivity extends AppCompatActivity implements ExpandableLis
             {"깐풍기\nS 23,000원\nM 33,000원\nL 43,000원","라조기\nS 23,000원\nM 33,000원\nL 43,000원","유린기\nS 23,000원\nM 33,000원\nL 43,000원"},
             {"크림새우\nS 23,000원\nM 33,000원\nL 43,000원","크림중새우\nS 27,000원\nM 37,000원\nL 47,000원","칠리중새우\nS 27,000d원\nM 37,000원\nL 47,000원","깐풍중새우\nS 27,000원\nM 37,000원\nL 47,000원","깐풍새우\nS 23,000원\nM 33,000원\nL 43,000원","깐소(칠리)새우\nS 23,000원\nM 33,000원\nL 43,000원"}};
 
+    private Button map_button;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +46,16 @@ public class DongchunActivity extends AppCompatActivity implements ExpandableLis
         listView.setAdapter(listAdapter);
         listView.setOnGroupClickListener(this);
         listView.setOnChildClickListener(this);
+
+        map_button = findViewById(R.id.map_button);
+
+        map_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DongchunActivity.this, MapFragmentActivity.class);
+                startActivity(intent);
+            }
+        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new DongchunActivity.ItemSelectedListener());

@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
+import com.example.myapplication.restaurant.map.MapFragmentActivity;
 import com.example.myapplication.ui.HomeActivity;
 import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
@@ -31,6 +33,8 @@ public class SungtanActivity extends AppCompatActivity implements ExpandableList
             {"모듬세트 24,000원\n(왕새우+치킨안심가라아게+치즈스틱+포테이토)","왕새우튀김(7마리) 9,000원","웨지감자튀김 8,000원","치킨안심가라아게(12조각) 8,000원","포테이토 5,000원","치즈스틱(5개) 5,000원"},
             {"아메리카노 2,000원","카페라떼 2,500원","얼그레이티 3,000원","히비스커스티 3,500원","콜라(355ml) 1,500원","사이다(355ml) 1,500원","환타(355ml) 1,500원"}};
 
+    private Button map_button;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +45,16 @@ public class SungtanActivity extends AppCompatActivity implements ExpandableList
         listView.setAdapter(listAdapter);
         listView.setOnGroupClickListener(this);
         listView.setOnChildClickListener(this);
+
+        map_button = findViewById(R.id.map_button);
+
+        map_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SungtanActivity.this, MapFragmentActivity.class);
+                startActivity(intent);
+            }
+        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new SungtanActivity.ItemSelectedListener());

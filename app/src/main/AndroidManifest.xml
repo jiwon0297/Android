@@ -75,7 +75,6 @@
         <activity android:name=".restaurant.jukjeon.cafe.AzitActivity" />
         <activity android:name=".restaurant.jukjeon.cafe.WitchActivity" />
         <activity android:name=".restaurant.jukjeon.cafe.DarakActivity" />
-        <activity android:name=".restaurant.cheonan.western.RossiActivity" />
         <activity android:name=".restaurant.cheonan.western.BabalabActivity" />
         <activity android:name=".restaurant.cheonan.western.SubmealActivity" />
         <activity android:name=".restaurant.cheonan.western.SungtanActivity" />

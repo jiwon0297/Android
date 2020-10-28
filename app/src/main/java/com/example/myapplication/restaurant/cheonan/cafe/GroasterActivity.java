@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
+import com.example.myapplication.restaurant.map.MapFragmentActivity;
 import com.example.myapplication.ui.HomeActivity;
 import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
@@ -28,6 +30,8 @@ public class GroasterActivity extends AppCompatActivity implements ExpandableLis
     String[][] childs={{"그린망고 6.5","딸기라떼 변동","블루베리레몬에이드 6.5","딸기차 6.0","밤라떼 6.0","플럼비치 6.5"},
             {"해리포터 7.5","치즈케이스 7.0","브라운치즈타르트 7.0","퓨어애플 7.0","블루베리요거트 7.0","브라운치즈 6.5","써니사이드업 11.0","썬셋토마토 11.0"}};
 
+    private Button map_button;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +42,16 @@ public class GroasterActivity extends AppCompatActivity implements ExpandableLis
         listView.setAdapter(listAdapter);
         listView.setOnGroupClickListener(this);
         listView.setOnChildClickListener(this);
+
+        map_button = findViewById(R.id.map_button);
+
+        map_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GroasterActivity.this, MapFragmentActivity.class);
+                startActivity(intent);
+            }
+        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new GroasterActivity.ItemSelectedListener());

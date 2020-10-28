@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
+import com.example.myapplication.restaurant.map.MapFragmentActivity;
 import com.example.myapplication.ui.HomeActivity;
 import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
@@ -32,6 +34,8 @@ public class DarakActivity extends AppCompatActivity implements ExpandableListVi
             {"다크모카프라페 +1,300원","자바칩프라페 +1,300","민트초코프라페 +1,300원","그린티프라페 +1,300원","코코넛스무디 커피 +1,500원","플레인요거트스무디 1,300원","딸기요거트스무디 1,300원","블루베리요거트스무디 +1,300원","바닐라밀크쉐이크 +1,300원","오레오밀크쉐이크 +1,500원"},
             {"탄산음료(콜라,사이다,웰치스) +500원","핫식스 +500원","산펠레그리노 +1,000원","병맥주(카스,하이트,카프리,버드와이저) +1,500원"}};
 
+    private Button map_button;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +46,16 @@ public class DarakActivity extends AppCompatActivity implements ExpandableListVi
         listView.setAdapter(listAdapter);
         listView.setOnGroupClickListener(this);
         listView.setOnChildClickListener(this);
+
+        map_button = findViewById(R.id.map_button);
+
+        map_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DarakActivity.this, MapFragmentActivity.class);
+                startActivity(intent);
+            }
+        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new DarakActivity.ItemSelectedListener());

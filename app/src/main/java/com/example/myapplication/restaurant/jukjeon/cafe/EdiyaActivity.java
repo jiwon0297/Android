@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
+import com.example.myapplication.restaurant.map.MapFragmentActivity;
 import com.example.myapplication.ui.HomeActivity;
 import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
@@ -36,6 +38,8 @@ public class EdiyaActivity extends AppCompatActivity implements ExpandableListVi
                 {"바닐라쿠키빙수 10,800원","망고샤베트빙수 10,800원","딸기치즈빙수 10,800원","눈꽃 빙수(팥/초코) 9,800원"},
                 {"허니 카라멜 브레드 4,600원","플레인 와플 2,300원","크림치즈 와플 3,000원","생크림 와플 2,500원","프레즐 2,300원","베이글(플레인/어니언/블루베리) 1,900원","크로크무슈 3,800원"}};
 
+    private Button map_button;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +50,17 @@ public class EdiyaActivity extends AppCompatActivity implements ExpandableListVi
         listView.setAdapter(listAdapter);
         listView.setOnGroupClickListener(this);
         listView.setOnChildClickListener(this);
+
+
+        map_button = findViewById(R.id.map_button);
+
+        map_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(EdiyaActivity.this, MapFragmentActivity.class);
+                startActivity(intent);
+            }
+        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new EdiyaActivity.ItemSelectedListener());

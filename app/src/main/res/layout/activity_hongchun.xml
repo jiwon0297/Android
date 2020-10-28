@@ -66,6 +66,12 @@
                 android:text="경기 용인시 수지구 죽전로168번길 7 승은프라자 1층\n"
                 android:textSize="20dp" />
 
+            <Button
+                android:id="@+id/map_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="지도로 보기" />
+
             <TextView
                 android:id="@+id/textview3"
                 android:layout_width="match_parent"

@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
+import com.example.myapplication.restaurant.map.MapFragmentActivity;
 import com.example.myapplication.ui.HomeActivity;
 import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
@@ -29,6 +31,8 @@ public class MaratangActivity extends AppCompatActivity implements ExpandableLis
             {"계란토마토덮밥 6,000원","가지볶음덮밥 6,000원","마파두부덮밥 6,000원","어향육슬덮밥 7,000원","쯔란소고기덮밥 7,000원","대파소고기덮밥 7,000원","고기피망볶음덮밥 7,000원","버섯청경채덮밥 7,000원","계란볶음밥 6,000원","김치볶음밥 6,000원","새우볶음밥 7,000원","중국만두 6,000원","우육면 7,000원","백김치면 6,000원","육사볶음면 6,000원","새우볶음면 6,000원","삼선볶음면 7,000원"},
             {"칭따오 6,000원","하얼빈 6,000원","연태고량 30,000원","노주탄 20,000원","설원 16,000원","이과두주 4,000원","소주 4,000원","청하 5,000원","카스 4,000원","중국 음료수 3,000원","음료수 2,000원"}};
 
+    private Button map_button;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +43,16 @@ public class MaratangActivity extends AppCompatActivity implements ExpandableLis
         listView.setAdapter(listAdapter);
         listView.setOnGroupClickListener(this);
         listView.setOnChildClickListener(this);
+
+        map_button = findViewById(R.id.map_button);
+
+        map_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MaratangActivity.this, MapFragmentActivity.class);
+                startActivity(intent);
+            }
+        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new MaratangActivity.ItemSelectedListener());

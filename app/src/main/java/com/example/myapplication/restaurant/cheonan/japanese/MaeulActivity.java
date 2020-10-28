@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
+import com.example.myapplication.restaurant.map.MapFragmentActivity;
 import com.example.myapplication.ui.HomeActivity;
 import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
@@ -28,6 +30,8 @@ public class MaeulActivity extends AppCompatActivity implements ExpandableListVi
     String[][] childs={{"돈까스 곱배기 2,000원 추가","마을돈까스 6,000원","카레돈까스 6,000원","반반돈까스(카레+마을) 6,000원","일식돈까스 7,000원","치즈돈까스 7,00원","제육돈까스 7,000원","김치뽀까스 7,000원"},
             {"밥류 곱배기 1,000원 추가","불고기덮밥 7,000원","제육덮밥 6,500원","카레덮밥 5,500원","김치볶음밥 5,500원","새우볶음밥 6,000원","야채볶음밥 6,000원","오므라이스 6,000원"}};
 
+    private Button map_button;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +42,16 @@ public class MaeulActivity extends AppCompatActivity implements ExpandableListVi
         listView.setAdapter(listAdapter);
         listView.setOnGroupClickListener(this);
         listView.setOnChildClickListener(this);
+
+        map_button = findViewById(R.id.map_button);
+
+        map_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MaeulActivity.this, MapFragmentActivity.class);
+                startActivity(intent);
+            }
+        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new MaeulActivity.ItemSelectedListener());

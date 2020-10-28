@@ -69,7 +69,7 @@ public class CafeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void soleil(View view) {Toast.makeText(this,"솔레일",Toast.LENGTH_LONG).show();
+    public void soleil(View view) {Toast.makeText(this,"쏠레이",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, DarakActivity.class);
         startActivity(intent);
     }

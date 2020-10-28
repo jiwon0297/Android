@@ -63,9 +63,4 @@ public class WesternActivity2 extends AppCompatActivity {
         Intent intent = new Intent(this, BabalabActivity.class);
         startActivity(intent);
     }
-
-    public void rossi(View view) {Toast.makeText(this,"로씨",Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, RossiActivity.class);
-        startActivity(intent);
-    }
 }
