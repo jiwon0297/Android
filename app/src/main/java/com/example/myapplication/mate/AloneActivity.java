@@ -111,7 +111,7 @@ public class AloneActivity extends AppCompatActivity implements SwipeRefreshLayo
 
     private void startList(MateData data) {
         List<MateData> oData = new ArrayList<>();
-        ArrayList<MateData> arrayList = new ArrayList<MateData>();
+        ArrayList<MateData> arrayList = new ArrayList<>();
 
         service.matelist(data).enqueue(new Callback<MateResponse>() {
             @Override
@@ -134,6 +134,7 @@ public class AloneActivity extends AppCompatActivity implements SwipeRefreshLayo
                         oData.add(oItem);
                     }
                     listView = (ListView) findViewById(R.id.listView1);
+                    arrayList.addAll(oData);
                     MyAdapter oAdapter = new MyAdapter((ArrayList<MateData>) oData);
                     listView.setAdapter(oAdapter);
 
@@ -164,17 +165,16 @@ public class AloneActivity extends AppCompatActivity implements SwipeRefreshLayo
                             if(text.length()==0){
                                 oData.addAll(arrayList);
                             } else {
-                                MateResponse sample = result;
-                                for (MateResponse a : sample.getResult()) {
-                                    if (sample.getTitle().toLowerCase().contains(text)) {
+                                for (MateData a : arrayList) {
+                                    if (a.title.toLowerCase().contains(text)) {
                                         MateData oItem = new MateData();
-                                        oItem.campus = a.getCampus();
-                                        oItem.title = a.getTitle();
-                                        oItem.nickname = a.getNickname();
-                                        oItem.date = a.getDate();
-                                        oItem.content = a.getContent();
-                                        oItem.number = a.getNumber();
-                                        oItem.cate = a.getCate();
+                                        oItem.campus = a.campus;
+                                        oItem.title = a.title;
+                                        oItem.nickname = a.nickname;
+                                        oItem.date = a.date;
+                                        oItem.content = a.content;
+                                        oItem.number = a.number;
+                                        oItem.cate = a.cate;
                                         oData.add(oItem);
                                     }
                                 }
