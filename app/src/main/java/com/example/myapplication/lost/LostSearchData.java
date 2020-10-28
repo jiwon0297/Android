@@ -26,8 +26,12 @@ public class LostSearchData {
     @SerializedName("content")
     String content;
 
-    public LostSearchData(String cate) {
+    @SerializedName("url")
+    String url;
+
+    public LostSearchData(String type, String title) {
         this.type = type;
+        this.title = title;
     }
 
     public LostSearchData(){

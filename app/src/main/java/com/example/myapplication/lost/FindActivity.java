@@ -1,9 +1,5 @@
 package com.example.myapplication.lost;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,13 +12,12 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.myapplication.Join.JoinData;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.example.myapplication.R;
-import com.example.myapplication.mate.AloneActivity;
-import com.example.myapplication.mate.MateActivity;
-import com.example.myapplication.mate.MateData;
-import com.example.myapplication.mate.MateViewActivity;
-import com.example.myapplication.mate.MateWriteActivity;
+import com.example.myapplication.mate.MateSearchActivity;
 import com.example.myapplication.network.RetrofitClient;
 import com.example.myapplication.network.ServiceApi;
 import com.example.myapplication.ui.HomeActivity;
@@ -68,6 +63,17 @@ public class FindActivity extends AppCompatActivity implements SwipeRefreshLayou
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(FindActivity.this, LostActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        ImageButton searchbtn = (ImageButton) findViewById(R.id.search);
+        searchbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(FindActivity.this, MateSearchActivity.class);
+                intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
+                intent.putExtra("TYPE","찾아요");
                 startActivity(intent);
             }
         });

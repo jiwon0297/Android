@@ -1,6 +1,5 @@
 package com.example.myapplication.lost;
 
-import com.example.myapplication.mate.MateResponse;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -37,6 +36,7 @@ public class LostSearchResponse {
     private Date date;
     private String content;
     private String type;
+    private String url;
 
     public String getType() {return type;}
     public int getNumber() { return number;}
@@ -45,4 +45,5 @@ public class LostSearchResponse {
     public String getCampus() { return campus;}
     public Date getDate() { return date; }
     public String getContent() {return content;}
+    public String getUrl(){return url;}
 }
