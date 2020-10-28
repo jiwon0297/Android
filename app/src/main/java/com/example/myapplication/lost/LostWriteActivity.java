@@ -592,12 +592,15 @@ public class LostWriteActivity extends AppCompatActivity {
             cancel = true;
         }
 
+        /*
         if (urlText.getText().toString().isEmpty()) {
             url = "";
         } else
         {
             url = "https://android12.s3.ap-northeast-2.amazonaws.com/" + URI;
         }
+        *
+         */
 
         if (cancel) {
             focusView.requestFocus();

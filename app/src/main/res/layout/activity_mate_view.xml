@@ -92,6 +92,7 @@
                             android:fontFamily="@font/lottemartdreamlight"
                             android:gravity="center"
                             android:text="작성자"
+                            android:clickable="true"
                             android:textAlignment="textEnd"
                             android:textSize="24sp"
                             app:layout_constraintEnd_toEndOf="parent"
