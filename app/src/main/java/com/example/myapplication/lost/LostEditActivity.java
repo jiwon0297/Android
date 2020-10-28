@@ -132,7 +132,7 @@ public class LostEditActivity extends AppCompatActivity {
             }
         });
 
-        Button excuteButton = (Button) findViewById(R.id.excute);
+        Button excuteButton = (Button) findViewById(R.id.write);
         excuteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){

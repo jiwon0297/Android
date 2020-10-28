@@ -7,6 +7,7 @@
     android:background="#FFFFFF"
     android:backgroundTint="#FFFFFF"
     android:focusable="true"
+    android:layout_gravity="top"
     android:focusableInTouchMode="true"
     android:windowSoftInputMode="adjustPan"
     tools:context=".lost.LostViewActivity">
@@ -94,6 +95,7 @@
                 android:text="작성자"
                 android:textAlignment="textEnd"
                 android:textSize="24sp"
+                android:clickable="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/title" />
