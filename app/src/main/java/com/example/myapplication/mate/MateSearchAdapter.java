@@ -1,19 +1,19 @@
 package com.example.myapplication.mate;
 
-import android.content.Context;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.Filter;
-import android.widget.TextView;
+        import android.content.Context;
+        import android.util.Log;
+        import android.view.LayoutInflater;
+        import android.view.View;
+        import android.view.ViewGroup;
+        import android.widget.BaseAdapter;
+        import android.widget.Filter;
+        import android.widget.TextView;
 
-import com.example.myapplication.R;
-import com.example.myapplication.network.ServiceApi;
+        import com.example.myapplication.R;
+        import com.example.myapplication.network.ServiceApi;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+        import java.text.SimpleDateFormat;
+        import java.util.ArrayList;
 
 public class MateSearchAdapter extends BaseAdapter {
     Context context;
