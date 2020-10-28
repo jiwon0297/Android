@@ -20,6 +20,8 @@ import com.example.myapplication.lost.LostDeleteResponse;
 import com.example.myapplication.lost.LostEditData;
 import com.example.myapplication.lost.LostEditResponse;
 import com.example.myapplication.lost.LostResponse;
+import com.example.myapplication.lost.LostSearchData;
+import com.example.myapplication.lost.LostSearchResponse;
 import com.example.myapplication.lost.LostWriteData;
 import com.example.myapplication.lost.LostWriteResponse;
 import com.example.myapplication.mate.MateCommentData;
@@ -36,6 +38,8 @@ import com.example.myapplication.mate.MateDeleteResponse;
 import com.example.myapplication.mate.MateEditData;
 import com.example.myapplication.mate.MateEditResponse;
 import com.example.myapplication.mate.MateResponse;
+import com.example.myapplication.mate.MateSearchData;
+import com.example.myapplication.mate.MateSearchResponse;
 import com.example.myapplication.mate.MateWriteData;
 import com.example.myapplication.mate.MateWriteResponse;
 import com.example.myapplication.ui.EditData;
@@ -145,4 +149,10 @@ public interface ServiceApi {
 
     @POST("/mail/delete")
     Call<MailDeleteResponse> maildelete(@Body MailDeleteData data);
+
+    @POST("/lost/lostSearch")
+    Call<LostSearchResponse> lostsearch(@Body LostSearchData data);
+
+    @POST("/mate/mateSearch")
+    Call<MateSearchResponse> matesearch(@Body MateSearchData data);
 }
