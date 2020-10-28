@@ -16,13 +16,12 @@ import com.example.myapplication.network.ServiceApi;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-public class MyAdapter extends BaseAdapter implements Filterable {
+public class MyAdapter extends BaseAdapter{
 
     Context context;
     LayoutInflater mLayoutInflater = null;
-    ArrayList<MateData> sample = new ArrayList<MateData>();
+    ArrayList<MateData> sample = null;
     private ServiceApi service;
-    private ArrayList<MateData> listItem = sample;
     Filter listFilter;
 
     private int nlistCnt = 0;
@@ -36,22 +35,6 @@ public class MyAdapter extends BaseAdapter implements Filterable {
     public int getCount() {
         Log.i("TAG", "getCount");
         return nlistCnt;
-    }
-
-    public void setSearchData(String s){
-        if(s.length() > 0 ) {
-            for (int i = 0; i < sample.size(); i++) {
-                if (!sample.get(i).title.contains(s)) {
-                    sample.remove(i);
-                    i--;
-                }
-            }
-            notifyDataSetChanged();
-        }
-    }
-    public void resetData(ArrayList<MateData> m){
-        this.sample = m;
-        notifyDataSetChanged();
     }
 
     @Override
@@ -93,48 +76,6 @@ public class MyAdapter extends BaseAdapter implements Filterable {
         oTextContent.setText(sample.get(position).content);
 
         return convertView;
-
-    }
-
-    @Override
-    public Filter getFilter() {
-        if (listFilter == null) {
-            listFilter = new ListFilter() ;
-        }
-        return listFilter ;
-    }
-
-    private class ListFilter extends Filter {
-
-        @Override
-        protected FilterResults performFiltering(CharSequence constraint) {
-            FilterResults results = new FilterResults();
-            if (constraint == null || constraint.length() == 0) {
-                results.values = listItem;
-                results.count = listItem.size();
-            } else {
-                ArrayList<MateData> itemList = new ArrayList<>();
-                for (MateData item : listItem) {
-                    if (item.title.toUpperCase().contains(constraint.toString().toUpperCase()))
-                        itemList.add(item);
-                }
-                results.values = itemList;
-                results.count = itemList.size();
-            }
-
-            return results;
-        }
-
-        @Override
-        protected void publishResults(CharSequence constraint, FilterResults results) {
-
-            sample = (ArrayList<MateData>) results.values;
-            if (results.count > 0) {
-                notifyDataSetChanged();
-            } else {
-                notifyDataSetInvalidated();
-            }
-        }
 
     }
 }

@@ -153,33 +153,6 @@ public class AloneActivity extends AppCompatActivity implements SwipeRefreshLayo
                             startActivity(intent);
                         }
                     });
-
-                    listView.setTextFilterEnabled(true);
-                    EditText editsearch = (EditText) findViewById(R.id.editSearch);
-                    editsearch.addTextChangedListener(new TextWatcher() {
-                        @Override
-                        public void afterTextChanged(Editable arg0) {
-                            String search = arg0.toString();
-                            if(search.length()>0){
-                                listView.setFilterText(search);
-                            }
-                            else{
-                                listView.clearTextFilter();
-                            }
-                        }
-
-                        @Override
-                        public void beforeTextChanged(CharSequence arg0, int arg1,
-                                                      int arg2, int arg3) {
-                            // TODO Auto-generated method stub
-                        }
-
-                        @Override
-                        public void onTextChanged(CharSequence arg0, int arg1, int arg2,
-                                                  int arg3) {
-                            // TODO Auto-generated method stub
-                        }
-                    });
                 }
             }
 
