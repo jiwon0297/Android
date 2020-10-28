@@ -66,6 +66,7 @@ public class StudyActivity extends AppCompatActivity implements SwipeRefreshLayo
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(StudyActivity.this, MateActivity.class);
+                intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
                 startActivity(intent);
             }
         });
@@ -86,6 +87,9 @@ public class StudyActivity extends AppCompatActivity implements SwipeRefreshLayo
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
+        Intent intent = new Intent(StudyActivity.this, MateActivity.class);
+        intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
+        startActivity(intent);
     }
 
     @Override

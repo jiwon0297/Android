@@ -63,6 +63,7 @@ public class FindActivity extends AppCompatActivity implements SwipeRefreshLayou
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(FindActivity.this, LostActivity.class);
+                intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
                 startActivity(intent);
             }
         });
@@ -83,6 +84,9 @@ public class FindActivity extends AppCompatActivity implements SwipeRefreshLayou
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
+        Intent intent = new Intent(FindActivity.this, LostActivity.class);
+        intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
+        startActivity(intent);
     }
 
     @Override
