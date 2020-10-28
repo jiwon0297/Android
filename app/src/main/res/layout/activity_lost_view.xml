@@ -150,6 +150,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/content" />
 
+            <TextView
+                android:id="@+id/url"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"/>
+
             <LinearLayout
                 android:id="@+id/buttongroup"
                 android:layout_width="match_parent"
@@ -233,12 +239,6 @@
                     android:textSize="20sp"
                     app:layout_constraintStart_toEndOf="@+id/commenttext" />
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/url"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="invisible"/>
 
             <ListView
                 android:id="@+id/listView1"
