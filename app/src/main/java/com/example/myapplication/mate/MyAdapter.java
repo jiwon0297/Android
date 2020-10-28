@@ -38,6 +38,22 @@ public class MyAdapter extends BaseAdapter implements Filterable {
         return nlistCnt;
     }
 
+    public void setSearchData(String s){
+        if(s.length() > 0 ) {
+            for (int i = 0; i < sample.size(); i++) {
+                if (!sample.get(i).title.contains(s)) {
+                    sample.remove(i);
+                    i--;
+                }
+            }
+            notifyDataSetChanged();
+        }
+    }
+    public void resetData(ArrayList<MateData> m){
+        this.sample = m;
+        notifyDataSetChanged();
+    }
+
     @Override
     public Object getItem(int position) {
         return null;
@@ -82,7 +98,10 @@ public class MyAdapter extends BaseAdapter implements Filterable {
 
     @Override
     public Filter getFilter() {
-        return listFilter;
+        if (listFilter == null) {
+            listFilter = new ListFilter() ;
+        }
+        return listFilter ;
     }
 
     private class ListFilter extends Filter {
@@ -116,7 +135,6 @@ public class MyAdapter extends BaseAdapter implements Filterable {
                 notifyDataSetInvalidated();
             }
         }
-
 
     }
 }

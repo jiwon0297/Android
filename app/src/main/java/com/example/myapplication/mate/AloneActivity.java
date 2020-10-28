@@ -154,6 +154,7 @@ public class AloneActivity extends AppCompatActivity implements SwipeRefreshLayo
                         }
                     });
 
+                    listView.setTextFilterEnabled(true);
                     EditText editsearch = (EditText) findViewById(R.id.editSearch);
                     editsearch.addTextChangedListener(new TextWatcher() {
                         @Override
