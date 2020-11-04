@@ -465,16 +465,20 @@ public class LostViewActivity extends AppCompatActivity {
 
                 if (result.getCode() == 200) {
                     attemptList();
+
+                    String writer = getIntent().getStringExtra("NICKNAME_EXTRA2");
+                    String user = getIntent().getStringExtra("NICKNAME_EXTRA");
+
                     Bitmap mLargeIconForNoti = BitmapFactory.decodeResource(getResources(),R.drawable.bell);
                     PendingIntent mPendingIntent = PendingIntent.getActivity(LostViewActivity.this,0,
-                            new Intent(getApplicationContext(), MateViewActivity.class),
+                            new Intent(getApplicationContext(), LostViewActivity.class),
                             PendingIntent.FLAG_CANCEL_CURRENT
                     );
                     NotificationCompat.Builder mBuilder =
                             new NotificationCompat.Builder(LostViewActivity.this)
                                     .setSmallIcon(R.drawable.bell)
                                     .setContentTitle("댓글 알림")
-                                    .setContentText("작성자님의 분실물글에 댓글이 달렸습니다.")
+                                    .setContentText("[this진하]님이 작성한 게시물에 댓글이 달렸습니다.")
                                     .setDefaults(Notification.DEFAULT_SOUND)
                                     .setLargeIcon(mLargeIconForNoti)
                                     .setPriority(NotificationCompat.PRIORITY_DEFAULT)

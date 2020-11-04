@@ -1,6 +1,9 @@
 package com.example.myapplication.restaurant.jukjeon.western;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -8,12 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
@@ -34,7 +38,7 @@ public class GrandeActivity extends AppCompatActivity implements ExpandableListV
             {"Ricotta calzone(리코타 깔쵸네) 18.0","Caprese(카프레제) 18.0","Insalata di funghi(풍기 샐러드) 18.0","Insalata di manzo(만조 샐러드) 19.0","Gyros(기로스) 19.0"},
             {"Aglio e olio(알리오 올리오) 15.0","Carbonara(까르보나라) 16.0","Bolonese(볼로네제) 17.0","Buffalo(버팔로) 17.0","Vongole e vino bianco(봉골레) 18.0","Mare(마레) 18.0","Seafood paella(해산물 빠에야) 17.0","Risotto di mare(리조또 마레) 18.0","Real Madrid(리얼 마드리드) 19.0","Pane di Seafood(빠네) 19.0","Hangover(행오버) 19.0","Granchio con rosa(그란치오) 19.0"}};
 
-    private Button map_button;
+    private ImageButton map_button;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -91,15 +95,18 @@ public class GrandeActivity extends AppCompatActivity implements ExpandableListV
             TextView textView = new TextView(GrandeActivity.this);
             textView.setGravity(Gravity.CENTER_VERTICAL|Gravity.LEFT);
             textView.setPadding(30,40,0,40);
-            textView.setTextSize(15);
 
             return textView;
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.O)
         public View getChildView(int groupPosition, int childPosition,
                                  boolean isLastChild, View convertView, ViewGroup parent){
             TextView textView = getGenericView();
             textView.setText(getChild(groupPosition,childPosition).toString());
+            textView.setTextSize(14);
+            Typeface typeface = getResources().getFont(R.font.kyobo);
+            textView.setTypeface(typeface);
 
             return textView;
         }
@@ -116,10 +123,17 @@ public class GrandeActivity extends AppCompatActivity implements ExpandableListV
             return groupPosition;
         }
 
-        public View getGroupView(int groupPosition,boolean isExpanded,
+        @RequiresApi(api = Build.VERSION_CODES.O)
+        public View getGroupView(int groupPosition, boolean isExpanded,
                                  View convertView, ViewGroup parent){
             TextView textView = getGenericView();
             textView.setText(getGroup(groupPosition).toString());
+            textView.setTextColor(Color.parseColor("#E87A9DEA"));
+            textView.setTypeface(null, Typeface.BOLD);
+            textView.setTextSize(17);
+            Typeface typeface = getResources().getFont(R.font.kyobo);
+            textView.setTypeface(typeface);
+
 
             listView.setGroupIndicator(null);
 
