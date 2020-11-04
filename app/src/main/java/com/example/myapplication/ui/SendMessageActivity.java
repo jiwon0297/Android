@@ -1,8 +1,11 @@
 package com.example.myapplication.ui;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,14 +16,11 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+
 import com.example.myapplication.R;
-import com.example.myapplication.mate.AloneActivity;
-import com.example.myapplication.mate.ContestActivity;
-import com.example.myapplication.mate.HouseActivity;
-import com.example.myapplication.mate.MateWriteActivity;
-import com.example.myapplication.mate.MateWriteData;
-import com.example.myapplication.mate.MateWriteResponse;
-import com.example.myapplication.mate.StudyActivity;
+import com.example.myapplication.mate.MateViewActivity;
 import com.example.myapplication.network.RetrofitClient;
 import com.example.myapplication.network.ServiceApi;
 
@@ -39,6 +39,10 @@ public class SendMessageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send_message);
 
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(SendMessageActivity.this)
+                .setSmallIcon(R.drawable.bell)
+                .setContentTitle("알림 제목")
+                .setContentText("알림 내용!!");
         String recipient = getIntent().getStringExtra("RECIPIENT");
 
         RecipText = (TextView) findViewById(R.id.recipient);
@@ -103,6 +107,28 @@ public class SendMessageActivity extends AppCompatActivity {
                     Intent intent = new Intent(SendMessageActivity.this, MailActivity.class);
                     intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("SENDER"));
                     SendMessageActivity.this.startActivity(intent);
+                    String recipient = getIntent().getStringExtra("RECIPIENT");
+                    //if( recipient == "this.진하") {
+                        Bitmap mLargeIconForNoti = BitmapFactory.decodeResource(getResources(), R.drawable.bell);
+                        PendingIntent mPendingIntent = PendingIntent.getActivity(SendMessageActivity.this, 0,
+                                new Intent(getApplicationContext(), MateViewActivity.class),
+                                PendingIntent.FLAG_CANCEL_CURRENT
+                        );
+                        NotificationCompat.Builder mBuilder =
+                                new NotificationCompat.Builder(SendMessageActivity.this)
+                                        .setSmallIcon(R.drawable.bell)
+                                        .setContentTitle("쪽지 알림")
+                                        .setContentText("쪽지가 도착했습니다.")
+                                        .setDefaults(Notification.DEFAULT_SOUND)
+                                        .setLargeIcon(mLargeIconForNoti)
+                                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                        .setAutoCancel(true)
+                                        .setContentIntent(mPendingIntent);
+
+                        NotificationManager mNotificationManager =
+                                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                        mNotificationManager.notify(0, mBuilder.build());
+                    //}
                 }
             }
 
