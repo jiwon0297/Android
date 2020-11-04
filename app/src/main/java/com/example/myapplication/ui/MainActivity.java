@@ -38,9 +38,6 @@ public class MainActivity extends AppCompatActivity {
         adapter = new Adapter(this);
         viewPager.setAdapter(adapter);
 
-        CircleIndicator indicator = (CircleIndicator) findViewById(R.id.indicator);
-        indicator.setViewPager(viewPager);
-
         final Handler handler = new Handler();
         final Runnable Update = new Runnable() {
             @Override
