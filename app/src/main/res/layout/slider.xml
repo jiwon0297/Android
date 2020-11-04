@@ -4,21 +4,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/textView"
-        android:gravity="center"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        android:layout_marginTop="30dp"
-        />
-
     <ImageView
+        android:id="@+id/image_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:layout_marginTop="30dp"/>
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:scaleType="fitXY"
+        />
 
 </LinearLayout>
