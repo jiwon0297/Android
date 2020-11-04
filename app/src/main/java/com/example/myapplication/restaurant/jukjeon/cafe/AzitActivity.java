@@ -1,6 +1,8 @@
 package com.example.myapplication.restaurant.jukjeon.cafe;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -86,7 +88,6 @@ public class AzitActivity extends AppCompatActivity implements ExpandableListVie
             TextView textView = new TextView(AzitActivity.this);
             textView.setGravity(Gravity.CENTER_VERTICAL|Gravity.LEFT);
             textView.setPadding(30,40,0,40);
-            textView.setTextSize(15);
 
             return textView;
         }
@@ -95,6 +96,7 @@ public class AzitActivity extends AppCompatActivity implements ExpandableListVie
                                  boolean isLastChild, View convertView, ViewGroup parent){
             TextView textView = getGenericView();
             textView.setText(getChild(groupPosition,childPosition).toString());
+            textView.setTextSize(14);
 
             return textView;
         }
@@ -115,6 +117,9 @@ public class AzitActivity extends AppCompatActivity implements ExpandableListVie
                                  View convertView, ViewGroup parent){
             TextView textView = getGenericView();
             textView.setText(getGroup(groupPosition).toString());
+            textView.setTextColor(Color.parseColor("#E87A9DEA"));
+            textView.setTypeface(null, Typeface.BOLD);
+            textView.setTextSize(17);
 
             listView.setGroupIndicator(null);
 
