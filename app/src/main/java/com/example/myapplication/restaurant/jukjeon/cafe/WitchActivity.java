@@ -1,6 +1,9 @@
 package com.example.myapplication.restaurant.jukjeon.cafe;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -8,12 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
@@ -32,7 +36,7 @@ public class WitchActivity extends AppCompatActivity implements ExpandableListVi
             {"요거트/그린티/더블초코/딸기/망고/블루베리 스무디 5,800원","딸기요거트 스무디 5,800원","쿠키앤크림 스무디 6,000원"},
             {"로얄밀크티 4,500원","생과일착즙에이드(레몬,자몽,오렌지) 5,800원","아이스티(복숭아,레몬) 3,500원","차(유자,레몬,자몽,광양매실,생강) 3,800원","허브티(캐모마일,페퍼민트,루이보스,라벤더,자스민) 5,000원","블랙티(잉글리시블랙퍼스트,얼그레이,다즐링) 5,000원"}};
 
-    private Button map_button;
+    private ImageButton map_button;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -89,15 +93,18 @@ public class WitchActivity extends AppCompatActivity implements ExpandableListVi
             TextView textView = new TextView(WitchActivity.this);
             textView.setGravity(Gravity.CENTER_VERTICAL|Gravity.LEFT);
             textView.setPadding(30,40,0,40);
-            textView.setTextSize(15);
 
             return textView;
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.O)
         public View getChildView(int groupPosition, int childPosition,
                                  boolean isLastChild, View convertView, ViewGroup parent){
             TextView textView = getGenericView();
             textView.setText(getChild(groupPosition,childPosition).toString());
+            textView.setTextSize(14);
+            Typeface typeface = getResources().getFont(R.font.kyobo);
+            textView.setTypeface(typeface);
 
             return textView;
         }
@@ -114,10 +121,18 @@ public class WitchActivity extends AppCompatActivity implements ExpandableListVi
             return groupPosition;
         }
 
-        public View getGroupView(int groupPosition,boolean isExpanded,
+        @RequiresApi(api = Build.VERSION_CODES.O)
+        public View getGroupView(int groupPosition, boolean isExpanded,
                                  View convertView, ViewGroup parent){
             TextView textView = getGenericView();
             textView.setText(getGroup(groupPosition).toString());
+            textView.setTextColor(Color.parseColor("#E87A9DEA"));
+            textView.setTypeface(null, Typeface.BOLD);
+            textView.setTextSize(17);
+            Typeface typeface = getResources().getFont(R.font.kyobo);
+            textView.setTypeface(typeface);
+
+
 
             listView.setGroupIndicator(null);
 

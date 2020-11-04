@@ -1,6 +1,9 @@
 package com.example.myapplication.restaurant.cheonan.japanese;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -8,12 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
@@ -34,7 +38,7 @@ public class MadangActivity extends AppCompatActivity implements ExpandableListV
                     "어린이세트(1인) 11,000원\n초밥 8pcs + 치즈스틱 3pcs + 미니우동 1","덤앤덤세트A(1인) 12,000원\n순살돈까스 + 초밥 5pcs + 미니우동 1","덤앤덤세트B(1인) 13,000원\n이탈리안돈까스 + 초밥 5pcs + 미니우동 1","돈까스&뽁밥세트A(2인) 17,000원\n순살돈까스 + 낙지볶음밥 + 미니우동 2","돈까스&뽁밥세트B(2인) 17,500원\n이탈리안돈까스 + 새우볶음밥 + 미니우동 2",
             "알밥&우동세트(1인) 8,000원\n알밥 + 미니우동 1","덮밥&우동세트(1인) 8,500원\n회덮밥 + 미니우동 1","뽁밥&우동세트(1인) 8,000원\n낙지볶음밥 + 미니우동 1"}};
 
-    private Button map_button;
+    private ImageButton map_button;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -91,15 +95,18 @@ public class MadangActivity extends AppCompatActivity implements ExpandableListV
             TextView textView = new TextView(MadangActivity.this);
             textView.setGravity(Gravity.CENTER_VERTICAL|Gravity.LEFT);
             textView.setPadding(30,40,0,40);
-            textView.setTextSize(15);
 
             return textView;
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.O)
         public View getChildView(int groupPosition, int childPosition,
                                  boolean isLastChild, View convertView, ViewGroup parent){
             TextView textView = getGenericView();
             textView.setText(getChild(groupPosition,childPosition).toString());
+            textView.setTextSize(14);
+            Typeface typeface = getResources().getFont(R.font.kyobo);
+            textView.setTypeface(typeface);
 
             return textView;
         }
@@ -116,10 +123,16 @@ public class MadangActivity extends AppCompatActivity implements ExpandableListV
             return groupPosition;
         }
 
-        public View getGroupView(int groupPosition,boolean isExpanded,
+        @RequiresApi(api = Build.VERSION_CODES.O)
+        public View getGroupView(int groupPosition, boolean isExpanded,
                                  View convertView, ViewGroup parent){
             TextView textView = getGenericView();
             textView.setText(getGroup(groupPosition).toString());
+            textView.setTextColor(Color.parseColor("#E87A9DEA"));
+            textView.setTypeface(null, Typeface.BOLD);
+            textView.setTextSize(17);
+            Typeface typeface = getResources().getFont(R.font.kyobo);
+            textView.setTypeface(typeface);
 
             listView.setGroupIndicator(null);
 

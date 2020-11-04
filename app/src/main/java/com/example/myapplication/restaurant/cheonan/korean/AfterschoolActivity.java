@@ -93,6 +93,7 @@ public class AfterschoolActivity extends AppCompatActivity implements Expandable
             TextView textView = new TextView(AfterschoolActivity.this);
             textView.setGravity(Gravity.CENTER_VERTICAL|Gravity.LEFT);
             textView.setPadding(30,40,0,40);
+
             return textView;
         }
 
