@@ -20,7 +20,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 
 import com.example.myapplication.R;
-import com.example.myapplication.mate.MateViewActivity;
 import com.example.myapplication.network.RetrofitClient;
 import com.example.myapplication.network.ServiceApi;
 
@@ -107,11 +106,12 @@ public class SendMessageActivity extends AppCompatActivity {
                     Intent intent = new Intent(SendMessageActivity.this, MailActivity.class);
                     intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("SENDER"));
                     SendMessageActivity.this.startActivity(intent);
-                    String recipient = getIntent().getStringExtra("RECIPIENT");
-                    //if( recipient == "this.진하") {
+                    RecipText = (TextView) findViewById(R.id.recipient);
+                    String content = RecipText.getText().toString();
+                    if( content == "this진하") {
                         Bitmap mLargeIconForNoti = BitmapFactory.decodeResource(getResources(), R.drawable.bell);
                         PendingIntent mPendingIntent = PendingIntent.getActivity(SendMessageActivity.this, 0,
-                                new Intent(getApplicationContext(), MateViewActivity.class),
+                                new Intent(getApplicationContext(), SendMessageActivity.class),
                                 PendingIntent.FLAG_CANCEL_CURRENT
                         );
                         NotificationCompat.Builder mBuilder =
@@ -128,7 +128,7 @@ public class SendMessageActivity extends AppCompatActivity {
                         NotificationManager mNotificationManager =
                                 (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
                         mNotificationManager.notify(0, mBuilder.build());
-                    //}
+                    }
                 }
             }
 

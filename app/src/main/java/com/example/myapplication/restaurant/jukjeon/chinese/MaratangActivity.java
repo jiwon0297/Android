@@ -1,6 +1,9 @@
 package com.example.myapplication.restaurant.jukjeon.chinese;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -8,12 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
@@ -31,7 +35,7 @@ public class MaratangActivity extends AppCompatActivity implements ExpandableLis
             {"계란토마토덮밥 6,000원","가지볶음덮밥 6,000원","마파두부덮밥 6,000원","어향육슬덮밥 7,000원","쯔란소고기덮밥 7,000원","대파소고기덮밥 7,000원","고기피망볶음덮밥 7,000원","버섯청경채덮밥 7,000원","계란볶음밥 6,000원","김치볶음밥 6,000원","새우볶음밥 7,000원","중국만두 6,000원","우육면 7,000원","백김치면 6,000원","육사볶음면 6,000원","새우볶음면 6,000원","삼선볶음면 7,000원"},
             {"칭따오 6,000원","하얼빈 6,000원","연태고량 30,000원","노주탄 20,000원","설원 16,000원","이과두주 4,000원","소주 4,000원","청하 5,000원","카스 4,000원","중국 음료수 3,000원","음료수 2,000원"}};
 
-    private Button map_button;
+    private ImageButton map_button;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -88,15 +92,18 @@ public class MaratangActivity extends AppCompatActivity implements ExpandableLis
             TextView textView = new TextView(MaratangActivity.this);
             textView.setGravity(Gravity.CENTER_VERTICAL|Gravity.LEFT);
             textView.setPadding(30,40,0,40);
-            textView.setTextSize(15);
 
             return textView;
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.O)
         public View getChildView(int groupPosition, int childPosition,
                                  boolean isLastChild, View convertView, ViewGroup parent){
             TextView textView = getGenericView();
             textView.setText(getChild(groupPosition,childPosition).toString());
+            textView.setTextSize(14);
+            Typeface typeface = getResources().getFont(R.font.kyobo);
+            textView.setTypeface(typeface);
 
             return textView;
         }
@@ -113,10 +120,16 @@ public class MaratangActivity extends AppCompatActivity implements ExpandableLis
             return groupPosition;
         }
 
-        public View getGroupView(int groupPosition,boolean isExpanded,
+        @RequiresApi(api = Build.VERSION_CODES.O)
+        public View getGroupView(int groupPosition, boolean isExpanded,
                                  View convertView, ViewGroup parent){
             TextView textView = getGenericView();
             textView.setText(getGroup(groupPosition).toString());
+            textView.setTextColor(Color.parseColor("#E87A9DEA"));
+            textView.setTypeface(null, Typeface.BOLD);
+            textView.setTextSize(17);
+            Typeface typeface = getResources().getFont(R.font.kyobo);
+            textView.setTypeface(typeface);
 
             listView.setGroupIndicator(null);
 

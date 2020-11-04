@@ -1,6 +1,9 @@
 package com.example.myapplication.restaurant.cheonan.chinese;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -8,12 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
@@ -34,7 +38,7 @@ public class HeungbuActivity extends AppCompatActivity implements ExpandableList
             {"짜장밥 7,000원","짬뽕밥 7,000원","볶음밥 7,000원","오므라이스 7,000원","갈비탕 7,000원","육개장 7,000원","제육덮밥 7,000원","오징어덮밥 8,000원","송이덮밥 8,000원","잡채밥 8,000원","마파두부밥 8,000원","새우볶음밥 8,000원","삼선볶음밥 8,000원","유산슬밥 10,000원","고추잡채밥 10,000원","잡탕밥 10,000원","삼선짬뽕밥 9,000원","고추짬뽕밥 9,000원","삼선폭탄짬뽕밥\n(보통) 9,000원\n(곱빼기) 11,000원","공기밥 추가 1,000원"},
             {"탕수육\n(소) 15,000원\n(중) 20,000원\n(대) 25,000원","잡채 20,000원","깐풍기 30,000원","고추잡채 30,000원","팔보채 30,000원","양장피 30,000원","잡탕 30,000원","유산슬 30,000원","깐쇼새우 30,000원"}};
 
-    private Button map_button;
+    private ImageButton map_button;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -91,15 +95,19 @@ public class HeungbuActivity extends AppCompatActivity implements ExpandableList
             TextView textView = new TextView(HeungbuActivity.this);
             textView.setGravity(Gravity.CENTER_VERTICAL|Gravity.LEFT);
             textView.setPadding(30,40,0,40);
-            textView.setTextSize(15);
 
             return textView;
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.O)
         public View getChildView(int groupPosition, int childPosition,
                                  boolean isLastChild, View convertView, ViewGroup parent){
             TextView textView = getGenericView();
             textView.setText(getChild(groupPosition,childPosition).toString());
+            textView.setTextSize(14);
+            Typeface typeface = getResources().getFont(R.font.kyobo);
+            textView.setTypeface(typeface);
+
 
             return textView;
         }
@@ -116,10 +124,16 @@ public class HeungbuActivity extends AppCompatActivity implements ExpandableList
             return groupPosition;
         }
 
-        public View getGroupView(int groupPosition,boolean isExpanded,
+        @RequiresApi(api = Build.VERSION_CODES.O)
+        public View getGroupView(int groupPosition, boolean isExpanded,
                                  View convertView, ViewGroup parent){
             TextView textView = getGenericView();
             textView.setText(getGroup(groupPosition).toString());
+            textView.setTextColor(Color.parseColor("#E87A9DEA"));
+            textView.setTypeface(null, Typeface.BOLD);
+            textView.setTextSize(17);
+            Typeface typeface = getResources().getFont(R.font.kyobo);
+            textView.setTypeface(typeface);
 
             listView.setGroupIndicator(null);
 
