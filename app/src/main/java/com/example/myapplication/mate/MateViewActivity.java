@@ -449,27 +449,25 @@ public class MateViewActivity extends AppCompatActivity{
                     String writer = getIntent().getStringExtra("NICKNAME_EXTRA2");
                     String user = getIntent().getStringExtra("NICKNAME_EXTRA");
 
-                    if((writer.equals("this진하"))){
-                        Bitmap mLargeIconForNoti = BitmapFactory.decodeResource(getResources(),R.drawable.bell);
-                        PendingIntent mPendingIntent = PendingIntent.getActivity(MateViewActivity.this,0,
-                                new Intent(getApplicationContext(), MateViewActivity.class),
-                                PendingIntent.FLAG_CANCEL_CURRENT
-                        );
-                        NotificationCompat.Builder mBuilder =
-                                new NotificationCompat.Builder(MateViewActivity.this)
-                                        .setSmallIcon(R.drawable.bell)
-                                        .setContentTitle("댓글 알림")
-                                        .setContentText("작성한 게시물에 댓글이 달렸습니다.")
-                                        .setDefaults(Notification.DEFAULT_SOUND)
-                                        .setLargeIcon(mLargeIconForNoti)
-                                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                                        .setAutoCancel(true)
-                                        .setContentIntent(mPendingIntent);
+                    Bitmap mLargeIconForNoti = BitmapFactory.decodeResource(getResources(),R.drawable.bell);
+                    PendingIntent mPendingIntent = PendingIntent.getActivity(MateViewActivity.this,0,
+                            new Intent(getApplicationContext(), MateViewActivity.class),
+                            PendingIntent.FLAG_CANCEL_CURRENT
+                    );
+                    NotificationCompat.Builder mBuilder =
+                            new NotificationCompat.Builder(MateViewActivity.this)
+                                    .setSmallIcon(R.drawable.bell)
+                                    .setContentTitle("댓글 알림")
+                                    .setContentText("[this진하]님이 작성한 게시물에 댓글이 달렸습니다.")
+                                    .setDefaults(Notification.DEFAULT_SOUND)
+                                    .setLargeIcon(mLargeIconForNoti)
+                                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                    .setAutoCancel(true)
+                                    .setContentIntent(mPendingIntent);
 
-                        NotificationManager mNotificationManager =
-                                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-                        mNotificationManager.notify(0,mBuilder.build());
-                    }
+                    NotificationManager mNotificationManager =
+                            (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                    mNotificationManager.notify(0,mBuilder.build());
                 }
             }
 

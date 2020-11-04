@@ -108,27 +108,26 @@ public class SendMessageActivity extends AppCompatActivity {
                     SendMessageActivity.this.startActivity(intent);
                     RecipText = (TextView) findViewById(R.id.recipient);
                     String content = RecipText.getText().toString();
-                    if( content.equals("this진하")) {
-                        Bitmap mLargeIconForNoti = BitmapFactory.decodeResource(getResources(), R.drawable.bell);
-                        PendingIntent mPendingIntent = PendingIntent.getActivity(SendMessageActivity.this, 0,
-                                new Intent(getApplicationContext(), SendMessageActivity.class),
-                                PendingIntent.FLAG_CANCEL_CURRENT
-                        );
-                        NotificationCompat.Builder mBuilder =
-                                new NotificationCompat.Builder(SendMessageActivity.this)
-                                        .setSmallIcon(R.drawable.bell)
-                                        .setContentTitle("쪽지 알림")
-                                        .setContentText("쪽지가 도착했습니다.")
-                                        .setDefaults(Notification.DEFAULT_SOUND)
-                                        .setLargeIcon(mLargeIconForNoti)
-                                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                                        .setAutoCancel(true)
-                                        .setContentIntent(mPendingIntent);
 
-                        NotificationManager mNotificationManager =
-                                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-                        mNotificationManager.notify(0, mBuilder.build());
-                    }
+                    Bitmap mLargeIconForNoti = BitmapFactory.decodeResource(getResources(), R.drawable.bell);
+                    PendingIntent mPendingIntent = PendingIntent.getActivity(SendMessageActivity.this, 0,
+                            new Intent(getApplicationContext(), SendMessageActivity.class),
+                            PendingIntent.FLAG_CANCEL_CURRENT
+                    );
+                    NotificationCompat.Builder mBuilder =
+                            new NotificationCompat.Builder(SendMessageActivity.this)
+                                    .setSmallIcon(R.drawable.bell)
+                                    .setContentTitle("쪽지 알림")
+                                    .setContentText("[this진하]님께 쪽지가 도착했습니다.")
+                                    .setDefaults(Notification.DEFAULT_SOUND)
+                                    .setLargeIcon(mLargeIconForNoti)
+                                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                    .setAutoCancel(true)
+                                    .setContentIntent(mPendingIntent);
+
+                    NotificationManager mNotificationManager =
+                            (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                    mNotificationManager.notify(0, mBuilder.build());
                 }
             }
 
