@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     int currentPage = 0;
     Timer timer;
     final long DELAY_MS = 1500;//delay in milliseconds before task is to be executed
-    final long PERIOD_MS = 5000; // time in milliseconds between successive task executions.
+    final long PERIOD_MS = 7000; // time in milliseconds between successive task executions.
 
 
     @Override
