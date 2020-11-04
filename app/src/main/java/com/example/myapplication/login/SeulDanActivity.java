@@ -3,6 +3,7 @@ package com.example.myapplication.login;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
+import com.example.myapplication.login.Adapter;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,6 +12,7 @@ import com.example.myapplication.R;
 
 public class SeulDanActivity extends AppCompatActivity {
 
+    Adapter adapter;
     ViewPager viewPager;
 
     @Override
@@ -19,7 +21,7 @@ public class SeulDanActivity extends AppCompatActivity {
         setContentView(R.layout.activity_seul_dan);
 
         viewPager = (ViewPager) findViewById(R.id.view);
-        PagerAdapter adapter = new Adapter(SeulDanActivity.this);
+        adapter = new Adapter(this);
         viewPager.setAdapter(adapter);
     }
 }
