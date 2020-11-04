@@ -16,6 +16,8 @@ import com.example.myapplication.login.LoginActivity;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import me.relex.circleindicator.CircleIndicator;
+
 public class MainActivity extends AppCompatActivity {
 
     Adapter adapter;
@@ -23,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
     int currentPage = 0;
     Timer timer;
-    final long DELAY_MS = 1500;//delay in milliseconds before task is to be executed
-    final long PERIOD_MS = 7000; // time in milliseconds between successive task executions.
+    final long DELAY_MS = 500;//delay in milliseconds before task is to be executed
+    final long PERIOD_MS = 5000; // time in milliseconds between successive task executions.
 
 
     @Override
@@ -35,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
         viewPager = (ViewPager) findViewById(R.id.view);
         adapter = new Adapter(this);
         viewPager.setAdapter(adapter);
+
+        CircleIndicator indicator = (CircleIndicator) findViewById(R.id.indicator);
+        indicator.setViewPager(viewPager);
 
         final Handler handler = new Handler();
         final Runnable Update = new Runnable() {
