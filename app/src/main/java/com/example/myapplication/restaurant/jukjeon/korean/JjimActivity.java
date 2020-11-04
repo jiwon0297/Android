@@ -1,6 +1,9 @@
 package com.example.myapplication.restaurant.jukjeon.korean;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -8,12 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
@@ -30,7 +34,7 @@ public class JjimActivity extends AppCompatActivity implements ExpandableListVie
     String[][] childs={{"치즈순살찜달\n小 21,000원\n中 30,000원\n大 39,000원","순살안동찜닭\n小 18,000원\n中 27,000원\n大36,000원","순살고추장찜닭\n小 18,000원\n中 27,000원\n大36,000원","뼈있는 안동찜닭\n小 18,000원\n中 27,000원\n大 36,000원","뼈있는 고추장찜닭\n小 18,000원\n中 27,000원\n大36,000원"},
             {"공기밥 1,000원","콜라(500mL) 1,500원","사이다(500mL) 1,500원","콜라(1.25) 2,500원","사이다(1.5L) 2,500원"}};
 
-    private Button map_button;
+    private ImageButton map_button;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -87,15 +91,18 @@ public class JjimActivity extends AppCompatActivity implements ExpandableListVie
             TextView textView = new TextView(JjimActivity.this);
             textView.setGravity(Gravity.CENTER_VERTICAL|Gravity.LEFT);
             textView.setPadding(30,40,0,40);
-            textView.setTextSize(15);
 
             return textView;
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.O)
         public View getChildView(int groupPosition, int childPosition,
                                  boolean isLastChild, View convertView, ViewGroup parent){
             TextView textView = getGenericView();
             textView.setText(getChild(groupPosition,childPosition).toString());
+            textView.setTextSize(14);
+            Typeface typeface = getResources().getFont(R.font.kyobo);
+            textView.setTypeface(typeface);
 
             return textView;
         }
@@ -112,10 +119,17 @@ public class JjimActivity extends AppCompatActivity implements ExpandableListVie
             return groupPosition;
         }
 
-        public View getGroupView(int groupPosition,boolean isExpanded,
+        @RequiresApi(api = Build.VERSION_CODES.O)
+        public View getGroupView(int groupPosition, boolean isExpanded,
                                  View convertView, ViewGroup parent){
             TextView textView = getGenericView();
             textView.setText(getGroup(groupPosition).toString());
+            textView.setTextColor(Color.parseColor("#E87A9DEA"));
+            textView.setTypeface(null, Typeface.BOLD);
+            textView.setTextSize(17);
+            Typeface typeface = getResources().getFont(R.font.kyobo);
+            textView.setTypeface(typeface);
+
 
             listView.setGroupIndicator(null);
 

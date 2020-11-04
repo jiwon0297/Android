@@ -1,6 +1,9 @@
 package com.example.myapplication.restaurant.cheonan.western;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -8,12 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
@@ -33,7 +37,7 @@ public class SungtanActivity extends AppCompatActivity implements ExpandableList
             {"모듬세트 24,000원\n(왕새우+치킨안심가라아게+치즈스틱+포테이토)","왕새우튀김(7마리) 9,000원","웨지감자튀김 8,000원","치킨안심가라아게(12조각) 8,000원","포테이토 5,000원","치즈스틱(5개) 5,000원"},
             {"아메리카노 2,000원","카페라떼 2,500원","얼그레이티 3,000원","히비스커스티 3,500원","콜라(355ml) 1,500원","사이다(355ml) 1,500원","환타(355ml) 1,500원"}};
 
-    private Button map_button;
+    private ImageButton map_button;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -90,15 +94,18 @@ public class SungtanActivity extends AppCompatActivity implements ExpandableList
             TextView textView = new TextView(SungtanActivity.this);
             textView.setGravity(Gravity.CENTER_VERTICAL|Gravity.LEFT);
             textView.setPadding(30,40,0,40);
-            textView.setTextSize(15);
 
             return textView;
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.O)
         public View getChildView(int groupPosition, int childPosition,
                                  boolean isLastChild, View convertView, ViewGroup parent){
             TextView textView = getGenericView();
             textView.setText(getChild(groupPosition,childPosition).toString());
+            textView.setTextSize(14);
+            Typeface typeface = getResources().getFont(R.font.kyobo);
+            textView.setTypeface(typeface);
 
             return textView;
         }
@@ -115,10 +122,16 @@ public class SungtanActivity extends AppCompatActivity implements ExpandableList
             return groupPosition;
         }
 
-        public View getGroupView(int groupPosition,boolean isExpanded,
+        @RequiresApi(api = Build.VERSION_CODES.O)
+        public View getGroupView(int groupPosition, boolean isExpanded,
                                  View convertView, ViewGroup parent){
             TextView textView = getGenericView();
             textView.setText(getGroup(groupPosition).toString());
+            textView.setTextColor(Color.parseColor("#E87A9DEA"));
+            textView.setTypeface(null, Typeface.BOLD);
+            textView.setTextSize(17);
+            Typeface typeface = getResources().getFont(R.font.kyobo);
+            textView.setTypeface(typeface);
 
             listView.setGroupIndicator(null);
 

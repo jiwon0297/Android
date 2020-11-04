@@ -1,6 +1,9 @@
 package com.example.myapplication.restaurant.jukjeon.korean;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -8,12 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
@@ -30,7 +34,7 @@ public class SangolActivity extends AppCompatActivity implements ExpandableListV
     String[][] childs={{"제육숙주볶음 7.0","오징어제육 8.0","양푼갈비 7.0","햄짜글이 8.0","돼지파불고기 7.0","김치전골 8.0"},
             {"돼지김치찌개(뚝배기) 7.0","참치김치찌개 7.0","청국장 7.0","차돌된장찌개 7.0","해물된장찌개 7.0"}};
 
-    private Button map_button;
+    private ImageButton map_button;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -87,15 +91,18 @@ public class SangolActivity extends AppCompatActivity implements ExpandableListV
             TextView textView = new TextView(SangolActivity.this);
             textView.setGravity(Gravity.CENTER_VERTICAL|Gravity.LEFT);
             textView.setPadding(30,40,0,40);
-            textView.setTextSize(15);
 
             return textView;
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.O)
         public View getChildView(int groupPosition, int childPosition,
                                  boolean isLastChild, View convertView, ViewGroup parent){
             TextView textView = getGenericView();
             textView.setText(getChild(groupPosition,childPosition).toString());
+            textView.setTextSize(14);
+            Typeface typeface = getResources().getFont(R.font.kyobo);
+            textView.setTypeface(typeface);
 
             return textView;
         }
@@ -112,10 +119,16 @@ public class SangolActivity extends AppCompatActivity implements ExpandableListV
             return groupPosition;
         }
 
-        public View getGroupView(int groupPosition,boolean isExpanded,
+        @RequiresApi(api = Build.VERSION_CODES.O)
+        public View getGroupView(int groupPosition, boolean isExpanded,
                                  View convertView, ViewGroup parent){
             TextView textView = getGenericView();
             textView.setText(getGroup(groupPosition).toString());
+            textView.setTextColor(Color.parseColor("#E87A9DEA"));
+            textView.setTypeface(null, Typeface.BOLD);
+            textView.setTextSize(17);
+            Typeface typeface = getResources().getFont(R.font.kyobo);
+            textView.setTypeface(typeface);
 
             listView.setGroupIndicator(null);
 

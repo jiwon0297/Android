@@ -1,6 +1,9 @@
 package com.example.myapplication.restaurant.jukjeon.cafe;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -8,12 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
@@ -34,7 +38,7 @@ public class DarakActivity extends AppCompatActivity implements ExpandableListVi
             {"다크모카프라페 +1,300원","자바칩프라페 +1,300","민트초코프라페 +1,300원","그린티프라페 +1,300원","코코넛스무디 커피 +1,500원","플레인요거트스무디 1,300원","딸기요거트스무디 1,300원","블루베리요거트스무디 +1,300원","바닐라밀크쉐이크 +1,300원","오레오밀크쉐이크 +1,500원"},
             {"탄산음료(콜라,사이다,웰치스) +500원","핫식스 +500원","산펠레그리노 +1,000원","병맥주(카스,하이트,카프리,버드와이저) +1,500원"}};
 
-    private Button map_button;
+    private ImageButton map_button;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -91,15 +95,18 @@ public class DarakActivity extends AppCompatActivity implements ExpandableListVi
             TextView textView = new TextView(DarakActivity.this);
             textView.setGravity(Gravity.CENTER_VERTICAL|Gravity.LEFT);
             textView.setPadding(30,40,0,40);
-            textView.setTextSize(15);
 
             return textView;
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.O)
         public View getChildView(int groupPosition, int childPosition,
                                  boolean isLastChild, View convertView, ViewGroup parent){
             TextView textView = getGenericView();
             textView.setText(getChild(groupPosition,childPosition).toString());
+            textView.setTextSize(14);
+            Typeface typeface = getResources().getFont(R.font.kyobo);
+            textView.setTypeface(typeface);
 
             return textView;
         }
@@ -116,10 +123,16 @@ public class DarakActivity extends AppCompatActivity implements ExpandableListVi
             return groupPosition;
         }
 
-        public View getGroupView(int groupPosition,boolean isExpanded,
+        @RequiresApi(api = Build.VERSION_CODES.O)
+        public View getGroupView(int groupPosition, boolean isExpanded,
                                  View convertView, ViewGroup parent){
             TextView textView = getGenericView();
             textView.setText(getGroup(groupPosition).toString());
+            textView.setTextColor(Color.parseColor("#E87A9DEA"));
+            textView.setTypeface(null, Typeface.BOLD);
+            textView.setTextSize(17);
+            Typeface typeface = getResources().getFont(R.font.kyobo);
+            textView.setTypeface(typeface);
 
             listView.setGroupIndicator(null);
 

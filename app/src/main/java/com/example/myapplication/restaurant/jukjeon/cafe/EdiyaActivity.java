@@ -1,6 +1,9 @@
 package com.example.myapplication.restaurant.jukjeon.cafe;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -8,12 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
@@ -38,7 +42,7 @@ public class EdiyaActivity extends AppCompatActivity implements ExpandableListVi
                 {"바닐라쿠키빙수 10,800원","망고샤베트빙수 10,800원","딸기치즈빙수 10,800원","눈꽃 빙수(팥/초코) 9,800원"},
                 {"허니 카라멜 브레드 4,600원","플레인 와플 2,300원","크림치즈 와플 3,000원","생크림 와플 2,500원","프레즐 2,300원","베이글(플레인/어니언/블루베리) 1,900원","크로크무슈 3,800원"}};
 
-    private Button map_button;
+    private ImageButton map_button;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -96,15 +100,18 @@ public class EdiyaActivity extends AppCompatActivity implements ExpandableListVi
             TextView textView = new TextView(EdiyaActivity.this);
             textView.setGravity(Gravity.CENTER_VERTICAL|Gravity.LEFT);
             textView.setPadding(30,40,0,40);
-            textView.setTextSize(15);
 
             return textView;
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.O)
         public View getChildView(int groupPosition, int childPosition,
                                  boolean isLastChild, View convertView, ViewGroup parent){
             TextView textView = getGenericView();
             textView.setText(getChild(groupPosition,childPosition).toString());
+            textView.setTextSize(14);
+            Typeface typeface = getResources().getFont(R.font.kyobo);
+            textView.setTypeface(typeface);
 
             return textView;
         }
@@ -121,10 +128,16 @@ public class EdiyaActivity extends AppCompatActivity implements ExpandableListVi
             return groupPosition;
         }
 
-        public View getGroupView(int groupPosition,boolean isExpanded,
+        @RequiresApi(api = Build.VERSION_CODES.O)
+        public View getGroupView(int groupPosition, boolean isExpanded,
                                  View convertView, ViewGroup parent){
             TextView textView = getGenericView();
             textView.setText(getGroup(groupPosition).toString());
+            textView.setTextColor(Color.parseColor("#E87A9DEA"));
+            textView.setTypeface(null, Typeface.BOLD);
+            textView.setTextSize(17);
+            Typeface typeface = getResources().getFont(R.font.kyobo);
+            textView.setTypeface(typeface);
 
             listView.setGroupIndicator(null);
 
