@@ -12,7 +12,7 @@
         android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="30dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -53,20 +53,174 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
+        android:id="@+id/linearLayout8"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="10dp"
-        android:background="@drawable/btncustom7"
+        android:layout_height="200dp"
         android:orientation="horizontal"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:background="@drawable/btncustom7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
         app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:id="@+id/linearLayout5"
+            android:layout_width="190dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:fontFamily="@font/lottemartdreammedium"
+                    android:textSize="20sp"
+                    android:text="죽전"
+                    android:textStyle="bold" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroup1"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent">
+
+                    <RadioButton
+                        android:id="@+id/radioButton14"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/lottemartdreammedium"
+                        android:text="식당" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton15"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/lottemartdreammedium"
+                        android:text="카페" />
+                </RadioGroup>
+
+                <ImageButton
+                    android:id="@+id/imageButton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:srcCompat="@android:drawable/ic_popup_sync" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/button36"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginBottom="5dp"
+                android:clickable="true"
+                android:fontFamily="@font/lottemartdreammedium"
+                android:gravity="center"
+                android:text="오늘 뭐먹지?"
+                android:textColor="#BF000000"
+                android:textSize="32sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout6"
+            android:layout_width="190dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:fontFamily="@font/lottemartdreammedium"
+                    android:textSize="20sp"
+                    android:text="천안"
+                    android:textStyle="bold" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroup2"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent">
+
+                    <RadioButton
+                        android:id="@+id/radioButton16"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:text="식당" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton17"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:text="카페" />
+                </RadioGroup>
+
+                <ImageButton
+                    android:id="@+id/imageButton3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:srcCompat="@android:drawable/ic_popup_sync" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/button37"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="오늘 뭐먹지?"
+                android:layout_marginBottom="5dp"
+                android:textColor="#BF000000"
+                android:fontFamily="@font/lottemartdreammedium"
+                android:textSize="32sp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/btncustom7"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/horizontal_scroll3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
 
         <LinearLayout
             android:layout_width="100dp"
@@ -185,176 +339,26 @@
         </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout8"
-        android:layout_width="match_parent"
-        android:layout_height="170dp"
-        android:orientation="horizontal"
-        android:layout_marginEnd="10dp"
-        android:layout_marginStart="10dp"
-        android:gravity="center"
-        android:background="@drawable/btncustom7"
-
-        app:layout_constraintBottom_toTopOf="@+id/horizontal_scroll3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
-
-        <LinearLayout
-            android:id="@+id/linearLayout5"
-            android:layout_width="190dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView11"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:fontFamily="@font/lottemartdreammedium"
-                    android:textSize="20sp"
-                    android:text="죽전"
-                    android:textStyle="bold" />
-
-                <RadioGroup
-                    android:id="@+id/radioGroup1"
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent">
-
-                    <RadioButton
-                        android:id="@+id/radioButton14"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:textSize="16sp"
-                        android:fontFamily="@font/lottemartdreammedium"
-                        android:text="식당" />
-
-                    <RadioButton
-                        android:id="@+id/radioButton15"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:textSize="16sp"
-                        android:fontFamily="@font/lottemartdreammedium"
-                        android:text="카페" />
-                </RadioGroup>
-
-                <ImageButton
-                    android:id="@+id/imageButton2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    app:srcCompat="@android:drawable/ic_popup_sync" />
-
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/button36"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:clickable="true"
-                android:fontFamily="@font/lottemartdreammedium"
-                android:gravity="center"
-                android:text="오늘 뭐먹지?"
-                android:textColor="#BF000000"
-                android:textSize="32sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout6"
-            android:layout_width="190dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView12"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:fontFamily="@font/lottemartdreammedium"
-                    android:textSize="20sp"
-                    android:text="천안"
-                    android:textStyle="bold" />
-
-                <RadioGroup
-                    android:id="@+id/radioGroup2"
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent">
-
-                    <RadioButton
-                        android:id="@+id/radioButton16"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:textSize="16sp"
-                        android:text="식당" />
-
-                    <RadioButton
-                        android:id="@+id/radioButton17"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:textSize="16sp"
-                        android:text="카페" />
-                </RadioGroup>
-
-                <ImageButton
-                    android:id="@+id/imageButton3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    app:srcCompat="@android:drawable/ic_popup_sync" />
-
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/button37"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="오늘 뭐먹지?"
-                android:textColor="#BF000000"
-                android:fontFamily="@font/lottemartdreammedium"
-                android:textSize="32sp"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:textStyle="bold" />
-        </LinearLayout>
-    </LinearLayout>
-
     <HorizontalScrollView
         android:id="@+id/horizontal_scroll3"
         android:layout_width="match_parent"
-        android:layout_height="280dp"
-        android:layout_marginBottom="26dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
+        android:layout_marginTop="30dp"
+        android:scrollbars="none"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
+        app:layout_constraintBottom_toTopOf="@id/bottomNavi"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
         <LinearLayout
             android:id="@+id/linearLayout7"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <RelativeLayout
@@ -540,21 +544,20 @@
         </LinearLayout>
     </HorizontalScrollView>
 
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="81dp"
+        android:layout_marginTop="30dp"
         android:fontFamily="@font/lottemartdreammedium"
         android:theme="@style/Widget.BottomNavigationView"
         app:itemBackground="@android:color/white"
         app:itemIconTint="#5785CF"
         app:itemTextColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/horizontal_scroll3"
-        app:layout_constraintVertical_bias="1.0"
-        app:menu="@menu/menu_bottomnavigationview"
-        tools:layout_editor_absoluteX="-8dp" />
+        app:menu="@menu/menu_bottomnavigationview" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
