@@ -29,6 +29,7 @@ import androidx.core.app.NotificationCompat;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.myapplication.R;
+import com.example.myapplication.lost.LostViewActivity;
 import com.example.myapplication.network.RetrofitClient;
 import com.example.myapplication.network.ServiceApi;
 import com.example.myapplication.ui.SendMessageActivity;
@@ -445,28 +446,30 @@ public class MateViewActivity extends AppCompatActivity{
 
                 if (result.getCode() == 200) {
                     attemptList();
-                    Bitmap mLargeIconForNoti = BitmapFactory.decodeResource(getResources(),R.drawable.bell);
-                    PendingIntent mPendingIntent = PendingIntent.getActivity(MateViewActivity.this,0,
-                            new Intent(getApplicationContext(), MateViewActivity.class),
-                            PendingIntent.FLAG_CANCEL_CURRENT
-                    );
-                    NotificationCompat.Builder mBuilder =
-                            new NotificationCompat.Builder(MateViewActivity.this)
-                                .setSmallIcon(R.drawable.bell)
-                                .setContentTitle("댓글 알림")
-                                .setContentText("작성자님의 메이트글에 댓글이 달렸습니다.")
-                                .setDefaults(Notification.DEFAULT_SOUND)
-                                .setLargeIcon(mLargeIconForNoti)
-                                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                                .setAutoCancel(true)
-                                .setContentIntent(mPendingIntent);
+                    String writer = getIntent().getStringExtra("NICKNAME_EXTRA2");
+                    String user = getIntent().getStringExtra("NICKNAME_EXTRA");
+
+                    if((writer.equals("this진하"))){
+                        Bitmap mLargeIconForNoti = BitmapFactory.decodeResource(getResources(),R.drawable.bell);
+                        PendingIntent mPendingIntent = PendingIntent.getActivity(MateViewActivity.this,0,
+                                new Intent(getApplicationContext(), MateViewActivity.class),
+                                PendingIntent.FLAG_CANCEL_CURRENT
+                        );
+                        NotificationCompat.Builder mBuilder =
+                                new NotificationCompat.Builder(MateViewActivity.this)
+                                        .setSmallIcon(R.drawable.bell)
+                                        .setContentTitle("댓글 알림")
+                                        .setContentText("작성한 게시물에 댓글이 달렸습니다.")
+                                        .setDefaults(Notification.DEFAULT_SOUND)
+                                        .setLargeIcon(mLargeIconForNoti)
+                                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                        .setAutoCancel(true)
+                                        .setContentIntent(mPendingIntent);
 
                         NotificationManager mNotificationManager =
                                 (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
                         mNotificationManager.notify(0,mBuilder.build());
-
-
-
+                    }
                 }
             }
 

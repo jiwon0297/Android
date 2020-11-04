@@ -108,7 +108,7 @@ public class SendMessageActivity extends AppCompatActivity {
                     SendMessageActivity.this.startActivity(intent);
                     RecipText = (TextView) findViewById(R.id.recipient);
                     String content = RecipText.getText().toString();
-                    if( content == "this진하") {
+                    if( content.equals("this진하")) {
                         Bitmap mLargeIconForNoti = BitmapFactory.decodeResource(getResources(), R.drawable.bell);
                         PendingIntent mPendingIntent = PendingIntent.getActivity(SendMessageActivity.this, 0,
                                 new Intent(getApplicationContext(), SendMessageActivity.class),

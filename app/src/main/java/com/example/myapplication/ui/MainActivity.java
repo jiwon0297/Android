@@ -16,8 +16,6 @@ import com.example.myapplication.login.LoginActivity;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import me.relex.circleindicator.CircleIndicator;
-
 public class MainActivity extends AppCompatActivity {
 
     Adapter adapter;
