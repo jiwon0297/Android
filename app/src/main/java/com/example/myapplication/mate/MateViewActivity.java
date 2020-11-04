@@ -1,17 +1,16 @@
 package com.example.myapplication.mate;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import android.app.AlertDialog;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
-import android.provider.ContactsContract;
 import android.util.Log;
-import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,20 +18,19 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.myapplication.Join.JoinActivity;
-import com.example.myapplication.Join.JoinData;
-import com.example.myapplication.Join.JoinResponse;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.example.myapplication.R;
 import com.example.myapplication.network.RetrofitClient;
 import com.example.myapplication.network.ServiceApi;
-import com.example.myapplication.ui.MainActivity;
 import com.example.myapplication.ui.SendMessageActivity;
 
 import java.util.ArrayList;
@@ -55,6 +53,11 @@ public class MateViewActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mate_view);
 
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(MateViewActivity.this)
+                .setSmallIcon(R.drawable.bell)
+                .setContentTitle("알림 제목")
+                .setContentText("알림 내용!!");
+
         TextView title = (TextView) findViewById(R.id.title);
         TextView writer = (TextView) findViewById(R.id.writer);
         TextView date = (TextView) findViewById(R.id.date);
@@ -69,6 +72,7 @@ public class MateViewActivity extends AppCompatActivity{
         writer.setText(getIntent().getStringExtra("NICKNAME_EXTRA2"));
         date.setText(getIntent().getStringExtra("DATE_EXTRA"));
         content.setText(getIntent().getStringExtra("CONTENT_EXTRA"));
+
 
         ImageButton backbutton = (ImageButton) findViewById(R.id.imageButton1);
         backbutton.setOnClickListener(new View.OnClickListener() {
@@ -87,6 +91,7 @@ public class MateViewActivity extends AppCompatActivity{
 
                 commentcontent.setError(null);
                 String content = commentcontent.getText().toString();
+
                 boolean cancel = false;
                 View focusView = null;
 
@@ -440,6 +445,28 @@ public class MateViewActivity extends AppCompatActivity{
 
                 if (result.getCode() == 200) {
                     attemptList();
+                    Bitmap mLargeIconForNoti = BitmapFactory.decodeResource(getResources(),R.drawable.bell);
+                    PendingIntent mPendingIntent = PendingIntent.getActivity(MateViewActivity.this,0,
+                            new Intent(getApplicationContext(), MateViewActivity.class),
+                            PendingIntent.FLAG_CANCEL_CURRENT
+                    );
+                    NotificationCompat.Builder mBuilder =
+                            new NotificationCompat.Builder(MateViewActivity.this)
+                                .setSmallIcon(R.drawable.bell)
+                                .setContentTitle("댓글 알림")
+                                .setContentText("작성자님의 메이트글에 댓글이 달렸습니다.")
+                                .setDefaults(Notification.DEFAULT_SOUND)
+                                .setLargeIcon(mLargeIconForNoti)
+                                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                .setAutoCancel(true)
+                                .setContentIntent(mPendingIntent);
+
+                        NotificationManager mNotificationManager =
+                                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                        mNotificationManager.notify(0,mBuilder.build());
+
+
+
                 }
             }
 
