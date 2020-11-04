@@ -467,7 +467,7 @@ public class LostViewActivity extends AppCompatActivity {
                     attemptList();
                     Bitmap mLargeIconForNoti = BitmapFactory.decodeResource(getResources(),R.drawable.bell);
                     PendingIntent mPendingIntent = PendingIntent.getActivity(LostViewActivity.this,0,
-                            new Intent(getApplicationContext(), MateViewActivity.class),
+                            new Intent(getApplicationContext(), LostViewActivity.class),
                             PendingIntent.FLAG_CANCEL_CURRENT
                     );
                     NotificationCompat.Builder mBuilder =
