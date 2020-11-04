@@ -1,9 +1,9 @@
 package com.example.myapplication.lost;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import android.app.AlertDialog;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -25,22 +25,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.example.myapplication.R;
-import com.example.myapplication.mate.AloneActivity;
-import com.example.myapplication.mate.CommentAdapter;
-import com.example.myapplication.mate.ContestActivity;
-import com.example.myapplication.mate.HouseActivity;
-import com.example.myapplication.mate.MateCommentData;
-import com.example.myapplication.mate.MateCommentDeleteData;
-import com.example.myapplication.mate.MateCommentDeleteResponse;
-import com.example.myapplication.mate.MateCommentResponse;
-import com.example.myapplication.mate.MateCommentWriteData;
-import com.example.myapplication.mate.MateCommentWriteResponse;
-import com.example.myapplication.mate.MateDeleteData;
-import com.example.myapplication.mate.MateDeleteResponse;
-import com.example.myapplication.mate.MateEditActivity;
 import com.example.myapplication.mate.MateViewActivity;
-import com.example.myapplication.mate.StudyActivity;
 import com.example.myapplication.network.RetrofitClient;
 import com.example.myapplication.network.ServiceApi;
 import com.example.myapplication.ui.SendMessageActivity;
@@ -70,6 +60,11 @@ public class LostViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lost_view);
+
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(LostViewActivity.this)
+                .setSmallIcon(R.drawable.bell)
+                .setContentTitle("알림 제목")
+                .setContentText("알림 내용!!");
 
         TextView title = (TextView) findViewById(R.id.title);
         TextView writer = (TextView) findViewById(R.id.writer);
@@ -470,6 +465,25 @@ public class LostViewActivity extends AppCompatActivity {
 
                 if (result.getCode() == 200) {
                     attemptList();
+                    Bitmap mLargeIconForNoti = BitmapFactory.decodeResource(getResources(),R.drawable.bell);
+                    PendingIntent mPendingIntent = PendingIntent.getActivity(LostViewActivity.this,0,
+                            new Intent(getApplicationContext(), MateViewActivity.class),
+                            PendingIntent.FLAG_CANCEL_CURRENT
+                    );
+                    NotificationCompat.Builder mBuilder =
+                            new NotificationCompat.Builder(LostViewActivity.this)
+                                    .setSmallIcon(R.drawable.bell)
+                                    .setContentTitle("댓글 알림")
+                                    .setContentText("작성자님의 분실물글에 댓글이 달렸습니다.")
+                                    .setDefaults(Notification.DEFAULT_SOUND)
+                                    .setLargeIcon(mLargeIconForNoti)
+                                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                    .setAutoCancel(true)
+                                    .setContentIntent(mPendingIntent);
+
+                    NotificationManager mNotificationManager =
+                            (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                    mNotificationManager.notify(0,mBuilder.build());
                 }
             }
 
