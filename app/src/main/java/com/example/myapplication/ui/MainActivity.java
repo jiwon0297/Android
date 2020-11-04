@@ -9,6 +9,7 @@ import android.widget.Button;
 
 import com.example.myapplication.R;
 import com.example.myapplication.login.LoginActivity;
+import com.example.myapplication.login.SeulDanActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         gobutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent go = new Intent(MainActivity.this, LoginActivity.class);
+                Intent go = new Intent(MainActivity.this, SeulDanActivity.class);
                 MainActivity.this.startActivity(go);
             }
         });

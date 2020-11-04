@@ -45,7 +45,7 @@ public class GetActivity extends AppCompatActivity implements SwipeRefreshLayout
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_find);
+        setContentView(R.layout.activity_get);
         mProgressView = (ProgressBar) findViewById(R.id.loading);
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefresh);

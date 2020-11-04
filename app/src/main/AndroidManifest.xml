@@ -22,7 +22,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".lost.LostSearchActivity"></activity>
+        <activity android:name=".login.SeulDanActivity"></activity>
+        <activity android:name=".lost.LostSearchActivity" />
         <activity android:name=".mate.MateSearchActivity" />
         <activity android:name=".ui.MailViewActivity" />
         <activity android:name=".ui.SendMessageActivity" />
