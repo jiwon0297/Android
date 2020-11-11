@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -31,8 +32,8 @@ public class ContentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content);
 
-        View mate = (View)findViewById(R.id.mate);
-        View lost = (View)findViewById(R.id.lost);
+        ViewGroup mate = (ViewGroup)findViewById(R.id.mate);
+        ViewGroup lost = (ViewGroup)findViewById(R.id.lost);
 
         mate.setOnClickListener(new View.OnClickListener() {
             @Override
