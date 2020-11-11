@@ -10,7 +10,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
+import com.example.myapplication.restaurant.jukjeon.cafe.CafeActivity;
+import com.example.myapplication.restaurant.jukjeon.chinese.ChineseActivity;
 import com.example.myapplication.restaurant.jukjeon.japanese.JapaneseActivity;
+import com.example.myapplication.restaurant.jukjeon.korean.KoreanActivity;
+import com.example.myapplication.restaurant.jukjeon.western.WesternActivity;
 import com.example.myapplication.ui.HomeActivity;
 import com.example.myapplication.ui.MailActivity;
 import com.example.myapplication.ui.MypageActivity;
@@ -28,10 +32,47 @@ public class RestaurantActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(new RestaurantActivity.ItemSelectedListener());
 
 
+        ViewGroup cafe = (ViewGroup) findViewById(R.id.cafe);
+        cafe.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                Intent intent = new Intent(RestaurantActivity.this, CafeActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        ViewGroup korean = (ViewGroup) findViewById(R.id.korean);
+        korean.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                Intent intent = new Intent(RestaurantActivity.this, KoreanActivity.class);
+                startActivity(intent);
+            }
+        });
         ViewGroup japanese = (ViewGroup) findViewById(R.id.japanese);
         japanese.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 Intent intent = new Intent(RestaurantActivity.this, JapaneseActivity.class);
+                startActivity(intent);
+            }
+        });
+        ViewGroup chinese = (ViewGroup) findViewById(R.id.chinese);
+        chinese.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                Intent intent = new Intent(RestaurantActivity.this, ChineseActivity.class);
+                startActivity(intent);
+            }
+        });
+        ViewGroup western = (ViewGroup) findViewById(R.id.western);
+        western.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                Intent intent = new Intent(RestaurantActivity.this, WesternActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        ViewGroup dessert = (ViewGroup) findViewById(R.id.dessert);
+        dessert.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                Intent intent = new Intent(RestaurantActivity.this, WesternActivity.class);
                 startActivity(intent);
             }
         });
