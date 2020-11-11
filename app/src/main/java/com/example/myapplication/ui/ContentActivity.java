@@ -31,10 +31,10 @@ public class ContentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content);
 
-        Button btn2 = (Button)findViewById(R.id.button2);
-        Button btn3 = (Button)findViewById(R.id.button3);
+        View mate = (View)findViewById(R.id.mate);
+        View lost = (View)findViewById(R.id.lost);
 
-        btn2.setOnClickListener(new View.OnClickListener() {
+        mate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), MymateActivity.class);
@@ -42,7 +42,7 @@ public class ContentActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        btn3.setOnClickListener(new View.OnClickListener() {
+        lost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), MylostActivity.class);
