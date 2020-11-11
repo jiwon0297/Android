@@ -23,15 +23,13 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <meta-data
-            android:name="com.google.android.actions"
-            android:resource="@xml/roundBtn" />
+            android:name="com.google.android.actions" />
 
         <activity android:name=".lost.LostSearchActivity" />
         <activity android:name=".mate.MateSearchActivity" />
         <activity android:name=".ui.MailViewActivity" />
         <activity android:name=".ui.SendMessageActivity" />
         <activity android:name=".ui.MailActivity" />
-        <activity android:name=".ui.ChatRoomActivity" />
         <activity
             android:name=".Join.PopupActivity"
             android:theme="@android:style/Theme.Dialog" />
