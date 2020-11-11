@@ -41,6 +41,7 @@ import com.example.myapplication.restaurant.cheonan.korean.GobgobgobActivity;
 import com.example.myapplication.restaurant.cheonan.western.BabalabActivity;
 import com.example.myapplication.restaurant.cheonan.western.SubmealActivity;
 import com.example.myapplication.restaurant.cheonan.western.SungtanActivity;
+import com.example.myapplication.restaurant.jukjeon.RestaurantActivity;
 import com.example.myapplication.restaurant.jukjeon.cafe.AzitActivity;
 import com.example.myapplication.restaurant.jukjeon.cafe.CreativeActivity;
 import com.example.myapplication.restaurant.jukjeon.cafe.DarakActivity;
@@ -201,6 +202,30 @@ public class HomeActivity extends AppCompatActivity {
         microsoft.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.microsoft.com/ko-kr/education/products/office/"));
+                startActivity(intent);
+            }
+        });
+
+        ViewGroup mate = (ViewGroup) findViewById(R.id.relativeLayout1);
+        mate.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this,MateActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        ViewGroup lost = (ViewGroup) findViewById(R.id.relativeLayout2);
+        lost.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this,LostActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        ViewGroup restaurant = (ViewGroup) findViewById(R.id.relativeLayout3);
+        restaurant.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, RestaurantwhereActivity.class);
                 startActivity(intent);
             }
         });
@@ -728,19 +753,6 @@ public class HomeActivity extends AppCompatActivity {
                         }
                     }
                 });
-
-
-        Button mate = (Button) findViewById(R.id.textView2);
-        Drawable alpha1 = mate.getBackground();
-        alpha1.setAlpha(180);
-
-        Button lost = (Button) findViewById(R.id.textView3);
-        Drawable alpha2 = lost.getBackground();
-        alpha2.setAlpha(180);
-
-        Button restaurant = (Button) findViewById(R.id.textView5);
-        Drawable alpha3 = restaurant.getBackground();
-        alpha3.setAlpha(180);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());

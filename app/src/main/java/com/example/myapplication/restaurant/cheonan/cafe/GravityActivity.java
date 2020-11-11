@@ -30,8 +30,17 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class GravityActivity extends AppCompatActivity implements ExpandableListView.OnGroupClickListener,
         ExpandableListView.OnChildClickListener{
     ExpandableListView listView;
-    String[] groups= new String[]{"오","잉"};
-    String[][] childs={{"오","오오","오오오"},{"잉","잉잉","잉잉잉"}};
+    String[] groups= new String[]{"Espresso(Ice +0.5)","Signature Variation","Expresso Blended","Affogato","Signature Ade","Signature Tea","Black&Hub Tea","Yogurt","Smoothie&Fruit Juice","Shake","Real Juice"};
+    String[][] childs={{"에스프레소 4.0","아메리카노 4.0","카페라떼 4.5","드라이카푸치노 4.5","바닐라라떼 5.0","헤이즐넛라떼 5.0","카라멜마끼아또 5.0","파베카페모카 5.0","파베화이트모카 5.0"},
+            {"연유크림 라떼 5.5","융프라우 쇼콜라 5.5","히말라야 라떼 6.0","히말라야 솔트 슈페너 6.5","미숫가루 슈페너 6.0","크림 모카 5.0","콜드 브루 5.0","플랫 화이트 4.5","흑임자라떼 6.0","방탄 커피(버터 커피) 4.5"},
+            {"넛트 아포가토 6.0","녹차 아포가토 6.5"},
+            {"생자몽 에이드 6.0","생레몬 에이드 6.0","고흥 유자 에이드 6.0","피치 블라썸 6.0","얼그레이 레몬 에이드 6.0","패션프루트 에이드 6.0"},
+            {"배도라지생강차 6.0","말차라떼 6.0","코코아 5.5","수제 자몽차 6.0","수제 레몬차 6.0","고흥 유자차 6.0","밀크티(루이보스, 얼그레이) 6.0","달고나 밀크티 6.5"},
+            {"블랙티 6.0","허브티 6.0"},
+            {"딸기 요거트 6.0","레몬 요거트 6.5","블루베리 요거트 6.5","플레인 요거트 6.0"},
+            {"딸기 스무디 6.0","키위 스무디 6.0","딸기 바나나 스무디 6.5","키위 바나나 스무디 6.5","망고 바나나 스무디 6.5","흑당 버블티 6.5"},
+            {"누텔라 초코 쉐이크 6.0","누텔라 오레오 쉐이크 6.5","누텔라 바닐라 쉐이크 6.5","말차 쉐이크 6.5","미숫가루 쉐이크 6.5"},
+            {"키위 쥬스 6.5","생 딸기 라떼(시즌) 6.5","생 딸기 쥬스(시즌) 6.5"}};
 
     private ImageButton map_button;
 

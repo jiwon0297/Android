@@ -22,8 +22,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <meta-data
-            android:name="com.google.android.actions" />
 
         <activity android:name=".lost.LostSearchActivity" />
         <activity android:name=".mate.MateSearchActivity" />
@@ -43,10 +41,7 @@
         <activity android:name=".restaurant.jukjeon.korean.JjimActivity" />
         <activity android:name=".restaurant.jukjeon.korean.HappyActivity" />
         <activity android:name=".restaurant.jukjeon.japanese.HosikdangActivity" />
-        <activity
-            android:name=".ui.ContentActivity"
-            android:label="@string/title_activity_content"
-            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ui.ContentActivity" />
         <activity android:name=".lost.LostEditActivity" />
         <activity android:name=".mate.MateEditActivity" />
         <activity android:name=".restaurant.jukjeon.western.DosmasActivity" />
