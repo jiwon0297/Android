@@ -61,6 +61,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
+                android:id="@+id/cafe"
                 android:layout_width="175dp"
                 android:layout_height="match_parent"
                 android:background="@drawable/btncustom8"
@@ -85,6 +86,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/korean"
                 android:layout_width="175dp"
                 android:layout_height="match_parent"
                 android:background="@drawable/btncustom8"
@@ -117,6 +119,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
+                android:id="@+id/japanese"
                 android:layout_width="175dp"
                 android:layout_height="match_parent"
                 android:background="@drawable/btncustom8"
@@ -141,6 +144,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/chinese"
                 android:layout_width="175dp"
                 android:layout_height="match_parent"
                 android:background="@drawable/btncustom8"
@@ -173,6 +177,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
+                android:id="@+id/western"
                 android:layout_width="175dp"
                 android:layout_height="match_parent"
                 android:background="@drawable/btncustom8"
@@ -197,6 +202,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/dessert"
                 android:layout_width="175dp"
                 android:layout_height="match_parent"
                 android:background="@drawable/btncustom8"
