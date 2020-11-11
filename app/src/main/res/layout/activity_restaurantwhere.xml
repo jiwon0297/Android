@@ -31,7 +31,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="300dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="30dp"
@@ -47,12 +47,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="10"
-            android:background="@drawable/lost2"
+            android:background="@drawable/restaurant1"
             android:clickable="true"
             android:fontFamily="@font/lottemartdreammedium"
-            android:gravity="center|center_horizontal|center_vertical"
+            android:gravity="center|right"
             android:onClick="jukjeon"
-            android:text="죽전"
+            android:text="죽전  "
+            android:textColor="#FFFFFF"
             android:textSize="40sp" />
 
         <Button
@@ -60,12 +61,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="10"
-            android:background="@drawable/lost3"
+            android:background="@drawable/restaurant2"
             android:clickable="true"
             android:fontFamily="@font/lottemartdreammedium"
-            android:gravity="center"
+            android:gravity="center|left"
             android:onClick="cheonan"
-            android:text="천안"
+            android:text="  천안"
+            android:textColor="#FFFFFF"
             android:textSize="40sp" />
     </LinearLayout>
 

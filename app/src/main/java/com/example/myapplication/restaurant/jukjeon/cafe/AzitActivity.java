@@ -127,7 +127,7 @@ public class AzitActivity extends AppCompatActivity implements ExpandableListVie
                                  View convertView, ViewGroup parent){
             TextView textView = getGenericView();
             textView.setText(getGroup(groupPosition).toString());
-            textView.setTextColor(Color.parseColor("#E87A9DEA"));
+            textView.setTextColor(Color.parseColor("#3F51B5"));
             textView.setTypeface(null, Typeface.BOLD);
             textView.setTextSize(17);
             Typeface typeface = getResources().getFont(R.font.lottemartdreamlight);
