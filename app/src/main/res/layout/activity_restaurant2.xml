@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_restraunt"
-    tools:context=".restaurant.cheonan.RestaurantActivity2">
+    tools:context=".restaurant.jukjeon.RestaurantActivity">
 
     <TextView
         android:id="@+id/title_view"
@@ -71,10 +71,10 @@
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="180px"
+                    android:layout_height="200px"
                     android:layout_gravity="center"
-                    android:background="@drawable/menu" />
+                    android:background="@drawable/cafe" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -96,10 +96,10 @@
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="180px"
+                    android:layout_height="200px"
                     android:layout_gravity="center_vertical|center_horizontal"
-                    android:background="@drawable/menu" />
+                    android:background="@drawable/korea" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -129,10 +129,10 @@
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="180px"
+                    android:layout_height="200px"
                     android:layout_gravity="center"
-                    android:background="@drawable/menu" />
+                    android:background="@drawable/japan" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -154,10 +154,10 @@
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="180px"
+                    android:layout_height="180px"
                     android:layout_gravity="center_vertical|center_horizontal"
-                    android:background="@drawable/menu" />
+                    android:background="@drawable/china" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -187,10 +187,10 @@
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="180px"
+                    android:layout_height="200px"
                     android:layout_gravity="center"
-                    android:background="@drawable/menu" />
+                    android:background="@drawable/western" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -212,10 +212,10 @@
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="180px"
+                    android:layout_height="200px"
                     android:layout_gravity="center_vertical|center_horizontal"
-                    android:background="@drawable/menu" />
+                    android:background="@drawable/dessert" />
 
                 <TextView
                     android:layout_width="wrap_content"
