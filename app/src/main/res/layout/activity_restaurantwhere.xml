@@ -4,18 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="#65DEE4F6"
+    android:background="@drawable/background_restraunt"
     tools:context=".restaurant.RestaurantwhereActivity">
-
-    <TextView
-        android:id="@+id/bar"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:background="#51617A"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView7"
@@ -25,6 +15,7 @@
         android:fontFamily="@font/lottemarthappybold"
         android:text="캠퍼스 선택"
         android:textSize="55dp"
+        android:textColor="#ffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,7 +23,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="450dp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="30dp"
         android:background="@drawable/btncustom8"
