@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/jukjeon"
     android:backgroundTint="#65DEE4F6"
     tools:context=".restaurant.RestaurantwhereActivity">
 
@@ -23,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
-        android:fontFamily="@font/kyobo"
+        android:fontFamily="@font/lottemarthappybold"
         android:text="캠퍼스 선택"
         android:textSize="55dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,7 +31,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="400dp"
+        android:layout_width="300dp"
         android:layout_height="0dp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="30dp"
@@ -48,13 +47,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="10"
-            android:background="@drawable/jukjeon"
+            android:background="@drawable/lost2"
             android:clickable="true"
-            android:fontFamily="@font/kyobo"
-            android:gravity="right|top"
+            android:fontFamily="@font/lottemartdreammedium"
+            android:gravity="center|center_horizontal|center_vertical"
             android:onClick="jukjeon"
             android:text="죽전"
-            android:textColor="#FFFFFF"
             android:textSize="40sp" />
 
         <Button
@@ -62,13 +60,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="10"
-            android:background="@drawable/cheonan"
+            android:background="@drawable/lost3"
             android:clickable="true"
-            android:fontFamily="@font/kyobo"
-            android:gravity="top|left"
+            android:fontFamily="@font/lottemartdreammedium"
+            android:gravity="center"
             android:onClick="cheonan"
             android:text="천안"
-            android:textColor="#FFFFFF"
             android:textSize="40sp" />
     </LinearLayout>
 
