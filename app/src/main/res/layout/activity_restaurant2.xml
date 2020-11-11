@@ -4,142 +4,222 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_restraunt"
     tools:context=".restaurant.cheonan.RestaurantActivity2">
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="100dp"
-        android:text="주변 음식점 찾기"
-        android:textSize="100px"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavi"
+        android:id="@+id/title_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:itemBackground="@android:color/white"
-        app:itemIconTint="#5785CF"
-        android:theme="@style/Widget.BottomNavigationView"
-        app:itemTextColor="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/menu_bottomnavigationview"
-        tools:layout_editor_absoluteX="16dp" />
-
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="413dp"
-        android:layout_height="600dp"
-        android:layout_marginBottom="25dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:fontFamily="@font/lottemarthappybold"
+        android:text="Restraunt"
+        android:textColor="#ffff"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView12345"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
+    <TextView
+        android:id="@+id/textView12345"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/lottemarthappybold"
+        android:gravity="center"
+        android:text="천안 캠퍼스"
+        android:textColor="#C3858585"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_view"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout11"/>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout11"
+        android:layout_width="match_parent"
+        android:layout_height="700dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_view">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="215dp"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/button8"
-                android:layout_width="410dp"
-                android:layout_height="120dp"
-                android:background="#00ff0000"
-                android:clickable="true"
-                android:fontFamily="monospace"
+            <LinearLayout
+                android:layout_width="175dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/btncustom8"
+                android:elevation="20dp"
                 android:gravity="center"
-                android:onClick="cafe2"
-                android:text="cafe"
-                android:textColorHighlight="#302F09"
-                android:textSize="30dp"
-                android:textStyle="normal|italic"
-                app:layout_constraintBottom_toTopOf="@+id/button9"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_marginEnd="10dp"
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/button9"
-                android:layout_width="410dp"
-                android:layout_height="120dp"
-                android:background="#00ff0000"
-                android:clickable="true"
-                android:fontFamily="monospace"
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/menu" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:fontFamily="@font/lottemarthappybold"
+                    android:text="CAFE"
+                    android:textAlignment="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="175dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/btncustom8"
+                android:elevation="20dp"
                 android:gravity="center"
-                android:onClick="Korean2"
-                android:text="Korean"
-                android:textSize="30dp"
-                android:textStyle="normal|italic"
-                app:layout_constraintBottom_toTopOf="@+id/button10"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/scrollView2"
-                app:layout_constraintTop_toBottomOf="@+id/button8"
-                app:layout_constraintVertical_bias="0.0" />
+                android:layout_marginStart="10dp"
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/button10"
-                android:layout_width="410dp"
-                android:layout_height="120dp"
-                android:background="#00ff0000"
-                android:clickable="true"
-                android:fontFamily="monospace"
-                android:gravity="center"
-                android:onClick="Chinese2"
-                android:text="Chinese"
-                android:textSize="30dp"
-                android:textStyle="normal|italic"
-                app:layout_constraintBottom_toTopOf="@+id/button11"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/scrollView2"
-                app:layout_constraintTop_toBottomOf="@+id/button9" />
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:background="@drawable/menu" />
 
-            <Button
-                android:id="@+id/button11"
-                android:layout_width="410dp"
-                android:layout_height="120dp"
-                android:background="#00ff0000"
-                android:clickable="true"
-                android:fontFamily="monospace"
-                android:gravity="center"
-                android:onClick="Japanese2"
-                android:text="Japanese"
-                android:textSize="30dp"
-                android:textStyle="normal|italic"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/scrollView2"
-                app:layout_constraintTop_toBottomOf="@+id/button10" />
-
-            <Button
-                android:id="@+id/button21"
-                android:layout_width="410dp"
-                android:layout_height="120dp"
-                android:background="#00ff0000"
-                android:clickable="true"
-                android:fontFamily="monospace"
-                android:gravity="center"
-                android:onClick="Western2"
-                android:text="Western"
-                android:textSize="30dp"
-                android:textStyle="normal|italic"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/scrollView2"
-                app:layout_constraintTop_toBottomOf="@+id/button11" />
-
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:fontFamily="@font/lottemarthappybold"
+                    android:text="KOREAN"
+                    android:textAlignment="center" />
+            </LinearLayout>
         </LinearLayout>
-    </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="215dp"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="175dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/btncustom8"
+                android:elevation="20dp"
+                android:gravity="center"
+                android:layout_marginEnd="10dp"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/menu" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:fontFamily="@font/lottemarthappybold"
+                    android:text="JAPANESE"
+                    android:textAlignment="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="175dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/btncustom8"
+                android:elevation="20dp"
+                android:gravity="center"
+                android:layout_marginStart="10dp"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:background="@drawable/menu" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:fontFamily="@font/lottemarthappybold"
+                    android:text="CHINESE"
+                    android:textAlignment="center" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="215dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="175dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/btncustom8"
+                android:elevation="20dp"
+                android:gravity="center"
+                android:layout_marginEnd="10dp"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/menu" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:fontFamily="@font/lottemarthappybold"
+                    android:text="WESTERN"
+                    android:textAlignment="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="175dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/btncustom8"
+                android:elevation="20dp"
+                android:gravity="center"
+                android:layout_marginStart="10dp"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:background="@drawable/menu" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:fontFamily="@font/lottemarthappybold"
+                    android:text="DESSERT"
+                    android:textAlignment="center" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
