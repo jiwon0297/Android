@@ -829,7 +829,7 @@
         android:background="#51617A"
         android:fontFamily="@font/lottemartdreammedium"
         android:theme="@style/Widget.BottomNavigationView"
-        app:itemBackground="#00FFFFFF"
+        app:itemBackground="@android:color/transparent"
         app:itemIconTint="#FFFFFF"
         app:itemTextColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
