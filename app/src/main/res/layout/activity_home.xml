@@ -13,51 +13,44 @@
         android:layout_width="match_parent"
         android:layout_height="20dp"
         android:background="#51617A"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout4"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bar">
 
-        <ImageButton
-            android:id="@+id/imageButton1"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/bell"
-            android:padding="0dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/bell"
-            app:layout_constraintBottom_toTopOf="@+id/textView2"
-            app:layout_constraintEnd_toStartOf="@+id/textView"
-            app:layout_constraintHorizontal_bias="0.666"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.196" />
-
         <TextView
             android:id="@+id/textView"
-            android:layout_width="102dp"
-            android:layout_height="66dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/lottemarthappybold"
             android:gravity="center"
-            android:text="슬기로운\n단국생활"
+            android:text="슬기로운 단국생활"
             android:textColor="#C3252424"
-            android:textSize="25sp"
-            app:layout_constraintEnd_toStartOf="@+id/searchView2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/textView12345"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/lottemarthappybold"
+            android:gravity="center"
+            android:text="단국대 재학생들을 위한 커뮤니티 앱"
+            android:textColor="#C3858585"
+            android:textSize="15sp"
+            app:layout_constraintVertical_bias="0.2" />
     </LinearLayout>
 
     <LinearLayout
@@ -66,12 +59,12 @@
         android:layout_height="100dp"
         android:layout_gravity="center"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
-        android:elevation="20dp"
         android:background="@drawable/btncustom8"
+        android:elevation="20dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout8"
+        app:layout_constraintBottom_toTopOf="@+id/horizontal_scroll3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
@@ -80,8 +73,8 @@
             android:id="@+id/homepage"
             android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
             android:layout_gravity="center"
+            android:layout_marginStart="6dp"
             android:orientation="vertical">
 
             <Button
@@ -200,8 +193,8 @@
             android:id="@+id/webinfo"
             android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
             android:layout_gravity="center"
+            android:layout_marginStart="6dp"
             android:orientation="vertical">
 
             <Button
@@ -227,23 +220,222 @@
         </LinearLayout>
     </LinearLayout>
 
+    <HorizontalScrollView
+        android:id="@+id/horizontal_scroll3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toTopOf="@id/linearLayout8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+        <LinearLayout
+            android:id="@+id/linearLayout7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="20dp">
+
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="280dp"
+                    android:layout_height="180dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="8dp"
+                    android:gravity="center"
+                    android:src="@drawable/meeting" />
+
+                <TextView
+                    android:id="@+id/mateText1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/imageView1"
+                    android:layout_alignBottom="@+id/imageView1"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginBottom="45dp"
+                    android:background="@color/cardview_dark_background"
+                    android:fontFamily="@font/lottemarthappybold"
+                    android:text="Mate"
+                    android:textColor="#ffffff"
+                    android:textSize="35sp" />
+
+                <TextView
+                    android:id="@+id/mateText2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/imageView1"
+                    android:layout_alignBottom="@+id/imageView1"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/lottemarthappybold"
+                    android:text="공모전, 밥,\n 스터디, 룸메이트를 구하시나요?"
+                    android:textColor="#ffffff"
+                    android:textSize="14sp"
+                    app:layout_constraintTop_toBottomOf="@+id/mateText1" />
+
+                <Button
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/imageView1"
+                    android:layout_alignBottom="@+id/imageView1"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginStart="179dp"
+                    android:layout_marginRight="21dp"
+                    android:layout_marginBottom="114dp"
+                    android:clickable="true"
+                    android:onClick="mate"
+                    android:text=">>Go"
+                    android:textSize="25sp"
+                    android:textStyle="bold|italic" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="20dp">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="280dp"
+                    android:layout_height="180dp"
+                    android:layout_marginStart="8dp"
+                    android:gravity="center"
+                    android:src="@drawable/lost" />
+
+                <TextView
+                    android:id="@+id/lostText1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/imageView2"
+                    android:layout_alignBottom="@+id/imageView2"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginBottom="45dp"
+                    android:background="@color/cardview_dark_background"
+                    android:fontFamily="@font/lottemarthappybold"
+                    android:text="Lost"
+                    android:textColor="#ffffff"
+                    android:textSize="35sp" />
+
+                <TextView
+                    android:id="@+id/lostText2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/imageView2"
+                    android:layout_alignBottom="@+id/imageView2"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/lottemarthappybold"
+                    android:text="분실물을\n 찾거나 주우셨나요?"
+                    android:textColor="#ffffff"
+                    android:textSize="14sp"
+                    app:layout_constraintTop_toBottomOf="@+id/lostText1" />
+
+                <Button
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/imageView2"
+                    android:layout_alignBottom="@+id/imageView2"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginStart="179dp"
+                    android:layout_marginRight="21dp"
+                    android:layout_marginBottom="114dp"
+                    android:clickable="true"
+                    android:onClick="lost"
+                    android:text=">>Go"
+                    android:textSize="25sp"
+                    android:textStyle="bold|italic" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="20dp">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="280dp"
+                    android:layout_height="180dp"
+                    android:layout_marginStart="8dp"
+                    android:gravity="center"
+                    android:src="@drawable/restaurant" />
+
+                <TextView
+                    android:id="@+id/restaurantText1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/imageView3"
+                    android:layout_alignBottom="@+id/imageView3"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginBottom="45dp"
+                    android:background="@color/cardview_dark_background"
+                    android:fontFamily="@font/lottemarthappybold"
+                    android:text="Food/Cafe"
+                    android:textColor="#ffffff"
+                    android:textSize="35sp" />
+
+                <TextView
+                    android:id="@+id/restaurantText2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/imageView3"
+                    android:layout_alignBottom="@+id/imageView3"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/lottemarthappybold"
+                    android:text="단국대 주변\n 음식점 or 카페를 찾는다면?"
+                    android:textColor="#ffffff"
+                    android:textSize="14sp"
+                    app:layout_constraintTop_toBottomOf="@+id/restaurantText1" />
+
+                <Button
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/imageView3"
+                    android:layout_alignBottom="@+id/imageView3"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginStart="179dp"
+                    android:layout_marginRight="21dp"
+                    android:layout_marginBottom="114dp"
+                    android:clickable="true"
+                    android:onClick="restaurantwhere"
+                    android:text=">>Go"
+                    android:textSize="25sp"
+                    android:textStyle="bold|italic" />
+            </RelativeLayout>
+        </LinearLayout>
+    </HorizontalScrollView>
+
     <LinearLayout
         android:id="@+id/linearLayout8"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
         android:background="@drawable/btncustom8"
         android:elevation="20dp"
         android:gravity="center"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/li"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/horizontal_scroll3"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/horizontal_scroll3">
 
         <LinearLayout
             android:id="@+id/linearLayout5"
@@ -386,219 +578,254 @@
         </LinearLayout>
     </LinearLayout>
 
-    <HorizontalScrollView
-        android:id="@+id/horizontal_scroll3"
+    <LinearLayout
+        android:id="@+id/li"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_height="170dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:scrollbars="none"
+        android:elevation="20dp"
+        android:background="@drawable/btncustom8"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
 
-        <LinearLayout
-            android:id="@+id/linearLayout7"
+        <TextView
+            android:id="@+id/text111"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/lottemarthappybold"
+            android:text="대학생 복지 혜택"
+            android:textColor="#4A4A4A"
+            android:textSize="20sp" />
 
-            <RelativeLayout
-                android:id="@+id/relativeLayout1"
+        <HorizontalScrollView
+            android:id="@+id/horizontal_scroll4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/btncustom8"
+            android:elevation="20dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:id="@+id/linearLayout10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:elevation="20dp">
+                android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/imageView1"
-                    android:layout_width="300dp"
-                    android:layout_height="200dp"
-                    android:layout_alignParentTop="true"
+                <LinearLayout
+                    android:id="@+id/hakbok"
+                    android:layout_width="100dp"
+                    android:layout_height="120dp"
                     android:layout_marginStart="10dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="26dp"
-                    android:gravity="center"
-                    android:src="@drawable/meeting" />
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/btncustom7"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/mateText1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignStart="@+id/imageView1"
-                    android:layout_alignBottom="@+id/imageView1"
-                    android:layout_marginStart="11dp"
-                    android:layout_marginBottom="45dp"
-                    android:background="@color/cardview_dark_background"
-                    android:fontFamily="@font/lottemarthappybold"
-                    android:text="Mate"
-                    android:textColor="#ffffff"
-                    android:textSize="35sp" />
+                    <ImageButton
+                        android:id="@+id/hakbokicon"
+                        android:layout_width="60dp"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center|top"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/hakbok" />
 
-                <TextView
-                    android:id="@+id/mateText2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignStart="@+id/imageView1"
-                    android:layout_alignBottom="@+id/imageView1"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/lottemartdreammedium"
+                        android:text="학생복지스토어"
+                        android:textColor="#4A4A4A"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/apple"
+                    android:layout_width="100dp"
+                    android:layout_height="120dp"
                     android:layout_marginStart="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:fontFamily="@font/lottemarthappybold"
-                    android:text="공모전, 밥,\n 스터디, 룸메이트를 구하시나요?"
-                    android:textColor="#ffffff"
-                    android:textSize="14sp"
-                    app:layout_constraintTop_toBottomOf="@+id/mateText1" />
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/btncustom7"
+                    android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignStart="@+id/imageView1"
-                    android:layout_alignBottom="@+id/imageView1"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginStart="200dp"
-                    android:layout_marginRight="21dp"
-                    android:layout_marginBottom="10dp"
-                    android:clickable="true"
-                    android:onClick="mate"
-                    android:text=">>Go"
-                    android:textSize="25sp"
-                    android:textStyle="bold|italic" />
+                    <ImageButton
+                        android:id="@+id/appleicon"
+                        android:layout_width="60dp"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center|top"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/apple" />
 
-            </RelativeLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/lottemartdreammedium"
+                        android:text="Apple\n교육할인스토어"
+                        android:textAlignment="center"
+                        android:textColor="#4A4A4A"
+                        android:textSize="15sp" />
+                </LinearLayout>
 
-            <RelativeLayout
-                android:id="@+id/relativeLayout2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:elevation="20dp">
-
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="300dp"
-                    android:layout_height="200dp"
+                <LinearLayout
+                    android:id="@+id/lg"
+                    android:layout_width="100dp"
+                    android:layout_height="120dp"
                     android:layout_marginStart="10dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="26dp"
-                    android:gravity="center"
-                    android:src="@drawable/lost" />
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/btncustom7"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/lostText1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignStart="@+id/imageView2"
-                    android:layout_alignBottom="@+id/imageView2"
-                    android:layout_marginStart="11dp"
-                    android:layout_marginBottom="45dp"
-                    android:background="@color/cardview_dark_background"
-                    android:fontFamily="@font/lottemarthappybold"
-                    android:text="Lost"
-                    android:textColor="#ffffff"
-                    android:textSize="35sp" />
+                    <ImageButton
+                        android:id="@+id/lgicon"
+                        android:layout_width="60dp"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center|top"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/lg" />
 
-                <TextView
-                    android:id="@+id/lostText2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignStart="@+id/imageView2"
-                    android:layout_alignBottom="@+id/imageView2"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/lottemartdreammedium"
+                        android:text="LG gram\n교육 할인"
+                        android:textAlignment="center"
+                        android:textColor="#4A4A4A"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/samsung"
+                    android:layout_width="100dp"
+                    android:layout_height="120dp"
                     android:layout_marginStart="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:fontFamily="@font/lottemarthappybold"
-                    android:text="분실물을\n 찾거나 주우셨나요?"
-                    android:textColor="#ffffff"
-                    android:textSize="14sp"
-                    app:layout_constraintTop_toBottomOf="@+id/lostText1" />
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/btncustom7"
+                    android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/textView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignStart="@+id/imageView2"
-                    android:layout_alignBottom="@+id/imageView2"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginStart="200dp"
-                    android:layout_marginRight="21dp"
-                    android:layout_marginBottom="10dp"
-                    android:clickable="true"
-                    android:onClick="lost"
-                    android:text=">>Go"
-                    android:textSize="25sp"
-                    android:textStyle="bold|italic" />
-            </RelativeLayout>
+                    <ImageButton
+                        android:id="@+id/samsungicon"
+                        android:layout_width="60dp"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center|top"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/samsung" />
 
-            <RelativeLayout
-                android:id="@+id/relativeLayout3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:elevation="20dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/lottemartdreammedium"
+                        android:text="삼성 노트북\n교육 할인"
+                        android:textAlignment="center"
+                        android:textColor="#4A4A4A"
+                        android:textSize="15sp" />
+                </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/imageView3"
-                    android:layout_width="300dp"
-                    android:layout_height="200dp"
+                <LinearLayout
+                    android:id="@+id/wacom"
+                    android:layout_width="100dp"
+                    android:layout_height="120dp"
                     android:layout_marginStart="10dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="26dp"
-                    android:gravity="center"
-                    android:src="@drawable/restaurant" />
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/btncustom7"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/restaurantText1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignStart="@+id/imageView3"
-                    android:layout_alignBottom="@+id/imageView3"
-                    android:layout_marginStart="11dp"
-                    android:layout_marginBottom="45dp"
-                    android:background="@color/cardview_dark_background"
-                    android:fontFamily="@font/lottemarthappybold"
-                    android:text="Food/Cafe"
-                    android:textColor="#ffffff"
-                    android:textSize="35sp" />
+                    <ImageButton
+                        android:id="@+id/wacomicon"
+                        android:layout_width="60dp"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center|top"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/wacom" />
 
-                <TextView
-                    android:id="@+id/restaurantText2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignStart="@+id/imageView3"
-                    android:layout_alignBottom="@+id/imageView3"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/lottemartdreammedium"
+                        android:text="Wacom\n교육 할인"
+                        android:textAlignment="center"
+                        android:textColor="#4A4A4A"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/microsoft"
+                    android:layout_width="100dp"
+                    android:layout_height="120dp"
                     android:layout_marginStart="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:fontFamily="@font/lottemarthappybold"
-                    android:text="단국대 주변\n 음식점 or 카페를 찾는다면?"
-                    android:textColor="#ffffff"
-                    android:textSize="14sp"
-                    app:layout_constraintTop_toBottomOf="@+id/restaurantText1" />
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/btncustom7"
+                    android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/textView5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignStart="@+id/imageView3"
-                    android:layout_alignBottom="@+id/imageView3"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginStart="200dp"
-                    android:layout_marginRight="21dp"
-                    android:layout_marginBottom="10dp"
-                    android:clickable="true"
-                    android:onClick="restaurantwhere"
-                    android:text=">>Go"
-                    android:textSize="25sp"
-                    android:textStyle="bold|italic" />
-            </RelativeLayout>
-        </LinearLayout>
-    </HorizontalScrollView>
+                    <ImageButton
+                        android:id="@+id/microsofticon"
+                        android:layout_width="60dp"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center|top"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/microsoft" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="3dp"
+                        android:fontFamily="@font/lottemartdreammedium"
+                        android:text="마이크로소프트\n대학생 무료 다운"
+                        android:textAlignment="center"
+                        android:textColor="#4A4A4A"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/adobe"
+                    android:layout_width="100dp"
+                    android:layout_height="120dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/btncustom7"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/adobeicon"
+                        android:layout_width="60dp"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center|top"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/adobe" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/lottemartdreammedium"
+                        android:text="Adobe\n학생 할인"
+                        android:textAlignment="center"
+                        android:textColor="#4A4A4A"
+                        android:textSize="15sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </HorizontalScrollView>
+    </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:background="#51617A"
         android:fontFamily="@font/lottemartdreammedium"
         android:theme="@style/Widget.BottomNavigationView"
@@ -608,7 +835,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/horizontal_scroll3"
+        app:layout_constraintTop_toBottomOf="@+id/li"
         app:menu="@menu/menu_bottomnavigationview" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
