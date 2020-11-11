@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
-        android:fontFamily="@font/kyobo"
+        android:fontFamily="@font/lottemarthappybold"
         android:gravity="center"
         android:text="아지트커피"
         android:textSize="50sp"
@@ -68,7 +68,7 @@
                         android:layout_height="match_parent"
                         android:background="#0D000000"
                         android:drawableLeft="@drawable/placeholder"
-                        android:fontFamily="@font/kyobo"
+                        android:fontFamily="@font/lottemartdreammedium"
                         android:text=" 주소"
                         android:textSize="25dp"
                         android:textStyle="bold" />
@@ -77,7 +77,7 @@
                         android:id="@+id/textview2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:fontFamily="@font/kyobo"
+                        android:fontFamily="@font/lottemartdreamlight"
                         android:text="경기 용인시 수지구 죽전로144번길 15-10"
                         android:textSize="20dp" />
                 </LinearLayout>
@@ -86,7 +86,7 @@
                     android:id="@+id/map_button"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#00ff0000"
+                    android:background="#0D000000"
                     app:srcCompat="@mipmap/iconfinder_map" />
             </LinearLayout>
 
@@ -96,7 +96,7 @@
                 android:layout_height="wrap_content"
                 android:background="#0D000000"
                 android:drawableLeft="@drawable/clock"
-                android:fontFamily="@font/kyobo"
+                android:fontFamily="@font/lottemartdreammedium"
                 android:text=" 영업시간"
                 android:textSize="25dp"
                 android:textStyle="bold" />
@@ -105,7 +105,7 @@
                 android:id="@+id/textview4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/kyobo"
+                android:fontFamily="@font/lottemartdreamlight"
                 android:text="평일 10:00 - 02:00\n주말 10:00 - 23:30\n"
                 android:textSize="20dp" />
 
@@ -115,7 +115,7 @@
                 android:layout_height="wrap_content"
                 android:background="#0D000000"
                 android:drawableLeft="@drawable/menu"
-                android:fontFamily="@font/kyobo"
+                android:fontFamily="@font/lottemartdreammedium"
                 android:text=" 메뉴"
                 android:textSize="25dp"
                 android:textStyle="bold" />
@@ -126,7 +126,7 @@
                 android:layout_height="260dp"
                 android:backgroundTint="#FFFFFF"
                 android:fadingEdge="horizontal|vertical"
-                android:fontFamily="@font/kyobo"
+                android:fontFamily="@font/lottemartdreamlight"
                 android:textSize="20dp" />
 
         </LinearLayout>

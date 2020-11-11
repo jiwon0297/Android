@@ -30,8 +30,12 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class AzitActivity extends AppCompatActivity implements ExpandableListView.OnGroupClickListener,
         ExpandableListView.OnChildClickListener{
     ExpandableListView listView;
-    String[] groups= new String[]{"커", "피"};
-    String[][] childs={{"아","아아","아아아"},{"가","가가","가가가"}};
+    String[] groups= new String[]{"Coffee", "Tea","Latte","Juice","Home made Tea","기타"};
+    String[][] childs={{"에스프레소 3.0","아메리카노 3.0","카푸치노 3.5","카페라떼 3.5","바닐라라떼 3.7","헤이즐넛라떼 3.7","카페모카 3.7","카라멜마키아또 3.7","비엔나 4.0","핸드드립 4.0","아이스 더치커피 3.5","아이스 더치라떼 4.0","아포가토 5.0","샷추가 0.7","시럽추가 0.5","휘핑추가 0.5"},
+            {"녹차 4.0","홍차 4.0","캐모마일 4.0","페퍼민트 4.0","쟈스민 4.0","루이보스 4.0","밀크티 4.0","아로마블랙티 4.0"},
+            {"코코아 3.5","녹차라떼 4.0","블루베리라떼 4.0","단팥 쉐이크 4.0","블루베리 요거트 4.0","고구마라떼 4.0"},
+            {"아이스티 레몬 3.0","아이스티 복숭아 3.0", "자몽/레몬/라임 에이드 5.0","청포도/토마토/키위/파일애플/딸기 4.0","바나나 밀크/딸기/파인 4.0","망고 4.0","망고 바나나/딸기 4.0", "딸기 밀크 4.0"},
+            {"오미자 4.0","모과 4.0","레몬차 4.0","자몽차 4.0","유자차 4.0","라임차 4.0"},{"수제 감자샐러드 샌드위치 3.5"}};
 
     private ImageButton map_button;
 
@@ -100,7 +104,7 @@ public class AzitActivity extends AppCompatActivity implements ExpandableListVie
             TextView textView = getGenericView();
             textView.setText(getChild(groupPosition,childPosition).toString());
             textView.setTextSize(14);
-            Typeface typeface = getResources().getFont(R.font.kyobo);
+            Typeface typeface = getResources().getFont(R.font.lottemartdreamlight);
             textView.setTypeface(typeface);
 
             return textView;
@@ -126,7 +130,7 @@ public class AzitActivity extends AppCompatActivity implements ExpandableListVie
             textView.setTextColor(Color.parseColor("#E87A9DEA"));
             textView.setTypeface(null, Typeface.BOLD);
             textView.setTextSize(17);
-            Typeface typeface = getResources().getFont(R.font.kyobo);
+            Typeface typeface = getResources().getFont(R.font.lottemartdreamlight);
             textView.setTypeface(typeface);
 
             listView.setGroupIndicator(null);
