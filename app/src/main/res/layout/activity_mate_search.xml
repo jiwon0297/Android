@@ -30,7 +30,7 @@
             android:layout_gravity="center"
             android:hint="검색어를 입력해주세요."
             android:fontFamily="@font/lottemartdreamlight"
-            android:background="#F6F2FF"
+            android:background="#65DBDEE8"
             android:textSize="25sp"/>
 
         <ImageButton
@@ -57,7 +57,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/lottemartdreamlight"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/header"/>

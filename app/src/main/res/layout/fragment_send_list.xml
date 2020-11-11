@@ -17,7 +17,7 @@
         android:id="@+id/listView1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FFFFFF"
+        android:background="#00FFFFFF"
         android:layout_marginTop="50dp"
         android:fontFamily="@font/lottemartdreamlight"
         app:layout_constraintHorizontal_bias="0.0"
