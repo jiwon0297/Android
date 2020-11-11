@@ -30,8 +30,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class TrianonActivity extends AppCompatActivity implements ExpandableListView.OnGroupClickListener,
         ExpandableListView.OnChildClickListener{
     ExpandableListView listView;
-    String[] groups={"커","피"};
-    String[][] childs={{"아","아아","아아아"},{"가","가가","가가가"}};
+    String[] groups={"Frappeccino","Fresh juice","Side menu","Set menu"};
+    String[][] childs={{"커피 프라페치노 3.5","모카 F 4.0","카라멜 F 4.0","초코렛 F 4.0","녹차 F 4.0","요거트(블루베리, 딸기, 플레인) F 4.0","망고/자몽 프라페치노 3.5"},
+            {"딸기 주스 4.0","바나나 주스 4.0","딸기+바나나 주스 4.0","키위 주스 4.0","사과 주스 4.0","토마토 주스 4.0","오렌지 주스 4.0"},
+            {"크림치즈 베이글 3.0","크림치즈 프레즐 3.0","와플 플레인 2.5","와플 생크림 3.0","와플 크림치즈 3.0","와플 메이플 3.0"},
+            {"크림치즈 베이글+아메리카노 4.3","크림치즈 프레즐+아메리카노 4.3","크림치즈 와플+아메리카노 4.3"}};
 
     private ImageButton map_button;
 
