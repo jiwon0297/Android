@@ -141,6 +141,71 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        ViewGroup webinfo = (ViewGroup) findViewById(R.id.webinfo);
+        webinfo.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://webinfo.dankook.ac.kr/"));
+                startActivity(intent);
+            }
+        });
+
+        ViewGroup hakbok = (ViewGroup) findViewById(R.id.hakbok);
+        hakbok.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.univstore.com/"));
+                startActivity(intent);
+            }
+        });
+
+        ViewGroup apple = (ViewGroup) findViewById(R.id.apple);
+        apple.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.apple.com/kr-k12/shop?afid=p238%7Cs2KHj9FlR-dc_mtid_18707vxu38484_pcrid_258798361876_pgrid_50422948013_&cid=aos-kr-kwgo-edu--slid---product--"));
+                startActivity(intent);
+            }
+        });
+
+        ViewGroup lg = (ViewGroup) findViewById(R.id.lg);
+        lg.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.univstore.com/brand/lg?sort=recommend"));
+                startActivity(intent);
+            }
+        });
+
+        ViewGroup samsung = (ViewGroup) findViewById(R.id.samsung);
+        samsung.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.univstore.com/brand/samsung?sort=recommend"));
+                startActivity(intent);
+            }
+        });
+
+        ViewGroup wacom = (ViewGroup) findViewById(R.id.wacom);
+        wacom.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.univstore.com/brand/wacom?sort=recommend"));
+                startActivity(intent);
+            }
+        });
+
+        ViewGroup adobe = (ViewGroup) findViewById(R.id.adobe);
+        adobe.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.univstore.com/brand/adobe?sort=recommend"));
+                startActivity(intent);
+            }
+        });
+
+        ViewGroup microsoft = (ViewGroup) findViewById(R.id.microsoft);
+        microsoft.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.microsoft.com/ko-kr/education/products/office/"));
+                startActivity(intent);
+            }
+        });
+
+
 
         group1.setOnCheckedChangeListener(
                 new RadioGroup.OnCheckedChangeListener() {
