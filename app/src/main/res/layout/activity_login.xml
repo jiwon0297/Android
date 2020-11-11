@@ -5,22 +5,36 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:windowSoftInputMode="adjustPan"
+    android:windowSoftInputMode="adjustResize"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     android:background="#FFFFFF"
+    android:backgroundTint="#65DBDEE8"
     tools:context=".login.LoginActivity">
 
     <TextView
+        android:id="@+id/bar"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="#51617A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/loginnn"
         android:layout_width="376dp"
         android:layout_height="115dp"
         android:fontFamily="@font/lottemartdreammedium"
         android:text="슬기로운 단국생활\n로그인"
         android:textAlignment="center"
+        android:gravity="center"
         android:textSize="45sp"
         app:layout_constraintBottom_toBottomOf="@+id/loading"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bar"
         app:layout_constraintVertical_bias="1.0" />
 
     <EditText
@@ -28,17 +42,18 @@
         android:layout_width="338dp"
         android:layout_height="70dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="308dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="24dp"
+        android:background="#FFFFFF"
         android:fontFamily="@font/lottemartdreammedium"
-        android:hint="단국대 이메일"
+        android:hint="  단국대 이메일"
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="true"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/loginnn" />
 
     <EditText
         android:id="@+id/password"
@@ -47,8 +62,9 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
+        android:background="#FFFFFF"
         android:fontFamily="@font/lottemartdreammedium"
-        android:hint="비밀번호"
+        android:hint="  비밀번호"
         android:imeActionLabel="@string/action_sign_in_short"
         android:imeOptions="actionDone"
         android:inputType="textPassword"
@@ -59,41 +75,46 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username" />
 
-    <Button
-        android:id="@+id/signin"
-        android:layout_width="140dp"
-        android:layout_height="54dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="64dp"
-        android:background="@drawable/btncustom"
-        android:backgroundTint="#D2DCEA"
-        android:enabled="true"
-        android:text="로그인"
-        android:textSize="20sp"
-        android:fontFamily="@font/lottemartdreammedium"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/register"
+    <LinearLayout
+        android:id="@+id/buttongroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="40dp"
+        app:layout_constraintBottom_toTopOf="@id/autologin"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password"
-        app:layout_constraintVertical_bias="0.2" />
+        app:layout_constraintTop_toBottomOf="@+id/password">
 
-    <Button
-        android:id="@+id/register"
-        android:layout_width="140dp"
-        android:layout_height="54dp"
-        android:layout_gravity="end"
-        android:fontFamily="@font/lottemartdreammedium"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="64dp"
-        android:background="@drawable/btncustom"
-        android:backgroundTint="#D2DCEA"
-        android:enabled="true"
-        android:text="회원가입"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password"
-        app:layout_constraintVertical_bias="0.2" />
+        <Button
+            android:id="@+id/signin"
+            android:layout_width="110dp"
+            android:layout_height="54dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginStart="70dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/btncustom"
+            android:backgroundTint="#51617A"
+            android:textColor="#FFFFFF"
+            android:enabled="true"
+            android:text="로그인"
+            android:textSize="20sp"
+            android:fontFamily="@font/lottemartdreammedium" />
+
+        <Button
+            android:id="@+id/register"
+            android:layout_width="110dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/lottemartdreammedium"
+            android:background="@drawable/btncustom"
+            android:backgroundTint="#51617A"
+            android:textColor="#FFFFFF"
+            android:enabled="true"
+            android:text="회원가입"
+            android:textSize="20sp" />
+
+    </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatCheckBox
         android:id="@+id/autologin"
@@ -101,7 +122,7 @@
         android:layout_height="33dp"
         android:layout_gravity="start"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="24dp"
         android:enabled="true"
         android:fontFamily="@font/lottemartdreammedium"
@@ -110,7 +131,7 @@
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
+        app:layout_constraintTop_toBottomOf="@+id/buttongroup" />
 
     <ProgressBar
         android:id="@+id/loading"
