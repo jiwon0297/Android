@@ -42,7 +42,7 @@
             android:layout_width="285dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:fontFamily="@font/lottemartdreamlight"
+            android:fontFamily="@font/lottemartdreammedium"
             android:text="어떤 메이트를\n구하고 싶으신가요?"
             android:textAlignment="textStart"
             android:textSize="35sp" />

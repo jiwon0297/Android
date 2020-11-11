@@ -4,8 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="#65DBDEE8"
     tools:context=".mate.ContestActivity">
+
+    <TextView
+        android:id="@+id/bar"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="#51617A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/header"
@@ -16,7 +25,7 @@
         app:layout_constraintBottom_toTopOf="@+id/swipeRefresh"
         app:layout_constraintHorizontal_bias="0.139"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/bar">
 
         <ImageButton
             android:id="@+id/imageButton"
@@ -34,8 +43,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_gravity="center"
-            android:fontFamily="@font/lottemartdreammedium"
-            android:background="#F6F2FF"
+            android:fontFamily="@font/lottemarthappybold"
+            android:background="#51617A"
+            android:textColor="#FFFFFF"
             android:text="  공모전 메이트  "
             android:textSize="35sp" />
 
@@ -72,7 +82,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
-            android:background="#F6F2FF"
+            android:background="#00FFFFFF"
             android:fontFamily="@font/lottemartdreamlight"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintVertical_bias="0.0" />
@@ -100,11 +110,12 @@
         android:id="@+id/bottomNavi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:itemBackground="@android:color/white"
+        android:background="#51617A"
+        app:itemBackground="@android:color/transparent"
         android:fontFamily="@font/lottemartdreammedium"
-        app:itemIconTint="#5785CF"
+        app:itemIconTint="#FFFFFF"
         android:theme="@style/Widget.BottomNavigationView"
-        app:itemTextColor="#000000"
+        app:itemTextColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/menu_bottomnavigationview"
         tools:layout_editor_absoluteX="16dp" />
