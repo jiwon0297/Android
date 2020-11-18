@@ -34,14 +34,17 @@ public class WesternActivity2 extends AppCompatActivity {
             {
                 case R.id.home:
                     Intent intent = new Intent(WesternActivity2.this, HomeActivity.class);
+                    intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent);
                     break;
                 case R.id.mail:
                     Intent intent2 = new Intent(WesternActivity2.this, MailActivity.class);
+                    intent2.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent2);
                     break;
                 case R.id.mypage:
                     Intent intent3 = new Intent(WesternActivity2.this, MypageActivity.class);
+                    intent3.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent3);
                     break;
             }
@@ -51,16 +54,19 @@ public class WesternActivity2 extends AppCompatActivity {
 
     public void sungtan(View view) {Toast.makeText(this,"성탄수제버거앤갈비",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, SungtanActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 
     public void submeal(View view) {Toast.makeText(this,"SubMeal",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, SubmealActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 
     public void babalab(View view) {Toast.makeText(this,"BaBaLab",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, BabalabActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 }

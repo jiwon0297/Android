@@ -34,14 +34,17 @@ public class WesternActivity extends AppCompatActivity {
             {
                 case R.id.home:
                     Intent intent = new Intent(WesternActivity.this, HomeActivity.class);
+                    intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent);
                     break;
                 case R.id.mail:
                     Intent intent2 = new Intent(WesternActivity.this, MailActivity.class);
+                    intent2.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent2);
                     break;
                 case R.id.mypage:
                     Intent intent3 = new Intent(WesternActivity.this, MypageActivity.class);
+                    intent3.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent3);
                     break;
             }
@@ -51,31 +54,37 @@ public class WesternActivity extends AppCompatActivity {
 
     public void beuradeo(View view) { Toast.makeText(this,"브라더 양식당",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, BeuradeoActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 
     public void grande(View view) { Toast.makeText(this,"그란데",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, GrandeActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 
     public void darin(View view) { Toast.makeText(this,"다린",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, DarinActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 
     public void obliq(View view) { Toast.makeText(this,"오블리끄",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, ObliqActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 
     public void burrito(View view) { Toast.makeText(this,"부리또 정거장",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, BurritoActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 
     public void dosmas(View view) { Toast.makeText(this,"도스마스",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, DosmasActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 }

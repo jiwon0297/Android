@@ -35,14 +35,17 @@ public class ChineseActivity extends AppCompatActivity {
             {
                 case R.id.home:
                     Intent intent = new Intent(ChineseActivity.this, HomeActivity.class);
+                    intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent);
                     break;
                 case R.id.mail:
                     Intent intent2 = new Intent(ChineseActivity.this, MailActivity.class);
+                    intent2.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent2);
                     break;
                 case R.id.mypage:
                     Intent intent3 = new Intent(ChineseActivity.this, MypageActivity.class);
+                    intent3.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent3);
                     break;
             }
@@ -53,21 +56,25 @@ public class ChineseActivity extends AppCompatActivity {
 
     public void hongchun(View view) { Toast.makeText(this,"홍춘",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, HongchunActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 
     public void maratang(View view) { Toast.makeText(this,"천향마라탕",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, MaratangActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 
     public void sabu(View view) { Toast.makeText(this,"사부",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, SabuActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 
     public void hongban(View view) { Toast.makeText(this,"홍콩반점0410",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, HongbanActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 }

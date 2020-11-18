@@ -34,14 +34,17 @@ public class ChineseActivity2 extends AppCompatActivity {
             {
                 case R.id.home:
                     Intent intent = new Intent(ChineseActivity2.this, HomeActivity.class);
+                    intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent);
                     break;
                 case R.id.mail:
                     Intent intent2 = new Intent(ChineseActivity2.this, MailActivity.class);
+                    intent2.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent2);
                     break;
                 case R.id.mypage:
                     Intent intent3 = new Intent(ChineseActivity2.this, MypageActivity.class);
+                    intent3.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent3);
                     break;
             }
@@ -51,16 +54,19 @@ public class ChineseActivity2 extends AppCompatActivity {
 
     public void dongchun(View view) { Toast.makeText(this,"동춘옥",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, DongchunActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 
     public void hyrin(View view) {Toast.makeText(this,"하이린",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, HyrinActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 
     public void heungbu(View view) {Toast.makeText(this,"흥부반점",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, HeungbuActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 
