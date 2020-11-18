@@ -101,7 +101,7 @@ public class SabuActivity extends AppCompatActivity implements ExpandableListVie
             TextView textView = getGenericView();
             textView.setText(getChild(groupPosition,childPosition).toString());
             textView.setTextSize(14);
-            Typeface typeface = getResources().getFont(R.font.kyobo);
+            Typeface typeface = getResources().getFont(R.font.lottemartdreamlight);
             textView.setTypeface(typeface);
 
             return textView;
@@ -124,10 +124,10 @@ public class SabuActivity extends AppCompatActivity implements ExpandableListVie
                                  View convertView, ViewGroup parent){
             TextView textView = getGenericView();
             textView.setText(getGroup(groupPosition).toString());
-            textView.setTextColor(Color.parseColor("#E87A9DEA"));
+            textView.setTextColor(Color.parseColor("#3F51B5"));
             textView.setTypeface(null, Typeface.BOLD);
             textView.setTextSize(17);
-            Typeface typeface = getResources().getFont(R.font.kyobo);
+            Typeface typeface = getResources().getFont(R.font.lottemartdreamlight);
             textView.setTypeface(typeface);
 
             listView.setGroupIndicator(null);

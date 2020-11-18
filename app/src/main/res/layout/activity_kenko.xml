@@ -4,30 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:backgroundTint="#65DEE4F6"
     tools:context=".restaurant.jukjeon.japanese.KenkoActivity">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavi"
+    <TextView
+        android:id="@+id/bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:itemBackground="@android:color/white"
-        app:itemIconTint="#5785CF"
-        app:itemTextColor="#000000"
-        android:theme="@style/Widget.BottomNavigationView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/menu_bottomnavigationview"
-        tools:layout_editor_absoluteX="16dp" />
+        android:layout_height="20dp"
+        android:background="#51617A"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="70dp"
-        android:layout_marginEnd="100dp"
-        android:fontFamily="@font/kyobo"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/lottemarthappybold"
+        android:gravity="center"
         android:text="겐코"
         android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -35,10 +35,8 @@
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="380dp"
-        android:layout_height="500dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView19">
@@ -46,12 +44,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/btncustom8"
+            android:gravity="center"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:orientation="horizontal">
 
@@ -64,8 +64,10 @@
                         android:id="@+id/textview1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:fontFamily="@font/kyobo"
-                        android:text="주소"
+                        android:background="#AFBCCD"
+                        android:drawableLeft="@drawable/placeholder"
+                        android:fontFamily="@font/lottemartdreammedium"
+                        android:text=" 주소"
                         android:textSize="25dp"
                         android:textStyle="bold" />
 
@@ -73,7 +75,7 @@
                         android:id="@+id/textview2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:fontFamily="@font/kyobo"
+                        android:fontFamily="@font/lottemartdreamlight"
                         android:text="경기 용인시 수지구 죽전로 150-1 105호"
                         android:textSize="20dp" />
                 </LinearLayout>
@@ -82,7 +84,7 @@
                     android:id="@+id/map_button"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#00ff0000"
+                    android:background="#AFBCCD"
                     app:srcCompat="@mipmap/iconfinder_map" />
             </LinearLayout>
 
@@ -90,8 +92,10 @@
                 android:id="@+id/textview3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/kyobo"
-                android:text="영업시간"
+                android:background="#AFBCCD"
+                android:drawableLeft="@drawable/clock"
+                android:fontFamily="@font/lottemartdreammedium"
+                android:text=" 영업시간"
                 android:textSize="25dp"
                 android:textStyle="bold" />
 
@@ -99,7 +103,7 @@
                 android:id="@+id/textview4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/kyobo"
+                android:fontFamily="@font/lottemartdreamlight"
                 android:text="매일 11:00 - 21:00\n"
                 android:textSize="20dp" />
 
@@ -107,20 +111,39 @@
                 android:id="@+id/textview5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/kyobo"
-                android:text="메뉴"
+                android:background="#AFBCCD"
+                android:drawableLeft="@drawable/menu"
+                android:fontFamily="@font/lottemartdreammedium"
+                android:text=" 메뉴"
                 android:textSize="25dp"
                 android:textStyle="bold" />
 
             <ExpandableListView
                 android:id="@+id/expandableListView"
                 android:layout_width="match_parent"
-                android:layout_height="260dp"
+                android:layout_height="300dp"
+                android:backgroundTint="#FFFFFF"
                 android:fadingEdge="horizontal|vertical"
-                android:fontFamily="@font/kyobo"
+                android:fontFamily="@font/lottemartdreamlight"
                 android:textSize="20dp" />
 
         </LinearLayout>
     </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#51617A"
+        android:fontFamily="@font/lottemartdreammedium"
+        android:theme="@style/Widget.BottomNavigationView"
+        app:itemBackground="@android:color/transparent"
+        app:itemIconTint="#FFFFFF"
+        app:itemTextColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_bottomnavigationview" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
