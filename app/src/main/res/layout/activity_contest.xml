@@ -21,6 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/swipeRefresh"
         app:layout_constraintHorizontal_bias="0.139"
@@ -70,7 +71,8 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefresh"
         android:layout_width="match_parent"
-        android:layout_height="620dp"
+        android:layout_height="600dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -79,10 +81,11 @@
 
         <ListView
             android:id="@+id/listView"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
             android:background="#00FFFFFF"
+            android:dividerHeight="1dp"
+            android:divider="#A2AFC5"
             android:fontFamily="@font/lottemartdreamlight"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintVertical_bias="0.0" />

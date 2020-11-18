@@ -32,13 +32,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bar" />
 
-
-
     <ListView
         android:id="@+id/listView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
+        android:dividerHeight="1dp"
+        android:divider="#A2AFC5"
         android:background="#F6F2FF"
         android:fontFamily="@font/lottemartdreamlight"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavi"

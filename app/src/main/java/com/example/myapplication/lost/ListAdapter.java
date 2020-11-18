@@ -74,6 +74,10 @@ public class ListAdapter extends BaseAdapter {
         oTextType.setText(data.get(position).type);
         oTextDate.setText(datetext);
 
+        ViewGroup.LayoutParams layoutParams = convertView.getLayoutParams();
+        layoutParams.height = 200;
+        convertView.setLayoutParams(layoutParams);
+
         return convertView;
 
     }

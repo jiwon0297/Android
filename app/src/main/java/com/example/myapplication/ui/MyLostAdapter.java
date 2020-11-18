@@ -67,6 +67,10 @@ public class MyLostAdapter extends BaseAdapter {
         oTextDate.setText(sample.get(position).date);
         oTextContent.setText(sample.get(position).content);
 
+        ViewGroup.LayoutParams layoutParams = convertView.getLayoutParams();
+        layoutParams.height = 200;
+        convertView.setLayoutParams(layoutParams);
+
         return convertView;
 
     }

@@ -67,6 +67,10 @@ public class SendMailAdapter extends BaseAdapter {
         oTextDate.setText(datetext);
         oTextContent.setText(sample.get(position).content);
 
+        ViewGroup.LayoutParams layoutParams = convertView.getLayoutParams();
+        layoutParams.height = 200;
+        convertView.setLayoutParams(layoutParams);
+
         return convertView;
     }
 }

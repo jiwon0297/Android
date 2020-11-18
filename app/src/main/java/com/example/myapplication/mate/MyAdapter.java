@@ -77,7 +77,7 @@ public class MyAdapter extends BaseAdapter{
 
 
         ViewGroup.LayoutParams layoutParams = convertView.getLayoutParams();
-        layoutParams.height = 250;
+        layoutParams.height = 200;
         convertView.setLayoutParams(layoutParams);
 
         return convertView;
