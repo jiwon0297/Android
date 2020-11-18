@@ -4,40 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_restraunt"
     tools:context=".restaurant.jukjeon.western.WesternActivity">
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:fontFamily="@font/lottemarthappybold"
+        android:gravity="center"
         android:text="양식"
-        android:textSize="100px"
+        android:textAlignment="center"
+        android:textColor="#ffff"
+        android:textSize="50sp"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintHorizontal_bias="0.801"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:itemBackground="@android:color/white"
-        app:itemIconTint="#5785CF"
-        android:theme="@style/Widget.BottomNavigationView"
-        app:itemTextColor="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/menu_bottomnavigationview"
-        tools:layout_editor_absoluteX="16dp" />
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="413dp"
-        android:layout_height="600dp"
-        android:layout_marginBottom="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="60dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -46,71 +40,126 @@
         app:layout_constraintVertical_bias="1.0">
 
 
-    <LinearLayout
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button15"
+                android:layout_width="410dp"
+                android:layout_height="120dp"
+                android:background="#00000000"
+                android:clickable="true"
+                android:fadingEdge="horizontal|vertical"
+                android:fontFamily="@font/lottemartdreammedium"
+                android:onClick="beuradeo"
+                android:selectAllOnFocus="false"
+                android:text="브라더 양식당"
+                android:textAllCaps="false"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/button17"
+                app:layout_constraintEnd_toStartOf="@+id/button16"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <Button
+                android:id="@+id/button16"
+                android:layout_width="410dp"
+                android:layout_height="120dp"
+                android:background="#00000000"
+                android:clickable="true"
+                android:fadingEdge="horizontal|vertical"
+                android:fontFamily="@font/lottemartdreammedium"
+                android:onClick="grande"
+                android:text="그란데"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/button15"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <Button
+                android:id="@+id/button17"
+                android:layout_width="410dp"
+                android:layout_height="120dp"
+                android:background="#00000000"
+                android:clickable="true"
+                android:fadingEdge="horizontal|vertical"
+                android:fontFamily="@font/lottemartdreammedium"
+                android:onClick="darin"
+                android:text="다린"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/button18"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button15" />
+
+            <Button
+                android:id="@+id/button18"
+                android:layout_width="410dp"
+                android:layout_height="120dp"
+                android:background="#00000000"
+                android:clickable="true"
+                android:fadingEdge="horizontal|vertical"
+                android:fontFamily="@font/lottemartdreammedium"
+                android:onClick="obliq"
+                android:text="오블리끄"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/button17"
+                app:layout_constraintTop_toBottomOf="@+id/button16" />
+
+            <Button
+                android:id="@+id/button19"
+                android:layout_width="410dp"
+                android:layout_height="120dp"
+                android:background="#00000000"
+                android:clickable="true"
+                android:fadingEdge="horizontal|vertical"
+                android:fontFamily="@font/lottemartdreammedium"
+                android:onClick="burrito"
+                android:text="부리또 정거장"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/button18"
+                app:layout_constraintTop_toBottomOf="@+id/button17" />
+
+            <Button
+                android:id="@+id/button20"
+                android:layout_width="410dp"
+                android:layout_height="120dp"
+                android:background="#00000000"
+                android:clickable="true"
+                android:fadingEdge="horizontal|vertical"
+                android:fontFamily="@font/lottemartdreammedium"
+                android:onClick="dosmas"
+                android:text="도스마스"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/button19"
+                app:layout_constraintTop_toBottomOf="@+id/button18"
+                app:layout_constraintVertical_bias="1.0" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <Button
-            android:layout_width="410dp"
-            android:layout_height="120dp"
-            android:clickable="true"
-            android:fontFamily="monospace"
-            android:onClick="beuradeo"
-            android:text="브라더 양식당"
-            android:background="#00ff0000"
-            android:textSize="20sp" />
-
-        <Button
-            android:layout_width="410dp"
-            android:layout_height="120dp"
-            android:clickable="true"
-            android:fontFamily="monospace"
-            android:onClick="grande"
-            android:text="그란데"
-            android:background="#00ff0000"
-            android:textSize="20sp" />
-
-        <Button
-            android:layout_width="410dp"
-            android:layout_height="120dp"
-            android:clickable="true"
-            android:fontFamily="monospace"
-            android:onClick="darin"
-            android:text="다린"
-            android:background="#00ff0000"
-            android:textSize="20sp" />
-
-        <Button
-            android:layout_width="410dp"
-            android:layout_height="120dp"
-            android:clickable="true"
-            android:fontFamily="monospace"
-            android:onClick="obliq"
-            android:text="오블리끄"
-            android:background="#00ff0000"
-            android:textSize="20sp" />
-
-        <Button
-            android:layout_width="410dp"
-            android:layout_height="120dp"
-            android:clickable="true"
-            android:fontFamily="monospace"
-            android:onClick="burrito"
-            android:text="부리또 정거장"
-            android:background="#00ff0000"
-            android:textSize="20sp" />
-
-        <Button
-            android:layout_width="410dp"
-            android:layout_height="120dp"
-            android:clickable="true"
-            android:fontFamily="monospace"
-            android:onClick="dosmas"
-            android:text="도스마스"
-            android:background="#00ff0000"
-            android:textSize="20sp" />
-
-    </LinearLayout>
-    </ScrollView>
+        android:background="#51617A"
+        android:fontFamily="@font/lottemartdreammedium"
+        android:theme="@style/Widget.BottomNavigationView"
+        app:itemBackground="@android:color/transparent"
+        app:itemIconTint="#FFFFFF"
+        app:itemTextColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_bottomnavigationview" />
 </androidx.constraintlayout.widget.ConstraintLayout>
