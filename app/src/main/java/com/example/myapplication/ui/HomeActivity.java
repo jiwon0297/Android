@@ -1,7 +1,6 @@
 package com.example.myapplication.ui;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -41,7 +40,6 @@ import com.example.myapplication.restaurant.cheonan.korean.GobgobgobActivity;
 import com.example.myapplication.restaurant.cheonan.western.BabalabActivity;
 import com.example.myapplication.restaurant.cheonan.western.SubmealActivity;
 import com.example.myapplication.restaurant.cheonan.western.SungtanActivity;
-import com.example.myapplication.restaurant.jukjeon.RestaurantActivity;
 import com.example.myapplication.restaurant.jukjeon.cafe.AzitActivity;
 import com.example.myapplication.restaurant.jukjeon.cafe.CreativeActivity;
 import com.example.myapplication.restaurant.jukjeon.cafe.DarakActivity;
@@ -114,6 +112,7 @@ public class HomeActivity extends AppCompatActivity {
         homepage.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://portal.dankook.ac.kr/web/portal/"));
+                intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                 startActivity(intent);
             }
         });
@@ -122,6 +121,7 @@ public class HomeActivity extends AppCompatActivity {
         map.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.dankook.ac.kr/web/kor/campusmap?p_p_id=Campus_WAR_campusportlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_Campus_WAR_campusportlet_sCampusId=1&_Campus_WAR_campusportlet_pageView=detail&_Campus_WAR_campusportlet_action=view"));
+                intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                 startActivity(intent);
             }
         });
@@ -130,6 +130,7 @@ public class HomeActivity extends AppCompatActivity {
         elearning.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://nlms.dankook.ac.kr/"));
+                intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                 startActivity(intent);
             }
         });
@@ -138,6 +139,7 @@ public class HomeActivity extends AppCompatActivity {
         bus.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.dankook.ac.kr/web/kor/-69"));
+                intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                 startActivity(intent);
             }
         });
@@ -146,6 +148,7 @@ public class HomeActivity extends AppCompatActivity {
         webinfo.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://webinfo.dankook.ac.kr/"));
+                intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                 startActivity(intent);
             }
         });
@@ -154,6 +157,7 @@ public class HomeActivity extends AppCompatActivity {
         hakbok.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.univstore.com/"));
+                intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                 startActivity(intent);
             }
         });
@@ -162,6 +166,7 @@ public class HomeActivity extends AppCompatActivity {
         apple.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.apple.com/kr-k12/shop?afid=p238%7Cs2KHj9FlR-dc_mtid_18707vxu38484_pcrid_258798361876_pgrid_50422948013_&cid=aos-kr-kwgo-edu--slid---product--"));
+                intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                 startActivity(intent);
             }
         });
@@ -170,6 +175,7 @@ public class HomeActivity extends AppCompatActivity {
         lg.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.univstore.com/brand/lg?sort=recommend"));
+                intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                 startActivity(intent);
             }
         });
@@ -178,6 +184,7 @@ public class HomeActivity extends AppCompatActivity {
         samsung.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.univstore.com/brand/samsung?sort=recommend"));
+                intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                 startActivity(intent);
             }
         });
@@ -186,6 +193,7 @@ public class HomeActivity extends AppCompatActivity {
         wacom.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.univstore.com/brand/wacom?sort=recommend"));
+                intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                 startActivity(intent);
             }
         });
@@ -194,6 +202,7 @@ public class HomeActivity extends AppCompatActivity {
         adobe.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.univstore.com/brand/adobe?sort=recommend"));
+                intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                 startActivity(intent);
             }
         });
@@ -202,6 +211,7 @@ public class HomeActivity extends AppCompatActivity {
         microsoft.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.microsoft.com/ko-kr/education/products/office/"));
+                intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                 startActivity(intent);
             }
         });
@@ -254,6 +264,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn1.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, IlmiActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -262,6 +273,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn1.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, SonActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -270,6 +282,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn1.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, SangsangActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -278,6 +291,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn1.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, GosimActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -286,6 +300,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn1.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, KimchiActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -294,6 +309,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn1.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, SangolActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -302,6 +318,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn1.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, WarActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -310,6 +327,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn1.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, RedpipeActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -318,6 +336,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn1.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, HappyActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -326,6 +345,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn1.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, JjimActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -334,6 +354,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn1.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, KalActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -342,6 +363,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn1.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, HongchunActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -350,6 +372,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn1.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, MaratangActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -358,6 +381,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn1.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, SabuActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -366,6 +390,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn1.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, HongbanActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -374,6 +399,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn1.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, HosikdangActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -382,6 +408,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn1.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, MamaActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -390,6 +417,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn1.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, UmedaActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -398,6 +426,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn1.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, KenkoActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -406,6 +435,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn1.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, MisoyaActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -414,6 +444,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn1.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, BeuradeoActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -422,6 +453,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn1.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, GrandeActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -430,6 +462,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn1.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, DarinActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -438,6 +471,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn1.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, ObliqActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -446,6 +480,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn1.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, BurritoActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -454,6 +489,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn1.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, DosmasActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -479,6 +515,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn1.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, DarakActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -487,6 +524,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn1.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, WitchActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -495,6 +533,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn1.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, AzitActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -503,6 +542,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn1.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, EdiyaActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -511,6 +551,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn1.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, SoleilActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -519,6 +560,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn1.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, TrianonActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -527,6 +569,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn1.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, CreativeActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -563,6 +606,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn2.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, CheonhojiActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -571,6 +615,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn2.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, BuanActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -579,6 +624,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn2.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, GobgobgobActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -587,6 +633,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn2.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, AfterschoolActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -595,6 +642,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn2.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, BirdActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -603,6 +651,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn2.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, DongchunActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -611,6 +660,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn2.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, HyrinActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -619,6 +669,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn2.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, HeungbuActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -627,6 +678,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn2.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, MadangActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -635,6 +687,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn2.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, StoryActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -643,6 +696,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn2.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, ChonActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -651,6 +705,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn2.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, MaeulActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -659,6 +714,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn2.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, SungtanActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -667,6 +723,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn2.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, SubmealActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -675,6 +732,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn2.setOnClickListener(new View.OnClickListener(){
                                                     public void onClick(View v){
                                                         Intent intent = new Intent(HomeActivity.this, BabalabActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -700,6 +758,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn2.setOnClickListener(new View.OnClickListener() {
                                                     public void onClick(View v) {
                                                         Intent intent = new Intent(HomeActivity.this, MarisActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -708,6 +767,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn2.setOnClickListener(new View.OnClickListener() {
                                                     public void onClick(View v) {
                                                         Intent intent = new Intent(HomeActivity.this, GroasterActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -716,6 +776,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn2.setOnClickListener(new View.OnClickListener() {
                                                     public void onClick(View v) {
                                                         Intent intent = new Intent(HomeActivity.this, PeopleActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -724,6 +785,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn2.setOnClickListener(new View.OnClickListener() {
                                                     public void onClick(View v) {
                                                         Intent intent = new Intent(HomeActivity.this, GravityActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -732,6 +794,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn2.setOnClickListener(new View.OnClickListener() {
                                                     public void onClick(View v) {
                                                         Intent intent = new Intent(HomeActivity.this, LikeActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
@@ -740,6 +803,7 @@ public class HomeActivity extends AppCompatActivity {
                                                 btn2.setOnClickListener(new View.OnClickListener() {
                                                     public void onClick(View v) {
                                                         Intent intent = new Intent(HomeActivity.this, SlowActivity.class);
+                                                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                                                         startActivity(intent);
                                                     }
                                                 });
