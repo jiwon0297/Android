@@ -37,14 +37,17 @@ public class RestaurantwhereActivity extends AppCompatActivity {
             {
                 case R.id.home:
                     Intent intent = new Intent(RestaurantwhereActivity.this, HomeActivity.class);
+                    intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent);
                     break;
                 case R.id.mail:
                     Intent intent2 = new Intent(RestaurantwhereActivity.this, MailActivity.class);
+                    intent2.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent2);
                     break;
                 case R.id.mypage:
                     Intent intent3 = new Intent(RestaurantwhereActivity.this, MypageActivity.class);
+                    intent3.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent3);
                     break;
             }
@@ -55,12 +58,22 @@ public class RestaurantwhereActivity extends AppCompatActivity {
     public void jukjeon(View view) {
         Toast.makeText(this,"죽전캠퍼스 주변 음식점",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, RestaurantActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 
     public void cheonan(View view) {
         Toast.makeText(this,"천안캠퍼스 주변 음식점",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, RestaurantActivity2.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
+        startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        Intent intent = new Intent(RestaurantwhereActivity.this, HomeActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 }

@@ -8,12 +8,14 @@ import android.view.ViewGroup;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
+import com.example.myapplication.restaurant.RestaurantwhereActivity;
 import com.example.myapplication.restaurant.cheonan.cafe.CafeActivity2;
 import com.example.myapplication.restaurant.cheonan.chinese.ChineseActivity2;
 import com.example.myapplication.restaurant.cheonan.dessert.DessertActivity2;
 import com.example.myapplication.restaurant.cheonan.japanese.JapaneseActivity2;
 import com.example.myapplication.restaurant.cheonan.korean.KoreanActivity2;
 import com.example.myapplication.restaurant.cheonan.western.WesternActivity2;
+import com.example.myapplication.restaurant.jukjeon.RestaurantActivity;
 
 public class RestaurantActivity2 extends AppCompatActivity {
 
@@ -68,5 +70,12 @@ public class RestaurantActivity2 extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        Intent intent = new Intent(RestaurantActivity2.this, RestaurantwhereActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
+        startActivity(intent);
+    }
 
 }

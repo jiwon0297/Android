@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -36,6 +37,51 @@ public class MateActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MateActivity.this, HomeActivity.class);
+                intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
+                startActivity(intent);
+            }
+        });
+
+        ViewGroup alone = (ViewGroup) findViewById(R.id.textView2);
+        alone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MateActivity.this,"혼밥 메이트 구하기 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(MateActivity.this, AloneActivity.class);
+                intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
+                startActivity(intent);
+            }
+        });
+
+        ViewGroup contest = (ViewGroup) findViewById(R.id.textView5);
+        contest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MateActivity.this,"공모전 메이트 구하기 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(MateActivity.this, ContestActivity.class);
+                intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
+                startActivity(intent);
+            }
+        });
+
+        ViewGroup house = (ViewGroup) findViewById(R.id.textView6);
+        house.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MateActivity.this,"하우스 메이트 구하기 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(MateActivity.this, HouseActivity.class);
+                intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
+                startActivity(intent);
+            }
+        });
+
+        ViewGroup study = (ViewGroup) findViewById(R.id.textView3);
+        study.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MateActivity.this,"스터디 메이트 구하기 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(MateActivity.this, StudyActivity.class);
+                intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
                 startActivity(intent);
             }
         });
@@ -69,30 +115,5 @@ public class MateActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
-    }
-
-    public void alone(View v) {
-        Toast.makeText(this,"혼밥 메이트 구하기 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, AloneActivity.class);
-        intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
-        startActivity(intent);
-    }
-    public void study(View v) {
-        Toast.makeText(this,"스터디 메이트 구하기 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, StudyActivity.class);
-        intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
-        startActivity(intent);
-    }
-    public void contest(View v){
-        Toast.makeText(this,"공모전 메이트 구하기 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, ContestActivity.class);
-        intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
-        startActivity(intent);
-    }
-    public void house(View v){
-        Toast.makeText(this,"하우스 메이트 구하기 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, HouseActivity.class);
-        intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
-        startActivity(intent);
     }
 }

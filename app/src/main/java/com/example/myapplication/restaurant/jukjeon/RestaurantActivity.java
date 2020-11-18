@@ -8,12 +8,15 @@ import android.view.ViewGroup;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
+import com.example.myapplication.restaurant.RestaurantwhereActivity;
 import com.example.myapplication.restaurant.jukjeon.cafe.CafeActivity;
 import com.example.myapplication.restaurant.jukjeon.chinese.ChineseActivity;
 import com.example.myapplication.restaurant.jukjeon.dessert.DessertActivity;
 import com.example.myapplication.restaurant.jukjeon.japanese.JapaneseActivity;
 import com.example.myapplication.restaurant.jukjeon.korean.KoreanActivity;
 import com.example.myapplication.restaurant.jukjeon.western.WesternActivity;
+import com.example.myapplication.ui.HomeActivity;
+import com.example.myapplication.ui.MypageActivity;
 
 
 public class RestaurantActivity extends AppCompatActivity {
@@ -22,8 +25,6 @@ public class RestaurantActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant);
-
-
 
         ViewGroup cafe = (ViewGroup) findViewById(R.id.cafe);
         cafe.setOnClickListener(new View.OnClickListener() {
@@ -69,5 +70,13 @@ public class RestaurantActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        Intent intent = new Intent(RestaurantActivity.this, RestaurantwhereActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
+        startActivity(intent);
     }
 }

@@ -210,6 +210,7 @@ public class HomeActivity extends AppCompatActivity {
         mate.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this,MateActivity.class);
+                intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
                 startActivity(intent);
             }
         });
@@ -218,6 +219,7 @@ public class HomeActivity extends AppCompatActivity {
         lost.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this,LostActivity.class);
+                intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
                 startActivity(intent);
             }
         });
@@ -226,6 +228,7 @@ public class HomeActivity extends AppCompatActivity {
         restaurant.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, RestaurantwhereActivity.class);
+                intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
                 startActivity(intent);
             }
         });
@@ -757,8 +760,6 @@ public class HomeActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
 
-
-
     }
 
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
@@ -805,25 +806,5 @@ public class HomeActivity extends AppCompatActivity {
         finish();
         System.exit(0);
         android.os.Process.killProcess(android.os.Process.myPid());
-    }
-
-    public void mate(View v) {
-        Toast.makeText(this,"메이트 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, MateActivity.class);
-        intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
-        startActivity(intent);
-    }
-    public void lost(View v) {
-        Toast.makeText(this,"분실물 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, LostActivity.class);
-        intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
-        startActivity(intent);
-    }
-    public void restaurantwhere(View v){
-        Toast.makeText(this,"식당 화면으로 이동합니다.",Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, RestaurantwhereActivity.class);
-        intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
-        startActivity(intent);
-
     }
 }
