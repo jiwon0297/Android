@@ -123,15 +123,6 @@ public class MypageActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public void onBackPressed() {
-        //super.onBackPressed();
-        Intent intent = new Intent(MypageActivity.this, HomeActivity.class);
-        intent.putExtra(NICKNAME_EXTRA, getIntent().getStringExtra("NICKNAME_EXTRA"));
-        startActivity(intent);
-    }
-
-
 
     public void content(View v) {
         Toast.makeText(this,"내 목록 화면으로 이동합니다.",Toast.LENGTH_LONG).show();

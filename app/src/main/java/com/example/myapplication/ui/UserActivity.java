@@ -3,6 +3,7 @@ package com.example.myapplication.ui;
 import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -138,13 +139,18 @@ public class UserActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<EditResponse> call, Response<EditResponse> response) {
                 EditResponse result = response.body();
-                Toast.makeText(UserActivity.this, result.getMessage(), Toast.LENGTH_SHORT).show();
                 showProgress(false);
 
                 if(result.getCode()==200){
-                    Intent loginIntent = new Intent(UserActivity.this, LoginActivity.class);
-                    loginIntent.putExtra(NICKNAME_EXTRA, result.getNickname());
-                    UserActivity.this.startActivity(loginIntent);
+                    Intent intent = new Intent(UserActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    SharedPreferences setting = getSharedPreferences("setting", Activity.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = setting.edit();
+                    editor.clear();
+                    editor.commit();
+                    finish();
+                    Toast.makeText(UserActivity.this,"비밀번호가 수정되었습니다. 변경된 비밀번호로 재로그인해주세요.",Toast.LENGTH_LONG).show();
+                    UserActivity.this.startActivity(intent);
                 }
             }
 
