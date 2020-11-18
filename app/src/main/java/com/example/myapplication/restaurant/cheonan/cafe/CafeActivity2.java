@@ -34,14 +34,17 @@ public class CafeActivity2 extends AppCompatActivity {
             {
                 case R.id.home:
                     Intent intent = new Intent(CafeActivity2.this, HomeActivity.class);
+                    intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent);
                     break;
                 case R.id.mail:
                     Intent intent2 = new Intent(CafeActivity2.this, MailActivity.class);
+                    intent2.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent2);
                     break;
                 case R.id.mypage:
                     Intent intent3 = new Intent(CafeActivity2.this, MypageActivity.class);
+                    intent3.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent3);
                     break;
             }
@@ -51,36 +54,43 @@ public class CafeActivity2 extends AppCompatActivity {
 
     public void maris(View view) { Toast.makeText(this,"마리스커피",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, MarisActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 
     public void gome(View view) {Toast.makeText(this,"카페고메",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, GomeActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 
     public void groaster(View view) {Toast.makeText(this,"지로스터",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, GroasterActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 
     public void people(View view) {Toast.makeText(this,"피플앤스토리",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, PeopleActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 
     public void gravity(View view) {Toast.makeText(this,"GRAVITY LAKE",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, GravityActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 
     public void like(View view) {Toast.makeText(this,"카페라이크",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, LikeActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 
     public void slow(View view) {Toast.makeText(this,"슬로우커피2",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, SlowActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 }

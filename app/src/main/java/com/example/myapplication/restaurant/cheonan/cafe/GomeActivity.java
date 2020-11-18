@@ -56,6 +56,7 @@ public class GomeActivity extends AppCompatActivity implements ExpandableListVie
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(GomeActivity.this, MapFragmentActivity.class);
+                intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                 startActivity(intent);
             }
         });
@@ -155,14 +156,17 @@ public class GomeActivity extends AppCompatActivity implements ExpandableListVie
             {
                 case R.id.home:
                     Intent intent = new Intent(GomeActivity.this, HomeActivity.class);
+                    intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent);
                     break;
                 case R.id.mail:
                     Intent intent2 = new Intent(GomeActivity.this, MailActivity.class);
+                    intent2.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent2);
                     break;
                 case R.id.mypage:
                     Intent intent3 = new Intent(GomeActivity.this, MypageActivity.class);
+                    intent3.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent3);
                     break;
             }

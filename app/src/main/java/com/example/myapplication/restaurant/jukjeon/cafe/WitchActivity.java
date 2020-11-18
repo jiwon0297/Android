@@ -55,6 +55,7 @@ public class WitchActivity extends AppCompatActivity implements ExpandableListVi
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(WitchActivity.this, MapFragmentActivity.class);
+                intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                 startActivity(intent);
             }
         });
@@ -156,14 +157,17 @@ public class WitchActivity extends AppCompatActivity implements ExpandableListVi
             {
                     case R.id.home:
                         Intent intent = new Intent( WitchActivity.this, HomeActivity.class);
+                        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                         startActivity(intent);
                         break;
                     case R.id.mail:
                         Intent intent2 = new Intent( WitchActivity.this, MailActivity.class);
+                        intent2.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                         startActivity(intent2);
                         break;
                     case R.id.mypage:
                         Intent intent3 = new Intent( WitchActivity.this, MypageActivity.class);
+                        intent3.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                         startActivity(intent3);
                         break;
             }

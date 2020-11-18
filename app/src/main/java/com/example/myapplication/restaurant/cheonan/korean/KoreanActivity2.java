@@ -33,14 +33,17 @@ public class KoreanActivity2 extends AppCompatActivity {
             {
                 case R.id.home:
                     Intent intent = new Intent(KoreanActivity2.this, HomeActivity.class);
+                    intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent);
                     break;
                 case R.id.mail:
                     Intent intent2 = new Intent(KoreanActivity2.this, MailActivity.class);
+                    intent2.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent2);
                     break;
                 case R.id.mypage:
                     Intent intent3 = new Intent(KoreanActivity2.this, MypageActivity.class);
+                    intent3.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent3);
                     break;
             }
@@ -50,26 +53,31 @@ public class KoreanActivity2 extends AppCompatActivity {
 
     public void cheonhoji(View view) { Toast.makeText(this,"천호지",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, CheonhojiActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 
     public void buan(View view) {Toast.makeText(this,"원조부안집",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, BuanActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 
     public void gobgobgob(View view) {Toast.makeText(this,"은하철도곱곱곱",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, GobgobgobActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 
     public void afterschool(View view) {Toast.makeText(this,"수업이 끝난 오후",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, AfterschoolActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 
     public void bird(View view) {Toast.makeText(this,"참새방",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, BirdActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 

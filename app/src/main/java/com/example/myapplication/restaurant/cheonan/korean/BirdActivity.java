@@ -54,6 +54,7 @@ public class BirdActivity extends AppCompatActivity implements ExpandableListVie
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(BirdActivity.this, MapFragmentActivity.class);
+                intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                 startActivity(intent);
             }
         });
@@ -153,14 +154,17 @@ public class BirdActivity extends AppCompatActivity implements ExpandableListVie
             {
                 case R.id.home:
                     Intent intent = new Intent(BirdActivity.this, HomeActivity.class);
+                    intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent);
                     break;
                 case R.id.mail:
                     Intent intent2 = new Intent(BirdActivity.this, MailActivity.class);
+                    intent2.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent2);
                     break;
                 case R.id.mypage:
                     Intent intent3 = new Intent(BirdActivity.this, MypageActivity.class);
+                    intent3.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent3);
                     break;
             }
