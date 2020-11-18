@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.restaurant.cheonan.cafe.CafeActivity2;
 import com.example.myapplication.restaurant.cheonan.chinese.ChineseActivity2;
+import com.example.myapplication.restaurant.cheonan.dessert.DessertActivity2;
 import com.example.myapplication.restaurant.cheonan.japanese.JapaneseActivity2;
 import com.example.myapplication.restaurant.cheonan.korean.KoreanActivity2;
 import com.example.myapplication.restaurant.cheonan.western.WesternActivity2;
@@ -61,7 +62,7 @@ public class RestaurantActivity2 extends AppCompatActivity {
         ViewGroup dessert = (ViewGroup) findViewById(R.id.dessert);
         dessert.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
-                Intent intent = new Intent(RestaurantActivity2.this, WesternActivity2.class);
+                Intent intent = new Intent(RestaurantActivity2.this, DessertActivity2.class);
                 startActivity(intent);
             }
         });
