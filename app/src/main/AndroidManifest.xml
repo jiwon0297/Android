@@ -22,7 +22,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-
+        <activity android:name=".restaurant.cheonan.dessert.DessertActivity2"></activity>
+        <activity android:name=".restaurant.jukjeon.dessert.DessertActivity" />
+        <activity android:name=".restaurant.jukjeon.dessert.SweetActivity" />
         <activity android:name=".lost.LostSearchActivity" />
         <activity android:name=".mate.MateSearchActivity" />
         <activity android:name=".ui.MailViewActivity" />

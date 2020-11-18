@@ -105,6 +105,7 @@ public class MapFragmentActivity extends AppCompatActivity implements OnMapReady
         markersPosition.add(new LatLng(37.323265, 127.124190)); //쏠레이
         markersPosition.add(new LatLng(37.322627, 127.124730)); //CAFE TRIANON
         markersPosition.add(new LatLng(37.322886, 127.124897)); //크리에이티브커피
+        markersPosition.add(new LatLng(37.323729, 127.123513)); //와플스위트
         markersPosition.add(new LatLng(37.323184, 127.123504)); //일미닭갈비파전
         markersPosition.add(new LatLng(37.323578, 127.123110)); //손가네칼국수
         markersPosition.add(new LatLng(37.324082, 127.125437)); //엉뚱상상
@@ -219,6 +220,7 @@ public class MapFragmentActivity extends AppCompatActivity implements OnMapReady
         Marker marker53 = new Marker();
         Marker marker54 = new Marker();
         Marker marker55 = new Marker();
+        Marker marker56 = new Marker();
 
         marker1.setPosition(new LatLng(37.323982, 127.125192)); //Cafe다락다락방
         marker1.setMap(naverMap);
@@ -330,6 +332,8 @@ public class MapFragmentActivity extends AppCompatActivity implements OnMapReady
         marker54.setMap(naverMap);
         marker55.setPosition(new LatLng(36.831173, 127.164242)); //BABALAB
         marker55.setMap(naverMap);
+        marker56.setPosition(new LatLng(37.323729, 127.123513)); //와플스위트
+        marker56.setMap(naverMap);
 
 // 지도를 클릭하면 정보 창을 닫음
         naverMap.setOnMapClickListener((coord, point) -> {
@@ -406,6 +410,7 @@ public class MapFragmentActivity extends AppCompatActivity implements OnMapReady
         marker53.setOnClickListener(listener);
         marker54.setOnClickListener(listener);
         marker55.setOnClickListener(listener);
+        marker56.setOnClickListener(listener);
 
         marker1.setTag("Cafe다락다락방");
         marker1.setOnClickListener(overlay -> {
@@ -789,6 +794,13 @@ public class MapFragmentActivity extends AppCompatActivity implements OnMapReady
         marker55.setOnClickListener(overlay -> {
             // 마커를 클릭할 때 정보창을 엶
             infoWindow.open(marker55);
+            return true;
+        });
+
+        marker56.setTag("와플스위트");
+        marker56.setOnClickListener(overlay -> {
+            // 마커를 클릭할 때 정보창을 엶
+            infoWindow.open(marker56);
             return true;
         });
 
