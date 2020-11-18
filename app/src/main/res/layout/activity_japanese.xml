@@ -4,40 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_restraunt"
     tools:context=".restaurant.jukjeon.japanese.JapaneseActivity">
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="100dp"
-        android:theme="@style/Widget.BottomNavigationView"
-        android:fontFamily="monospace"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:fontFamily="@font/lottemarthappybold"
+        android:gravity="center"
         android:text="일식"
-        android:textSize="100px"
+        android:textAlignment="center"
+        android:textColor="#ffff"
+        android:textSize="50sp"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.801"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:itemBackground="@android:color/white"
-        app:itemIconTint="#5785CF"
-        app:itemTextColor="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/menu_bottomnavigationview"
-        tools:layout_editor_absoluteX="16dp" />
-
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="413dp"
-        android:layout_height="600dp"
-        android:layout_marginBottom="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="60dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -45,96 +38,112 @@
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="1.0">
 
-    <LinearLayout
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="410dp"
+                android:layout_height="120dp"
+                android:background="#00000000"
+                android:clickable="true"
+                android:fadingEdge="horizontal|vertical"
+                android:fontFamily="@font/lottemartdreammedium"
+                android:onClick="hosikdang"
+                android:selectAllOnFocus="false"
+                android:text="호식당"
+                android:textAllCaps="false"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/button6"
+                app:layout_constraintEnd_toStartOf="@+id/button5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageButton1" />
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="410dp"
+                android:layout_height="120dp"
+                android:background="#00000000"
+                android:clickable="true"
+                android:fadingEdge="horizontal|vertical"
+                android:fontFamily="@font/lottemartdreammedium"
+                android:onClick="mama"
+                android:text="아리가또맘마"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/button7"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/button4"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="410dp"
+                android:layout_height="120dp"
+                android:background="#00000000"
+                android:clickable="true"
+                android:fadingEdge="horizontal|vertical"
+                android:fontFamily="@font/lottemartdreammedium"
+                android:onClick="umeda"
+                android:text="우메다"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/button13"
+                app:layout_constraintEnd_toStartOf="@+id/button7"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button4" />
+
+            <Button
+                android:id="@+id/button7"
+                android:layout_width="410dp"
+                android:layout_height="120dp"
+                android:background="#00000000"
+                android:clickable="true"
+                android:fadingEdge="horizontal|vertical"
+                android:fontFamily="@font/lottemartdreammedium"
+                android:onClick="kenko"
+                android:text="겐코"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/button12"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/button6"
+                app:layout_constraintTop_toBottomOf="@+id/button5" />
+
+            <Button
+                android:id="@+id/button13"
+                android:layout_width="410dp"
+                android:layout_height="120dp"
+                android:background="#00000000"
+                android:clickable="true"
+                android:fadingEdge="horizontal|vertical"
+                android:fontFamily="@font/lottemartdreammedium"
+                android:onClick="misoya"
+                android:text="미소야"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/button14"
+                app:layout_constraintEnd_toStartOf="@+id/button12"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button6" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/button27"
-            android:layout_width="410dp"
-            android:layout_height="120dp"
-            android:clickable="true"
-            android:fadingEdge="horizontal|vertical"
-            android:fontFamily="monospace"
-            android:onClick="hosikdang"
-            android:text="호식당"
-            android:textSize="24sp"
-            android:background="#00ff0000"
-            app:layout_constraintBottom_toTopOf="@+id/button29"
-            app:layout_constraintEnd_toStartOf="@+id/button28"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-        <Button
-            android:id="@+id/button28"
-            android:layout_width="410dp"
-            android:layout_height="120dp"
-            android:clickable="true"
-            android:fadingEdge="horizontal|vertical"
-            android:fontFamily="monospace"
-            android:onClick="mama"
-            android:text="아리가또맘마"
-            android:textSize="24sp"
-            android:background="#00ff0000"
-            app:layout_constraintBottom_toTopOf="@+id/button30"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/button27"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-        <Button
-            android:id="@+id/button29"
-            android:layout_width="410dp"
-            android:layout_height="120dp"
-            android:clickable="true"
-            android:fadingEdge="horizontal|vertical"
-            android:fontFamily="monospace"
-            android:onClick="umeda"
-            android:text="우메다"
-            android:textSize="24sp"
-            android:background="#00ff0000"
-            app:layout_constraintBottom_toTopOf="@+id/button31"
-            app:layout_constraintEnd_toStartOf="@+id/button30"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button27" />
-
-        <Button
-            android:id="@+id/button30"
-            android:layout_width="410dp"
-            android:layout_height="120dp"
-            android:clickable="true"
-            android:fadingEdge="horizontal|vertical"
-            android:fontFamily="monospace"
-            android:onClick="kenko"
-            android:text="겐코"
-            android:textSize="24sp"
-            android:background="#00ff0000"
-            app:layout_constraintBottom_toTopOf="@+id/button31"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/button29"
-            app:layout_constraintTop_toBottomOf="@+id/button28"
-            app:layout_constraintVertical_bias="0.217" />
-
-        <Button
-            android:id="@+id/button31"
-            android:layout_width="410dp"
-            android:layout_height="120dp"
-            android:clickable="true"
-            android:fadingEdge="horizontal|vertical"
-            android:fontFamily="monospace"
-            android:onClick="misoya"
-            android:text="미소야"
-            android:textSize="24sp"
-            android:background="#00ff0000"
-            app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button29"
-            tools:ignore="OnClick" />
-
-    </LinearLayout>
-    </ScrollView>
+        android:background="#51617A"
+        android:fontFamily="@font/lottemartdreammedium"
+        android:theme="@style/Widget.BottomNavigationView"
+        app:itemBackground="@android:color/transparent"
+        app:itemIconTint="#FFFFFF"
+        app:itemTextColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_bottomnavigationview" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
