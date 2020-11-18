@@ -79,7 +79,7 @@ public class LostSearchAdapter extends BaseAdapter {
         oTextDate.setText(datetext);
 
         ViewGroup.LayoutParams layoutParams = convertView.getLayoutParams();
-        layoutParams.height = 200;
+        layoutParams.height = 170;
         convertView.setLayoutParams(layoutParams);
 
         return convertView;

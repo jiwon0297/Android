@@ -74,7 +74,7 @@ public class MateSearchAdapter extends BaseAdapter {
         oTextContent.setText(sample.get(position).content);
 
         ViewGroup.LayoutParams layoutParams = convertView.getLayoutParams();
-        layoutParams.height = 200;
+        layoutParams.height = 170;
         convertView.setLayoutParams(layoutParams);
 
         return convertView;
