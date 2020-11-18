@@ -33,14 +33,17 @@ public class JapaneseActivity extends AppCompatActivity {
             {
                 case R.id.home:
                     Intent intent = new Intent(JapaneseActivity.this, HomeActivity.class);
+                    intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent);
                     break;
                 case R.id.mail:
                     Intent intent2 = new Intent(JapaneseActivity.this, MailActivity.class);
+                    intent2.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent2);
                     break;
                 case R.id.mypage:
                     Intent intent3 = new Intent(JapaneseActivity.this, MypageActivity.class);
+                    intent3.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent3);
                     break;
             }
@@ -50,26 +53,31 @@ public class JapaneseActivity extends AppCompatActivity {
 
     public void hosikdang(View view) { Toast.makeText(this,"호식당",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, HosikdangActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 
     public void mama(View view) { Toast.makeText(this,"아리가또맘마",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, MamaActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 
     public void umeda(View view) { Toast.makeText(this,"우메다",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, UmedaActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 
     public void kenko(View view) { Toast.makeText(this,"겐코",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, KenkoActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 
     public void misoya(View view) { Toast.makeText(this,"미소야",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, MisoyaActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 }

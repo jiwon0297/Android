@@ -34,14 +34,17 @@ public class CafeActivity extends AppCompatActivity {
             {
                 case R.id.home:
                     Intent intent = new Intent(CafeActivity.this, HomeActivity.class);
+                    intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent);
                     break;
                 case R.id.mail:
                     Intent intent2 = new Intent(CafeActivity.this, MailActivity.class);
+                    intent2.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent2);
                     break;
                 case R.id.mypage:
                     Intent intent3 = new Intent(CafeActivity.this, MypageActivity.class);
+                    intent3.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent3);
                     break;
             }
@@ -51,36 +54,43 @@ public class CafeActivity extends AppCompatActivity {
 
     public void darak(View view) { Toast.makeText(this,"Cafe다락다락방",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, DarakActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 
     public void witch(View view) {Toast.makeText(this,"위치스아일랜드",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, WitchActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 
     public void azit(View view) {Toast.makeText(this,"아지트커피",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, AzitActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 
     public void ediya(View view) {Toast.makeText(this,"이디야커피",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, EdiyaActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 
     public void soleil(View view) {Toast.makeText(this,"쏠레이",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, DarakActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 
     public void trianon(View view) {Toast.makeText(this,"cafe trianon",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, SoleilActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 
     public void creative(View view) {Toast.makeText(this,"크리에이티브커피",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, TrianonActivity.class);
+        intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
         startActivity(intent);
     }
 }
