@@ -36,6 +36,7 @@ public class RestaurantActivity2 extends AppCompatActivity {
         cafe.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 Intent intent = new Intent(RestaurantActivity2.this, CafeActivity2.class);
+                intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                 startActivity(intent);
             }
         });
@@ -44,6 +45,7 @@ public class RestaurantActivity2 extends AppCompatActivity {
         korean.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 Intent intent = new Intent(RestaurantActivity2.this, KoreanActivity2.class);
+                intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                 startActivity(intent);
             }
         });
@@ -51,6 +53,7 @@ public class RestaurantActivity2 extends AppCompatActivity {
         japanese.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 Intent intent = new Intent(RestaurantActivity2.this, JapaneseActivity2.class);
+                intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                 startActivity(intent);
             }
         });
@@ -58,6 +61,7 @@ public class RestaurantActivity2 extends AppCompatActivity {
         chinese.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 Intent intent = new Intent(RestaurantActivity2.this, ChineseActivity2.class);
+                intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                 startActivity(intent);
             }
         });
@@ -65,6 +69,7 @@ public class RestaurantActivity2 extends AppCompatActivity {
         western.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 Intent intent = new Intent(RestaurantActivity2.this, WesternActivity2.class);
+                intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                 startActivity(intent);
             }
         });
@@ -73,6 +78,7 @@ public class RestaurantActivity2 extends AppCompatActivity {
         dessert.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 Intent intent = new Intent(RestaurantActivity2.this, DessertActivity2.class);
+                intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                 startActivity(intent);
             }
         });
@@ -86,14 +92,17 @@ public class RestaurantActivity2 extends AppCompatActivity {
             {
                 case R.id.home:
                     Intent intent = new Intent(RestaurantActivity2.this, HomeActivity.class);
+                    intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent);
                     break;
                 case R.id.mail:
                     Intent intent2 = new Intent(RestaurantActivity2.this, MailActivity.class);
+                    intent2.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent2);
                     break;
                 case R.id.mypage:
                     Intent intent3 = new Intent(RestaurantActivity2.this, MypageActivity.class);
+                    intent3.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent3);
                     break;
             }

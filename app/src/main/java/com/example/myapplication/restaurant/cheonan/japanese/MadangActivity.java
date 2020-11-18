@@ -57,6 +57,7 @@ public class MadangActivity extends AppCompatActivity implements ExpandableListV
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MadangActivity.this, MapFragmentActivity.class);
+                intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                 startActivity(intent);
             }
         });
@@ -154,14 +155,17 @@ public class MadangActivity extends AppCompatActivity implements ExpandableListV
             switch (menuItem.getItemId()) {
                 case R.id.home:
                     Intent intent = new Intent(MadangActivity.this, HomeActivity.class);
+                    intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent);
                     break;
                 case R.id.mail:
                     Intent intent2 = new Intent(MadangActivity.this, MailActivity.class);
+                    intent2.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent2);
                     break;
                 case R.id.mypage:
                     Intent intent3 = new Intent(MadangActivity.this, MypageActivity.class);
+                    intent3.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent3);
                     break;
             }

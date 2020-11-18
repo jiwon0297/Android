@@ -55,6 +55,7 @@ public class AfterschoolActivity extends AppCompatActivity implements Expandable
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AfterschoolActivity.this, MapFragmentActivity.class);
+                intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                 startActivity(intent);
             }
         });
@@ -154,14 +155,17 @@ public class AfterschoolActivity extends AppCompatActivity implements Expandable
             {
                 case R.id.home:
                     Intent intent = new Intent(AfterschoolActivity.this, HomeActivity.class);
+                    intent.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent);
                     break;
                 case R.id.mail:
                     Intent intent2 = new Intent(AfterschoolActivity.this, MailActivity.class);
+                    intent2.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent2);
                     break;
                 case R.id.mypage:
                     Intent intent3 = new Intent(AfterschoolActivity.this, MypageActivity.class);
+                    intent3.putExtra("NICKNAME_EXTRA", getIntent().getStringExtra("NICKNAME_EXTRA"));
                     startActivity(intent3);
                     break;
             }
