@@ -8,7 +8,7 @@
     android:focusable="true"
     android:focusableInTouchMode="true"
     android:windowSoftInputMode="adjustPan"
-    tools:context=".mate.MateSearchActivity">
+    tools:context=".lost.LostSearchActivity">
 
     <LinearLayout
         android:id="@+id/header"
