@@ -57,12 +57,12 @@ public class JoinActivity extends AppCompatActivity {
                 .permitDiskWrites()
                 .permitNetwork().build());
 
-        emailText = (EditText) findViewById(R.id.username);
+        emailText = (EditText) findViewById(R.id.username1);
         passwordText = (EditText) findViewById(R.id.password);
         passwordconfirmText = (EditText) findViewById(R.id.passwordconfirm);
         nameText = (EditText) findViewById(R.id.name);
         genderText = (TextView) findViewById(R.id.genderText);
-        nicknameText = (EditText) findViewById(R.id.nickname);
+        nicknameText = (EditText) findViewById(R.id.nickname1);
         genderRadio = (RadioGroup) findViewById(R.id.genderGroup);
         genderRadio.setOnCheckedChangeListener(radioGroupButtonChangeListener);
         registerButton = (Button) findViewById(R.id.join);

@@ -46,6 +46,7 @@
         app:layout_constraintBottom_toTopOf="@id/password">
 
         <EditText
+            android:id="@+id/username1"
             android:layout_width="match_parent"
             android:fontFamily="@font/lottemartdreammedium"
             android:layout_height="70dp"
@@ -137,6 +138,7 @@
         app:layout_constraintTop_toBottomOf="@+id/name">
 
         <EditText
+            android:id="@+id/nickname1"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:textSize="20sp"
