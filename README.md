@@ -8,15 +8,12 @@
 <img width="696" alt="스크린샷 2022-05-04 10 54 03" src="https://user-images.githubusercontent.com/63248831/166613560-d0ada5c0-f0b5-43fa-92a6-c106224e263b.png">
 
 ## 프로젝트 정보
-|기술 스택|ㅁㄴㅇㄹ|
+|기술 스택|<img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white"> <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"> <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white"> <img src="https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white"> <img src="https://img.shields.io/badge/express-000000?style=for-the-badge&logo=express&logoColor=white"> <img src="https://img.shields.io/badge/amazonaws-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white"> <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> <img src="https://img.shields.io/badge/gradle-02303A?style=for-the-badge&logo=gradle&logoColor=white">|
 |---|---|
 ***
 |이름|역할|
 |---|---|
-|박지원|1. ㅁㄴㅇㄹ
-2.ㅁㄴㅇㄹ
-3.ㅁㄴㅇㄹ
-4.|
+|이승미|1. 유저데이터베이스 테이블 구축 <br> 2.|
 
 ## 사용 예제
 
