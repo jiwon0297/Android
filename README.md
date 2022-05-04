@@ -10,7 +10,7 @@
 ## 프로젝트 정보
 |기술 스택|<img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white"> <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white"> <img src="https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white"> <img src="https://img.shields.io/badge/express-000000?style=for-the-badge&logo=express&logoColor=white"> <img src="https://img.shields.io/badge/amazonaws-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white"> <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> <img src="https://img.shields.io/badge/gradle-02303A?style=for-the-badge&logo=gradle&logoColor=white">|
 |---|---|
-***
+
 |이름|역할|
 |---|---|
 |이승미|1. User 데이터베이스 설계 및 구축 <br>2. MyPage UI 및 정보출력 구현 <br>3. MyPage관련 Node JS 코드 작성 <br>4. 서버 관리 및 구축(RDS, EC2) <br>5. 로그인/회원가입 기능 <br>6. Push 알람 기능 <br>7. 이메일 인증기능|
