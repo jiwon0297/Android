@@ -74,6 +74,8 @@
 
 
 **VIDEO**
-
+<div text-align="center">
 
 [![Video Label](http://img.youtube.com/vi/G3BWYuW8smo/0.jpg)](https://youtu.be/G3BWYuW8smo)
+  
+</div>
