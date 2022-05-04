@@ -7,6 +7,7 @@
 
 <img width="696" alt="스크린샷 2022-05-04 10 54 03" src="https://user-images.githubusercontent.com/63248831/166613560-d0ada5c0-f0b5-43fa-92a6-c106224e263b.png">
 
+
 ## 프로젝트 정보
 |기술 스택|<img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white"> <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white"> <img src="https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white"> <img src="https://img.shields.io/badge/express-000000?style=for-the-badge&logo=express&logoColor=white"> <img src="https://img.shields.io/badge/amazonaws-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white"> <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> <img src="https://img.shields.io/badge/gradle-02303A?style=for-the-badge&logo=gradle&logoColor=white">|
 |---|---|
@@ -18,7 +19,26 @@
 |박지원|1. Main, Home, Mate, Mail UI 구현 <br>2. 이메일 인증 및 쪽지 기능 구현 <br>3. Mate 게시글, 댓글, 쪽지 데이터베이스 설계 및 구축 <br>4. Mate 기능 구현 <br>5. Mate 게시판 관련 Node JS 코드 작성 <br>6. 전체적인 화면, 앱아이콘 설계 및 디자인 |
 |김진하|1. Restaurant 관련 UI 및 기능 구현 <br>2. 서버 관리 및 구축(RDS, EC2) <br>3. Restaurant 관련 Node JS 코드 작성 <br>4. Home 화면 식당 및 카페 추천 서비스 구현 <br>5.Restaurant 기능 내 위치 서비스 기능 추가|
 
-## 사용 예제
+개발환경
+<img width="629" alt="스크린샷 2022-05-04 11 10 02" src="https://user-images.githubusercontent.com/63248831/166614571-917681f8-3ced-4bb1-9489-b2e6f2781c9c.png">
+
+
+## 프로젝트 요구사항
+|*적용 대상*|*요구 기능*|*세부 요구 조건*|
+|---|---|---|
+|Home|추천 기능|추천서비스 사용 시 캠퍼스별로 나누어져 있어야 한다.|
+|Login/Join|유효성검사<br>이메일인증<br>자동로그인|이메일, 닉네임이 기존회원가 중복되지 않아야 하고 이메일은 오직 단국대 이메일이어야 한다.<br>오직 단국대 이메일로 인증받아야 하며, 제한시간 안에 인증이 완료되어야 한다.<br>어플 재접속시 자동로그인이 되어야한다.|
+|Mate/Lost|게시판기능<br>이미지업로드<br>검색<br>쪽지|로그인한 사용자와 작성자가 같을 경우에만 관리가 가능해야 한다.<br>글 작성 시 업로드가 되어야하며, 사진은 카메라와 앨범 모두 가능토록 한다<br>검색시 검색어를 포함하는 제목이 검색이 되어야하고, 각 게시판에 해당하는 글만 검색이 되어야한다.<br>자동으로 sender와 receiver가 생성되어야 한다.|
+
+*Flow Chart*
+<img width="786" alt="image" src="https://user-images.githubusercontent.com/63248831/166615060-522aa7cd-9e9a-4cf7-9926-212a552d5e2b.png">
+
+<img width="369" alt="image" src="https://user-images.githubusercontent.com/63248831/166615221-3e2b008e-a970-4609-b316-9acd3fa9b97e.png">
+<img width="366" alt="image" src="https://user-images.githubusercontent.com/63248831/166615229-7de544d9-9eaf-43bd-bac5-e3f5c0c6a562.png">
+
+*데이터베이스 구조*
+
+
 
 
 ## 개발 환경 설정
